@@ -1,0 +1,2 @@
+SELECT * FROM all_tables;
+SELECT * FROM WEB_MEMBER;
