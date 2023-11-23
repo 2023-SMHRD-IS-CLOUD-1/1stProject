@@ -10,42 +10,19 @@ import com.smhrd.model.UserDAO;
 import com.smhrd.model.UserVO;
 
 // 일반 클래스로 만들어줌 --> POJO(Plain Old Java Object)
-public class JoinService implements Command {
+public class loginService implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+// id , pw 받아오기
 		String user_id = request.getParameter("user_id");
 		String user_pw = request.getParameter("user_pw");
-		String user_name = request.getParameter("user_name");
-		String user_gender = request.getParameter("user_gender");
-		String user_nick = request.getParameter("user_nick");
-		String user_jumin = request.getParameter("user_jumin");
-		String user_phone = request.getParameter("user_phone");
-		String user_addr1 = request.getParameter("user_addr1");
+		
 //		private String user_id;
 //		private String user_pw;
-//		private String user_name;
-//		private String user_birthdate;
-//		private String user_gender;
-//		private String user_nick;
-//		private String user_jumin;
-//		private String user_phone;
-//		private String user_addr1;
-//		private String joined_at;
-//		private double user_level;
-//		private String user_id_check;
-//		private String user_id_block;
-//		
+
 		UserVO vo = new UserVO();
 		vo.setUser_id(user_id);
-		vo.setUser_pw(user_pw);
-		vo.setUser_name(user_name);
-		vo.setUser_gender(user_gender);
-		vo.setUser_nick(user_nick);
-		vo.setUser_jumin(user_jumin);
-		vo.setUser_phone(user_phone);
-		vo.setUser_addr1(user_addr1);
 
 		UserDAO dao = new UserDAO();
 

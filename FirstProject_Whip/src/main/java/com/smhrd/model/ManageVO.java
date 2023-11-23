@@ -1,6 +1,6 @@
 package com.smhrd.model;
 
-public class MemberVO {
+public class ManageVO {
 	
 	// 필드 --> 테이블의 컬럼명과 일치시켜라
 	private String user_id;
