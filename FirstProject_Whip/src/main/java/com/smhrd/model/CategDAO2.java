@@ -9,5 +9,6 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import com.smhrd.database.SqlSessionManager;
 
 public class CategDAO2 {
-
+	int a = 0;
+	int b = 3;
 }
