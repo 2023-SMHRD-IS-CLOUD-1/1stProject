@@ -18,13 +18,11 @@ public class JoinService implements Command {
 		String user_id = request.getParameter("user_id");
 		String user_pw = request.getParameter("user_pw");
 		String user_name = request.getParameter("user_name");
-		String user_birthdate = request.getParameter("user_birthdate");
 		String user_gender = request.getParameter("user_gender");
 		String user_nick = request.getParameter("user_nick");
 		String user_jumin = request.getParameter("user_jumin");
 		String user_phone = request.getParameter("user_phone");
 		String user_addr1 = request.getParameter("user_addr1");
-		String user_id_check = request.getParameter("user_id_check");
 //		private String user_id;
 //		private String user_pw;
 //		private String user_name;
@@ -41,6 +39,13 @@ public class JoinService implements Command {
 //		
 		MemberVO vo = new MemberVO();
 		vo.setUser_id(user_id);
+		vo.setUser_pw(user_pw);
+		vo.setUser_name(user_name);
+		vo.setUser_gender(user_gender);
+		vo.setUser_nick(user_nick);
+		vo.setUser_jumin(user_jumin);
+		vo.setUser_phone(user_phone);
+		vo.setUser_addr1(user_addr1);
 
 		DAO dao = new DAO();
 
