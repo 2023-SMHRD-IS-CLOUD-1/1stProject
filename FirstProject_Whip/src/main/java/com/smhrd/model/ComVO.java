@@ -2,7 +2,7 @@ package com.smhrd.model;
 
 public class ComVO {
 	
-	// 필드 --> 테이블의 컬럼명과 일치시켜라
+	// 댓글
 	private int cmt_num;
 	private int post_num;
 	private String cmt_content;

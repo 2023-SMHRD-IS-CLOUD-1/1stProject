@@ -2,7 +2,7 @@ package com.smhrd.model;
 
 public class CategVO {
 	
-	// 필드 --> 테이블의 컬럼명과 일치시켜라
+	// 카테고리
 	private String err_category_num;
 	private String err_category_name;
 	

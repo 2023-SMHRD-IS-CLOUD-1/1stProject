@@ -2,109 +2,53 @@ package com.smhrd.model;
 
 public class ManageVO {
 	
-	// 필드 --> 테이블의 컬럼명과 일치시켜라
-	private String user_id;
-	private String user_pw;
-	private String user_name;
-	private String user_birthdate;
-	private String user_gender;
-	private String user_nick;
-	private String user_jumin;
-	private String user_phone;
-	private String user_addr1;
-	private String joined_at;
-	private double user_level;
-	private String user_id_check;
-	private String user_id_block;
+	// 고객관리 게시판
 	
-	public String getUser_id() {
-		return user_id;
+	private int management_post_num;
+	private String management_post_title;
+	private String management_post_num_content;
+	private String posted_at;
+	private String management_post_num_id;
+	private String management_post_relpy;
+	public int getManagement_post_num() {
+		return management_post_num;
 	}
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
+	public void setManagement_post_num(int management_post_num) {
+		this.management_post_num = management_post_num;
 	}
-	public String getUser_pw() {
-		return user_pw;
+	public String getManagement_post_title() {
+		return management_post_title;
 	}
-	public void setUser_pw(String user_pw) {
-		this.user_pw = user_pw;
+	public void setManagement_post_title(String management_post_title) {
+		this.management_post_title = management_post_title;
 	}
-	public String getUser_name() {
-		return user_name;
+	public String getManagement_post_num_content() {
+		return management_post_num_content;
 	}
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
+	public void setManagement_post_num_content(String management_post_num_content) {
+		this.management_post_num_content = management_post_num_content;
 	}
-	public String getUser_birthdate() {
-		return user_birthdate;
+	public String getPosted_at() {
+		return posted_at;
 	}
-	public void setUser_birthdate(String user_birthdate) {
-		this.user_birthdate = user_birthdate;
+	public void setPosted_at(String posted_at) {
+		this.posted_at = posted_at;
 	}
-	public String getUser_gender() {
-		return user_gender;
+	public String getManagement_post_num_id() {
+		return management_post_num_id;
 	}
-	public void setUser_gender(String user_gender) {
-		this.user_gender = user_gender;
+	public void setManagement_post_num_id(String management_post_num_id) {
+		this.management_post_num_id = management_post_num_id;
 	}
-	public String getUser_nick() {
-		return user_nick;
+	public String getManagement_post_relpy() {
+		return management_post_relpy;
 	}
-	public void setUser_nick(String user_nick) {
-		this.user_nick = user_nick;
-	}
-	public String getUser_jumin() {
-		return user_jumin;
-	}
-	public void setUser_jumin(String user_jumin) {
-		this.user_jumin = user_jumin;
-	}
-	public String getUser_phone() {
-		return user_phone;
-	}
-	public void setUser_phone(String user_phone) {
-		this.user_phone = user_phone;
-	}
-	public String getUser_addr1() {
-		return user_addr1;
-	}
-	public void setUser_addr1(String user_addr1) {
-		this.user_addr1 = user_addr1;
-	}
-	public String getJoined_at() {
-		return joined_at;
-	}
-	public void setJoined_at(String joined_at) {
-		this.joined_at = joined_at;
-	}
-	public double getUser_level() {
-		return user_level;
-	}
-	public void setUser_level(double user_level) {
-		this.user_level = user_level;
-	}
-	public String getUser_id_check() {
-		return user_id_check;
-	}
-	public void setUser_id_check(String user_id_check) {
-		this.user_id_check = user_id_check;
-	}
-	public String getUser_id_block() {
-		return user_id_block;
-	}
-	public void setUser_id_block(String user_id_block) {
-		this.user_id_block = user_id_block;
+	public void setManagement_post_relpy(String management_post_relpy) {
+		this.management_post_relpy = management_post_relpy;
 	}
 	
-	// 메소드 (alt shift s)
-//	public MemberVO(String email, String pw, String tel, String address) {
-//		super();
-//		this.email = email;
-//		this.pw = pw;
-//		this.tel = tel;
-//		this.address = address;
-//	}
 	
+
 	
 	
 	

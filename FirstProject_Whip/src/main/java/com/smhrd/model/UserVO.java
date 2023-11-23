@@ -2,7 +2,7 @@ package com.smhrd.model;
 
 public class UserVO {
 	
-	// 필드 --> 테이블의 컬럼명과 일치시켜라
+	// 회원정보
 	 private String user_id;
 	   private String user_pw;
 	   private String user_name;
