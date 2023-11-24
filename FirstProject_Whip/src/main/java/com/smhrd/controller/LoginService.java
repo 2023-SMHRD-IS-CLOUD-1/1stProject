@@ -10,30 +10,30 @@ import javax.servlet.http.HttpSession;
 import com.smhrd.model.UserDAO;
 import com.smhrd.model.UserVO;
 
-// 일반 클래스로 만들어줌 --> POJO(Plain Old Java Object)
-public class DeleteService implements Command {
+// 로그인 서비스
+public class LoginService implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
 		System.out.println("test");
-		HttpSession session = request.getSession();
-		UserVO loginVo = (UserVO)session.getAttribute("user");	
-		String user_id = loginVo.getUser_id();
-		System.out.println(user_id);
-
+// id , pw 받아오기
+		String user_id = request.getParameter("user_id");
+		String user_pw = request.getParameter("user_pw");
+		// uservo 로 받아온 정보 묶기 
 		UserVO vo = new UserVO();
 		vo.setUser_id(user_id);
+		vo.setUser_pw(user_pw);
 
 		UserDAO dao = new UserDAO();
-		
-		int result = dao.delete(vo);
-		
-		if(result>1) {
-			session.invalidate();
+
+		UserVO result = dao.login(vo);
+		// 로그인 성공
+		if(result != null ) {
+			HttpSession session = request.getSession();
+			session.setAttribute("user", result);
+			UserVO res = (UserVO)session.getAttribute("user");
 			
 		}
-		
 		return null;
 
 	}

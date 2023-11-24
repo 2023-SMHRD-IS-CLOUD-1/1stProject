@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.smhrd.model.ErrandDAO">
+	<!-- 심부름 글 등록 -->
+	<insert id="errupdate" parameterType="com.smhrd.model.ErrandVO">
+    INSERT INTO TB_ERRAND (
+        ERR_NAME, ERR_CATEGORY_NUM, ERR_CONTENT, ERR_PRICE, USER_ID
+    )
+    VALUES (
+       #{err_name} , #{err_category_num}, #{err_content}, #{err_price}, #{user_id}
+    )
+</insert>
+<!-- 심부름 글 수정 -->
+	<update id = "errmodify" parameterType="com.smhrd.model.ErrandVO">
+		UPDATE TB_ERRAND
+		SET ERR_NAME = #{err_name} , ERR_CONTENT = #{err_content}, ERR_PRICE = #{err_price}, UPDATED_AT = SYSDATE
+		WHERE USER_ID = #{user_id}
+	</update>
+
+	<delete id="errdelete" parameterType="com.smhrd.model.ErrandVO">
+		DELETE FROM TB_ERRAND WHERE USER_ID = #{user_id}
+	</delete>
+	
+	
+</mapper>
