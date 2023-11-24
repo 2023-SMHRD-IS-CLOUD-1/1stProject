@@ -16,19 +16,20 @@ public class DeleteService implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		
+		System.out.println("test");
 		HttpSession session = request.getSession();
 		UserVO loginVo = (UserVO)session.getAttribute("user");	
-		String id = loginVo.getUser_id();
-		
+		String user_id = loginVo.getUser_id();
+		System.out.println(user_id);
 
 		UserVO vo = new UserVO();
+		vo.setUser_id(user_id);
 
 		UserDAO dao = new UserDAO();
 		
 		int result = dao.delete(vo);
 		
-		if(result==1) {
+		if(result>1) {
 			session.invalidate();
 			
 		}

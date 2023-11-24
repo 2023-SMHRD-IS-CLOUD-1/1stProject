@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import com.smhrd.model.UserDAO;
 import com.smhrd.model.UserVO;
 
-// 일반 클래스로 만들어줌 --> POJO(Plain Old Java Object)
+// 로그아웃 서비스
 public class LogoutService implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response)
