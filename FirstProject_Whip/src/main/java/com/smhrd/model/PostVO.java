@@ -2,7 +2,7 @@ package com.smhrd.model;
 
 public class PostVO {
 	
-	// 필드 --> 테이블의 컬럼명과 일치시켜라
+	// 게시물
 	private int post_num;
 	private String post_title;
 	private String post_content;

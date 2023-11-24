@@ -2,7 +2,7 @@ package com.smhrd.model;
 
 public class RatingVO {
 	
-	// 필드 --> 테이블의 컬럼명과 일치시켜라
+	// 평점
 	private int rating_num;
 	private String user_id;
 	private int err_num;
