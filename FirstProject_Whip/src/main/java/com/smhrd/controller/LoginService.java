@@ -10,7 +10,7 @@ import com.smhrd.model.UserDAO;
 import com.smhrd.model.UserVO;
 
 // 일반 클래스로 만들어줌 --> POJO(Plain Old Java Object)
-public class loginService implements Command {
+public class LoginService implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
