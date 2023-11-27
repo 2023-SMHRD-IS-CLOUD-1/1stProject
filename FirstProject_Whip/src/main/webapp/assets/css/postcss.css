@@ -1,0 +1,64 @@
+#postBodyArea {
+  /* background-color: beige; */
+
+}
+
+#postContent {
+  height: 1500px;
+}
+
+#postTitle {
+  font-size: 30pt;
+  /* background-color: chartreuse; */
+}
+
+#postSearch {
+  /* background-color: violet; */
+  position: relative;
+  left: 767px;
+  width: 220px;
+}
+
+#PostSearchForm {
+  display: inline;
+}
+
+#postSearchFilter {
+  position: relative;
+  left: 458px;
+  height: 30px;
+}
+
+#postSearchSub {
+  position: relative;
+  left: 677px;
+}
+
+#postContent .borderLine {
+  width: 100%;
+  height: 8px;
+  color: green;
+}
+
+#postTable thead th {
+  text-align: center;
+}
+
+#postTable tr td {
+  text-align: center;
+}
+
+#pageNumber {
+  margin: auto;
+  text-align: center;
+
+}
+
+#pageNumber .pageNumberA {
+  width: 30px;
+}
+
+#postUpdateA {
+  position: relative;
+  left: 1239px;
+}

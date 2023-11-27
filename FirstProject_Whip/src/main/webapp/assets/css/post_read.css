@@ -1,0 +1,103 @@
+#postWriteBoard {
+  height: 1500px;
+}
+
+#postReadLayout {
+  width: 100%;
+  height: 100%;
+  /* background-color: silver; */
+}
+
+#postReadLayout #postReadHead {
+  width: 100%;
+  height: 5%;
+  display: flex;
+  align-items: center;
+  /* background-color: salmon; */
+
+}
+
+#postReadLayout #postReadNav {
+  width: 100%;
+  height: 3%;
+  /* background-color: chocolate; */
+  text-align: end;
+}
+
+#postReadNav span {}
+
+#postReadNav span::after {
+  content: " | ";
+  opacity: 0.3;
+}
+
+#postReadLayout #postReadSect1 {
+  width: 100%;
+}
+
+#postReadLayout #postReadSect2 {
+  width: 100%;
+}
+
+
+
+#postReadLayout #postReadSect3 {
+  width: 100%;
+}
+
+#postReadLayout #postReadSect4 {
+  width: 100%;
+  height: 10%;
+  /* background-color: yellow; */
+}
+
+#postReadSect3 span {
+  font-size: small;
+}
+
+#postReadSect3 textarea {
+  resize: none;
+}
+
+#postReadSect3 button {
+  margin-left: 1px;
+  position: absolute;
+  width: 143px;
+  height: 141px;
+}
+
+#postReadSect4 table {
+  width: 100%;
+  border-top: 1px solid #444444;
+  border-collapse: collapse;
+}
+
+#postReadSect4 table th {
+  border-bottom: 1px solid #444444;
+  border-top: 1px solid #444444;
+  padding: 5px;
+  text-align: center;
+}
+
+#postReadSect4 table td {
+  border-bottom: 1px solid #444444;
+  border-top: 1px solid #444444;
+  padding: 5px;
+  text-align: center;
+}
+
+#postReadSect4 table .sect4TableWriter {
+  width: 200px;
+}
+
+#postReadSect4 table .sect4TableContent {
+  max-width: 895px;
+}
+
+#postReadSect4 table .sect4TableDate {
+  width: 140px;
+}
+
+#postReadSect4 table .sect4Tablefavor {
+  width: 70px;
+}
