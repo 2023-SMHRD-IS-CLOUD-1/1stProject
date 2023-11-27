@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.smhrd.model.RatingDAO">
+ 	
+ 	<!--심부름 평점 등록(평가등록은???) -->
+ 	<insert id="insertRating" parameterType="com.smhrd.model.RatingVO">
+ 	INSERT INTO TB_RATING (
+ 		RATING_NUM, USER_ID, ERR_RATING, ERR_NUM
+ 	)
+ 	VALUES (
+ 		#{rating_num}, #{user_id}, #{err_rating}, #{err_num}
+ 	)
+ 	</insert>
+ 	
+ 	<!-- 시퀀스 필요시 사용 <insert id="insertRating" parameterType="com.smhrd.model.RatingVO">
+ 	INSERT INTO TB_RATING (
+ 		RATING_NUM, USER_ID, ERR_NUM, ERR_RATING
+ 	)
+ 	VALUES (YOUR_SEQUENCE_NAME.NEXTVAL,
+ 		#{rating_num}, #{user_id}, #{err_num}, #{err_rating}
+ 	) 
+ 	</insert> -->
+ 	<!--  평점 수정 시-->
+ 	<update id = "ratingModify" parameterType="com.smhrd.model.RatingVO">
+ 		UPDATE TB_RATING (
+ 		SET RATING_NUM = #{rating_num} , ERR_RATING = #{err_rating}
+ 		)
+ 	</update> 
+ </mapper>
