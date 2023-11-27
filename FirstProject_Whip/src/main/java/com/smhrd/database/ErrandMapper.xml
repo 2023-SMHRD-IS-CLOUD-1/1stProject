@@ -19,7 +19,7 @@
 		SET ERR_NAME = #{err_name} , ERR_CONTENT = #{err_content}, ERR_PRICE = #{err_price}, UPDATED_AT = SYSDATE
 		WHERE USER_ID = #{user_id}
 	</update>
-
+<!-- 심부름 글 삭제 -->
 	<delete id="errdelete" parameterType="com.smhrd.model.ErrandVO">
 		DELETE FROM TB_ERRAND WHERE USER_ID = #{user_id}
 	</delete>

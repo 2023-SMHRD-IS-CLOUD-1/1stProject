@@ -53,9 +53,11 @@ public class ErrmodifyService implements Command {
 		if(row>0) {
 //			// errand 라는 이름으로 저장
 			session.setAttribute("errand", vo);
+			// return 심부름 수정된 글 페이지
 		} else {
 			// 실패시
 			System.out.println("실패");
+			// return 다시시도 해주세요 페이지 -> 버튼 클릭시 메인페이지
 		}
 		return null;
 

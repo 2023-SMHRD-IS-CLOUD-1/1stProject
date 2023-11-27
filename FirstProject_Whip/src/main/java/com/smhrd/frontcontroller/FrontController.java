@@ -16,11 +16,15 @@ import org.w3c.dom.DOMStringList;
 
 import com.smhrd.controller.Command;
 import com.smhrd.controller.DeleteService;
+import com.smhrd.controller.ErrdeleteService;
 import com.smhrd.controller.ErrmodifyService;
 import com.smhrd.controller.ErrupdateService;
 import com.smhrd.controller.JoinService;
 import com.smhrd.controller.LoginService;
 import com.smhrd.controller.LogoutService;
+import com.smhrd.controller.PostdeleteService;
+import com.smhrd.controller.PostmodifyService;
+import com.smhrd.controller.PostupdateService;
 import com.smhrd.controller.UpdateService;
 
 
@@ -47,8 +51,14 @@ public class FrontController extends HttpServlet {
 		map.put("Update.do", new UpdateService());
 		map.put("Delete.do", new DeleteService());
 		// 심부름
-		map.put("errupdate.do", new ErrupdateService());
-		map.put("errmodify.do", new ErrmodifyService());
+		map.put("Errupdate.do", new ErrupdateService());
+		map.put("Errmodify.do", new ErrmodifyService());
+		map.put("Errdelete.do", new ErrdeleteService());
+		
+		// 게시판
+		map.put("Postupdate.do", new PostupdateService());
+		map.put("Postmodify.do", new PostmodifyService());
+		map.put("Postdelete.do", new PostdeleteService());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)

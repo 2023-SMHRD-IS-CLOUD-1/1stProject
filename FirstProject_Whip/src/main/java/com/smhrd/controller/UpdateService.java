@@ -44,8 +44,10 @@ public class UpdateService implements Command {
 		// 성공
 		if(row>0) {
 			session.setAttribute("user",vo);
+			// return 로그인 페이지
 		}else {
 		    System.out.println("null");
+		    // return 다시시도해주세요 페이지
 		}
 		return null;
 //		

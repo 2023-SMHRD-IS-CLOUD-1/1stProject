@@ -42,6 +42,10 @@
 		<!-- ★★mapper파일 만들고 수정해야함★★ -->
 		<mapper resource="com/smhrd/database/MemberMapper.xml" />
 		<mapper resource="com/smhrd/database/ErrandMapper.xml" />
+		<mapper resource="com/smhrd/database/PostMapper.xml" />
+		<mapper resource="com/smhrd/database/RatingMapper.xml" />
+      	<mapper resource="com/smhrd/database/FvErrMapper.xml" />
+      	
 	</mappers>
 </configuration>
 

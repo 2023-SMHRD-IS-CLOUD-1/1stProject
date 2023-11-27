@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.smhrd.model.PostDAO">
+	<!-- 게시판 글 등록 -->
+	<insert id="postupdate" parameterType="com.smhrd.model.PostVO">
+    INSERT INTO TB_POST (
+        POST_TITLE, POST_CONTENT, USER_ID
+    )
+    VALUES (
+       #{post_title} , #{post_content}, #{user_id}
+    )
+</insert>
+	<!-- 게시판 글 수정 -->
+	<update id="postmodify" parameterType="com.smhrd.model.PostVO">
+		UPDATE TB_POST
+		SET POST_TITLE = #{post_title}, POST_CONTENT = #{post_content} , UPDATED_AT = SYSDATE
+		WHERE USER_ID = #{user_id}
+	</update>
+	
+	<!-- 게시판 글 삭제 -->
+	<delete id="postdelete" parameterType="com.smhrd.model.PostVO">
+	DELETE FROM TB_POST WHERE USER_ID = #{user_id}
+	</delete>
+	
+</mapper>

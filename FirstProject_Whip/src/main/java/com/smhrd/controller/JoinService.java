@@ -50,6 +50,10 @@ public class JoinService implements Command {
       // 성공시 
      if (row > 0) {
          request.setAttribute("user", vo);
+         // return join_success
+     } else {
+    	 // 실패시
+    	 // return 다시시도해주세요 페이지 -> main페이지로 이동
      }
 		return null;
 

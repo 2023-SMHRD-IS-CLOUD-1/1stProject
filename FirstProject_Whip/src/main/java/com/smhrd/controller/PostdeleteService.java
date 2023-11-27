@@ -9,30 +9,35 @@ import javax.servlet.http.HttpSession;
 
 import com.smhrd.model.ErrandDAO;
 import com.smhrd.model.ErrandVO;
+import com.smhrd.model.PostDAO;
+import com.smhrd.model.PostVO;
 import com.smhrd.model.UserDAO;
 import com.smhrd.model.UserVO;
 
-// 심부름 삭제 기능
-public class ErrdeleteService implements Command {
+// 글 삭제 기능
+public class PostdeleteService implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// 세션에 저장되어 있는 아이디 꺼내오기
+		// 세션에 저장되어 있는 아이디 가져오기
+		System.out.println("test");
 		HttpSession session = request.getSession();
 		UserVO loginVo = (UserVO)session.getAttribute("user");	
 		String user_id = loginVo.getUser_id();
 		
 
-		ErrandVO vo = new ErrandVO();
+		PostVO vo = new PostVO();
 		vo.setUser_id(user_id);
 
-		ErrandDAO dao = new ErrandDAO();
+		PostDAO dao = new PostDAO();
 		
-		int result = dao.errdelete(vo);
-		// 성공시 세션에 저장되어있는 모든 정보 지우기
+		int result = dao.postdelete(vo);
+		
 		if(result>1) {
 			session.invalidate();
-			// return main.jsp
+			// 성공시 게시판 페이지로 이동
+		} else {
+			// 실패시 return 다시시도해주세요 페이지
 		}
 		
 		return null;

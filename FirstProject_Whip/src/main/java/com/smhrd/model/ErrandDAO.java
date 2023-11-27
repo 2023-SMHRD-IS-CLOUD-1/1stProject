@@ -10,7 +10,7 @@ import com.smhrd.database.SqlSessionManager;
 
 public class ErrandDAO {
 	private SqlSessionFactory factory = SqlSessionManager.getFactory();
-	
+	// 심부름 등록 기능
 	public int errupdate(ErrandVO vo) {
 		SqlSession sqlSession = factory.openSession(true);
 		int row = sqlSession.insert("errupdate",vo);
@@ -18,18 +18,23 @@ public class ErrandDAO {
 		
 		return row;
 	}
-
+	// 심부름 수정 기능
 	public int errmodify(ErrandVO vo) {
 		SqlSession sqlSession = factory.openSession(true);
 		int row = sqlSession.update("errmodify",vo);
 		sqlSession.close();
 		return row;
 	}
-
-	public int errdelete(UserVO vo) {
+	// 심부름 삭제 기능
+	public int errdelete(ErrandVO vo) {
 		SqlSession sqlSession = factory.openSession(true);
-		int row = sqlSession.selectOne("errmodify",vo);
-		sqlSession.close();
+		int row = sqlSession.delete("errdelete", vo);
+		if(row>0) {
+			sqlSession.commit();
+			sqlSession.close();
+		}else {
+			sqlSession.rollback();
+		}
 		return row;
 	}
 	

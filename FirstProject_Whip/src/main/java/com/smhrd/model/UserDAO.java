@@ -9,41 +9,32 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import com.smhrd.database.SqlSessionManager;
 
 public class UserDAO {
+	// 회원 관련된 모든 기능 -> 회원가입, 로그인, 회원정보 수정 , 회원탈퇴
 
 	// 1) SqlSession을 가져올 수 있는 SqlSessionFactory 생성
 	private SqlSessionFactory factory = SqlSessionManager.getFactory();
 
+	
+	// 회원가입 기능
 	public int join(UserVO vo) {
-		// (1) 연결객체(sqlsession, connection)를 빌려오기
-		SqlSession sqlSession = factory.openSession(true);
-		// (2) 연결객체를 사용해서 어떤 sql구문을 실행
-		// -------> sql구문 : Mapper.xml파일 안에 있음
-	
-		
+		SqlSession sqlSession = factory.openSession(true);	
 		int	row = sqlSession.insert("join", vo);
-		
-	
-			// (3) 연결객체 반납
-			sqlSession.close();
-		
+			sqlSession.close();	
 		return row;
 	}	
-	
+	// 로그인 기능
 	public UserVO login(UserVO vo) {
 
 		SqlSession sqlSession = factory.openSession(true);
 
 		UserVO result = sqlSession.selectOne("login", vo);
-		// select를 수핵하고 나면 리턴타입 >> T
-		// <T> : 제네릭 기법
-		// 클래스 내부에서 사용하게 될 자료형을 외부에서 지정하는 기법
-		// 만약 리턴타입이 Object라면 우측항에 강제형변환(다운캐스팅)해줘야함.
 
 		sqlSession.close();
 
 		return result;
 	}
-
+	// 회원 수정 기능
+	
 	public int update(UserVO vo) {
 		SqlSession sqlSession = factory.openSession(true);
 		int row = sqlSession.update("update",vo);
@@ -51,7 +42,7 @@ public class UserDAO {
 		sqlSession.close();
 		return row;
 	}
-
+	// 회원 탈퇴 기능
 	public int delete(UserVO vo) {
 		SqlSession sqlSession = factory.openSession(true);
 		int row = sqlSession.delete("delete", vo);

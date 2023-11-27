@@ -33,6 +33,9 @@ public class LoginService implements Command {
 			session.setAttribute("user", result);
 			UserVO res = (UserVO)session.getAttribute("user");
 			
+		} else {
+			// 실패시
+			// return login페이지
 		}
 		return null;
 
