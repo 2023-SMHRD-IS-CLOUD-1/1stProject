@@ -44,18 +44,24 @@ public class UserDAO {
 		return result;
 	}
 
-	public UserVO update(UserVO vo) {
-		SqlSession sqlSession = factory.openSession();
-		UserVO result = sqlSession.selectOne("update", vo);
+	public int update(UserVO vo) {
+		SqlSession sqlSession = factory.openSession(true);
+		int row = sqlSession.update("update",vo);
+		
 		sqlSession.close();
-		return result;
+		return row;
 	}
 
 	public int delete(UserVO vo) {
-		SqlSession sqlSession = factory.openSession();
-		int result = sqlSession.selectOne("delete", vo);
-		sqlSession.close();
-		return result;
+		SqlSession sqlSession = factory.openSession(true);
+		int row = sqlSession.delete("delete", vo);
+		if(row>0) {
+			sqlSession.commit();
+			sqlSession.close();
+		}else {
+			sqlSession.rollback();
+		}
+		return row;
 	}
 	
 	
