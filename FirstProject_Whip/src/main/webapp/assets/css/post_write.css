@@ -1,0 +1,40 @@
+#postWriteBoard {
+  height: 1500px;
+}
+
+#postWriteBoard hr {
+  width: 100%;
+  height: 8px;
+  color: green;
+}
+
+#postWriteBoard #postWriteTable {
+  border-width: 2px;
+  border-color: black;
+}
+
+#postWriteTable .tableCol {
+  text-align: center;
+  width: 250px;
+}
+
+#postWriteTable .tableContent {
+  width: 1046px;
+}
+
+#postWriteTable .tableContent input {
+  width: 100%;
+}
+
+#postWriteTable .tableContent #tableContentText {
+  height: 650px;
+}
+
+#postWriteTable .tableContent textarea {
+  resize: none;
+}
+#PWTableSubmit {
+  position: relative;
+  left: 1197px;
+  width: 98px;
+}
