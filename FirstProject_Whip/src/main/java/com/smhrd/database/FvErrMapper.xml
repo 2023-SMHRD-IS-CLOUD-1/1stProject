@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.smhrd.model.FvErrDAO">
+ 	
+ 	<!--FvErrVO에 대한 ResultMap 정의 -->
+ 	<resultMap id="FvErrResultMap" type="com.smhrd.model.FvErrVO">
+        <id property="favorite_err_num" column="favorite_err_num" />
+        <result property="err_num" column="err_num" />
+    </resultMap>
+
+    <!-- 심부름 즐겨찾기 추가하는 세션 -->
+    <!--'insertFvErr'는 'FvErrVO'객체를 매개변수로 받고 'tb_favorite_err'테이블에 데이터를 추가하는 쿼리-->
+  <insert id="insertFvErr" parameterType="com.smhrd.model.FvErrVO">
+        INSERT INTO tb_favorite_err (err_num)
+        VALUES (#{err_num})
+    </insert>
+
+    <!-- 심부름 즐겨찾기 목록 불러오는 세션 -->
+    <select id="selectFvErrList" resultMap="FvErrResultMap" parameterType="com.smhrd.model.FvErrVO">
+        SELECT favorite_err_num, err_num
+        FROM tb_favorite_err
+        WHERE err_num = #{err_num}
+    </select>
+
+</mapper>
+ 	
+ 	
+ 	
+ 	
