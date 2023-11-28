@@ -31,5 +31,11 @@
 		DELETE FROM TB_USER WHERE USER_ID = #{user_id}
 	</delete>
 	
+	<!-- 자신의 프로필 보기 -->
+	<select id = "selectById" parameterType = "com.smhrd.model.UserVO" resultType="com.smhrd.model.UserVO">
+	SELECT USER_NAME,USER_JUMIN ,USER_BIRTHDATE, USER_GENDER, USER_NICK, USER_PHONE, USER_ADDR1, USER_LEVEL, USER_ID_CHECK
+	FROM TB_USER WHERE USER_ID = #{user_id}
+	</select>
+	
 	
 </mapper>

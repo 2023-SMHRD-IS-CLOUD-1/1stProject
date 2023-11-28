@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.smhrd.model.FvPostDAO">
+ 	
+ 	<!--FvPostVO에 대한 ResultMap 정의 -->
+ 	<resultMap id="FvPostResultMap" type="com.smhrd.model.FvPostVO">
+        <id property="favorite_post" column="favorite_post" />
+        <result property="post_num" column="post_num" />
+    </resultMap>
+
+    <!-- 심부름 즐겨찾기 추가하는 세션 -->
+    <!--'insertFvPost'는 'FvPostVO'객체를 매개변수로 받고 'tb_favorite_err'테이블에 데이터를 추가하는 쿼리-->
+  <insert id="insertFvPost" parameterType="com.smhrd.model.FvPostVO">
+        INSERT INTO tb_favorite_post (post_num)
+        VALUES (#{post_num})
+    </insert>
+
+    <!-- 심부름 즐겨찾기 목록 불러오는 세션 -->
+    <select id="selectPostList" resultMap="FvPostResultMap" parameterType="com.smhrd.model.FvPostVO">
+        SELECT favorite_post_num, post_num
+        FROM tb_favorite_post
+        WHERE post_num = #{post_num}
+    </select>
+
+	<!-- 게시글 즐겨찾기 목록 조회 -->
+    <select id="selectFvPostList" parameterType="com.smhrd.model.FvPostVO" resultMap="FvPostResultMap">
+        SELECT * FROM tb_favorite_post WHERE user_id = #{user_id}
+    </select>
+	
+</mapper>
+ 	
+ 	
+ 	
+ 	
