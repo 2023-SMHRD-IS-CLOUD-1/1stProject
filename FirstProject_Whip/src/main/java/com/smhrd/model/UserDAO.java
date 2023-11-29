@@ -55,5 +55,16 @@ public class UserDAO {
 		return row;
 	}
 	
+	// 사용자의 프로필 보기 기능(자기 프로필 보기)
+	public UserVO selectById(String userId) {
+        try (SqlSession sqlSession = factory.openSession(true)) {
+            return sqlSession.selectOne("selectById", userId);
+        }
+    }
+		
+	}
 	
-}
+	
+	
+	
+

@@ -45,6 +45,7 @@
 		<mapper resource="com/smhrd/database/PostMapper.xml" />
 		<mapper resource="com/smhrd/database/RatingMapper.xml" />
       	<mapper resource="com/smhrd/database/FvErrMapper.xml" />
+      	<mapper resource="com/smhrd/database/FvPostMapper.xml" />
       	
 	</mappers>
 </configuration>
