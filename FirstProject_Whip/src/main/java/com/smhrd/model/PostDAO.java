@@ -39,16 +39,12 @@ public class PostDAO {
 		return row;
 		
 	}
-	
-	// 게시글 목록 불러오기
-	public List<PostVO> postLoad() {
+	public List<PostVO> postLoad(int selectedNum) {
+		
 		SqlSession sqlSession = factory.openSession(true);
-		
-		List<PostVO> result = sqlSession.selectList("postLoad");
-		
+		List<PostVO> result = sqlSession.selectList("postLoad", selectedNum);
 		sqlSession.close();
 		
 		return result;
 	}
-	
 }

@@ -116,14 +116,15 @@
 
 }
 
-#pageNumber .pageNumberA {
-  width: 30px;
+#pageNumber a {
+	color: initial;
+	text-decoration: none;
+	background-color: transparent;
+	border: none;
+	width: 30px;
 }
 
-/* 1130 위치조정 */
 #postUpdateA {
-  position: relative;
-  left: 1239px;
-  font-family: 'IBM Plex Sans KR', sans-serif;
-  top: 18px;
+	position: relative;
+	left: 1239px;
 }

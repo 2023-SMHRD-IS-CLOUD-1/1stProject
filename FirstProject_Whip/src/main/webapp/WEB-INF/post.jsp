@@ -174,21 +174,21 @@ https://templatemo.com/tm-559-zay-shop
     </div>
     <!-- Start Content -->
     <div class="container py-5" id="postContent">
-        <div id="postBodyArea">
-            <span href="#" id="postTitle">우리동네 소식</span>
-            <form action="#" id="PostSearchForm">
-                <input type="text" id="postSearch">
-                <select name="postSearchFilter" id="postSearchFilter">
-                    <option value="제목">제목</option>
-                    <option value="작성자">작성자</option>
-                </select>
-                <input type="submit" id="postSearchSub" value="검색"><i class="ic-plus"></i>
-            </form>
-            <div>
-                <a href="Gopost_write.do" id="postUpdateA">글작성</a>
-            </div>
-            <hr class="borderLine">
-            <table id="postTable">
+		<div id="postBodyArea">
+			<span href="#" id="postTitle">우리동네 소식</span>
+			<form action="#" id="PostSearchForm">
+				<input type="text" id="postSearch"> <select
+					name="postSearchFilter" id="postSearchFilter">
+					<option value="제목">제목</option>
+					<option value="작성자">작성자</option>
+				</select> <input type="submit" id="postSearchSub" value="검색"><i
+					class="ic-plus"></i>
+			</form>
+			<div>
+				<a href="Gopost_write.do" id="postUpdateA">글작성</a>
+			</div>
+			<hr class="borderLine">
+			<table id="postTable">
 				<tr class = "test1">
 					<th class="postTableHead" style="width: 80px;">글 번호</th>
 					<th class="postTableHead" style="width: 100px;">작성자</th>
@@ -198,27 +198,22 @@ https://templatemo.com/tm-559-zay-shop
 					<th class="postTableHead" style="width: 140px;">작성일자</th>
 					<th class="postTableHead" style="width: 90px;">즐겨찾기</th>
 				</tr>
-				<tr class="postListCL">
-					<td class="postListNum">1</td>
-					<td class="postListId">최성욱</td>
-					<td class="postListTitle"><a href="">가입인사요~</a></td>
-					<td class="postListViews">1</td>
-					<td class="postListLikes">10</td>
-					<td class="postListDate">2023.11.23</td>
-					<td class="postListAddF">(아이콘?)</td>
-				</tr>
 			</table>
-            <hr class="borderLine">
-            <div id="pageNumber">
-                <button class="pageNumberA">&lt;&lt;</button>
-                <button class="pageNumberA">11</button>
-                <button class="pageNumberA">22</button>
-                <button class="pageNumberA">33</button>
-                <button class="pageNumberA">44</button>
-                <button class="pageNumberA">&gt;&gt;</button>
-            </div>
-        </div>
-    </div>
+			<hr class="borderLine">
+			<div id="pageNumber">
+				<a href="#" class="pageNumberAMove">&lt;&lt;</a>
+				<a href="#" class="pageNumberA">1</a>
+				<a href="#" class="pageNumberA">2</a>
+				<a href="#" class="pageNumberA">3</a>
+				<a href="#" class="pageNumberA">4</a>
+				<a href="#" class="pageNumberA">5</a>
+				<a href="#" class="pageNumberAMove">&gt;&gt;</a>
+			</div>
+		</div>
+
+	</div>
+	<!-- End Content -->
+	
     <!-- Start Featured Product -->
     <section class="bg-light">
         <div class="w-100 bg-black py-3">
@@ -277,67 +272,107 @@ https://templatemo.com/tm-559-zay-shop
         location.href = joinLink;
     }
 </script>
-	<!-- 목록을 비동기 통신으로 불러옴 -->
+	<!-- 11.28 수정 -->
 	<script>
-		window.onload = function() {
-			console.log('온로드 성공')
-			$.ajax({
-					url : "PostBoard.do",
-					dataType : "json",
-					success : function(res) {
-						console.log(res);
-						$(".postListCL").remove();
-						for (let i = 0; i < 6; i++) {
-							console.log('에잉')
-							console.log("타이틀 : " + res[i].user_id);
-							var a = "";
-							a += "<tr class = \"postListCL\">";
-							a += "<td class = \"postListNume\">"+ res[i].post_num + "</td>";
-							a += "<td class = \"postListId\">"+ res[i].user_id + "</td>";
-							a += "<td class = \"postListTitle\"><a href = \"#\">"+ res[i].post_title + "</a></td>";
-							a += "<td class = \"postListViews\">"+ res[i].post_views + "</td>";
-							a += "<td class = \"postListLikes\">"+ res[i].post_likes + "</td>";
-							a += "<td class = \"postListDate\">"+ res[i].posted_at + "</td>";
-							a += "</tr>"
-							$("#postTable").append(a);
-							
-							console.log(a)
-							//$("#postTable").append($("<td class = \"postListNum\">"+ res[i].post_num + "</td>"));
-							//$("#postTable").append($("<td class = \"postListId\">"+ res[i].user_id + "</td>"));
-							//$("#postTable").append($("<td class = \"postListTitle\">+ res[i].post_title + "</a></td>"));
-							//$("#postTable").append($("<td class = \"postListViews\">"+ res[i].post_views + "</td>"));
-							//$("#postTable").append($("<td class = \"postListLikes\">"+ res[i].post_likes + "</td>"));
-							//$("#postTable").append($("<td class = \"postListDate\">"+ res[i].posted_at + "</td>"));
-							//$("#postTable").append($("<td>아이콘</td>"));
-							//$("#postTable").append($("</div>"));
-							//$("#postTable").append($("</tr>"));
-							
-							//$("#postTable").append($("<tr class = \"postListCL\">"));
-							//$("#postTable").append($("<td class = \"postListNum\">"+ res[i].post_num + "</td>"));
-							//$("#postTable").append($("<td class = \"postListId\">"+ res[i].user_id + "</td>"));
-							//$("#postTable").append($("<td class = \"postListTitle\"><a href = \"#\">"+ res[i].post_title + "</a></td>"));
-							//$("#postTable").append($("<td class = \"postListViews\">"+ res[i].post_views + "</td>"));
-							//$("#postTable").append($("<td class = \"postListLikes\">"+ res[i].post_likes + "</td>"));
-							//$("#postTable").append($("<td class = \"postListDate\">"+ res[i].posted_at + "</td>"));
-							//$("#postTable").append($("<td>아이콘</td>"));
-							//$("#postTable").append($("</tr>"));
-							
-							//   $("#thead").append($("<tr>"));
-                            //$("#thead").append($("<td>"+res[i].err_num+"</td>"));
-                           // $("#thead").append($("<td>"+res[i].user_id+"</td>"));
-                           // $("#thead").append($("<td>"+"<a href=#>"+res[i].err_name+"</a>"+"</td>"));
-                           // $("#thead").append($("<td>"+res[i].created_at+"</td>"));
-                           // $("#thead").append($("</tr>"));
-
-						}
-						
-					},
-					error : function(result) {
-						console.log('ㅌ');
-					}
-				})
-		}
+		let firstBtn = document.querySelector('#pageNumber>.pageNumberA:nth-child(2)');
+		let lastBtn = document.querySelector('#pageNumber>.pageNumberA:nth-child(6)')
+	    let pageButtons = document.querySelectorAll('.pageNumberA');
+		let pageNumber = document.querySelector('#pageNumber');
+		let prevBtn = document.querySelector('#pageNumber>.pageNumberAMove:first-child');
+		let nextBtn = document.querySelector('#pageNumber>.pageNumberAMove:last-child');
+		let selectedNum = 1;
 		
+		// 페이지 시작시 1번 페이지 선택
+		document.addEventListener("DOMContentLoaded", function() {
+			// 1번 페이지 버튼 클릭
+			if (firstBtn) {
+			firstBtn.click();
+			loadPostTen();
+			}
+		});
+		
+		
+		// 1~5페이지면 << 삭제
+		if (firstBtn.innerHTML == '1') {
+			prevBtn.style.display = 'none';
+		}
+		// << 버튼 눌렀을 때
+		prevBtn.addEventListener('click', function() {
+			selectedNum = (parseInt((selectedNum - 1)/ 5)) * 5;
+			for(let i = 0; i < 5; i++) {
+				pageButtons[i].innerHTML = parseInt(pageButtons[i].innerHTML) -5;
+			} if (firstBtn.innerHTML == '1') {
+				prevBtn.style.display = 'none';
+			}
+			pageButtons.forEach(function (button) {
+                button.style.textDecoration = 'none';
+                button.style.color = 'initial';
+            });
+			lastBtn.style.color = 'red';
+			lastBtn.style.textDecoration = 'underline';
+			loadPostTen();
+		});
+		// >> 버튼 눌렀을 때
+		nextBtn.addEventListener('click', function() {
+			selectedNum = parseInt(((parseInt((selectedNum - 1) / 5)) * 5) + 6);
+			for(let i = 0; i < 5; i++) {
+				pageButtons[i].innerHTML = parseInt(pageButtons[i].innerHTML) + 5;
+			}
+			if (firstBtn.innerHTML != '1') {
+				prevBtn.style.display = '';
+			}
+			pageButtons.forEach(function (button) {
+                button.style.textDecoration = 'none';
+                button.style.color = 'initial';
+            });
+			firstBtn.style.color = 'red';
+			firstBtn.style.textDecoration = 'underline';
+			loadPostTen();
+		});
+		
+	    // 부모 요소에 이벤트 리스너 추가
+	    pageNumber.addEventListener('click', function (event) {
+	        // 클릭된 요소가 페이지 버튼인지 확인
+	        if (event.target.classList.contains('pageNumberA')) {
+	            // 모든 페이지 버튼의 스타일 초기화
+	            pageButtons.forEach(function (button) {
+	                button.style.textDecoration = 'none';
+	                button.style.color = 'initial';
+	            });
+                selectedNum = parseInt(event.target.innerHTML);
+	
+	            // 클릭된 페이지 버튼의 스타일 변경
+	            event.target.style.textDecoration = 'underline';
+	            event.target.style.color = 'red';
+	        }
+	        loadPostTen();
+	    });	
+	    function loadPostTen() {
+		    $.ajax({
+				url : "http://localhost:8081/FirstProject_Whip4/PostBoard.do",
+				data : {selectedNum : selectedNum},
+				dataType : "json",
+				success : function(res) {
+					$(".postListCL").remove();
+					for (let i = 0; i < 10; i++) {
+						var a = "";
+						a += "<tr class = \"postListCL\">";
+						a += "<td class = \"postListNume\">"+ res[i].post_num + "</td>";
+						a += "<td class = \"postListId\">"+ res[i].user_id + "</td>";
+						a += "<td class = \"postListTitle\"><a href = \"#\">"+ res[i].post_title + "</a></td>";
+						a += "<td class = \"postListViews\">"+ res[i].post_views + "</td>";
+						a += "<td class = \"postListLikes\">"+ res[i].post_likes + "</td>";
+						a += "<td class = \"postListDate\">"+ res[i].posted_at + "</td>";
+						a += "</tr>"
+						$("#postTable").append(a);
+					}
+					
+				},
+				error : function(result) {
+					console.log('안됨');
+				}
+			});
+	    }
 	</script>
 	<!-- End Script -->
 </body>

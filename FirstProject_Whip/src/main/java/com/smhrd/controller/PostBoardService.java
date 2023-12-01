@@ -20,9 +20,11 @@ public class PostBoardService implements Command {
 
 		response.setContentType("text/html;charset=utf-8");
 		request.setCharacterEncoding("utf-8");
-
+		
+		String selectedNum1 = request.getParameter("selectedNum");
+		int selectedNum = Integer.parseInt(selectedNum1);
 		PostDAO dao = new PostDAO();
-		List<PostVO> resultList = dao.postLoad();
+		List<PostVO> resultList = dao.postLoad(selectedNum);
 		
 		PrintWriter out = response.getWriter();
 		

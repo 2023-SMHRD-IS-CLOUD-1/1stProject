@@ -2,44 +2,51 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
- 
+
 <mapper namespace="com.smhrd.model.PostDAO">
 	<!-- 게시판 글 등록 -->
 	<insert id="postupdate" parameterType="com.smhrd.model.PostVO">
-    INSERT INTO TB_POST (
-        POST_TITLE, POST_CONTENT, USER_ID
-    )
-    VALUES (
-       #{post_title} , #{post_content}, #{user_id}
-    )
-</insert>
+		INSERT INTO TB_POST (
+		POST_TITLE, POST_CONTENT, USER_ID
+		)
+		VALUES (
+		#{post_title} , #{post_content}, #{user_id}
+		)
+	</insert>
 	<!-- 게시판 글 수정 -->
 	<update id="postmodify" parameterType="com.smhrd.model.PostVO">
 		UPDATE TB_POST
-		SET POST_TITLE = #{post_title}, POST_CONTENT = #{post_content} , UPDATED_AT = SYSDATE
+		SET
+		POST_TITLE = #{post_title}, POST_CONTENT = #{post_content} ,
+		UPDATED_AT = SYSDATE
 		WHERE USER_ID = #{user_id}
 	</update>
-	
+
 	<!-- 게시판 글 삭제 -->
 	<delete id="postdelete" parameterType="com.smhrd.model.PostVO">
-	DELETE FROM TB_POST WHERE USER_ID = #{user_id}
+		DELETE FROM TB_POST WHERE USER_ID = #{user_id}
 	</delete>
-	
+
 	<!-- 게시판 글 불러오기 -->
-	<select id="postLoad" resultMap = "postInfo">
-	SELECT *
-	FROM TB_POST
-	ORDER BY POSTED_AT DESC
+	<select id="postLoad" resultMap="postInfo">
+		SELECT POST_NUM, POST_TITLE, POSTED_AT, POST_VIEWS, POST_LIKES, USER_ID
+		FROM (SELECT ROWNUM RN, POST_NUM, POST_TITLE, POSTED_AT, POST_VIEWS,POST_LIKES, USER_ID
+			  FROM (SELECT POST_NUM, POST_TITLE, POSTED_AT, POST_VIEWS, POST_LIKES,USER_ID
+					FROM TB_POST
+					ORDER BY POST_NUM DESC))
+		WHERE RN BETWEEN (#{selectedNum} * 10) - 9 AND #{selectedNum} * 10
 	</select>
 	<resultMap type="com.smhrd.model.PostVO" id="postInfo">
-		<result property="post_num" column="POST_NUM"/>
-		<result property="post_title" column="POST_TITLE"/>
-		<result property="post_content" column="POST_CONTENT"/>
-		<result property="posted_at" column="POSTED_AT"/>
-		<result property="post_views" column="POST_VIEWS"/>
-		<result property="post_likes" column="POST_LIKES"/>
-		<result property="user_id" column="USER_ID"/>
-		<result property="update_at" column="UPDATED_AT"/>
+		<result property="post_num" column="POST_NUM" />
+		<result property="post_title" column="POST_TITLE" />
+		<result property="posted_at" column="POSTED_AT" />
+		<result property="post_views" column="POST_VIEWS" />
+		<result property="post_likes" column="POST_LIKES" />
+		<result property="user_id" column="USER_ID" />
 	</resultMap>
-	
 </mapper>
+
+
+
+
+
