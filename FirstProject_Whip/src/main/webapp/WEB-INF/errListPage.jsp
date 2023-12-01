@@ -6,7 +6,7 @@
 <html lang="en">
 
 <head>
-    <title>당근과채찍_핵심_PostPage</title>
+    <title>당근과채찍_핵심_ErrPage</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/templatemo.css">
     <link rel="stylesheet" href="assets/css/custom.css">
-    <link rel="stylesheet" href="assets/css/postcss.css">
+    <link rel="stylesheet" href="assets/css/errList.css">
 
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet"
@@ -29,11 +29,18 @@ TemplateMo 559 Zay Shop
 https://templatemo.com/tm-559-zay-shop
 
 -->
-
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+    </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@300&display=swap');
+    </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@500&display=swap');
+    </style>
 </head>
 
 <body>
-
     <!-- Start Top Nav -->
     <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
         <div class="container text-light">
@@ -41,7 +48,8 @@ https://templatemo.com/tm-559-zay-shop
                 <div>
                     <i class="fa fa-envelope mx-2"></i>
                     <a class="navbar-sm-brand text-light text-decoration-none"
-                        href="https://smhrd.or.kr/course/aicamp/">caroot&whip@smhrd.com</a>
+                        href="https://smhrd.or.kr/course/aicamp/">
+                        caroot&whip@smhrd.com</a>
                 </div>
                 <div>
                     <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i
@@ -77,6 +85,10 @@ https://templatemo.com/tm-559-zay-shop
                 id="templatemo_main_nav">
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                        <!--        <li class="nav-item">
+                            <a class="nav-link" href="index.html" style="font-family: 'Black Han Sans', sans-serif;
+                            font-family: 'IBM Plex Sans KR', sans-serif;">?</a>
+                        </li>-->
                         <li class="nav-item">
                             <a class="nav-link" href="GoerrListPage.do">심부름</a>
                         </li>
@@ -98,16 +110,14 @@ https://templatemo.com/tm-559-zay-shop
                             </div>
                         </div>
                     </div>
-                    <!-- 검색창 모달 아이콘 -->
+                    <!-- 검색창 팝업 아이콘 -->
                     <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
                         data-bs-target="#templatemo_search">
                         <i class="fa fa-fw fa-search text-dark mr-2"></i>
                     </a>
-                    <!-- 마이페이지 아이콘 -->
+                    <!--  마이페이지 아이콘 -->
                     <a class="nav-icon position-relative text-decoration-none" href="Gomypage1.do">
                         <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                        <span
-                            class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
                     </a>
                     <!--로그인 버튼 !!!!!! --------------------------->
                     <a href="#"><button class="btn-open-modal nav-item loginbtn">로그인</button></a>
@@ -115,10 +125,8 @@ https://templatemo.com/tm-559-zay-shop
                     <a href="#"><button id="joinBtn" class="btn-open-modal nav-item loginbtn">회원가입</button></a>
                 </div>
             </div>
-
         </div>
     </nav>
-    <!-- Close Header -->
         <!-- 로그인 모달창 !!!!! ------------------------------------------>
         <div class="modal">
             <div class="modal_body">
@@ -154,6 +162,10 @@ https://templatemo.com/tm-559-zay-shop
         </div>
         </form>
         </div>
+    
+
+    <!-- Close Header -->
+
     <!-- Modal -->
     <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -172,55 +184,119 @@ https://templatemo.com/tm-559-zay-shop
             </form>
         </div>
     </div>
-    <!-- Start Content -->
-    <div class="container py-5" id="postContent">
-        <div id="postBodyArea">
-            <span href="#" id="postTitle">우리동네 소식</span>
-            <form action="#" id="PostSearchForm">
-                <input type="text" id="postSearch">
-                <select name="postSearchFilter" id="postSearchFilter">
-                    <option value="제목">제목</option>
-                    <option value="작성자">작성자</option>
-                </select>
-                <input type="submit" id="postSearchSub" value="검색"><i class="ic-plus"></i>
-            </form>
-            <div>
-                <a href="Gopost_write.do" id="postUpdateA">글작성</a>
-            </div>
-            <hr class="borderLine">
-            <table id="postTable">
-				<tr class = "test1">
-					<th class="postTableHead" style="width: 80px;">글 번호</th>
-					<th class="postTableHead" style="width: 100px;">작성자</th>
-					<th class="postTableHead" style="width: 800px;">제목</th>
-					<th class="postTableHead" style="width: 140px;">조회수</th>
-					<th class="postTableHead" style="width: 140px;">추천</th>
-					<th class="postTableHead" style="width: 140px;">작성일자</th>
-					<th class="postTableHead" style="width: 90px;">즐겨찾기</th>
-				</tr>
-				<tr class="postListCL">
-					<td class="postListNum">1</td>
-					<td class="postListId">최성욱</td>
-					<td class="postListTitle"><a href="">가입인사요~</a></td>
-					<td class="postListViews">1</td>
-					<td class="postListLikes">10</td>
-					<td class="postListDate">2023.11.23</td>
-					<td class="postListAddF">(아이콘?)</td>
-				</tr>
-			</table>
-            <hr class="borderLine">
-            <div id="pageNumber">
-                <button class="pageNumberA">&lt;&lt;</button>
-                <button class="pageNumberA">11</button>
-                <button class="pageNumberA">22</button>
-                <button class="pageNumberA">33</button>
-                <button class="pageNumberA">44</button>
-                <button class="pageNumberA">&gt;&gt;</button>
+
+
+<!-- 배너 시작 -->
+    <section class="bg-success py-5">
+        <div class="container">
+            <div class="row align-items-center py-5">
+                <div class="col-md-8 text-white">
+                    <h1>지금 HEF와 함께 시작해보세요 ! </h1>
+                    <p class="bannerContent">
+                        조건에 딱! 맞는 수행인을 찾으시나요?
+                        <br> 
+                        딱! 맞는 의뢰인을 찾으시나요?
+                        <br>
+                        HEF가 도와드리겠습니다.
+                        <br>
+                        <br>
+                        "필요한 사람을 찾는 일에 시간과 에너지를 낭비하지 마세요"
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <img src="assets/img/about-hero.svg" alt="About Hero">
+                </div>
             </div>
         </div>
-    </div>
-    <!-- Start Featured Product -->
-    <section class="bg-light">
+    </section>
+    <!-- 배너 끝 -->
+
+    <!-- 수정할 부분 -->
+    <br>
+    <section class="container py-5">
+        <span id="PostTitle">카테고리 목록</span>
+        <div class="container1">
+            <div class="item color">
+                <div class="menu">
+                    <button class="categoryBtn">청소/정리</button>
+                    <p class="itemImg"><img src="assets/img/cleaning.png" width="35px" height="30px">&ensp; </p>
+                </div>
+            </div>
+            <div class="item color">
+                <div class="menu">
+                    <button class="categoryBtn">과외</button>
+                    <p class="itemImg"><img src="assets/img/book.png" width="35px" height="30px"> &ensp; </p>
+                </div>
+            </div>
+            <div class="item color">
+                <div class="menu">
+                    <button class="categoryBtn">수리/설치</button>
+                    <p class="itemImg"><img src="assets/img/tools.png" width="35px" height="30px">&ensp; </p>
+
+                </div>
+            </div>
+            <div class="item color">
+                <div class="menu">
+                    <button class="categoryBtn">인테리어</button>
+                    <p class="itemImg"><img src="assets/img/interior.png" width="35px" height="30px"></p>
+                </div>
+            </div>
+            <div class="item color">
+                <div class="menu">
+                    <button class="categoryBtn">기타집안일</button>
+                    <p class="itemImg"><img src="assets/img/house.png" width="35px" height="30px"> &ensp; </p>
+                </div>
+            </div>
+            <div class="item color">
+                <div class="menu">
+                    <button class="categoryBtn">이사</button>
+                    <p class="itemImg"><img src="assets/img/moving-home.png" width="35px" height="30px">&ensp; </p>
+
+                </div>
+            </div>
+        </div>
+        <div id="postContent">
+            <div id="PostBodyarea">
+                <span id="PostTitle">심부름 글 목록</span>
+                <div id="PostSearch1">
+                    <form action="#" id="PostSearchForm">
+                        <select name="postSearchFilter" id="postSearchFilter">
+                            <option value="제목">제목</option>
+                            <option value="작성자">작성자</option>
+                        </select>
+                        <input type="text" id="postSearch">
+                        <input type="submit" id="postSearchSub" value="검색"><i class="ic-plus"></i>
+                    </form>
+                </div>
+                <div id="PostUpdate1">
+                    <a href="GoerrPage.do" id="postUpdate">심부름 등록</a>
+                </div>
+                <hr class="borderLine">
+                <table id="postTable">
+                    <tr>
+                        <th style="width: 10%;">심부름 번호</th>
+                        <th style="width: 7%;">작성자</th>
+                        <th style="width: 20%;">제목</th>
+                        <th style="width: 15%;">작성일자</th>
+                        <th style="width: 10%;">즐겨찾기</th>
+                        <th style="width: 15%;">신청하기</th>
+                    </tr>
+                </table>
+                <hr class="borderLine">
+                <div id="pageNumber">
+                    <button class="pageNumberA">&lt;&lt;</button>
+                    <button class="pageNumberA">1</button>
+                    <button class="pageNumberA">2</button>
+                    <button class="pageNumberA">3</button>
+                    <button class="pageNumberA">4</button>
+                    <button class="pageNumberA">&gt;&gt;</button>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </section>
+    <!-- End Section -->
         <div class="w-100 bg-black py-3">
             <div class="container">
                 <div class="row pt-2">
@@ -234,9 +310,6 @@ https://templatemo.com/tm-559-zay-shop
                 </div>
             </div>
         </div>
-    </footer>
-    <!-- End Footer -->
-
     <!-- Start Script -->
     <script src="assets/js/jquery-1.11.0.min.js"></script>
     <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
@@ -244,102 +317,37 @@ https://templatemo.com/tm-559-zay-shop
     <script src="assets/js/templatemo.js"></script>
     <script src="assets/js/custom.js"></script>
     <!-- End Script -->
-    <script src="assets/js/postjs.js"></script>
+     <!-- 로그인 모달창 Script------------------>
+     <script>
+        const modal = document.querySelector('.modal');
+        const btnOpenModal = document.querySelector('.btn-open-modal');
 
- <!-- 로그인 모달창 Script------------------>
- <script>
-    const modal = document.querySelector('.modal');
-    const btnOpenModal = document.querySelector('.btn-open-modal');
+        btnOpenModal.addEventListener("click", () => {
+            modal.style.display = "flex";
+        });
 
-    btnOpenModal.addEventListener("click", () => {
-        modal.style.display = "flex";
-    });
-
-    joinLink = 'Gojoin.do';
-    mainLink = 'Gomain.do';
-    
-    // 로그인 모달창 내부에 있는 로그인 버튼 이벤트 
-    let loginBtn = document.getElementById("btn-login");
-    loginBtn.onclick = hrefLink
-    function hrefLink(){
-        location.herf = mainLink;
-    }
-    // 로그인 모달창 내부에 있는 회원가입 버튼 이벤트 
-    var joinBtn = document.getElementById("btn-join");
-    joinBtn.onclick = hrefLink
-    function hrefLink(){
-        location.href = joinLink;
-    }
-    // 회원가입 버튼 이벤트
-    var joinBtn = document.getElementById("joinBtn");
-    joinBtn.onclick = hrefLink
-    function hrefLink(){
-        location.href = joinLink;
-    }
-</script>
-	<!-- 목록을 비동기 통신으로 불러옴 -->
-	<script>
-		window.onload = function() {
-			console.log('온로드 성공')
-			$.ajax({
-					url : "PostBoard.do",
-					dataType : "json",
-					success : function(res) {
-						console.log(res);
-						$(".postListCL").remove();
-						for (let i = 0; i < 6; i++) {
-							console.log('에잉')
-							console.log("타이틀 : " + res[i].user_id);
-							var a = "";
-							a += "<tr class = \"postListCL\">";
-							a += "<td class = \"postListNume\">"+ res[i].post_num + "</td>";
-							a += "<td class = \"postListId\">"+ res[i].user_id + "</td>";
-							a += "<td class = \"postListTitle\"><a href = \"#\">"+ res[i].post_title + "</a></td>";
-							a += "<td class = \"postListViews\">"+ res[i].post_views + "</td>";
-							a += "<td class = \"postListLikes\">"+ res[i].post_likes + "</td>";
-							a += "<td class = \"postListDate\">"+ res[i].posted_at + "</td>";
-							a += "</tr>"
-							$("#postTable").append(a);
-							
-							console.log(a)
-							//$("#postTable").append($("<td class = \"postListNum\">"+ res[i].post_num + "</td>"));
-							//$("#postTable").append($("<td class = \"postListId\">"+ res[i].user_id + "</td>"));
-							//$("#postTable").append($("<td class = \"postListTitle\">+ res[i].post_title + "</a></td>"));
-							//$("#postTable").append($("<td class = \"postListViews\">"+ res[i].post_views + "</td>"));
-							//$("#postTable").append($("<td class = \"postListLikes\">"+ res[i].post_likes + "</td>"));
-							//$("#postTable").append($("<td class = \"postListDate\">"+ res[i].posted_at + "</td>"));
-							//$("#postTable").append($("<td>아이콘</td>"));
-							//$("#postTable").append($("</div>"));
-							//$("#postTable").append($("</tr>"));
-							
-							//$("#postTable").append($("<tr class = \"postListCL\">"));
-							//$("#postTable").append($("<td class = \"postListNum\">"+ res[i].post_num + "</td>"));
-							//$("#postTable").append($("<td class = \"postListId\">"+ res[i].user_id + "</td>"));
-							//$("#postTable").append($("<td class = \"postListTitle\"><a href = \"#\">"+ res[i].post_title + "</a></td>"));
-							//$("#postTable").append($("<td class = \"postListViews\">"+ res[i].post_views + "</td>"));
-							//$("#postTable").append($("<td class = \"postListLikes\">"+ res[i].post_likes + "</td>"));
-							//$("#postTable").append($("<td class = \"postListDate\">"+ res[i].posted_at + "</td>"));
-							//$("#postTable").append($("<td>아이콘</td>"));
-							//$("#postTable").append($("</tr>"));
-							
-							//   $("#thead").append($("<tr>"));
-                            //$("#thead").append($("<td>"+res[i].err_num+"</td>"));
-                           // $("#thead").append($("<td>"+res[i].user_id+"</td>"));
-                           // $("#thead").append($("<td>"+"<a href=#>"+res[i].err_name+"</a>"+"</td>"));
-                           // $("#thead").append($("<td>"+res[i].created_at+"</td>"));
-                           // $("#thead").append($("</tr>"));
-
-						}
-						
-					},
-					error : function(result) {
-						console.log('ㅌ');
-					}
-				})
-		}
-		
-	</script>
-	<!-- End Script -->
+        joinLink = 'Gojoin.do';
+        mainLink = 'Gomain.do';
+        
+        // 로그인 모달창 내부에 있는 로그인 버튼 이벤트 
+        let loginBtn = document.getElementById("btn-login");
+        loginBtn.onclick = hrefLink
+        function hrefLink(){
+            location.herf = mainLink;
+        }
+        // 로그인 모달창 내부에 있는 회원가입 버튼 이벤트 
+        var joinBtn = document.getElementById("btn-join");
+        joinBtn.onclick = hrefLink
+        function hrefLink(){
+            location.href = joinLink;
+        }
+        // 회원가입 버튼 이벤트
+        var joinBtn = document.getElementById("joinBtn");
+        joinBtn.onclick = hrefLink
+        function hrefLink(){
+            location.href = joinLink;
+        }
+    </script>
 </body>
 
 </html>

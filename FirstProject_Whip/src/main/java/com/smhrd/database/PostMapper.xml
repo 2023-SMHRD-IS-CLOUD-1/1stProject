@@ -25,4 +25,21 @@
 	DELETE FROM TB_POST WHERE USER_ID = #{user_id}
 	</delete>
 	
+	<!-- 게시판 글 불러오기 -->
+	<select id="postLoad" resultMap = "postInfo">
+	SELECT *
+	FROM TB_POST
+	ORDER BY POSTED_AT DESC
+	</select>
+	<resultMap type="com.smhrd.model.PostVO" id="postInfo">
+		<result property="post_num" column="POST_NUM"/>
+		<result property="post_title" column="POST_TITLE"/>
+		<result property="post_content" column="POST_CONTENT"/>
+		<result property="posted_at" column="POSTED_AT"/>
+		<result property="post_views" column="POST_VIEWS"/>
+		<result property="post_likes" column="POST_LIKES"/>
+		<result property="user_id" column="USER_ID"/>
+		<result property="update_at" column="UPDATED_AT"/>
+	</resultMap>
+	
 </mapper>

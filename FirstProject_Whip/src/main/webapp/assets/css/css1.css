@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@500&display=swap');
+.nav-link {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+
+}
+.ul1 button{
+    outline: none;
+}
+.py-5{
+    padding-top:3rem;padding-bottom:3rem
+}
+.col-md-6>h1 {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    position: relative;
+    left: 88%;
+    font-weight: 400;
+    font-size: 40px;
+}
+#table1 {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+.input2, .btn2, .textarea, .textarea1 {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-weight: 100;
+}
+.noMargin {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-weight: 400;
+}
+.w60{
+    width: 60px;
+}
+.w80{
+    width: 80px;
+}
+.w100{
+    width: 100px;
+}
+.w120{
+    width: 120px;
+}
+.w150{
+    width: 150px;
+}
+.w200{
+    width: 200px;
+}
+.w250{
+    width: 250px;
+}
+.w300{
+    width: 300px;
+}
+.w1000{
+    width: 1000px;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+.h40{
+    height: 40px;
+}
+.h50{
+    height: 50px;
+}
+.h60{
+    height: 60px;
+}
+.h70{
+    height: 70px;
+}
+.h80{
+    height: 80px;
+}
+.h100{
+    height: 100px;
+}
+.h120{
+    height: 120px;
+}
+.h500{
+    height: 500px;
+}
+.h800{
+    height: 800px;
+}
+.h1000{
+    height: 1000px;
+}
+/* line1 해당 속성을 가진 td는 왼쪽을 제외한 3방향에 테두리를 갖는다 */
+.line1{ 
+    border-style: solid;
+    border-width: 1px;
+    border-left: none;
+}
+/* line2 해당 속성을 가진 td는 오른쪽을 제외한 3방향에 테두리를 갖는다 */
+.line2{
+    border-style: solid;
+    border-width: 1px;
+    border-right: none;
+}
+input:focus {
+    outline: 1px solid gray;
+}
+.input1{
+    display: block;
+    margin: 0 auto;
+}
+.input2{
+    border: none;
+    height: 50px;
+    padding-left: 16px;
+}
+.input2:focus{
+    outline: none;
+}
+.text_right{
+    text-align: right;
+}
+.textarea1:focus{
+    outline: none;
+}
+.right{
+    float: right;
+}
+/* h2c 해당 속성을 가진 h태그는 마진값을 0px갖는다 */
+.noMargin{
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+}
+#div1{
+    display: inline;
+}
+#div2{
+    position: relative;
+    left: -0px;
+    display: inline;
+}
+#span1{
+    color: #999999;
+}
+.borderColorGray2{
+    border-top-color: orange;
+    border-bottom-color: orange;
+    border-left-color: orange;
+    border-right-color: orange;
+    border-width: 1px;
+}
+.textarea1{
+    padding: 16px;
+}
+.ul1{
+    list-style: none;
+    border-width: 1px;
+    border-color: black;
+    margin-top: 16px;
+    padding-left: 16px;
+}
+.btn2{
+    border-width: 0px;
+    padding: 4px;
+}
+.border1{
+    border: 1px solid orange;
+}
+.td1{
+    vertical-align: top;
+    padding-top: 10px;
+}
+.pd100>*{
+    padding-bottom: 100px;
+}
+#div3{
+    padding-top: 100px;
+}
+/*-----------------수정--------------*/
+.h1 {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+.nav-link {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
