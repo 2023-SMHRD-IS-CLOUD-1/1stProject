@@ -35,12 +35,14 @@
 
     transform: translateY(-50%);
 }
+/* 1201 수정 */
 .close-icon {
     display: inline;
     position: relative;
     left: 130px;
     bottom: 40px;
-}
+    border: 0px;
+  }
 /* 모달창 h2태그  */
 .modal_body>h2 {
     display: inline;

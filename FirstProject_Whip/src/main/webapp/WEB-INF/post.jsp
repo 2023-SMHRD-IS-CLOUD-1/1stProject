@@ -265,13 +265,22 @@ https://templatemo.com/tm-559-zay-shop
     function hrefLink(){
         location.href = joinLink;
     }
-    // 회원가입 버튼 이벤트
-    var joinBtn = document.getElementById("joinBtn");
-    joinBtn.onclick = hrefLink
-    function hrefLink(){
-        location.href = joinLink;
-    }
 </script>
+<!-- 1201 로그인 모달창 닫기 추가 -->
+<script>
+    // Wait for the DOM to be ready
+    document.addEventListener("DOMContentLoaded", function () {
+        // Find the close-icon button
+        var closeIcon = document.getElementById("icon-close");
+
+        // Add a click event listener to the close-icon button
+        closeIcon.addEventListener("click", function () {
+            // Redirect to main.html
+            window.location.href = "Gopost.do";
+        });
+    });
+</script>
+
 	<!-- 11.28 수정 -->
 	<script>
 		let firstBtn = document.querySelector('#pageNumber>.pageNumberA:nth-child(2)');

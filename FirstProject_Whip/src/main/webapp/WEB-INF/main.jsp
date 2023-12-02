@@ -267,6 +267,8 @@ https://templatemo.com/tm-559-zay-shop
     <section class="container py-5">
         <div class="row text-center pt-3">
             <div class="col-lg-6 m-auto">
+            <!-- 1201 br 태그 추가 -->
+            <br>
                 <h1 class="h1"  >HEF 인기 서비스 </h1>
             </div>
         </div>
@@ -358,26 +360,23 @@ https://templatemo.com/tm-559-zay-shop
         function hrefLink(){
             location.href = joinLink;
         }
-        // 회원가입 버튼 이벤트
-        var joinBtn = document.getElementById("joinBtn");
-        joinBtn.onclick = hrefLink
-        function hrefLink(){
-            location.href = joinLink;
-        }
     </script>
-<script>
-    // 모달 창 닫기 함수
-    // 닫히긴 하지만 연달아 실행시 modal만 켜지는 현상이 발생 ... modal body는 뜨지 않음
-    function closeModal() {
-        var modal = document.querySelector('.modal');
-        modal.style.display = 'none';
-        var modalBody = document.querySelector('.modal_body');
-        modalBody.style.display = 'none';
-    }
-    // 아이콘을 클릭할 때 모달 창 닫기
-    document.getElementById('icon-close').addEventListener('click', closeModal);
-</script>
-
+// 1201 회원가입 버튼 이벤트 중복이여서 아래 이벤트 삭제
+// 1201 모달창 script 수정
+    </script>
+    <script>
+        // Wait for the DOM to be ready
+        document.addEventListener("DOMContentLoaded", function () {
+            // Find the close-icon button
+            var closeIcon = document.getElementById("icon-close");
+    
+            // Add a click event listener to the close-icon button
+            closeIcon.addEventListener("click", function () {
+                // Redirect to main.html
+                window.location.href = "Gomain.do";
+            });
+        });
+    </script>
 </body>
 
 </html>

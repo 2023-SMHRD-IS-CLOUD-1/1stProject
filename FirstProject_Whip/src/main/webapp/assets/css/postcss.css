@@ -32,22 +32,23 @@
 
   background-color: rgba(0, 0, 0, 0.4);
 }
+/* 1201 modal 내부 수정 */
 .modal_body {
-  position: absolute;
-  top: 50%;
+    position: absolute;
+    top: 50%;
 
-  width: 400px;
-  height: 600px;
+    width: 400px;
+    height: 280px;
 
-  padding: 40px;
+    padding: 40px;
 
-  text-align: center;
+    text-align: center;
 
-  background-color: rgb(255, 255, 255);
-  border-radius: 10px;
-  box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
 
-  transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 #postBodyArea {
@@ -127,4 +128,27 @@
 #postUpdateA {
 	position: relative;
 	left: 1239px;
+/* 1201 글작성 위치, 폰트 추가 */
+	font-family: 'IBM Plex Sans KR', sans-serif;
+    top: 18px;
+}
+
+/* 1201 추가 */
+.close-icon {
+  display: inline;
+  position: relative;
+  left: 130px;
+  bottom: 40px;
+  border: 0px;
+}
+/* 1201 모달창 내부 아이디, 비밀번호 찾기 버튼 */
+.loginSearch {
+    font-size: 10px;
+}
+/* 1201 모달창 h2태그  */
+.modal_body>h2 {
+  display: inline;
+  position: relative;
+  left: 10px;
+  bottom: 5px;
 }

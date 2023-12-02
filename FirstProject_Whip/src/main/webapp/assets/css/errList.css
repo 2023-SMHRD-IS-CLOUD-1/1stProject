@@ -35,12 +35,14 @@
 
     transform: translateY(-50%);
 }
+/* 1201 수정 */
 .close-icon {
     display: inline;
     position: relative;
     left: 130px;
     bottom: 40px;
-}
+    border: 0px;
+  }
 /* 모달창 h2태그  */
 .modal_body>h2 {
     display: inline;
@@ -147,10 +149,16 @@ a{
     
 }
 
+/* 1201 심부름 등록 버튼 수정 */
 #postUpdate{
     border-style: solid;
-    border-color: darkseagreen;
+    border-color: rgb(82, 159, 82);
     font-family: 'IBM Plex Sans KR', sans-serif;
+    border-radius: 10%;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    background-color: rgb(138, 185, 138);
     /* font-family: 'Black Han Sans', sans-serif; */
 }
 

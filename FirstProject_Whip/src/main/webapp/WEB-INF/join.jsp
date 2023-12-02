@@ -306,17 +306,7 @@
     <!-- End Script -->
 
 
-     <script>
-    // 이것도 안돼
-        // link = 'main.html';
 
-        // let btn1 = document.getElementById("btn1");
-        // btn1.onclick = hrefLink;
-        // function hrefLink() {
-        //     window.location.href = link;
-        // }
-    </script>
-        <!-- 가입하기 버튼 클릭시 main.html로 이동하는 script 추가 .. 해야하는데 작동 X.. ;;   ------------->
 
     <!-- 로그인 모달창 Script------------------>
     <script>
@@ -342,13 +332,23 @@
         function hrefLink(){
             location.href = joinLink;
         }
-        // 회원가입 버튼 이벤트
-        var joinBtn = document.getElementById("joinBtn");
-        joinBtn.onclick = hrefLink
-        function hrefLink(){
-            location.href = joinLink;
-        }
+        // 1201 회원가입 중복으로 인해 삭제함
     </script>
+        <!-- 1201 로그인 모달 닫기 script 수정 -->
+        <script>
+            // Wait for the DOM to be ready
+            document.addEventListener("DOMContentLoaded", function () {
+                // Find the close-icon button
+                var closeIcon = document.getElementById("icon-close");
+        
+                // Add a click event listener to the close-icon button
+                closeIcon.addEventListener("click", function () {
+                    // Redirect to main.html
+                    window.location.href = "Gomain.do";
+                });
+            });
+        </script>
+    
 </body>
 
 </html>

@@ -9,7 +9,7 @@
 <html lang="en">
 
 <head>
-    <title>Zay Shop - Contact</title>
+    <title>당근과채찍_핵심_myPage1</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -221,7 +221,7 @@ https://templatemo.com/tm-559-zay-shop
                                 <tr class="h70">
                                     <td class="">본인확인여부</td>
                                     <td id="user_id_check" class="">예</td>
-                                    <td><button id="btn005" class="btn btn-success btn-lg px-3 w150"><h6 class="noMargin">민증 등록 여부 </h6></button></button></td>
+                                    <td></td>
                                 </tr>
                                 	<tr class="h70">
                                     <td class="">주민등록확인</td>	

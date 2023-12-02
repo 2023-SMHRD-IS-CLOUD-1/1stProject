@@ -10,7 +10,7 @@
 <html lang="en">
 
 <head>
-    <title>Zay Shop - Contact</title>
+    <title>당근과채찍_핵심_myPage1</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
