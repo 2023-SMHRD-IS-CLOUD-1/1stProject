@@ -217,11 +217,22 @@ https://templatemo.com/tm-559-zay-shop
                                     <td id="user_jumin" class=""><h5 id="rrn001">******-*******</td>
                                     <td><button id="btn006" class="btn btn-success btn-lg px-3 w150"><h6 class="noMargin">주민번호 확인</h6></button></button></td>
                                 </tr>
+                                        <form action = "Certification.do" id="myForm" enctype="multipart/form-data">
                                 <tr class="h70">
                                     <td class="">본인확인여부</td>
                                     <td id="user_id_check" class="">예</td>
                                     <td><button id="btn005" class="btn btn-success btn-lg px-3 w150"><h6 class="noMargin">민증 등록 여부 </h6></button></button></td>
                                 </tr>
+                                	<tr class="h70">
+                                    <td class="">주민등록확인</td>	
+                                	<td>
+                                            <input type="file" id="fileInput" name="file" accept=".jpg, .jpeg, .png">
+                                    </td>
+                                    <td>
+                                            <input id="certification" type="button" value="주민등록증제출" class="btn btn-success btn-lg px-3 w150" class="action" onclick="uploadFile()">
+                                    </td>
+                                </tr>
+                                        </form>
                                 <tr class="h70">
                                     <td class="">주소</td>
                                     <td id="user_addr1" class="">광주광역시 남구 송암로60</td>
@@ -363,6 +374,47 @@ https://templatemo.com/tm-559-zay-shop
 
     </script>
     <!-- 수정3 끝 -->
+             <!-- Flask 통신 구문 코드  -->
+         <script>
+         
+    /*  $("#myForm").submit(function (e) {
+    	    e.preventDefault();  // 기본 폼 동작 방지
+    	    var formData = new FormData(this);
+			console.log("제발제발")
+    	    $.ajax({
+    	        url: "http://127.0.0.1:9000/upload",
+    	        type: "POST",
+    	        data: formData,
+    	        contentType: false,
+    	        processData: false,
+    	        success: function (res) {
+    	            console.log("Flask 통신 성공!!");
+    	            console.log("결과값 >>", res);
+    	        },
+    	        error: function (err) {
+    	            console.log("에러 발생 >>", err);
+    	        }
+    	    });
+    	}); */
+    	 function uploadFile() {
+            var formData = new FormData(document.getElementById('myForm'));
+			
+            fetch('http://127.0.0.1:9000/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Flask 통신 성공!!');
+                console.log('결과값 >>', data);
+                console.log(data['id']);
+                console.log(data['name']);
+            })
+            .catch(error => {
+                console.error('에러 발생 >>', error);
+            });
+        }
+	</script>
 </body>
 
 </html>
