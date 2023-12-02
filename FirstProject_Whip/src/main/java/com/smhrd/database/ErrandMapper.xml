@@ -17,12 +17,47 @@
 	<update id = "errmodify" parameterType="com.smhrd.model.ErrandVO">
 		UPDATE TB_ERRAND
 		SET ERR_NAME = #{err_name} , ERR_CONTENT = #{err_content}, ERR_PRICE = #{err_price}, UPDATED_AT = SYSDATE
-		WHERE USER_ID = #{user_id}
+		WHERE ERR_NAME = #{err_name} AND USER_ID=${user_id}
 	</update>
-<!-- 심부름 글 삭제 -->
+	
 	<delete id="errdelete" parameterType="com.smhrd.model.ErrandVO">
-		DELETE FROM TB_ERRAND WHERE USER_ID = #{user_id}
+		DELETE FROM TB_ERRAND WHERE ERR_NUM = #{err_num}
 	</delete>
 	
+	<select id="selecterr" resultMap="er_rank">
+	SELECT ERR_NUM, ERR_CATEGORY_NUM, ERR_NAME, ERR_CONTENT, CREATED_AT, UPDATED_AT, ERR_STATUS, USER_ID
+	FROM TB_ERRAND ORDER BY CREATED_AT DESC
+	</select>
 	
-</mapper>
+	<select id="readerr" resultMap="er_rank">
+	SELECT ERR_NUM, ERR_CATEGORY_NUM,ERR_NAME, CREATED_AT, UPDATED_AT, ERR_STATUS, USER_ID
+	FROM TB_ERRAND WHERE ERR_CATEGORY_NUM = #{err_category_num} ORDER BY CREATED_AT DESC
+	</select>
+	
+	<select id="searcherr1" resultMap="er_rank">
+	SELECT ERR_NUM, ERR_CATEGORY_NUM,ERR_NAME, CREATED_AT, UPDATED_AT, ERR_STATUS, USER_ID
+	FROM TB_ERRAND WHERE ERR_NAME=#{err_name} 
+	</select>
+	
+	<select id="searcherr2" resultMap="er_rank">
+	SELECT ERR_NUM, ERR_CATEGORY_NUM,ERR_NAME, CREATED_AT, UPDATED_AT, ERR_STATUS, USER_ID
+	FROM TB_ERRAND WHERE USER_ID = #{user_id}
+	</select>
+	
+	<resultMap type="com.smhrd.model.ErrandVO" id="er_rank">
+		<result property="err_num" column="ERR_NUM"/>
+		<result property="err_category_num" column="ERR_CATEGORY_NUM"/>
+		<result property="err_name" column="ERR_NAME"/>
+		<result property="err_content" column="ERR_CONTENT"/>
+		<result property="created_at" column="CREATED_AT"/>
+		<result property="err_status" column="ERR_STATUS"/>
+		<result property="user_id" column="USER_ID"/>
+		
+	</resultMap>
+	
+	<select id="err_detail" parameterType="com.smhrd.model.ErrandVO" resultType="com.smhrd.model.ErrandVO">
+	SELECT ERR_NUM, ERR_CATEGORY_NUM, ERR_NAME, CREATED_AT, ERR_CONTENT , UPDATED_AT, ERR_STATUS, USER_ID
+	FROM TB_ERRAND WHERE ERR_NUM = #{err_num} 
+	</select>
+	
+	</mapper>

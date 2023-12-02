@@ -139,8 +139,8 @@ https://templatemo.com/tm-559-zay-shop
                 <input type="password" name="password" placeholder="비밀번호">
             </div>
             <br>
-            <a href="" class="loginSearch"> 아이디 찾기</a>
-            <a href="" class="loginSearch"> 비밀번호 찾기</a>
+            <a href="GoIdFind.do" class="loginSearch"> 아이디 찾기</a>
+            <a href="GopwFind.do" class="loginSearch"> 비밀번호 찾기</a>
             <div class="member_login_btn">
                 <br>
                 <input type="submit" class="btn btn-secondary" id="btn-login" value="로그인"  >

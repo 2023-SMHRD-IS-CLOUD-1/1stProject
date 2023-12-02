@@ -212,90 +212,84 @@ https://templatemo.com/tm-559-zay-shop
     <!-- 배너 끝 -->
 
     <!-- 수정할 부분 -->
-    <br>
+    
     <section class="container py-5">
-        <span id="PostTitle">카테고리 목록</span>
+	 <span id="PostTitle">카테고리 목록</span> 
         <div class="container1">
-            <div class="item color">
+               <div class="menu"> 
+                <button class="categoryBtn" onclick="sendData('1')">청소/정리</button>
+                <p><img src="./assets/img/cleaning.png" width="35px" height="30px" >&ensp; </p>
+               </div> 
                 <div class="menu">
-                    <button class="categoryBtn">청소/정리</button>
-                    <p class="itemImg"><img src="assets/img/cleaning.png" width="35px" height="30px">&ensp; </p>
-                </div>
+                    <button class="categoryBtn" onclick="sendData('2')">과외</button>
+                    <p><img src="./assets/img/book.png" width="35px" height="30px"> &ensp; </p>
             </div>
-            <div class="item color">
                 <div class="menu">
-                    <button class="categoryBtn">과외</button>
-                    <p class="itemImg"><img src="assets/img/book.png" width="35px" height="30px"> &ensp; </p>
-                </div>
+                    <button class="categoryBtn" onclick="sendData('3')">수리/설치</button>
+                    <p><img src="./assets/img/tools.png" width="35px" height="30px">&ensp; </p>
+                    
             </div>
-            <div class="item color">
                 <div class="menu">
-                    <button class="categoryBtn">수리/설치</button>
-                    <p class="itemImg"><img src="assets/img/tools.png" width="35px" height="30px">&ensp; </p>
-
-                </div>
+                    <button class="categoryBtn" onclick="sendData('4')">인테리어</button>
+                    <p><img src="./assets/img/interior.png" width="35px" height="30px"></p>
             </div>
-            <div class="item color">
                 <div class="menu">
-                    <button class="categoryBtn">인테리어</button>
-                    <p class="itemImg"><img src="assets/img/interior.png" width="35px" height="30px"></p>
-                </div>
+                    <button class="categoryBtn" onclick="sendData('5')">기타집안일</button>
+                    <p><img src="./assets/img/house.png" width="35px" height="30px"> &ensp; </p>
             </div>
-            <div class="item color">
                 <div class="menu">
-                    <button class="categoryBtn">기타집안일</button>
-                    <p class="itemImg"><img src="assets/img/house.png" width="35px" height="30px"> &ensp; </p>
-                </div>
-            </div>
-            <div class="item color">
-                <div class="menu">
-                    <button class="categoryBtn">이사</button>
-                    <p class="itemImg"><img src="assets/img/moving-home.png" width="35px" height="30px">&ensp; </p>
-
-                </div>
+                    <button class="categoryBtn" onclick="sendData('6')">이사</button>
+                    <p><img src="./assets/img/moving-home.png" width="35px" height="30px">&ensp; </p>
+                 
             </div>
         </div>
-        <div id="postContent">
-            <div id="PostBodyarea">
-                <span id="PostTitle">심부름 글 목록</span>
-                <div id="PostSearch1">
-                    <form action="#" id="PostSearchForm">
-                        <select name="postSearchFilter" id="postSearchFilter">
-                            <option value="제목">제목</option>
-                            <option value="작성자">작성자</option>
-                        </select>
-                        <input type="text" id="postSearch">
-                        <input type="submit" id="postSearchSub" value="검색"><i class="ic-plus"></i>
-                    </form>
-                </div>
-                <div id="PostUpdate1">
-                    <a href="GoerrPage.do" id="postUpdate">심부름 등록</a>
-                </div>
-                <hr class="borderLine">
-                <table id="postTable">
-                    <tr>
-                        <th style="width: 10%;">심부름 번호</th>
-                        <th style="width: 7%;">작성자</th>
-                        <th style="width: 20%;">제목</th>
-                        <th style="width: 15%;">작성일자</th>
-                        <th style="width: 10%;">즐겨찾기</th>
-                        <th style="width: 15%;">신청하기</th>
-                    </tr>
-                </table>
-                <hr class="borderLine">
-                <div id="pageNumber">
-                    <button class="pageNumberA">&lt;&lt;</button>
-                    <button class="pageNumberA">1</button>
-                    <button class="pageNumberA">2</button>
-                    <button class="pageNumberA">3</button>
-                    <button class="pageNumberA">4</button>
-                    <button class="pageNumberA">&gt;&gt;</button>
-                </div>
-            </div>
-        </div>
+		<div id="postContent">
+			<div id="PostBodyarea">
+				<span id="PostTitle">심부름 글 목록</span>
+				<div id="PostSearch">
+						<select name="SearchCategory" id="SearchCategory">
+							<option value="err_name">제목</option>
+							<option value="user_id">작성자</option>
+						</select> 
+						<input type="text" id="searchInput" > 
+						<button id = "searchButton">검색</button>
+				</div>
+				<!-- 로그인 안되어 있으면 버튼 비활성화 하기 -->
+				<div id="PostUpdate1">
+					<a href="GoerrPage.do" id="postUpdate">심부름 등록</a>
+				</div>
+				<hr class="borderLine">
+				<table id="postTable">
+					<tr>
+						<th style="width: 10%;">심부름 번호</th>
+						<th style="width: 7%;">작성자</th>
+						<th style="width: 20%;">제목</th>
+						<th style="width: 15%;">작성일자</th>
+						<th style="width: 15%;">단가</th>
+						<th style="width: 10%;">즐겨찾기</th>
+						<th style="width: 15%;">신청하기</th>
+					</tr>
+					
+					
+					
+				</table>
+				<table>
+				
+				</table>
+				<hr class="borderLine">
+				<div id="pageNumber">
+					<button class="pageNumberA">&lt;&lt;</button>
+					<button class="pageNumberA">1</button>
+					<button class="pageNumberA">2</button>
+					<button class="pageNumberA">3</button>
+					<button class="pageNumberA">4</button>
+					<button class="pageNumberA">&gt;&gt;</button>
+				</div>
+			</div>
+		</div>
 
-        </div>
-    </section>
+		</div>
+	</section>
     <!-- End Section -->
         <div class="w-100 bg-black py-3">
             <div class="container">
@@ -348,6 +342,175 @@ https://templatemo.com/tm-559-zay-shop
             location.href = joinLink;
         }
     </script>
+    <script>
+	// 심부름 전체 글 불러오기
+	console.log("확인용");
+			$(document).ready(function() {
+                        $.ajax({
+                        	url:"Errselect.do",
+                        	
+                        
+                        	dataType : "json",
+                        	
+                        	success : function(res) {
+                        		console.log("성공")
+                        		for(let i=0;i< res.length;i++){
+                        			var a = "";
+                        			a += "<tr class = \"postListCL\">";
+                        			a += "<td class = \"postListNum\">"+ res[i].err_num + "</td>";
+                        			a += "<td class = \"postListid\">"+ res[i].user_id + "</td>";
+                        			a += "<td class = \"postListTitle\"><a href = \"#\">"+ res[i].err_name + "</a></td>";
+                        			a += "<td class = \"postListDate\">"+ res[i].created_at + "</td>";
+                        			a += "<td class = \"postListMoney\">"+ res[i].err_price + "</td>";
+                        			a += "<td><button class='fverr'>★</button></td>"
+                        			a += "<td><button class='match'>신청</button></td>"
+                        			a += "</tr>"
+                          			$("#postTable").append(a);
+                        			
+                        		}
+                        	},     error : function(e){
+        
+                                console.log("실패");
+                            }
+                        })
+
+                        
+		})
+                        </script>
+     <script>
+                        // 심부름 카테고리 별로 불러오기
+                        function sendData(categoryNumber) {
+                            window.selectedCategoryNumber = categoryNumber;
+                            var outputContainer = $(".postListCL");
+                            outputContainer.empty();
+                           
+                            $.ajax({
+                                type: "POST",
+                                url: "Err_read.do",
+                                data: { categoryNumber: categoryNumber },
+                                success: function (response) {
+                                    console.log(response);
+
+                                    var result = JSON.parse(response);
+                                    console.log("선택된 카테고리 번호:", window.selectedCategoryNumber);
+                                    console.log("서버 응답:", result);
+
+                                    for (var i = 0; i < result.length; i++) {
+                                    	var a = "";
+                            			a += "<tr class = \"postListCL\">";
+                            			a += "<td class = \"postListNum\">"+ result[i].err_num + "</td>";
+                            			a += "<td class = \"postListid\">"+ result[i].user_id + "</td>";
+                            			a += "<td class = \"postListTitle\"><a href = \"#\" >"+ result[i].err_name + "</a></td>";
+                            			a += "<td class = \"postListDate\">"+ result[i].created_at + "</td>";
+                            			a += "<td class = \"postListMoney\">"+ result[i].err_price + "</td>";
+                            			a += "<td><button class='fverr'>★</button></td>"
+                                		a += "<td><button class='match'>신청</button></td>"
+                            			a += "</tr>"
+                              			$("#postTable").append(a);
+                                    }
+                                },
+                                error: function (error) {
+                                    console.error("에러", error);
+                                },
+                            });
+                        }
+  						// 심부름 검색 기능
+                        $(document).ready(function () {
+                            $("#searchButton").on("click", function () {
+                                var selectedCategory = $("#SearchCategory").val();
+                                var searchTerm = $("#searchInput").val();
+                                console.log(selectedCategory);
+                                console.log(searchTerm);
+                                var outputContainer = $(".postListCL");
+                                outputContainer.empty();
+                                // AJAX 요청 보내기
+                                $.ajax({
+                                    type: 'POST',
+                                    url: 'Err_search.do',
+                                    data: {
+                                        SearchCategory: selectedCategory, 
+                                        searchTerm: searchTerm
+                                    },
+                                    success: function (response) {
+                                    	 console.log(response);
+
+                                         var result = JSON.parse(response);
+                                         for (var i = 0; i < result.length; i++) {
+                                         	var a = "";
+                                 			a += "<tr class = \"postListCL\">";
+                                 			a += "<td class = \"postListNum\">"+ result[i].err_num + "</td>";
+                                 			a += "<td class = \"postListid\">"+ result[i].user_id + "</td>";
+                                 			a += "<td class=\"postListTitle\"><a href=\"#\" >" + result[i].err_name + "</a></td>";
+                                 			a += "<td class = \"postListDate\">"+ result[i].created_at + "</td>";
+                                 			a += "<td class = \"postListMoney\">"+ result[i].err_price + "</td>";
+                                 			a += "<td><button class='fverr'>★</button></td>"
+                                    		a += "<td><button class='match'>신청</button></td>"
+                                 			a += "</tr>"
+                                   			$("#postTable").append(a);
+                                         }
+                                    },
+                                    error: function (error) {
+                                        console.error('Error:', error);
+                                    }
+                                });
+                            });
+                        });
+                      	// 심부름 글 상세보기 기능
+						  $(document).ready(function() {
+						    // 클릭 이벤트 핸들러
+						     $('#postTable').on('click', '.postListTitle a', function(e) {
+						    	 e.preventDefault();
+						      // 클릭한 행의 err_num 값을 가져오기
+						      var clickedErrNum = $(this).closest("tr").find(".postListNum").text();
+						      console.log(clickedErrNum);
+						      // 데이터 저장
+						      localStorage.setItem("clickedErrNum", clickedErrNum);
+						      
+								
+						      $.ajax({
+                                    type: 'POST',
+                                    url: 'Err_detail.do',
+                                    data: {
+                                    	clickedErrNum : clickedErrNum
+                                    },
+                                    success: function(response) {
+                                        console.log(response);
+                                        window.location.href = 'GoErrandRead.do';
+                                        // 성공적으로 응답을 받았을 때 수행할 작업
+                                    },
+                                    error: function(error) {
+                                        console.error('Error:', error);
+                                        
+                                    }
+						      });
+						    });
+						  });
+                      	// 심부름 즐겨찾기 
+						  $(document).ready(function() {
+						  $('#postTable').on('click', '.fverr', function(e) {
+							  e.preventDefault();
+							  var clickedErrNum = $(this).closest("tr").find(".postListNum").text();
+						      console.log(clickedErrNum);
+						      // 데이터 저장
+						      localStorage.setItem("clickedErrNum", clickedErrNum); 
+						      $.ajax({
+                                  type: 'POST',
+                                  url: 'FvErr.do',
+                                  data: {
+                                  	clickedErrNum : clickedErrNum
+                                  },
+                                  success: function(response) {
+                                      console.log(response);
+                                  },
+                                  error: function(error) {
+                                      console.error('Error:', error);
+                                  }
+						      });
+						    });
+						  });
+						  
+						  
+						</script>
 </body>
 
 </html>

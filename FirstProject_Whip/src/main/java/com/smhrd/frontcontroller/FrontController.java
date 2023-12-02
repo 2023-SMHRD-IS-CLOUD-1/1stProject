@@ -16,9 +16,14 @@ import org.w3c.dom.DOMStringList;
 
 import com.smhrd.controller.Command;
 import com.smhrd.controller.DeleteService;
+import com.smhrd.controller.Err_detailService;
+import com.smhrd.controller.Err_readService;
+import com.smhrd.controller.Err_searchService;
 import com.smhrd.controller.ErrdeleteService;
 import com.smhrd.controller.ErrmodifyService;
+import com.smhrd.controller.ErrselectService;
 import com.smhrd.controller.ErrupdateService;
+import com.smhrd.controller.FindService;
 import com.smhrd.controller.FvErrService;
 import com.smhrd.controller.FvPostService;
 import com.smhrd.controller.JoinService;
@@ -55,10 +60,17 @@ public class FrontController extends HttpServlet {
 		map.put("Logout.do", new LogoutService());
 		map.put("Update.do", new UpdateService());
 		map.put("Delete.do", new DeleteService());
+		
+		// id pw 찾기
+		map.put("Find.do", new FindService());
 		// 심부름
 		map.put("Errupdate.do", new ErrupdateService());
 		map.put("Errmodify.do", new ErrmodifyService());
 		map.put("Errdelete.do", new ErrdeleteService());
+		map.put("Errselect.do", new ErrselectService());
+		map.put("Err_read.do", new Err_readService());
+		map.put("Err_search.do", new Err_searchService());
+		map.put("Err_detail.do", new Err_detailService());
 		map.put("FvErr.do", new FvErrService());
 		
 		// 게시판

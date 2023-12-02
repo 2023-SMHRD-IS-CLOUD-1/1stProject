@@ -37,5 +37,12 @@
 	FROM TB_USER WHERE USER_ID = #{user_id}
 	</select>
 	
+	<!-- 정보 찾기 -->
+	<select id="find" parameterType = "com.smhrd.model.UserVO" resultType="com.smhrd.model.UserVO">
+	SELECT USER_ID, USER_PW
+	FROM TB_USER 
+	WHERE USER_NAME = #{user_name} 
+	</select>
 	
+
 </mapper>

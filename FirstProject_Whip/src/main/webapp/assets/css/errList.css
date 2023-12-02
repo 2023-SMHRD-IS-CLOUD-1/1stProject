@@ -154,7 +154,7 @@ a{
     /* font-family: 'Black Han Sans', sans-serif; */
 }
 
-#PostSearch1{
+#PostSearch{
     text-align: right;
 }
 
@@ -185,3 +185,16 @@ a{
   .pageNumberA{
     border: none;
   }
+ 
+ /* 변경된 부분*/ 
+    .fverr:hover, .fverr:active{
+	  color: gold;
+  }
+  .fverr:visited{
+	  color: gold;
+  }
+  button{
+	background: none;
+	border: none;
+}
+  

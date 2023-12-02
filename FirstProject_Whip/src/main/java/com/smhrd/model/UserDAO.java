@@ -61,6 +61,13 @@ public class UserDAO {
             return sqlSession.selectOne("selectById", userId);
         }
     }
+	public UserVO find(UserVO vo) {
+		SqlSession sqlSession = factory.openSession(true);
+		UserVO result = sqlSession.selectOne("find",vo);
+		sqlSession.close();
+		return result;
+		
+	}
 		
 	}
 	

@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+
+
+
+.searchform {
+    margin: auto;
+    width: 500px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    margin-bottom: 310px;
+    text-align: center; 
+}
+
+
+.search-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-search {
+    margin-bottom: 20px;
+}
+
+.find-name,
+.find-phone {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.btn-name,
+.btn-phone {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.btnSearch {
+    text-align: center;
+}
+
+input[type="button"] {
+    background-color: darkseagreen;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#login{
+	background-color: darkseagreen;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
