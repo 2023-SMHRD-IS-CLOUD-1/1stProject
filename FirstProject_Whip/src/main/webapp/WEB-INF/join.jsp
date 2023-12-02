@@ -179,7 +179,7 @@
     <div class="container py-5">
         <div class="row py-5">
             <div style="height:500px;">
-                <form action="join.do" method="post">
+                <form action="Join.do" method="post">
                     <table class="col-md-9 m-auto">
                         <tr class="h100">
                             <td colspan="2" align="center"><h2>회원가입</h2></td>
@@ -227,21 +227,21 @@
                         <tr class="h50">
                             <td class="line2" align="center" >주소</td>
                             <td class="line1">
-                                <input type="text" name="user_phone" placeholder="주소"></input>
+                                <input type="text" name="user_addr1" placeholder="주소"></input>
                             </td>
                             <td></td>
                         </tr>
                         <tr class="h50">
                             <td class="line2" align="center">주민등록번호</td>
                             <td class="line1">
-                                <input type="text" name="user_phone" placeholder="주민등록번호" ></input>
+                                <input type="text" name="user_jumin" placeholder="주민등록번호" ></input>
                             </td>
                             <td></td>
                         </tr>
                         <tr class="h50">
                             <td class="line2" align="center" >성별</td>
                             <td class="line1">
-                                <select name="gender" id="" >
+                                <select name="user_gender" id="" >
                                     <option value="none">-------성별선택-------</option>
                                     <option value="man">남성</option>
                                     <option value="women">여성</option>
@@ -252,7 +252,7 @@
                         <tr class="h50">
                             <td class="line2" align="center" >전화번호</td>
                             <td class="line1">
-                                <input type="text" name="user_addr1" placeholder="전화번호" ></input>
+                                <input type="text" name="user_phone" placeholder="전화번호" ></input>
                             </td>
                             <td></td>
                         </tr>
