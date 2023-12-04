@@ -96,7 +96,7 @@ https://templatemo.com/tm-559-zay-shop
                             <a class="nav-link" href="Gopost.do">커뮤니티</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="GoNaNmanagementPost.do">고객센터</a>
+                            <a class="nav-link" href="GomanagementPost.do">고객센터</a>
                         </li>
                     </ul>
                 </div>
@@ -359,11 +359,9 @@ https://templatemo.com/tm-559-zay-shop
                         			a += "<tr class = \"postListCL\">";
                         			a += "<td class = \"postListNum\">"+ res[i].err_num + "</td>";
                         			a += "<td class = \"postListid\">"+ res[i].user_id + "</td>";
-                        			a += "<td class = \"postListTitle\"><a href = \"#\">"+ res[i].err_name + "</a></td>";
+                        			a += "<td class = \"postListTitle\"><a href = \"#\" >"+ res[i].err_name + "</a></td>";
                         			a += "<td class = \"postListDate\">"+ res[i].created_at + "</td>";
                         			a += "<td class = \"postListMoney\">"+ res[i].err_price + "</td>";
-                        			a += "<td><button class='fverr'>★</button></td>"
-                        			a += "<td><button class='match'>신청</button></td>"
                         			a += "</tr>"
                           			$("#postTable").append(a);
                         			
@@ -446,7 +444,7 @@ https://templatemo.com/tm-559-zay-shop
                                  			a += "<td><button class='fverr'>★</button></td>"
                                     		a += "<td><button class='match'>신청</button></td>"
                                  			a += "</tr>"
-                                   			$("#postTable").append(a);
+                                   			$("#EraandTable").append(a);
                                          }
                                     },
                                     error: function (error) {

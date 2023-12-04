@@ -75,7 +75,7 @@ https://templatemo.com/tm-559-zay-shop
     <nav class="navbar navbar-expand-lg navbar-light shadow">
         <div class="container d-flex justify-content-between align-items-center">
 
-            <a class="navbar-brand text-success logo h1 align-self-center" href="main.html">
+            <a class="navbar-brand text-success logo h1 align-self-center" href="Gomain.do">
                 HEF
             </a>
 
@@ -94,13 +94,13 @@ https://templatemo.com/tm-559-zay-shop
                             font-family: 'IBM Plex Sans KR', sans-serif;">?</a>
                         </li>-->
                         <li class="nav-item">
-                            <a class="nav-link" href="errListPage.html">심부름</a>
+                            <a class="nav-link" href="GoerrListPage.do">심부름</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="post.html">커뮤니티</a>
+                            <a class="nav-link" href="Gopost.do">커뮤니티</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">고객센터</a>
+                            <a class="nav-link" href="Gocontact.do">고객센터</a>
                         </li>
                     </ul>
                 </div>
@@ -181,7 +181,6 @@ https://templatemo.com/tm-559-zay-shop
         </section>
         <div class="btnSearch">
             <input type="button" id="enter" value="찾기" >
-            <input type="button" id="cancle" value="취소" >
         </div>
    </form>
     <!-- End Section -->
@@ -235,7 +234,7 @@ https://templatemo.com/tm-559-zay-shop
     	        $.ajax({
     	        	
     	            type: 'POST',
-    	            url: 'http://localhost:8081/FirstProject_Whip/Find.do',
+    	            url: 'Find.do',
     	            data: {
     	                user_name: user_name,
     	                user_jumin: user_jumin
@@ -246,10 +245,24 @@ https://templatemo.com/tm-559-zay-shop
     	            	console.log("user_id", user_id);
     	            	$(".searchform").empty();
     	            	var a = '';
-    	            	a+= "<h2>아이디찾기</h2><br>";
-    	            	a+="<h4>고객님의 정보와 일치하는 아이디 입니다</h4><br><br>"
-    	            	a+="<h5>"+user_id+"</h5><br><br><br><br><br>"
-    	            	$(".searchform").append(a);
+    	            	if(response.user_id !== undefined){
+    	            		a+= "<h2>아이디찾기</h2><br>";
+        	            	a+="<h4>고객님의 정보와 일치하는 아이디 입니다</h4><br><br>"
+        	            	a+="<h5>"+user_id+"</h5><br><br><br>"
+        	            	a+="<a href='GopwFind.do'> 비밀번호 찾기</a> <br>"
+        	            	a+="<a href='Gomain.do'>메인으로 이동</a>"
+        	            	$(".searchform").append(a);
+    	            	} else{
+  	            		  $(".searchform").empty();
+	    	            	var a = '';
+	    	            	a+= "<h2>아이디 찾기</h2><br>";
+	    	            	a+="<h5>고객님의 정보와 일치하는 정보가 없습니다.</h5><br><br>"
+	    	            	a+="<h5>다시 시도해주세요</h5><br><br><br><br><br>"
+	    	            	a+="<a href='Gomain.do'>메인으로 이동</a>"
+	    	            	$(".searchform").append(a);
+	            	  }
+    	            	
+    	            	
     	            },
     	            error: function (error) {
     	                console.error('Error:', error);

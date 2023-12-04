@@ -61,12 +61,20 @@ public class UserDAO {
             return sqlSession.selectOne("selectById", userId);
         }
     }
+	// id찾기
 	public UserVO find(UserVO vo) {
 		SqlSession sqlSession = factory.openSession(true);
 		UserVO result = sqlSession.selectOne("find",vo);
 		sqlSession.close();
 		return result;
 		
+	}
+	// pw찾기
+	public UserVO pwfind(UserVO vo) {
+		SqlSession sqlSession = factory.openSession(true);
+		UserVO result = sqlSession.selectOne("pwfind",vo);
+		sqlSession.close();
+		return result;
 	}
 		
 	}

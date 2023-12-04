@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.smhrd.model.ManageDAO">
+	<!-- 문의 글 등록 -->
+	<insert id="manageupdate" parameterType="com.smhrd.model.ManageVO">
+    INSERT INTO TB_MANAGEMENT_POST (
+        MANAGEMENT_POST_TITLE, MANAGEMENT_POST_CONTENT, MANAGEMENT_POST_ID
+    )
+    VALUES (
+       #{management_post_title} , #{management_post_content}, #{management_post_id}
+    )
+</insert>
+	<!-- 문의 글 목록 불러오기 -->
+	<select id = "manage_sel" resultMap="manage">  
+	SELECT MANAGEMENT_POST_NUM, MANAGEMENT_POST_TITLE, MANAGEMENT_POST_CONTENT, MANAGEMENT_POST_ID, POSTED_AT,MANAGEMENT_POST_RELPY
+	FROM TB_MANAGEMENT_POST ORDER BY POSTED_AT DESC
+	</select>
+	
+	<!-- 문의 글 상세보기 -->
+	
+	
+	<resultMap type="com.smhrd.model.ManageVO" id="manage">
+		<result property="management_post_num" column="MANAGEMENT_POST_NUM"/>
+		<result property="management_post_title" column="MANAGEMENT_POST_TITLE"/>
+		<result property="management_post_content" column="MANAGEMENT_POST_CONTENT"/>
+		<result property="management_post_id" column="MANAGEMENT_POST_ID"/>
+		<result property="management_post_relpy" column="MANAGEMENT_POST_RELPY"/>
+		<result property="posted_at" column="POSTED_AT"/>
+		</resultMap>
+		
+	<select id="manage_detail" parameterType="com.smhrd.model.ManageVO" resultType="com.smhrd.model.ManageVO">
+	SELECT MANAGEMENT_POST_TITLE, MANAGEMENT_POST_CONTENT, MANAGEMENT_POST_ID, MANAGEMENT_POST_RELPY
+	FROM TB_MANAGEMENT_POST WHERE MANAGEMENT_POST_NUM = #{management_post_num}
+	</select>
+	</mapper>
