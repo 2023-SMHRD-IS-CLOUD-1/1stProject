@@ -1,9 +1,8 @@
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@page import="com.smhrd.model.UserVO"%>
 <%@page import="javax.servlet.http.HttpSession"%>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -119,10 +118,10 @@ https://templatemo.com/tm-559-zay-shop
                     <i class="fa fa-fw fa-user text-dark mr-3"></i>
                 </a>
                 <!--로그인 버튼 !!!!!! --------------------------->
-                <a href="#"><button class="btn-open-modal nav-item loginbtn">로그인</button></a>
+                <a href="#"><button class="btn-open-modal nav-item loginbtn" id ="loginBtn">로그인</button></a>
                 <!-- 회원가입 버튼!!!! --------------------------->
+                <a href="Logout.do"><button id="logoutBtn" class="btn-open-modal nav-item loginbtn">로그아웃</button></a>
                 <a href="#"><button id="joinBtn" class="btn-open-modal nav-item loginbtn">회원가입</button></a>
-                <a href="Logout.do"><button id="LogoutBtn" class="btn-open-modal nav-item loginbtn">로그아웃</button></a>
                 </div>
             </div>
 
@@ -374,20 +373,25 @@ https://templatemo.com/tm-559-zay-shop
         });
     </script>
     
-   	<script>
-	    //HttpSession session = request.getSession();
-		//let user = (UserVO)session.getAttribute("user");
-		
-		console.log(${user.user_id})
-		console.log('${user}' == 'null')
-		if('${user}' == ''){
-			console.log("asdfasdfasdf")
-			$('#loginBtn').attr('style', "display: ''")
-			$('#logoutBtn').attr('style', "display: none")
-		}else{
-			$('#loginBtn').attr('style', "display: none")
-			$('#logoutBtn').attr('style', "display: ''")
-		}
+      <script>
+       //HttpSession session = request.getSession();
+      //let user = (UserVO)session.getAttribute("user");
+      let loginBtn = document.querySelector('#loginBtn');
+      let logoutBtn = document.querySelector('#logoutBtn');
+      
+      console.log(11111111111111111);
+      console.log('${user.user_id}');
+      console.log('${user}' == 'null');
+      if('${user}' == ''){
+         console.log("asdfasdfasdf")
+         //loginBtn.style.display ='';
+         //logoutBtn.style.display ='none';
+         $('#loginBtn').attr('style', "display: ''")
+         $('#logoutBtn').attr('style', "display: none")
+      }else{
+         $('#loginBtn').attr('style', "display: none")
+         $('#logoutBtn').attr('style', "display: ''")
+      }
     </script>
     
     <script>
@@ -401,14 +405,14 @@ https://templatemo.com/tm-559-zay-shop
             },
             success : function(res){
                 if(res.k == "false"){
-                	console.log("실패 확인")
+                   console.log("실패 확인")
                     $('#idPwSameCheck').html('아이디와 비밀번호가 일치하지 않습니다');
                 }else if(res.k == "true"){
-                	window.location.href = "Gomain.do"
+                   window.location.href = "Gomain.do"
                 }
             },
-			error : function(result) {
-			}
+         error : function(result) {
+         }
         })
     })
     

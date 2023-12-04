@@ -49,5 +49,10 @@
 	FROM TB_USER 
 	WHERE USER_NAME = #{user_name} AND USER_JUMIN = #{user_jumin}
 	</select>
-
+	<!-- id중복 체크 -->
+	<select id = "idUniqueCheck" resultType="String">
+		SELECT USER_ID
+		FROM TB_USER
+		WHERE USER_ID = #{userId}
+	</select>
 </mapper>
