@@ -1,6 +1,9 @@
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="com.smhrd.model.UserVO"%>
+<%@page import="javax.servlet.http.HttpSession"%>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -119,6 +122,7 @@ https://templatemo.com/tm-559-zay-shop
                 <a href="#"><button class="btn-open-modal nav-item loginbtn">로그인</button></a>
                 <!-- 회원가입 버튼!!!! --------------------------->
                 <a href="#"><button id="joinBtn" class="btn-open-modal nav-item loginbtn">회원가입</button></a>
+                <a href="Logout.do"><button id="LogoutBtn" class="btn-open-modal nav-item loginbtn">로그아웃</button></a>
                 </div>
             </div>
 
@@ -130,14 +134,15 @@ https://templatemo.com/tm-559-zay-shop
         <div class="modal_body">
             <h2>LOGIN </h2> <span id="icon-close" class="close-icon">&#10006;</span>
             <div class="member_login">
-                <form th:action="dfasdf" th:method="POST">
-                    <div class="member_login_input">
-                        <input type="text" name="username" placeholder="아이디">
-                    </div>
+                <div class="member_login_input">
+                    <input id="inputId" type="text" name="username" placeholder="아이디">
+                </div>
             </div>
             <div class="member_login_input">
-                <input type="password" name="password" placeholder="비밀번호">
+                <input id="inputPw" type="password" name="password" placeholder="비밀번호">
             </div>
+            <br>
+            <span id="idPwSameCheck"></span>
             <br>
             <a href="GoIdFind.do" class="loginSearch"> 아이디 찾기</a>
             <a href="GopwFind.do" class="loginSearch"> 비밀번호 찾기</a>
@@ -157,8 +162,6 @@ https://templatemo.com/tm-559-zay-shop
         <div class="login_api">
             <a href="/oauth2/authorization/google"><img src="/image/google_login_button.png"></a>
         </div> -->
-    </div>
-    </form>
     </div>
 
     <!-- Modal 검색 모달창 !!!!!!! ------------------------------------->
@@ -346,14 +349,7 @@ https://templatemo.com/tm-559-zay-shop
         });
 
         joinLink = 'Gojoin.do';
-        mainLink = 'Gomain.do';
         
-        // 로그인 모달창 내부에 있는 로그인 버튼 이벤트 
-        let loginBtn = document.getElementById("btn-login");
-        loginBtn.onclick = hrefLink
-        function hrefLink(){
-            location.herf = mainLink;
-        }
         // 로그인 모달창 내부에 있는 회원가입 버튼 이벤트 
         var joinBtn = document.getElementById("btn-join");
         joinBtn.onclick = hrefLink
@@ -376,6 +372,47 @@ https://templatemo.com/tm-559-zay-shop
                 window.location.href = "Gomain.do";
             });
         });
+    </script>
+    
+   	<script>
+	    //HttpSession session = request.getSession();
+		//let user = (UserVO)session.getAttribute("user");
+		
+		console.log(${user.user_id})
+		console.log('${user}' == 'null')
+		if('${user}' == ''){
+			console.log("asdfasdfasdf")
+			$('#loginBtn').attr('style', "display: ''")
+			$('#logoutBtn').attr('style', "display: none")
+		}else{
+			$('#loginBtn').attr('style', "display: none")
+			$('#logoutBtn').attr('style', "display: ''")
+		}
+    </script>
+    
+    <script>
+    $('#btn-login').on('click', function(){
+        $.ajax({
+            url : "Login.do",
+            dataType : "JSON",
+            data : {
+                user_id : $('#inputId').val(),
+                user_pw : $('#inputPw').val()
+            },
+            success : function(res){
+                if(res.k == "false"){
+                	console.log("실패 확인")
+                    $('#idPwSameCheck').html('아이디와 비밀번호가 일치하지 않습니다');
+                }else if(res.k == "true"){
+                	window.location.href = "Gomain.do"
+                }
+            },
+			error : function(result) {
+			}
+        })
+    })
+    
+    
     </script>
 </body>
 
