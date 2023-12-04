@@ -204,7 +204,8 @@ https://templatemo.com/tm-559-zay-shop
                     </p>
                 </div>
                 <div class="col-md-4">
-                    <img src="assets/img/about-hero.svg" alt="About Hero">
+                <!--  1201 .png 파일 변경 -->
+                    <img src="assets/img/help_icon.png" alt="About Hero">
                 </div>
             </div>
         </div>
@@ -335,13 +336,22 @@ https://templatemo.com/tm-559-zay-shop
         function hrefLink(){
             location.href = joinLink;
         }
-        // 회원가입 버튼 이벤트
-        var joinBtn = document.getElementById("joinBtn");
-        joinBtn.onclick = hrefLink
-        function hrefLink(){
-            location.href = joinLink;
-        }
+    // 1201 회원가입 중복이라 삭제함
     </script>
+    <!-- 1201 로그인 모달창 script 변경 -->
+        <script>
+            // Wait for the DOM to be ready
+            document.addEventListener("DOMContentLoaded", function () {
+                // Find the close-icon button
+                var closeIcon = document.getElementById("icon-close");
+        
+                // Add a click event listener to the close-icon button
+                closeIcon.addEventListener("click", function () {
+                    // Redirect to main.html
+                    window.location.href = "GoerrListPage.do";
+                });
+            });
+        </script>
     <script>
 	// 심부름 전체 글 불러오기
 	console.log("확인용");

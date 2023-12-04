@@ -179,7 +179,7 @@
     <div class="container py-5">
         <div class="row py-5">
             <div style="height:500px;">
-                <form action="join.do" method="post">
+                <form action="Join.do" method="post">
                     <table class="col-md-9 m-auto">
                         <tr class="h100">
                             <td colspan="2" align="center"><h2>회원가입</h2></td>
@@ -227,21 +227,21 @@
                         <tr class="h50">
                             <td class="line2" align="center" >주소</td>
                             <td class="line1">
-                                <input type="text" name="user_phone" placeholder="주소"></input>
+                                <input type="text" name="user_addr1" placeholder="주소"></input>
                             </td>
                             <td></td>
                         </tr>
                         <tr class="h50">
                             <td class="line2" align="center">주민등록번호</td>
                             <td class="line1">
-                                <input type="text" name="user_phone" placeholder="주민등록번호" ></input>
+                                <input type="text" name="user_jumin" placeholder="주민등록번호" ></input>
                             </td>
                             <td></td>
                         </tr>
                         <tr class="h50">
                             <td class="line2" align="center" >성별</td>
                             <td class="line1">
-                                <select name="gender" id="" >
+                                <select name="user_gender" id="" >
                                     <option value="none">-------성별선택-------</option>
                                     <option value="man">남성</option>
                                     <option value="women">여성</option>
@@ -252,7 +252,7 @@
                         <tr class="h50">
                             <td class="line2" align="center" >전화번호</td>
                             <td class="line1">
-                                <input type="text" name="user_addr1" placeholder="전화번호" ></input>
+                                <input type="text" name="user_phone" placeholder="전화번호" ></input>
                             </td>
                             <td></td>
                         </tr>
@@ -306,17 +306,7 @@
     <!-- End Script -->
 
 
-     <script>
-    // 이것도 안돼
-        // link = 'main.html';
 
-        // let btn1 = document.getElementById("btn1");
-        // btn1.onclick = hrefLink;
-        // function hrefLink() {
-        //     window.location.href = link;
-        // }
-    </script>
-        <!-- 가입하기 버튼 클릭시 main.html로 이동하는 script 추가 .. 해야하는데 작동 X.. ;;   ------------->
 
     <!-- 로그인 모달창 Script------------------>
     <script>
@@ -342,13 +332,23 @@
         function hrefLink(){
             location.href = joinLink;
         }
-        // 회원가입 버튼 이벤트
-        var joinBtn = document.getElementById("joinBtn");
-        joinBtn.onclick = hrefLink
-        function hrefLink(){
-            location.href = joinLink;
-        }
+        // 1201 회원가입 중복으로 인해 삭제함
     </script>
+        <!-- 1201 로그인 모달 닫기 script 수정 -->
+        <script>
+            // Wait for the DOM to be ready
+            document.addEventListener("DOMContentLoaded", function () {
+                // Find the close-icon button
+                var closeIcon = document.getElementById("icon-close");
+        
+                // Add a click event listener to the close-icon button
+                closeIcon.addEventListener("click", function () {
+                    // Redirect to main.html
+                    window.location.href = "Gomain.do";
+                });
+            });
+        </script>
+    
 </body>
 
 </html>

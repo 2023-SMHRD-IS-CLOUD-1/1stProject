@@ -124,7 +124,7 @@ input:focus {
     float: right;
 }
 /* h2c 해당 속성을 가진 h태그는 마진값을 0px갖는다 */
-.noMargin{
+.noMargin {
     margin-bottom: 0px;
     margin-left: 0px;
     margin-top: 0px;

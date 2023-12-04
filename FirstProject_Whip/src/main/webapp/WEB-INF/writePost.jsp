@@ -1,12 +1,12 @@
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%> 
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>당근과채찍_핵심_PostPage</title>
+    <title>당근과채찍_핵심_writePost</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -41,7 +41,7 @@ https://templatemo.com/tm-559-zay-shop
                 <div>
                     <i class="fa fa-envelope mx-2"></i>
                     <a class="navbar-sm-brand text-light text-decoration-none"
-                        href="https://smhrd.or.kr/course/aicamp/">caroot&whip@smhrd.com</a>
+                        href="https://smhrd.or.kr/course/aicamp/">carrot&whip@smhrd.com</a>
                 </div>
                 <div>
                     <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i
@@ -175,7 +175,7 @@ https://templatemo.com/tm-559-zay-shop
     <!-- Start Content -->
     <div class="container py-5" id="postContent">
 		<div id="postBodyArea">
-			<span href="#" id="postTitle">우리동네 소식</span>
+			<span href="#" id="postTitle">작성 글 목록</span>
 			<form action="#" id="PostSearchForm">
 				<input type="text" id="postSearch"> <select
 					name="postSearchFilter" id="postSearchFilter">
@@ -185,7 +185,8 @@ https://templatemo.com/tm-559-zay-shop
 					class="ic-plus"></i>
 			</form>
 			<div>
-				<a href="Gopost_write.do" id="postUpdateA">글작성</a>
+				<!-- <a href="Gopost_write.do" id="postUpdateA">글작성</a> -->
+                <br>
 			</div>
 			<hr class="borderLine">
 			<table id="postTable">

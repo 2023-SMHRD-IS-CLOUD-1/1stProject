@@ -1,12 +1,12 @@
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%> 
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>당근과채찍_핵심_PostPage</title>
+    <title>당근과채찍_핵심_writeComment</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -175,7 +175,7 @@ https://templatemo.com/tm-559-zay-shop
     <!-- Start Content -->
     <div class="container py-5" id="postContent">
 		<div id="postBodyArea">
-			<span href="#" id="postTitle">우리동네 소식</span>
+			<span href="#" id="postTitle">작성 댓글 목록</span>
 			<form action="#" id="PostSearchForm">
 				<input type="text" id="postSearch"> <select
 					name="postSearchFilter" id="postSearchFilter">
@@ -185,15 +185,16 @@ https://templatemo.com/tm-559-zay-shop
 					class="ic-plus"></i>
 			</form>
 			<div>
-				<a href="Gopost_write.do" id="postUpdateA">글작성</a>
+				<!-- <a href="Gopost_write.do" id="postUpdateA">글작성</a> -->
+                <br>
 			</div>
 			<hr class="borderLine">
 			<table id="postTable">
 				<tr class = "test1">
-					<th class="postTableHead" style="width: 80px;">글 번호</th>
+                    <!-- 댓글 번호 width 80 >> 90으로 변경함 -->
+					<th class="postTableHead" style="width: 90px;">댓글 번호</th>
 					<th class="postTableHead" style="width: 100px;">작성자</th>
 					<th class="postTableHead" style="width: 800px;">제목</th>
-					<th class="postTableHead" style="width: 140px;">조회수</th>
 					<th class="postTableHead" style="width: 140px;">추천</th>
 					<th class="postTableHead" style="width: 140px;">작성일자</th>
 					<th class="postTableHead" style="width: 90px;">즐겨찾기</th>

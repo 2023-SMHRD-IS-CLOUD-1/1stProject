@@ -55,7 +55,7 @@ public class JoinService implements Command {
     	 // 실패시
     	 // return 다시시도해주세요 페이지 -> main페이지로 이동
      }
-      return null;
+      return "redirect:/Gomain.do";
 
    }
 }

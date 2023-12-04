@@ -114,12 +114,45 @@ https://templatemo.com/tm-559-zay-shop
                         <span
                             class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
                     </a>
+                     <!-- 1201 로그인, 회원가입 버튼 추가 -->
+                    <!--로그인 버튼  --------------------------->
+                    <a href="#"><button class="btn-open-modal nav-item loginbtn">로그인</button></a>
+                    <!-- 회원가입 버튼 --------------------------->
+                    <a href="#"><button id="joinBtn" class="btn-open-modal nav-item loginbtn">회원가입</button></a>
                 </div>
             </div>
 
         </div>
     </nav>
     <!-- Close Header -->
+    <!-- 1201 로그인 모달창 추가 ------------------------------------------>
+    <div class="modal">
+        <div class="modal_body">
+            <h2>LOGIN </h2> <span id="icon-close" class="close-icon">&#10006;</span>
+            <div class="member_login">
+                <form th:action="#" th:method="POST">
+                    <div class="member_login_input">
+                        <input type="text" name="username" placeholder="아이디">
+                    </div>
+            </div>
+            <div class="member_login_input">
+                <input type="password" name="password" placeholder="비밀번호">
+            </div>
+            <br>
+            <a href="" class="loginSearch"> 아이디 찾기</a>
+            <a href="" class="loginSearch"> 비밀번호 찾기</a>
+            <div class="member_login_btn">
+                <br>
+                <input type="submit" class="btn btn-secondary" id="btn-login" value="로그인">
+                <input type="button" class="btn btn-secondary" id="btn-join" value="회원가입">
+                <br>
+                <br>
+
+            </div>
+        </div>
+    </div>
+    </form>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog"
@@ -280,7 +313,44 @@ https://templatemo.com/tm-559-zay-shop
             window.location.href = 'Gopost.do'
         }
     </script>
+ <!-- 1201 로그인 모달창 Script, 닫기 script도 추가------------------>
+    <script>
+        const modal = document.querySelector('.modal');
+        const btnOpenModal = document.querySelector('.btn-open-modal');
 
+        btnOpenModal.addEventListener("click", () => {
+            modal.style.display = "flex";
+        });
+
+        joinLink = 'join.html';
+        mainLink = 'main.html';
+
+        // 로그인 모달창 내부에 있는 로그인 버튼 이벤트 
+        let loginBtn = document.getElementById("btn-login");
+        loginBtn.onclick = hrefLink
+        function hrefLink() {
+            location.herf = mainLink;
+        }
+        // 로그인 모달창 내부에 있는 회원가입 버튼 이벤트 
+        var joinBtn = document.getElementById("btn-join");
+        joinBtn.onclick = hrefLink
+        function hrefLink() {
+            location.href = joinLink;
+        }
+    </script>
+    <script>
+        // Wait for the DOM to be ready
+        document.addEventListener("DOMContentLoaded", function () {
+            // Find the close-icon button
+            var closeIcon = document.getElementById("icon-close");
+    
+            // Add a click event listener to the close-icon button
+            closeIcon.addEventListener("click", function () {
+                // Redirect to main.html
+                window.location.href = "Gopost_read.do";
+            });
+        });
+    </script>
 </body>
 
 </html>

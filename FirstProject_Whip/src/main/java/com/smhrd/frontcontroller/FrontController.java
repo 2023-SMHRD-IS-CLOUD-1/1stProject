@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.w3c.dom.DOMStringList;
 
+import com.smhrd.controller.CertificationService;
 import com.smhrd.controller.Command;
 import com.smhrd.controller.DeleteService;
 import com.smhrd.controller.Err_detailService;
@@ -85,6 +86,8 @@ public class FrontController extends HttpServlet {
 		
 		// 자신의 프로필 보기
 		map.put("SelectOne.do", new SelectOneService());
+		// 본인 인증 서비스
+		map.put("Certification.do", new CertificationService());
 	}
 		
 		
