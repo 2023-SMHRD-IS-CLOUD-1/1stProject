@@ -1,6 +1,7 @@
 package com.smhrd.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -28,14 +29,17 @@ public class LoginService implements Command {
 
 		UserVO result = dao.login(vo);
 		// 로그인 성공
-		if(result != null ) {
+		PrintWriter out = response.getWriter();
+		if (result != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("user", result);
-			UserVO res = (UserVO)session.getAttribute("user");
-			
-		} else {
-			// 실패시
-			// return login페이지
+			UserVO re = (UserVO)session.getAttribute("user");
+			System.out.println(re.getUser_id());
+			out.print("{\"k\":\"true\"}");
+		}
+		else {
+			System.out.println("로그인 실패");
+			out.print("{\"k\":\"false\"}");
 		}
 		return null;
 

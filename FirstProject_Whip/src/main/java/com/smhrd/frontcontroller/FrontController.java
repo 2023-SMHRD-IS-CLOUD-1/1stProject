@@ -28,6 +28,7 @@ import com.smhrd.controller.ErrupdateService;
 import com.smhrd.controller.FindService;
 import com.smhrd.controller.FvErrService;
 import com.smhrd.controller.FvPostService;
+import com.smhrd.controller.IdUniqueCheckService;
 import com.smhrd.controller.JoinService;
 import com.smhrd.controller.LoginService;
 import com.smhrd.controller.LogoutService;
@@ -69,6 +70,7 @@ public class FrontController extends HttpServlet {
 		map.put("Logout.do", new LogoutService());
 		map.put("Update.do", new UpdateService());
 		map.put("Delete.do", new DeleteService());
+		map.put("IdUniqueCheck.do", new IdUniqueCheckService());
 		
 		// id pw 찾기
 		map.put("Find.do", new FindService());

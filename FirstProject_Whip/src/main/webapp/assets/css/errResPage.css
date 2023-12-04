@@ -1,0 +1,236 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@500&display=swap');
+
+.modal {
+    position: absolute;
+    display: none;
+
+    justify-content: center;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+
+
+    background-color: rgba(0, 0, 0, 0.4);
+}
+/* modal 내부 */
+.modal_body {
+    position: absolute;
+    top: 50%;
+
+    width: 400px;
+    height: 280px;
+
+    padding: 40px;
+
+    text-align: center;
+
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+
+    transform: translateY(-50%);
+}
+/* 1201 수정 */
+.close-icon {
+    display: inline;
+    position: relative;
+    left: 130px;
+    bottom: 40px;
+    border: 0px;
+  }
+/* 모달창 h2태그  */
+.modal_body>h2 {
+    display: inline;
+    position: relative;
+    left: 10px;
+    bottom: 5px;
+}
+.nav-link {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+
+}
+/* 모달창 내부 아이디, 비밀번호 찾기 버튼 */
+.loginSearch {
+    font-size: 10px;
+}
+/* HEF 인기 서비스, 검색 모달창 */
+.form-control, .nav-item {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+.h1 {
+    font-family: 'Black Han Sans', sans-serif;
+}
+/* 로그인, 화원가입 버튼  */
+.btn-open-modal {
+    border: 0px;
+}
+.loginbtn {
+    margin: 5px;
+    /* padding-right: 20px; */
+}
+/* 카테고리 이미지 위치 조정 */
+.itemImg {
+    position: relative;
+    top: 10px;
+}
+.col-md-8>h1 {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 49px;
+    position: relative;
+    left: 60px;
+}
+.bannerContent {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-size: 23px;
+    /* font-weight: 400; */
+    position: relative;
+    left: 20px;
+    top: 30px;
+}
+
+/* ------------ */
+
+.item {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+}
+.container1 {
+    display: grid;
+    grid-template-columns: 16% 16% 16% 16% 16% 16% ;
+    grid-gap: 1%;
+    text-align: center;
+    margin-bottom: 100px;
+    margin-top: 20px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+#item .img{
+    float: left;
+}
+
+.menu {
+    margin-top: 5px;
+}
+
+#PostContent{
+    height: 1500px;
+}
+
+#PostSearchForm {
+    display: inline;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    /* font-family: 'Black Han Sans', sans-serif; */
+  }
+#postSearch, #postSearchSub {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    /* font-family: 'Black Han Sans', sans-serif; */
+}
+
+#PostUpdate1 {
+    text-align: right;
+    margin-top: 20px;
+    
+}
+
+/* 1201 심부름 등록 버튼 수정 */
+#postUpdate{
+    border-style: none;
+    border-color: rgb(82, 159, 82);
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    border-radius: 10%;
+    font-size: 20px;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
+    background-color: rgb(138, 185, 138);
+    /* font-family: 'Black Han Sans', sans-serif; */
+}
+/* 1204 */
+#PostSearch{
+    text-align: right;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+#searchInput {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+
+.borderLine>table{
+    text-align: center;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+.errResList {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    text-align: center;
+}
+
+#postContent .borderLine {
+    width: 100%;
+    height: 8px;
+    color: green;
+  }
+
+#pageNumber {
+    text-align: center;
+}
+
+.categoryBtn{
+    background-color: darkseagreen;
+    border: none;
+    border-radius: 10px;
+    height: 30px;
+    width: 95%;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    /* font-family: 'Black Han Sans', sans-serif; */
+  }
+ 
+  .pageNumberA{
+    border: none;
+  }
+ 
+ /* 변경된 부분*/ 
+    .fverr:hover, .fverr:active{
+	  color: gold;
+  }
+  .fverr:visited{
+	  color: gold;
+  }
+  button{
+	background: none;
+	border: none;
+}
+/* 1204 */
+/* 수락, 대기, 완료 버튼 */
+#postUpdate{
+    border-style: none;
+    border-color: rgb(82, 159, 82);
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    border-radius: 10%;
+    font-size: 20px;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
+    background-color: rgb(138, 185, 138);
+    /* font-family: 'Black Han Sans', sans-serif; */
+  }
+#PostTitle {
+    font-size: 30pt;
+    /* background-color: chartreuse; */
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    position: relative;
+    top: 20px;
+    font-weight: 400;
+  }
+  
+
+
+  

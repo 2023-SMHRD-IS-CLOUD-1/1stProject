@@ -1,6 +1,8 @@
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
+<%@page import="com.smhrd.model.UserVO"%>
+<%@page import="javax.servlet.http.HttpSession"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -117,8 +119,9 @@ https://templatemo.com/tm-559-zay-shop
                     <i class="fa fa-fw fa-user text-dark mr-3"></i>
                 </a>
                 <!--로그인 버튼 !!!!!! --------------------------->
-                <a href="#"><button class="btn-open-modal nav-item loginbtn">로그인</button></a>
+                <a href="#"><button class="btn-open-modal nav-item loginbtn" id ="loginBtn">로그인</button></a>
                 <!-- 회원가입 버튼!!!! --------------------------->
+                <a href="Logout.do"><button id="logoutBtn" class="btn-open-modal nav-item loginbtn">로그아웃</button></a>
                 <a href="#"><button id="joinBtn" class="btn-open-modal nav-item loginbtn">회원가입</button></a>
                 </div>
             </div>
@@ -131,14 +134,15 @@ https://templatemo.com/tm-559-zay-shop
         <div class="modal_body">
             <h2>LOGIN </h2> <span id="icon-close" class="close-icon">&#10006;</span>
             <div class="member_login">
-                <form th:action="dfasdf" th:method="POST">
-                    <div class="member_login_input">
-                        <input type="text" name="username" placeholder="아이디">
-                    </div>
+                <div class="member_login_input">
+                    <input id="inputId" type="text" name="username" placeholder="아이디">
+                </div>
             </div>
             <div class="member_login_input">
-                <input type="password" name="password" placeholder="비밀번호">
+                <input id="inputPw" type="password" name="password" placeholder="비밀번호">
             </div>
+            <br>
+            <span id="idPwSameCheck"></span>
             <br>
             <a href="GoIdFind.do" class="loginSearch"> 아이디 찾기</a>
             <a href="GopwFind.do" class="loginSearch"> 비밀번호 찾기</a>
@@ -158,8 +162,6 @@ https://templatemo.com/tm-559-zay-shop
         <div class="login_api">
             <a href="/oauth2/authorization/google"><img src="/image/google_login_button.png"></a>
         </div> -->
-    </div>
-    </form>
     </div>
 
     <!-- Modal 검색 모달창 !!!!!!! ------------------------------------->
@@ -348,41 +350,123 @@ https://templatemo.com/tm-559-zay-shop
         });
 
         joinLink = 'Gojoin.do';
-        mainLink = 'Gomain.do';
         
-        // 로그인 모달창 내부에 있는 로그인 버튼 이벤트 
-        let loginBtn = document.getElementById("btn-login");
-        loginBtn.onclick = hrefLink
-        function hrefLink(){
-            location.herf = mainLink;
-        }
         // 로그인 모달창 내부에 있는 회원가입 버튼 이벤트 
         var joinBtn = document.getElementById("btn-join");
         joinBtn.onclick = hrefLink
         function hrefLink(){
             location.href = joinLink;
         }
-        // 회원가입 버튼 이벤트
-        var joinBtn = document.getElementById("joinBtn");
-        joinBtn.onclick = hrefLink
-        function hrefLink(){
-            location.href = joinLink;
-        }
+  
     </script>
 <script>
     // 모달 창 닫기 함수
     // 닫히긴 하지만 연달아 실행시 modal만 켜지는 현상이 발생 ... modal body는 뜨지 않음
-    function closeModal() {
-        var modal = document.querySelector('.modal');
-        modal.style.display = 'none';
-        var modalBody = document.querySelector('.modal_body');
-        modalBody.style.display = 'none';
-    }
-    // 아이콘을 클릭할 때 모달 창 닫기
-    document.getElementById('icon-close').addEventListener('click', closeModal);
+      <script>
+        // Wait for the DOM to be ready
+        document.addEventListener("DOMContentLoaded", function () {
+            // Find the close-icon button
+            var closeIcon = document.getElementById("icon-close");
     
-</script>
-
+            // Add a click event listener to the close-icon button
+            closeIcon.addEventListener("click", function () {
+                // Redirect to main.html
+                window.location.href = "Gomain.do";
+            });
+        });
+    </script>
+    
+      <script>
+       //HttpSession session = request.getSession();
+      //let user = (UserVO)session.getAttribute("user");
+      let loginBtn = document.querySelector('#loginBtn');
+      let logoutBtn = document.querySelector('#logoutBtn');
+      
+      console.log(11111111111111111);
+      console.log('${user.user_id}');
+      console.log('${user}' == 'null');
+      if('${user}' == ''){
+         console.log("asdfasdfasdf")
+         //loginBtn.style.display ='';
+         //logoutBtn.style.display ='none';
+         $('#loginBtn').attr('style', "display: ''")
+         $('#logoutBtn').attr('style', "display: none")
+      }else{
+         $('#loginBtn').attr('style', "display: none")
+         $('#logoutBtn').attr('style', "display: ''")
+      }
+    </script>
+    
+    <script>
+    $('#btn-login').on('click', function(){
+        $.ajax({
+            url : "Login.do",
+            dataType : "JSON",
+            data : {
+                user_id : $('#inputId').val(),
+                user_pw : $('#inputPw').val()
+            },
+            success : function(res){
+                if(res.k == "false"){
+                   console.log("실패 확인")
+                    $('#idPwSameCheck').html('아이디와 비밀번호가 일치하지 않습니다');
+                }else if(res.k == "true"){
+                   window.location.href = "Gomain.do"
+                }
+            },
+         error : function(result) {
+         }
+        })
+    })
+    
+    </script>
+    
+      <script>
+       //HttpSession session = request.getSession();
+      //let user = (UserVO)session.getAttribute("user");
+      let loginBtn = document.querySelector('#loginBtn');
+      let logoutBtn = document.querySelector('#logoutBtn');
+      
+      console.log(11111111111111111);
+      console.log('${user.user_id}');
+      console.log('${user}' == 'null');
+      if('${user}' == ''){
+         console.log("asdfasdfasdf")
+         //loginBtn.style.display ='';
+         //logoutBtn.style.display ='none';
+         $('#loginBtn').attr('style', "display: ''")
+         $('#logoutBtn').attr('style', "display: none")
+      }else{
+         $('#loginBtn').attr('style', "display: none")
+         $('#logoutBtn').attr('style', "display: ''")
+      }
+    </script>
+    
+    <script>
+    $('#btn-login').on('click', function(){
+        $.ajax({
+            url : "Login.do",
+            dataType : "JSON",
+            data : {
+                user_id : $('#inputId').val(),
+                user_pw : $('#inputPw').val()
+            },
+            success : function(res){
+                if(res.k == "false"){
+                   console.log("실패 확인")
+                    $('#idPwSameCheck').html('아이디와 비밀번호가 일치하지 않습니다');
+                }else if(res.k == "true"){
+                   window.location.href = "Gomain.do"
+                }
+            },
+         error : function(result) {
+         }
+        })
+    })
+    
+    
+    </script>
+>>>>>>> branch 'master' of https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject
 </body>
 
 </html>

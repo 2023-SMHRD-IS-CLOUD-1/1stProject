@@ -179,7 +179,7 @@
     <div class="container py-5">
         <div class="row py-5">
             <div style="height:500px;">
-                <form action="Join.do" method="post">
+                <form action="Join.do" method="post" onsubmit="return test()">
                     <table class="col-md-9 m-auto">
                         <tr class="h100">
                             <td colspan="2" align="center"><h2>회원가입</h2></td>
@@ -190,8 +190,10 @@
                         <tr class="h50">
                             <td class="w7000 line2" align="center" >ID</td>
                             <td class="w3100 line1">
-                                <input type="text" name="user_id" placeholder="아이디" ></input>
-                                 <button id="idCheck" type="button" onclick="checkDuplicate()" >중복체크</button>
+                                <input id="input021" type="text" name="user_id" placeholder="아이디" ></input>
+                                 <button id="idCheck" type="button">중복체크</button>
+                                 <br></br>
+                                <span id="idUniqueCheck"></span>
                             </td>
                             <td class="w240"></td>
                             <td></td>
@@ -199,49 +201,51 @@
                         <tr class="h50">
                             <td class="line2" align="center" >PW</td>
                             <td class="line1">
-                                <input type="password" name="user_pw" placeholder="비밀번호" ></input>
+                                <input id="input022" type="password" name="user_pw" placeholder="비밀번호" ></input>
                             </td>
                             <td></td>
                         </tr>
                         <tr class="h50">
                             <td class="line2"></td>
                             <td class="line1">
-                                <input type="password" name="user_pw_check" placeholder="비밀번호 확인" ></input>
+                                <input id="input023" type="password" name="user_pw_check" placeholder="비밀번호 확인" ></input>
+                                <br></br>
+                                <span id=pwCheck></span>
                             </td>
                             <td></td>
                         </tr>
                         <tr class="h50">
                             <td class="line2" align="center" >이름</td>
                             <td class="line1">
-                                <input type="text" name="user_name" placeholder="이름" ></input>
+                                <input id="input024" type="text" name="user_name" placeholder="이름" ></input>
                             </td>
                             <td></td>
                         </tr>
                         <tr class="h50">
                             <td class="line2" align="center" >닉네임</td>
                             <td class="line1">
-                                <input type="text" name="user_nick" placeholder="닉네임" ></input>
+                                <input id="input025" type="text" name="user_nick" placeholder="닉네임" ></input>
                             </td>
                             <td></td>
                         </tr>
                         <tr class="h50">
                             <td class="line2" align="center" >주소</td>
                             <td class="line1">
-                                <input type="text" name="user_addr1" placeholder="주소"></input>
+                                <input id="input026" type="text" name="user_addr1" placeholder="주소"></input>
                             </td>
                             <td></td>
                         </tr>
                         <tr class="h50">
                             <td class="line2" align="center">주민등록번호</td>
                             <td class="line1">
-                                <input type="text" name="user_jumin" placeholder="주민등록번호" ></input>
+                                <input id="input027" type="text" name="user_jumin" placeholder="주민등록번호" ></input>
                             </td>
                             <td></td>
                         </tr>
                         <tr class="h50">
                             <td class="line2" align="center" >성별</td>
                             <td class="line1">
-                                <select name="user_gender" id="" >
+                                <select id="select001" name="user_gender">
                                     <option value="none">-------성별선택-------</option>
                                     <option value="man">남성</option>
                                     <option value="women">여성</option>
@@ -252,7 +256,7 @@
                         <tr class="h50">
                             <td class="line2" align="center" >전화번호</td>
                             <td class="line1">
-                                <input type="text" name="user_phone" placeholder="전화번호" ></input>
+                                <input id="input028"type="text" name="user_phone" placeholder="전화번호" ></input>
                             </td>
                             <td></td>
                         </tr>
@@ -348,7 +352,189 @@
                 });
             });
         </script>
-    
+    <script>
+        function test() {
+            let idNum = idTest();
+            if (idNum == 0) {
+                return false;
+            }
+            let idSameNum = idSameTest();
+            if (idSameNum == 0) {
+                return false;
+            }
+            let pwNum = pwTest();
+            if (pwNum == 0) {
+                return false;
+            }
+            let pwCheckNum = pwCheckTest();
+            if (pwCheckNum == 0) {
+                return false;
+            }
+            let pwSameNum = pwSameTest();
+            if (pwSameNum == 0) {
+                return false;
+            }
+            let nameNum = nameTest();
+            if (nameNum == 0) {
+                return false;
+            }
+            let nickNum = nickTest();
+            if (nickNum == 0) {
+                return false;
+            }
+            let addrNum = addrTest();
+            if (addrNum == 0) {
+                return false;
+            }
+            let juminNum = juminTest();
+            if (juminNum == 0) {
+                return false;
+            }
+            let genderNum = genderTest();
+            if (genderNum == 0) {
+                return false;
+            }
+            let phoneNum = phoneTest();
+            if (phoneNum == 0) {
+                return false;
+            }
+            return true;
+        }
+        function idTest() {
+            if ($('#input021').val() == "") {
+                alert('아이디를 입력해주세요');
+                return 0;
+            } else {
+                return 1;
+            }
+        }
+        function pwTest() {
+            if ($('#input022').val() == "") {
+                alert('비밀번호를 입력해주세요');
+                return 0;
+            } else {
+                return 1;
+            }
+        }
+        function nameTest() {
+            if ($('#input024').val() == "") {
+                alert('이름을 입력해주세요');
+                return 0;
+            } else {
+                return 1;
+            }
+        }
+        function nickTest() {
+            if ($('#input025').val() == "") {
+                alert('닉네임을 입력해주세요');
+                return 0;
+            } else {
+                return 1;
+            }
+        }
+        function addrTest() {
+            if ($('#input026').val() == "") {
+                alert('주소를 입력해주세요');
+                return 0;
+            } else {
+                return 1;
+            }
+        }
+        function juminTest() {
+            if ($('#input027').val() == "") {
+                alert('주민등록번호를 입력해주세요');
+                return 0;
+            } else {
+                return 1;
+            }
+        }
+        function phoneTest() {
+            if ($('#input028').val() == "") {
+                alert('전화번호를 입력해주세요');
+                return 0;
+            } else {
+                return 1;
+            }
+        	}
+        function genderTest() {
+            if ($('#select001 :selected').val() == "") {
+                alert('성별을 선택해주세요');
+                return 0;
+            } else {
+                return 1;
+            }
+        }
+        function pwCheckTest(){
+            if ($('#input023').val() == '') {
+                alert('비밀번호를 확인해주세요');
+                return 0;
+            } else {
+                return 1;
+            }
+        }
+        function pwSameTest(){
+           	if($('#pwCheck').html()!=''){
+                alert('비밀번호가 일치하지 않습니다');
+               	return 0;
+           	}else {
+                return 1;
+            }
+        }
+        function idSameTest(){
+           	if($('#idUniqueCheck').html()!="사용 가능한 아이디입니다"){
+                if($('#idUniqueCheck').html()==""){
+	           		alert('아이디 중복확인을 해주세요');
+                }else{
+	           		alert('중복된 아이디 입니다');
+                }
+               	return 0;
+           	}else {
+                return 1;
+            }
+        }
+    </script>
+    <script>
+    $('#input021').on('keyup', function(){
+    	$('#idUniqueCheck').html("")
+    })
+    $('#input022').on('keyup', function(){
+	    if ($('#input022').val() != $('#input023').val()) {
+	    	$('#pwCheck').html('비밀번호가 일치하지 않습니다');
+	    }else{
+	    	$('#pwCheck').html('');
+	    }
+    })
+    $('#input023').on('keyup', function(){
+	    if ($('#input022').val() != $('#input023').val()) {
+	    	$('#pwCheck').html('비밀번호가 일치하지 않습니다');
+	    }else{
+	    	$('#pwCheck').html('');
+	    }
+    })
+    </script>
+    <script>
+    $('#idCheck').on('click', function(){
+    	console.log("rkrkrk");
+        $.ajax({
+            url : "IdUniqueCheck.do",
+            dataType : "JSON",
+            data : {
+                userId : $('#input021').val()
+            },
+            success : function(res){
+            	console.log("송공");
+                if(res.k == "true"){
+                    $('#idUniqueCheck').html('중복된 아이디입니다');
+                }else{
+                    $('#idUniqueCheck').html('사용 가능한 아이디입니다');
+                }
+            },
+			error : function(result) {
+            	console.log("공");
+			}
+        })
+    })
+    </script>
 </body>
 
 </html>
