@@ -34,6 +34,8 @@ import com.smhrd.controller.ManagePostService;
 import com.smhrd.controller.Manage_detailService;
 import com.smhrd.controller.ManageselectService;
 import com.smhrd.controller.PostBoardService;
+import com.smhrd.controller.PostNumService;
+import com.smhrd.controller.PostReadService;
 import com.smhrd.controller.PostdeleteService;
 import com.smhrd.controller.PostmodifyService;
 import com.smhrd.controller.PostupdateService;
@@ -82,6 +84,8 @@ public class FrontController extends HttpServlet {
 		map.put("Postmodify.do", new PostmodifyService());
 		map.put("Postdelete.do", new PostdeleteService());
 		map.put("PostBoard.do", new PostBoardService());
+		map.put("PostRead.do", new PostReadService());
+		map.put("PostNum.do", new PostNumService());
 		map.put("FvPost.do", new FvPostService());
 		
 		// 평점

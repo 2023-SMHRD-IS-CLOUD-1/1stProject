@@ -279,9 +279,8 @@ https://templatemo.com/tm-559-zay-shop
             window.location.href = "Gopost.do";
         });
     });
-</script>
-
-	<!-- 11.28 수정 -->
+    </script>
+	<!-- 성욱의 게시판 메인 수정 -->
 	<script>
 		let firstBtn = document.querySelector('#pageNumber>.pageNumberA:nth-child(2)');
 		let lastBtn = document.querySelector('#pageNumber>.pageNumberA:nth-child(6)')
@@ -290,13 +289,14 @@ https://templatemo.com/tm-559-zay-shop
 		let prevBtn = document.querySelector('#pageNumber>.pageNumberAMove:first-child');
 		let nextBtn = document.querySelector('#pageNumber>.pageNumberAMove:last-child');
 		let selectedNum = 1;
-		
+		let lastPageNum = 1;
 		// 페이지 시작시 1번 페이지 선택
 		document.addEventListener("DOMContentLoaded", function() {
 			// 1번 페이지 버튼 클릭
 			if (firstBtn) {
 			firstBtn.click();
 			loadPostTen();
+			loadPostNum();
 			}
 		});
 		
@@ -309,6 +309,7 @@ https://templatemo.com/tm-559-zay-shop
 		prevBtn.addEventListener('click', function() {
 			selectedNum = (parseInt((selectedNum - 1)/ 5)) * 5;
 			for(let i = 0; i < 5; i++) {
+				pageButtons[i].style.display = '';
 				pageButtons[i].innerHTML = parseInt(pageButtons[i].innerHTML) -5;
 			} if (firstBtn.innerHTML == '1') {
 				prevBtn.style.display = 'none';
@@ -320,6 +321,9 @@ https://templatemo.com/tm-559-zay-shop
 			lastBtn.style.color = 'red';
 			lastBtn.style.textDecoration = 'underline';
 			loadPostTen();
+			nextBtn.style.display = '';
+			
+			
 		});
 		// >> 버튼 눌렀을 때
 		nextBtn.addEventListener('click', function() {
@@ -337,6 +341,7 @@ https://templatemo.com/tm-559-zay-shop
 			firstBtn.style.color = 'red';
 			firstBtn.style.textDecoration = 'underline';
 			loadPostTen();
+			loadPostNum()
 		});
 		
 	    // 부모 요소에 이벤트 리스너 추가
@@ -358,7 +363,7 @@ https://templatemo.com/tm-559-zay-shop
 	    });	
 	    function loadPostTen() {
 		    $.ajax({
-				url : "http://localhost:8081/FirstProject_Whip4/PostBoard.do",
+				url : "PostBoard.do",
 				data : {selectedNum : selectedNum},
 				dataType : "json",
 				success : function(res) {
@@ -366,7 +371,7 @@ https://templatemo.com/tm-559-zay-shop
 					for (let i = 0; i < 10; i++) {
 						var a = "";
 						a += "<tr class = \"postListCL\">";
-						a += "<td class = \"postListNume\">"+ res[i].post_num + "</td>";
+						a += "<td class = \"postListNum\">"+ res[i].post_num + "</td>";
 						a += "<td class = \"postListId\">"+ res[i].user_id + "</td>";
 						a += "<td class = \"postListTitle\"><a href = \"#\">"+ res[i].post_title + "</a></td>";
 						a += "<td class = \"postListViews\">"+ res[i].post_views + "</td>";
@@ -375,13 +380,65 @@ https://templatemo.com/tm-559-zay-shop
 						a += "</tr>"
 						$("#postTable").append(a);
 					}
-					
+					console.log(res.length);
 				},
 				error : function(result) {
 					console.log('안됨');
 				}
 			});
 	    }
+	    
+	    function loadPostNum() {
+	    	$.ajax({
+	    		url : "PostNum.do",
+	    		dataType : "json",
+	    		success : function(res) {
+	    			lastPageNum = parseInt((res - 1)/10) + 1;
+	    			for(let i = 0; i < 5; i++) {
+	    				if(lastPageNum < pageButtons[i].innerHTML) {
+	    					nextBtn.style.display = 'none';
+    						pageButtons[i].style.display = 'none';
+	    				}
+	    			}
+	    			
+	    		},
+	    		error : function(res){
+	    			console.log('실패999999999999999');
+	    			lastPageNum = res;
+	    		}
+	    	});
+	    }
+	</script>
+	<script>
+	$(document).ready(function() {
+	    // 클릭 이벤트 핸들러
+	     $('#postTable').on('click', '.postListTitle a', function(e) {
+	    	 e.preventDefault();
+	     
+	      // 클릭한 행의 post_num 값을 가져오기
+	      var clickedPostNum = $(this).closest("tr").find(".postListNum").text();
+	      // 데이터 저장
+	      localStorage.setItem("clickedPostNum", clickedPostNum);
+	      // 클릭한 게시글 띄워주고 조회수 1 늘려주는 ajax
+	      $.ajax({
+                type: 'POST',
+                url: 'PostRead.do',
+                data: {
+                	clickedPostNum : clickedPostNum
+                },
+                success: function(response) {
+                    console.log("성공");
+                    window.location.href = 'Gopost_read.do';
+                    // 성공적으로 응답을 받았을 때 수행할 작업
+                },
+                error: function(error) {
+                	consol.log('실패');
+                    console.error('Error:', error);
+                    
+                }
+	      });
+	    });
+	  });
 	</script>
 	<!-- End Script -->
 </body>
