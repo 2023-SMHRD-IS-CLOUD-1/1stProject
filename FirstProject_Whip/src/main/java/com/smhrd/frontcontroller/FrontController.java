@@ -30,6 +30,9 @@ import com.smhrd.controller.FvPostService;
 import com.smhrd.controller.JoinService;
 import com.smhrd.controller.LoginService;
 import com.smhrd.controller.LogoutService;
+import com.smhrd.controller.ManagePostService;
+import com.smhrd.controller.Manage_detailService;
+import com.smhrd.controller.ManageselectService;
 import com.smhrd.controller.PostBoardService;
 import com.smhrd.controller.PostdeleteService;
 import com.smhrd.controller.PostmodifyService;
@@ -88,6 +91,11 @@ public class FrontController extends HttpServlet {
 		map.put("SelectOne.do", new SelectOneService());
 		// 본인 인증 서비스
 		map.put("Certification.do", new CertificationService());
+		
+		// 고객문의함
+		map.put("Manageselect.do", new ManageselectService());
+		map.put("ManagePost.do", new ManagePostService());
+		map.put("Manage_detail.do", new Manage_detailService());
 	}
 		
 		
