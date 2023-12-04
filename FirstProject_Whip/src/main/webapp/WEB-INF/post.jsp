@@ -196,7 +196,6 @@ https://templatemo.com/tm-559-zay-shop
 					<th class="postTableHead" style="width: 140px;">조회수</th>
 					<th class="postTableHead" style="width: 140px;">추천</th>
 					<th class="postTableHead" style="width: 140px;">작성일자</th>
-					<th class="postTableHead" style="width: 90px;">즐겨찾기</th>
 				</tr>
 			</table>
 			<hr class="borderLine">

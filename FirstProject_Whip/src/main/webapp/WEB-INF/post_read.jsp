@@ -178,32 +178,18 @@ https://templatemo.com/tm-559-zay-shop
     <div class="container py-5" id="postWriteBoard">
         <div id="postReadLayout">
             <div id="postReadHead">
-                <h1>질문 글) 비숍 4차전직 하는데 시간 얼마나 드나요</h1>
+                <h1>${postContent.post_title}</h1>
             </div>
             <div id="postReadNav">
-                <span>메창</span>
-                <span>23.11.24</span>
-                <span>조회 113</span>
-                <span>추천 1</span>
-                <span>댓글 0</span>
+                <span>${postContent.user_id}</span>
+                <span>${postContent.posted_at }</span>
+                <span>조회 ${postContent.post_views }</span>
+                <span>추천 ${postContent.post_likes }</span>
                 <button onclick="postList()">목록</button>
             </div>
             <hr>
             <div id="postReadSect1">
-                <span>안녕하세요. 이번에 새로 메이플 시작한 뉴비인데 직업 비숍으로 생각하고 있습니다.
-                    무자본이고 하루에 2~3시간 정도 접속하는데 4차전직까지 시간 얼마나 걸릴까요??</span>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
+                <span>${postContent.post_content }</span>
             </div>
             <hr>
             <div id="postReadSect2">
