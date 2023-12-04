@@ -466,7 +466,6 @@ https://templatemo.com/tm-559-zay-shop
     
     
     </script>
->>>>>>> branch 'master' of https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject
 </body>
 
 </html>
