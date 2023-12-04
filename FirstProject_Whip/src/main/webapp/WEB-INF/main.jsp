@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/templatemo.css">
     <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="./assets/css/manage.css">
     <!-- 분리한 css 파일 경로-->
     <link rel="stylesheet" href="assets/css/main.css">
 
@@ -267,8 +268,6 @@ https://templatemo.com/tm-559-zay-shop
     <section class="container py-5">
         <div class="row text-center pt-3">
             <div class="col-lg-6 m-auto">
-            <!-- 1201 br 태그 추가 -->
-            <br>
                 <h1 class="h1"  >HEF 인기 서비스 </h1>
             </div>
         </div>
@@ -276,33 +275,36 @@ https://templatemo.com/tm-559-zay-shop
             <div class="col-12 col-md-4 p-5 mt-3">
                 <a href="#"><img src="./assets/img/1.png" class="rounded-circle img-fluid border"></a>
                 <h5 class="text-center mt-3 mb-3">ex) 정리수납, 폐기물처리</h5>
-                <p class="text-center"><a class="btn btn-success">청소/정리</a></p>
+                <p class="text-center"><button class="categoryBtn" onclick="sendData('1')">청소/정리</button></p>
             </div>
             <div class="col-12 col-md-4 p-5 mt-3">
                 <a href="#"><img src="./assets/img/2.png" class="rounded-circle img-fluid border"></a>
                 <h2 class="h5 text-center mt-3 mb-3">ex) 비지니스 영어 과외</h2>
-                <p class="text-center"><a class="btn btn-success">과외</a></p>
+                <p class="text-center"><button class="categoryBtn" onclick="sendData('2')">과외</button></p>
             </div>
             <div class="col-12 col-md-4 p-5 mt-3">
                 <a href="#"><img src="./assets/img/3.png" class="rounded-circle img-fluid border"></a>
                 <h2 class="h5 text-center mt-3 mb-3">ex) 에어컨 설치 및 수리</h2>
-                <p class="text-center"><a class="btn btn-success">수리/설치</a></p>
+                <p class="text-center"><button class="categoryBtn" onclick="sendData('3')">수리/설치</button></p>
             </div>
             <div class="col-12 col-md-4 p-5 mt-3">
                 <a href="#"><img src="./assets/img/4.png" class="rounded-circle img-fluid border"></a>
                 <h5 class="text-center mt-3 mb-3">ex) 싱크대 교체</h5>
-                <p class="text-center"><a class="btn btn-success">인테리어/시공</a></p>
+                <p class="text-center"><button class="categoryBtn" onclick="sendData('4')">인테리어/시공</button></p>
             </div>
             <div class="col-12 col-md-4 p-5 mt-3">
                 <a href="#"><img src="./assets/img/5(1).png" class="rounded-circle img-fluid border"></a>
                 <h5 class="text-center mt-3 mb-3">ex) 벌레 퇴치</h5>
-                <p class="text-center"><a class="btn btn-success">기타 집안일</a></p>
+                <p class="text-center"><button class="categoryBtn" onclick="sendData('5')">기타 집안일</button></p>
             </div>
             <div class="col-12 col-md-4 p-5 mt-3">
                 <a href="#"><img src="./assets/img/6.png" class="rounded-circle img-fluid border"></a>
                 <h5 class="text-center mt-3 mb-3">ex) 용달/화물 운송</h5>
-                <p class="text-center"><a class="btn btn-success">이사</a></p>
+                <p class="text-center"><button class="categoryBtn" onclick="sendData('6')">이사</button></p>
             </div>
+            <table id="#readTable">
+            
+            </table>
         </div>
     </section>
     <!-- End Categories of The Month -->
@@ -360,23 +362,27 @@ https://templatemo.com/tm-559-zay-shop
         function hrefLink(){
             location.href = joinLink;
         }
+        // 회원가입 버튼 이벤트
+        var joinBtn = document.getElementById("joinBtn");
+        joinBtn.onclick = hrefLink
+        function hrefLink(){
+            location.href = joinLink;
+        }
     </script>
-// 1201 회원가입 버튼 이벤트 중복이여서 아래 이벤트 삭제
-// 1201 모달창 script 수정
-    </script>
-    <script>
-        // Wait for the DOM to be ready
-        document.addEventListener("DOMContentLoaded", function () {
-            // Find the close-icon button
-            var closeIcon = document.getElementById("icon-close");
+<script>
+    // 모달 창 닫기 함수
+    // 닫히긴 하지만 연달아 실행시 modal만 켜지는 현상이 발생 ... modal body는 뜨지 않음
+    function closeModal() {
+        var modal = document.querySelector('.modal');
+        modal.style.display = 'none';
+        var modalBody = document.querySelector('.modal_body');
+        modalBody.style.display = 'none';
+    }
+    // 아이콘을 클릭할 때 모달 창 닫기
+    document.getElementById('icon-close').addEventListener('click', closeModal);
     
-            // Add a click event listener to the close-icon button
-            closeIcon.addEventListener("click", function () {
-                // Redirect to main.html
-                window.location.href = "Gomain.do";
-            });
-        });
-    </script>
+</script>
+
 </body>
 
 </html>

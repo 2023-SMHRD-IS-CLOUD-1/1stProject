@@ -224,6 +224,7 @@ https://templatemo.com/tm-559-zay-shop
     <!-- End Banner Hero -->
     <!-- Start Categories of The Month -->
     <section class="container py-5">
+    <br>
         <span id="PostTitle">고객문의함</span> 
         
         <div id="postContent">
@@ -254,13 +255,14 @@ https://templatemo.com/tm-559-zay-shop
 				</table>
                     <hr class="borderLine">
                     <div id="pageNumber">
-                        <button class="pageNumberA">&lt;&lt;</button>
-                        <button class="pageNumberA">1</button>
-                        <button class="pageNumberA">2</button>
-                        <button class="pageNumberA">3</button>
-                        <button class="pageNumberA">4</button>
-                        <button class="pageNumberA">&gt;&gt;</button>
-                    </div>
+					<a href="#" class="pageNumberAMove">&lt;&lt;</a> 
+					<a href="#" class="pageNumberA">1</a> 
+					<a href="#" class="pageNumberA">2</a> 
+					<a href="#" class="pageNumberA">3</a> 
+					<a href="#" class="pageNumberA">4</a>
+					<a href="#" class="pageNumberA">5</a> 
+					<a href="#"	class="pageNumberAMove">&gt;&gt;</a>
+				</div>
                     </div>
             </div>
 
@@ -341,40 +343,131 @@ https://templatemo.com/tm-559-zay-shop
     document.getElementById('icon-close').addEventListener('click', closeModal);
 </script>
 
+	<script>
+    let firstBtn = document.querySelector('#pageNumber>.pageNumberA:nth-child(2)');
+    let lastBtn = document.querySelector('#pageNumber>.pageNumberA:nth-child(6)')
+    let pageButtons = document.querySelectorAll('.pageNumberA');
+    let pageNumber = document.querySelector('#pageNumber');
+    let prevBtn = document.querySelector('#pageNumber>.pageNumberAMove:first-child');
+	let nextBtn = document.querySelector('#pageNumber>.pageNumberAMove:last-child');
+	let selectedNum = 1;
+	let lastPageNum = 1;
+	document.addEventListener("DOMContentLoaded", function() {
+		// 1번 페이지 버튼 클릭
+		if (firstBtn) {
+			firstBtn.click();
+			loadPostTen();
+			loadPostNum();
+		}
+	});
+	// 1~5페이지면 << 삭제
+	if (firstBtn.innerHTML == '1') {
+		prevBtn.style.display = 'none';
+	}
+	// << 버튼 눌렀을 때
+	prevBtn.addEventListener('click', function() {
+		selectedNum = (parseInt((selectedNum - 1)/ 5)) * 5;
+		console.log(selectedNum);
+		for(let i = 0; i < 5; i++) {
+			pageButtons[i].style.display = '';
+			pageButtons[i].innerHTML = parseInt(pageButtons[i].innerHTML) -5;
+		} if (firstBtn.innerHTML == '1') {
+			prevBtn.style.display = 'none';
+		}
+		pageButtons.forEach(function (button) {
+            button.style.textDecoration = 'none';
+            button.style.color = 'initial';
+        });
+		lastBtn.style.color = 'red';
+		lastBtn.style.textDecoration = 'underline';
+		loadPostTen();
+		nextBtn.style.display = '';
+	});
+	// >> 버튼 눌렀을 때
+	nextBtn.addEventListener('click', function() {
+		selectedNum = parseInt(((parseInt((selectedNum - 1) / 5)) * 5) + 6);
+        for(let i = 0; i < 5; i++) {
+           pageButtons[i].innerHTML = parseInt(pageButtons[i].innerHTML) + 5;
+        }
+        if (firstBtn.innerHTML != '1') {
+           prevBtn.style.display = '';
+        }
+        pageButtons.forEach(function (button) {
+               button.style.textDecoration = 'none';
+               button.style.color = 'initial';
+           });
+        firstBtn.style.color = 'red';
+        firstBtn.style.textDecoration = 'underline';
+        loadPostTen();
+        loadPostNum()
+	});
+	 // 부모 요소에 이벤트 리스너 추가
+    pageNumber.addEventListener('click', function (event) {
+        // 클릭된 요소가 페이지 버튼인지 확인
+        if (event.target.classList.contains('pageNumberA')) {
+            // 모든 페이지 버튼의 스타일 초기화
+            pageButtons.forEach(function (button) {
+                button.style.textDecoration = 'none';
+                button.style.color = 'initial';
+            });
+            selectedNum = parseInt(event.target.innerHTML);
+			console.log(selectedNum);
+            // 클릭된 페이지 버튼의 스타일 변경
+            event.target.style.textDecoration = 'underline';
+            event.target.style.color = 'red';
+        }
+        loadPostTen();
+    });	
+    function loadPostTen() {
+	    $.ajax({
+			url : "ManBoard.do",
+			data : {selectedNum : selectedNum},
+			dataType : "json",
+			success : function(res) {
+				$(".postListCL").remove();
+				 for (let i = 0; i < 10; i++) {
+                 	var a = "";
+         			a += "<tr class = \"postListCL\">";
+         			a += "<td class = \"postListNum\">"+ res[i].management_post_num + "</td>";
+         			a += "<td class = \"postListid\">"+ res[i].management_post_id + "</td>";
+         			a += "<td class = \"postListTitle\"><a href = \"#\" >"+ res[i].management_post_title + "</a></td>";
+         			a += "<td class = \"postListDate\">"+ res[i].posted_at + "</td>";
+         			if(res[i].management_post_relpy == "n"){
+         				a += "<td class = \"post_relpy\">답변예정</td>";
+         			} else{
+         				a += "<td class = \"post_relpy\">답변완료</td>";
+         			}
+         			a += "</tr>"
+           			$("#postTable").append(a);
+                 }
+			},
+			error : function(result) {
+				console.log('안됨');
+			}
+		});
+    }
+    function loadPostNum() {
+    	$.ajax({
+    		url : "ManNum.do",
+    		dataType : "json",
+    		success : function(res) {
+    			lastPageNum = parseInt((res - 1)/10) + 1;
+    			for(let i = 0; i < 5; i++) {
+    				if(lastPageNum < pageButtons[i].innerHTML) {
+    					nextBtn.style.display = 'none';
+						pageButtons[i].style.display = 'none';
+    				}
+    			}
+    			
+    		},
+    		error : function(res){
+    			console.log('실패999999999999999');
+    			lastPageNum = res;
+    		}
+    	});
+    }
+</script>
 <script>
-// 심부름 전체 글 불러오기
-	console.log("확인용");
-			$(document).ready(function() {
-			
-                        $.ajax({
-                        	url:"Manageselect.do",
-                        	dataType : "json",
-                        	
-                        	success : function(res) {
-                        		console.log("성공")
-                        		for(let i=0;i< res.length;i++){
-                        			var a = "";
-                        			a += "<tr class = \"postListCL\">";
-                        			a += "<td class = \"postListNum\">"+ res[i].management_post_num + "</td>";
-                        			a += "<td class = \"postListid\">"+ res[i].management_post_id + "</td>";
-                        			a += "<td class = \"postListTitle\"><a href = \"#\" >"+ res[i].management_post_title + "</a></td>";
-                        			a += "<td class = \"postListDate\">"+ res[i].posted_at + "</td>";
-                        			if(res[i].management_post_relpy = 'n'){
-                        			a += "<td class = \"postListrelpy\"> 답변예정 </td>";
-                        			}else{
-                        				a += "<td class = \"postListrelpy\"> 답변완료 </td>";
-                        			}
-                        			a += "</tr>"
-                          			$("#postTable").append(a);
-                        			
-                        		}
-                        	},     error : function(e){
-        
-                                console.log("실패");
-                            }
-                        })
-		})
-		
 		// 글 상세보기 기능
 						  $(document).ready(function() {
 						    // 클릭 이벤트 핸들러

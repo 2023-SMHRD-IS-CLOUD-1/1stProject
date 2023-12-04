@@ -298,7 +298,7 @@ https://templatemo.com/tm-559-zay-shop
 			loadPostNum();
 			}
 		});
-		
+		console.log(selectedNum);
 		
 		// 1~5페이지면 << 삭제
 		if (firstBtn.innerHTML == '1') {
