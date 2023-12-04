@@ -1,6 +1,6 @@
-<!-- <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%> -->
+	pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/templatemo.css">
     <link rel="stylesheet" href="assets/css/custom.css">
-    <link rel="stylesheet" href="assets/css/postcss.css">
+    <link rel="stylesheet" href="assets/css/CErrList.css">
 
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet"
@@ -41,7 +41,7 @@ https://templatemo.com/tm-559-zay-shop
                 <div>
                     <i class="fa fa-envelope mx-2"></i>
                     <a class="navbar-sm-brand text-light text-decoration-none"
-                        href="https://smhrd.or.kr/course/aicamp/">caroot&whip@smhrd.com</a>
+                        href="https://smhrd.or.kr/course/aicamp/">carrot&whip@smhrd.com</a>
                 </div>
                 <div>
                     <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i
@@ -176,31 +176,43 @@ https://templatemo.com/tm-559-zay-shop
     <!-- 요청한 심부름 목록 -->
     <div class="container py-5" id="postContent">
 		<div id="postBodyArea">
-			<span href="#" id="postTitle">요청한 심부름 목록</span>
-			<form action="#" id="PostSearchForm">
-				<input type="text" id="postSearch"> <select
-					name="postSearchFilter" id="postSearchFilter">
-					<option value="제목">제목</option>
-					<option value="작성자">작성자</option>
-				</select> <input type="submit" id="postSearchSub" value="검색"><i
-					class="ic-plus"></i>
-			</form>
+			<span href="#" id="postTitle">◾ 요청한 심부름 목록</span>
+            <div id="PostSearch" >
+                <select name="SearchCategory" id="SearchCategory">
+                    <option value="err_name">제목</option>
+                    <option value="user_id">작성자</option>
+                </select> 
+                <input type="text" id="searchInput" > 
+                <button id = "searchButton">검색</button>
+        </div>
 			<div>
 				<!-- <a href="Gopost_write.do" id="postUpdateA">글작성</a> -->
                 <br>
 			</div>
 			<hr class="borderLine">
-			<table id="postTable">
-				<tr class = "test1">
-                    <!-- 댓글 번호 width 80 >> 90으로 변경함 -->
-					<th class="postTableHead" style="width: 100px;">심부름 번호</th>
-					<th class="postTableHead" style="width: 700px;">제목</th>
-					<th class="postTableHead" style="width: 140px;">작성일자</th>
-					<th class="postTableHead" style="width: 140px;">단가</th>
-					<th class="postTableHead" style="width: 140px;">즐겨찾기</th>
-					<!-- <th class="postTableHead" style="width: 90px;"></th> -->
-				</tr>
-			</table>
+			<table id="postTable" class="errResList">
+                <tr>
+                    <th style="width: 110px;">심부름 번호</th>
+                    <th style="width: 800px;">제목</th>
+                    <th style="width: 10%;">작성일자</th>
+                    <th style="width: 10%;">단가</th>
+                    <th style="width: 10%;"></th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><a href="GoerrResPage.do">대신 등원해줄 사람 구합니다.</a></td>
+                    <td>23.12.04</td>
+                    <td>100,000</td>
+                    <td><button id="postUpdate">대기</button></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><a href="">바퀴벌레 멸종시켜줄 사람 구합니다.</a></td>
+                    <td>23.12.05</td>
+                    <td>200,000</td>
+                    <td><button id="postUpdate">완료</button></td>
+                </tr>
+            </table>
 			<hr class="borderLine">
 			<div id="pageNumber">
 				<a href="#" class="pageNumberAMove">&lt;&lt;</a>
@@ -212,33 +224,50 @@ https://templatemo.com/tm-559-zay-shop
 				<a href="#" class="pageNumberAMove">&gt;&gt;</a>
 			</div>
 		</div>
-
 	</div>
-        <!-- 신청한 심부름 목록 -->
+        <!-- 신청한 심부름 목록 ----------------------------------------->
         <div class="container py-5" id="postContent">
             <div id="postBodyArea">
-                <span href="#" id="postTitle">신청한 심부름 목록</span>
-                <form action="#" id="PostSearchForm">
-                    <input type="text" id="postSearch"> <select
-                        name="postSearchFilter" id="postSearchFilter">
-                        <option value="제목">제목</option>
-                        <option value="작성자">작성자</option>
-                    </select> <input type="submit" id="postSearchSub" value="검색"><i
-                        class="ic-plus"></i>
-                </form>
+                <span href="#" id="postTitle">◾ 신청한 심부름 목록</span>
+                <div id="PostSearch" >
+                    <select name="SearchCategory" id="SearchCategory">
+                        <option value="err_name">제목</option>
+                        <option value="user_id">작성자</option>
+                    </select> 
+                    <input type="text" id="searchInput" > 
+                    <button id = "searchButton">검색</button>
+            </div>
                 <div>
                     <br>
                 </div>
                 <hr class="borderLine">
-                <table id="postTable">
-                    <tr class = "test1">
-                        <th class="postTableHead" style="width: 100px;">심부름 번호</th>
-                        <th class="postTableHead" style="width: 700px;">제목</th>
-                        <th class="postTableHead" style="width: 140px;">작성일자</th>
-                        <th class="postTableHead" style="width: 140px;">단가</th>
-                        <th class="postTableHead" style="width: 140px;">즐겨찾기</th>
-                        <!-- <th class="postTableHead" style="width: 90px;"></th> -->
+                <table id="postTable" class="errResList">
+                    <tr>
+                        <th style="width: 110px;">심부름 번호</th>
+                        <th style="width: 800px;">제목</th>
+                        <th style="width: 10%;">작성일자</th>
+                        <th style="width: 10%;">단가</th>
+                        <th style="width: 10%;"></th>
                     </tr>
+                    <tr>
+                        <td>1</td>
+                        <!-- 제목 클릭시 해당 심부름 게시물로 이동 -->
+                        <td><a href="">바퀴벌레약 사와줄 사람 구합니다.</a></td>
+                        <td>23.12.04</td>
+                        <td>100,000</td>
+                        <td><button id="postUpdate">대기</button></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <!-- 제목 클릭시 해당 심부름 게시물로 이동 -->
+                        <td><a href="">아침에 깨워줄 분 구합니다.</a></td>
+                        <td>23.12.05</td>
+                        <td>200,000</td>
+                        <td><button id="postUpdate">거절</button></td>
+                    </tr>
+                    
+                    
+                    
                 </table>
                 <hr class="borderLine">
                 <div id="pageNumber">
@@ -262,7 +291,7 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="row pt-2">
                     <div class="col-12">
                         <p class="text-left text-light">
-                            CAROOT&WHIP &copy; 2023 project
+                            CARROT&WHIP &copy; 2023 project
                             | <a rel="sponsored" href="https://smhrd.or.kr/course/aicamp/"
                                 target="_blank">당근과 채찍팀</a>| 최성욱, 유수연, 박 준, 송희주, 양재원
                         </p>
