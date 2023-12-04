@@ -43,6 +43,11 @@
 	FROM TB_USER 
 	WHERE USER_NAME = #{user_name} 
 	</select>
-	
+	<!-- pw찾기 -->
+	<select id="pwfind" parameterType = "com.smhrd.model.UserVO" resultType="com.smhrd.model.UserVO">
+	SELECT USER_NAME, USER_PW, USER_JUMIN
+	FROM TB_USER 
+	WHERE USER_NAME = #{user_name} AND USER_JUMIN = #{user_jumin}
+	</select>
 
 </mapper>

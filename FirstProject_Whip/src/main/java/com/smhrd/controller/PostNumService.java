@@ -13,27 +13,25 @@ import com.smhrd.model.PostDAO;
 import com.smhrd.model.PostVO;
 
 // 로그아웃 서비스
-public class PostBoardService implements Command {
+public class PostNumService implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		response.setContentType("text/html;charset=utf-8");
 		request.setCharacterEncoding("utf-8");
-		
-		String selectedNum1 = request.getParameter("selectedNum");
-		int selectedNum = Integer.parseInt(selectedNum1);
 		PostDAO dao = new PostDAO();
-		List<PostVO> resultList = dao.postLoad(selectedNum);
+		int result = dao.getPostNum();
+		
 		
 		PrintWriter out = response.getWriter();
 		
-		   if(resultList.isEmpty()) {
+		   if(result == 0) {
 		         out.print("false");
 		      }else {
 		         Gson gson = new Gson();
-		         String result = gson.toJson(resultList);
-		         out.print(result);
+		         String result1 = gson.toJson(result);
+		         out.print(result1);
 		      }
 		      return null;
 	}

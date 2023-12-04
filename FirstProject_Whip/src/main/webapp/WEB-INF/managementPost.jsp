@@ -13,11 +13,12 @@
     <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo.ico">
 
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/templatemo.css">
-    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/templatemo.css">
+    <link rel="stylesheet" href="./assets/css/custom.css">
     <!-- 분리한 css 파일 경로-->
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/manage.css">
 
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet"
@@ -189,70 +190,28 @@ https://templatemo.com/tm-559-zay-shop
             <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
             <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
         </ol>
-        <div class="carousel-inner">
-            <!-- 스크롤창 첫번째 ------------------------------------------->
-            <div class="carousel-item active">
-                <div class="container">
-                    <div class="row p-20 scrolll">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid scorll1" src="./assets/img/main2.png" alt="">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left align-self-center">
-                                <h1 class="h1 text-success">
-                                    <b>HEF</b> 심부름 플랫폼</h1>
-                                <h3 class="h2" >플랫폼 관련 말</h3>
-                                <p>
-                                    넣으면 될 듯
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+        <section class="bg-success py-5">
+        <div class="container">
+            <div class="row align-items-center py-5">
+                <div class="col-md-8 text-white">
+                    <h1>지금 HEF와 함께 시작해보세요 ! </h1>
+                    <p class="bannerContent">
+                        조건에 딱! 맞는 수행인을 찾으시나요?
+                        <br> 
+                        딱! 맞는 의뢰인을 찾으시나요?
+                        <br>
+                        HEF가 도와드리겠습니다.
+                        <br>
+                        <br>
+                        "필요한 사람을 찾는 일에 시간과 에너지를 낭비하지 마세요"
+                    </p>
                 </div>
-            </div>.
-            <!-- 스크롤 창 두번째 --------------------------------------------------------->
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="row p-20 scrolll">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="./assets/img/help.png" alt="">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left">
-                                <h1 class="scrollSub">내가 하기 귀찮은 일!<br>심부름 대신
-                                    해드려요</h1>
-                                <h3 class="h2" >심부름 플랫폼 HEF와 함께 .. ~~ ~~ .... </h3>
-                                <p>
-                                    핵심  <strong>파이팅</strong> 입니다..
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- 스크롤 창 세번째 ----------------------------------------------------------------->
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="./assets/img/main3.png" alt="">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left">
-                                <h1 class="scrollSub" >동네 이웃끼리
-                                    서로<br>도와주고<br>수익도 창출해보세요</h1>
-                                <h3 class="h2" > 임시. </h3>
-                                <p>
-                                    We bring you 100% free CSS templates for your websites.
-                                    If you wish to support TemplateMo, please make a small contribution via PayPal or
-                                    tell your friends about our website. Thank you.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-md-4">
+                    <img src="assets/img/about-hero.svg" alt="About Hero">
                 </div>
             </div>
         </div>
+    </section>
         <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel"
             role="button" data-bs-slide="prev">
             <i class="fas fa-chevron-left"></i>
@@ -265,44 +224,46 @@ https://templatemo.com/tm-559-zay-shop
     <!-- End Banner Hero -->
     <!-- Start Categories of The Month -->
     <section class="container py-5">
-        <div class="row text-center pt-3">
-            <div class="col-lg-6 m-auto">
-            <!-- 1201 br 태그 추가 -->
+        <span id="PostTitle">고객문의함</span> 
+        
+        <div id="postContent">
+            <div id = "PostBodyarea">
+                <div id="PostSearch1">
+                <form action="#" id="PostSearchForm">
+                    <select name="postSearchFilter" id="postSearchFilter">
+                        <option value="제목">제목</option>
+                        <option value="작성자">작성자</option>
+                    </select>
+                    <input type="text" id="postSearch">
+                    <input type="submit" id="postSearchSub" value="검색"><i class="ic-plus"></i>
+                </form>
+            </div>
             <br>
-                <h1 class="h1"  >HEF 인기 서비스 </h1>
+            <div id="post_a"> <a href="Gomanage.do" >문의글 등록</a> </div>
+
+           
+                <hr class="borderLine">
+                <table id="postTable">
+					<tr>
+						<th style="width: 10%;">글 번호</th>
+						<th style="width: 20%;">작성자</th>
+						<th style="width: 40%;">제목</th>
+						<th style="width: 24%;">작성일자</th>
+						<th style="width: 10%;">답변여부</th>
+					</tr>
+				</table>
+                    <hr class="borderLine">
+                    <div id="pageNumber">
+                        <button class="pageNumberA">&lt;&lt;</button>
+                        <button class="pageNumberA">1</button>
+                        <button class="pageNumberA">2</button>
+                        <button class="pageNumberA">3</button>
+                        <button class="pageNumberA">4</button>
+                        <button class="pageNumberA">&gt;&gt;</button>
+                    </div>
+                    </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="./assets/img/1.png" class="rounded-circle img-fluid border"></a>
-                <h5 class="text-center mt-3 mb-3">ex) 정리수납, 폐기물처리</h5>
-                <p class="text-center"><a class="btn btn-success">청소/정리</a></p>
-            </div>
-            <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="./assets/img/2.png" class="rounded-circle img-fluid border"></a>
-                <h2 class="h5 text-center mt-3 mb-3">ex) 비지니스 영어 과외</h2>
-                <p class="text-center"><a class="btn btn-success">과외</a></p>
-            </div>
-            <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="./assets/img/3.png" class="rounded-circle img-fluid border"></a>
-                <h2 class="h5 text-center mt-3 mb-3">ex) 에어컨 설치 및 수리</h2>
-                <p class="text-center"><a class="btn btn-success">수리/설치</a></p>
-            </div>
-            <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="./assets/img/4.png" class="rounded-circle img-fluid border"></a>
-                <h5 class="text-center mt-3 mb-3">ex) 싱크대 교체</h5>
-                <p class="text-center"><a class="btn btn-success">인테리어/시공</a></p>
-            </div>
-            <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="./assets/img/5(1).png" class="rounded-circle img-fluid border"></a>
-                <h5 class="text-center mt-3 mb-3">ex) 벌레 퇴치</h5>
-                <p class="text-center"><a class="btn btn-success">기타 집안일</a></p>
-            </div>
-            <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="./assets/img/6.png" class="rounded-circle img-fluid border"></a>
-                <h5 class="text-center mt-3 mb-3">ex) 용달/화물 운송</h5>
-                <p class="text-center"><a class="btn btn-success">이사</a></p>
-            </div>
+
         </div>
     </section>
     <!-- End Categories of The Month -->
@@ -360,23 +321,92 @@ https://templatemo.com/tm-559-zay-shop
         function hrefLink(){
             location.href = joinLink;
         }
+        // 회원가입 버튼 이벤트
+        var joinBtn = document.getElementById("joinBtn");
+        joinBtn.onclick = hrefLink
+        function hrefLink(){
+            location.href = joinLink;
+        }
     </script>
-// 1201 회원가입 버튼 이벤트 중복이여서 아래 이벤트 삭제
-// 1201 모달창 script 수정
-    </script>
-    <script>
-        // Wait for the DOM to be ready
-        document.addEventListener("DOMContentLoaded", function () {
-            // Find the close-icon button
-            var closeIcon = document.getElementById("icon-close");
-    
-            // Add a click event listener to the close-icon button
-            closeIcon.addEventListener("click", function () {
-                // Redirect to main.html
-                window.location.href = "Gomain.do";
-            });
-        });
-    </script>
+<script>
+    // 모달 창 닫기 함수
+    // 닫히긴 하지만 연달아 실행시 modal만 켜지는 현상이 발생 ... modal body는 뜨지 않음
+    function closeModal() {
+        var modal = document.querySelector('.modal');
+        modal.style.display = 'none';
+        var modalBody = document.querySelector('.modal_body');
+        modalBody.style.display = 'none';
+    }
+    // 아이콘을 클릭할 때 모달 창 닫기
+    document.getElementById('icon-close').addEventListener('click', closeModal);
+</script>
+
+<script>
+// 심부름 전체 글 불러오기
+	console.log("확인용");
+			$(document).ready(function() {
+			
+                        $.ajax({
+                        	url:"Manageselect.do",
+                        	dataType : "json",
+                        	
+                        	success : function(res) {
+                        		console.log("성공")
+                        		for(let i=0;i< res.length;i++){
+                        			var a = "";
+                        			a += "<tr class = \"postListCL\">";
+                        			a += "<td class = \"postListNum\">"+ res[i].management_post_num + "</td>";
+                        			a += "<td class = \"postListid\">"+ res[i].management_post_id + "</td>";
+                        			a += "<td class = \"postListTitle\"><a href = \"#\" >"+ res[i].management_post_title + "</a></td>";
+                        			a += "<td class = \"postListDate\">"+ res[i].posted_at + "</td>";
+                        			if(res[i].management_post_relpy = 'n'){
+                        			a += "<td class = \"postListrelpy\"> 답변예정 </td>";
+                        			}else{
+                        				a += "<td class = \"postListrelpy\"> 답변완료 </td>";
+                        			}
+                        			a += "</tr>"
+                          			$("#postTable").append(a);
+                        			
+                        		}
+                        	},     error : function(e){
+        
+                                console.log("실패");
+                            }
+                        })
+		})
+		
+		// 글 상세보기 기능
+						  $(document).ready(function() {
+						    // 클릭 이벤트 핸들러
+						     $('#postTable').on('click', '.postListTitle a', function(e) {
+						    	 e.preventDefault();
+						      // 클릭한 행의 err_num 값을 가져오기
+						      var clickedErrNum = $(this).closest("tr").find(".postListNum").text();
+						      console.log(clickedErrNum);
+						      // 데이터 저장
+						      localStorage.setItem("clickedErrNum", clickedErrNum);
+						      
+								
+						      $.ajax({
+                                    type: 'POST',
+                                    url: 'Manage_detail.do',
+                                    data: {
+                                    	clickedErrNum : clickedErrNum
+                                    },
+                                    success: function(response) {
+                                        console.log(response);
+                                        window.location.href = 'GoManageRead.do';
+                                        // 성공적으로 응답을 받았을 때 수행할 작업
+                                    },
+                                    error: function(error) {
+                                        console.error('Error:', error);
+                                        
+                                    }
+						      });
+						    });
+						  });
+                        </script>
+
 </body>
 
 </html>

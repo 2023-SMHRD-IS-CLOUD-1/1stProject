@@ -44,6 +44,25 @@
 		<result property="post_likes" column="POST_LIKES" />
 		<result property="user_id" column="USER_ID" />
 	</resultMap>
+	<select id="postContentLoad" parameterType="com.smhrd.model.PostVO" resultType="com.smhrd.model.PostVO">
+	SELECT POST_TITLE, POST_CONTENT, POSTED_AT, POST_LIKES, POST_VIEWS, USER_ID
+	FROM TB_POST
+	WHERE POST_NUM = #{post_num} 
+	</select>
+	
+	<update id="increasePostViews" parameterType="com.smhrd.model.PostVO">
+	UPDATE TB_POST
+	SET POST_VIEWS = POST_VIEWS + 1
+	WHERE POST_NUM = #{post_num}
+	</update>
+	
+	<select id="getPostNum" resultMap="postNum">
+	SELECT COUNT(*)
+	FROM TB_POST
+	</select>
+	<resultMap type = "int" id="postNum">
+		<result property="count(*)" column="COUNT(*)" />
+	</resultMap>
 </mapper>
 
 
