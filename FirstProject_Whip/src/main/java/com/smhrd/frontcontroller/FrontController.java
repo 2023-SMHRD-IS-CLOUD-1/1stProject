@@ -17,22 +17,26 @@ import org.w3c.dom.DOMStringList;
 import com.smhrd.controller.CertificationService;
 import com.smhrd.controller.Command;
 import com.smhrd.controller.DeleteService;
+import com.smhrd.controller.ErrBoardService;
+import com.smhrd.controller.ErrNumService;
 import com.smhrd.controller.Err_detailService;
 import com.smhrd.controller.Err_readService;
 import com.smhrd.controller.Err_searchService;
 import com.smhrd.controller.ErrdeleteService;
 import com.smhrd.controller.ErrmodifyService;
-import com.smhrd.controller.ErrselectService;
 import com.smhrd.controller.ErrupdateService;
 import com.smhrd.controller.FindService;
 import com.smhrd.controller.FvErrService;
 import com.smhrd.controller.FvPostService;
+import com.smhrd.controller.IdUniqueCheckService;
 import com.smhrd.controller.JoinService;
 import com.smhrd.controller.LoginService;
 import com.smhrd.controller.LogoutService;
+import com.smhrd.controller.ManBoardService;
+import com.smhrd.controller.ManNumService;
 import com.smhrd.controller.ManagePostService;
 import com.smhrd.controller.Manage_detailService;
-import com.smhrd.controller.ManageselectService;
+import com.smhrd.controller.Manage_modifyService;
 import com.smhrd.controller.PostBoardService;
 import com.smhrd.controller.PostNumService;
 import com.smhrd.controller.PostReadService;
@@ -66,6 +70,7 @@ public class FrontController extends HttpServlet {
 		map.put("Logout.do", new LogoutService());
 		map.put("Update.do", new UpdateService());
 		map.put("Delete.do", new DeleteService());
+		map.put("IdUniqueCheck.do", new IdUniqueCheckService());
 		
 		// id pw 찾기
 		map.put("Find.do", new FindService());
@@ -73,11 +78,12 @@ public class FrontController extends HttpServlet {
 		map.put("Errupdate.do", new ErrupdateService());
 		map.put("Errmodify.do", new ErrmodifyService());
 		map.put("Errdelete.do", new ErrdeleteService());
-		map.put("Errselect.do", new ErrselectService());
 		map.put("Err_read.do", new Err_readService());
 		map.put("Err_search.do", new Err_searchService());
 		map.put("Err_detail.do", new Err_detailService());
 		map.put("FvErr.do", new FvErrService());
+		map.put("ErrNum.do", new ErrNumService());
+		map.put("ErrBoard.do", new ErrBoardService());
 		
 		// 게시판
 		map.put("Postupdate.do", new PostupdateService());
@@ -97,9 +103,11 @@ public class FrontController extends HttpServlet {
 		map.put("Certification.do", new CertificationService());
 		
 		// 고객문의함
-		map.put("Manageselect.do", new ManageselectService());
 		map.put("ManagePost.do", new ManagePostService());
 		map.put("Manage_detail.do", new Manage_detailService());
+		map.put("Manage_modify.do", new Manage_modifyService());
+		map.put("ManBoard.do", new ManBoardService());
+		map.put("ManNum.do", new ManNumService());
 	}
 		
 		

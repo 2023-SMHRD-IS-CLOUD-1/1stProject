@@ -146,15 +146,15 @@ https://templatemo.com/tm-559-zay-shop
     <div class="container py-5" id="postWriteBoard">
         <h2>게시글 작성</h2>
         <hr>
-        <form action="Gopost.do" >
+        <form action="Postupdate.do" >
             <table id="postWriteTable">
                 <tr>
                     <td class="tableCol"><strong>제목</strong></td>
-                    <td class="tableContent"><input type="text" id="tableContentTitle"></td>
+                    <td class="tableContent"><input name ="post_title" type="text" id="tableContentTitle"></td>
                 </tr>
                 <tr>
                     <td class="tableCol"><strong>내용</strong></td>
-                    <td class="tableContent"><textarea name="" id="" cols="114" rows="20"
+                    <td class="tableContent"><textarea name="post_content" id="" cols="114" rows="20"
                             id="tableContentText"></textarea></td>
                 </tr>
             </table>

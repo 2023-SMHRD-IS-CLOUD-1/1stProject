@@ -240,6 +240,7 @@ https://templatemo.com/tm-559-zay-shop
                                     <td class="w100">
                                     <td><button id="btn004" type="submit"
                                             class="btn btn-success btn-lg px-3 w250 right">프로필/개인정보수정</button></td>
+                                    <td><button id = "leaveBtn" class="btn btn-success btn-lg px-3 w120 right">회원탈퇴</button></td>
                         </td>
                     </tr>
                 </table>
@@ -305,52 +306,22 @@ https://templatemo.com/tm-559-zay-shop
     <script src="assets/js/custom.js"></script>
     <!-- End Script -->
 
-    <!-- 수정3 시작 -->
+
     <script>
+        
         // 사용자의 회원정보를 불러와서 태그의 html값을 변경 start
-        
-        let user_name = "테스트김김"
-        let user_birthdate = "테스트1999년 1월 1일"
-        let user_gender = "테스트남"
-        let user_nick = "테스트바람"
-        let user_jumin = "테스트990101-1234123"
-        let user_phone = "테스트010-2323-2323"
-        let user_addr1 = "테스트광주 송암로 77번길 77"
-        let user_level = "테스트9.9"
-        let user_id_check = "테스트예"
-        
-        // window.onload : 스크립트가 실행될 때 한 번 실행됨(비동기 통신)
-        window.onload = function(){
-            $.ajax({
-                // 변경필요1 url 값 변경 필요
-                url : "selectUser.do",
-                dataType : JSON,
-                success : function(res){
-                    user_name = res.user_name;
-                    user_birthdate = res.user_birthdate;
-                    user_gender = res.user_gender;
-                    user_nick = res.user_nick;
-                    user_jumin = res.user_jumin;
-                    user_phone = res.user_phone;
-                    user_addr1 = res.user_addr1;
-                    user_level = res.user_level;
-                    user_id_check = res.user_id_check;
-                }
-            })
-        }
-        
-        $('#user_name').html(user_name);
-        $('#user_birthdate').html(user_birthdate);
-        $('#user_gender').html(user_gender);
-        $('#user_nick').html(user_nick);
-        $('#user_phone').html(user_phone);
-        $('#user_addr1').html(user_addr1);
-        $('#user_level').html(user_level);
-        $('#user_id_check').html(user_id_check);
+        $('#user_name').html('${user.user_name}');
+        $('#user_birthdate').html('${user.user_birthdate}');
+        $('#user_gender').html('${user.user_gender}');
+        $('#user_nick').html('${user.user_nick}');
+        $('#user_phone').html('${user.user_phone}');
+        $('#user_addr1').html('${user.user_addr1}');
+        $('#user_level').html('${user.user_level}');
+        $('#user_id_check').html('${user.user_id_check}');
         // 사용자의 회원정보를 불러와서 태그의 html값을 변경 end
 
         // 주민번호의 경우 버튼을 클릭해야 보이고 버튼태그 영역에서 벗어나면 가려지게 설정 start
-        $('#btn006').on("click", function(){$('#rrn001').html(user_jumin)})
+        $('#btn006').on("click", function(){$('#rrn001').html('${user.user_jumin}')})
         $('#btn006').on("mouseout", function(){$('#rrn001').html("******-*******")})
         // 주민번호의 경우 버튼을 클릭해야 보이고 버튼태그 영역에서 벗어나면 가려지게 설정 end
         
@@ -371,6 +342,13 @@ https://templatemo.com/tm-559-zay-shop
         $('#btn005').on("click", function(){location.href = link5;})
         // 버튼이 클릭되면 다른 페이지로 이동 end
         
+        // 회원탈퇴버튼을 누르면 비밀번호를 확인한 후 회원탈퇴 start
+		$('#leaveBtn').on('click',function(){
+			let inputPw = prompt('비밀번호를 입력하세요', '');
+			if(inputPw == '${user.user_pw}'){window.location.href = "Delete.do"}
+			else{alert('비밀번호가 일치하지 않습니다');}
+		})
+        // 회원탈퇴버튼을 누르면 비밀번호를 확인한 후 회원탈퇴 end
 
     </script>
     <!-- 수정3 끝 -->

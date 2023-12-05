@@ -16,12 +16,6 @@ public class ErrandDAO {
 		SqlSession sqlSession = factory.openSession(true);
 		int row = sqlSession.insert("errupdate",vo);
 		sqlSession.close();
-		if(row>0) {
-			sqlSession.commit();
-			sqlSession.close();
-		}else {
-			sqlSession.rollback();
-		}
 		return row;
 	}
 
@@ -43,14 +37,8 @@ public class ErrandDAO {
 		}
 		return row;
 	}
-
-	public List<ErrandVO> selectErr() {
-		SqlSession sqlSession = factory.openSession();
-		List<ErrandVO> resultlist = sqlSession.selectList("selecterr");
-		sqlSession.close();
-		return resultlist;
-	}
-
+	
+	//심부름 카테고리 별 목록 불러오기
 	public List<ErrandVO> ReadErr(ErrandVO vo) {
 		SqlSession sqlSession = factory.openSession();
 		List<ErrandVO> result = sqlSession.selectList("readerr",vo);
@@ -71,12 +59,25 @@ public class ErrandDAO {
 		sqlSession.close();
 		return result;
 	}
-
+	//심부름 글 상세 보기
 	public ErrandVO DetailErr(ErrandVO vo) {
 		SqlSession sqlSession = factory.openSession();
 		ErrandVO result = sqlSession.selectOne("err_detail",vo);
 		sqlSession.close();
 		
+		return result;
+	}
+	// 게시글 불러와서 목록 띄워주는 기능
+	public List<ErrandVO> errLoad(int selectedNum) {
+		SqlSession sqlSession = factory.openSession(true);
+		List<ErrandVO> result = sqlSession.selectList("errLoad",selectedNum);
+		sqlSession.close();
+		return result;
+	}
+	// 게시글 전체 개수 가져오는 기능 
+	public int getErrNum() {
+		SqlSession sqlSession = factory.openSession();
+		int result = sqlSession.selectOne("getErrNum");
 		return result;
 	}
 	

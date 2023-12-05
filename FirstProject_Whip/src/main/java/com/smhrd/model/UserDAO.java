@@ -76,8 +76,14 @@ public class UserDAO {
 		sqlSession.close();
 		return result;
 	}
-		
+	// id 중복 체크
+	public String idUniqueCheck(String userId) {
+		SqlSession sqlSession = factory.openSession();
+		String result = sqlSession.selectOne("idUniqueCheck", userId);
+		sqlSession.close();
+		return result;
 	}
+}
 	
 	
 	

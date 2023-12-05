@@ -53,7 +53,7 @@ public class PostupdateService implements Command {
 			// 실패시
 			System.out.println("실패");
 		}
-		return null;
+		return "redirect:/Gopost.do";
 
 	}
 

@@ -1,36 +1,42 @@
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>HEF - Join</title>
+    <title>당근과채찍_핵심_ErrRead</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="./assets/img/apple-icon.png">
+    <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo.ico">
 
-    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/css/templatemo.css">
-    <link rel="stylesheet" href="./assets/css/custom.css">
-    <link rel="stylesheet" href="./assets/css/join.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/templatemo.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/read.css">
 
     <!-- Load fonts style after rendering the layout styles -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
-    <link rel="stylesheet" href="./assets/css/fontawesome.min.css">
-
-    <!-- Load map styles -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
     <!--
-        
-    TemplateMo 559 Zay Shop
+    
+TemplateMo 559 Zay Shop
 
-    https://templatemo.com/tm-559-zay-shop
+https://templatemo.com/tm-559-zay-shop
 
-    -->
+-->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+    </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@300&display=swap');
+    </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@500&display=swap');
+    </style>
 </head>
 
 <body>
@@ -40,15 +46,19 @@
             <div class="w-100 d-flex justify-content-between">
                 <div>
                     <i class="fa fa-envelope mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
-                    <i class="fa fa-phone mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                    <a class="navbar-sm-brand text-light text-decoration-none"
+                        href="https://smhrd.or.kr/course/aicamp/">
+                        caroot&whip@smhrd.com</a>
                 </div>
                 <div>
-                    <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                    <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i
+                            class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://www.instagram.com/" target="_blank"><i
+                            class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://twitter.com/" target="_blank"><i
+                            class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i
+                            class="fab fa-linkedin fa-sm fa-fw"></i></a>
                 </div>
             </div>
         </div>
@@ -60,59 +70,62 @@
     <nav class="navbar navbar-expand-lg navbar-light shadow">
         <div class="container d-flex justify-content-between align-items-center">
 
-            <a class="navbar-brand text-success logo h1 align-self-center" href="Gomain.do" style="font-family: 'Black Han Sans', sans-serif;">
+            <a class="navbar-brand text-success logo h1 align-self-center" href="Gomain.do">
                 HEF
             </a>
 
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
+                id="templatemo_main_nav">
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-
+                        <!--        <li class="nav-item">
+                            <a class="nav-link" href="index.html" style="font-family: 'Black Han Sans', sans-serif;
+                            font-family: 'IBM Plex Sans KR', sans-serif;">?</a>
+                        </li>-->
                         <li class="nav-item">
-                            <a class="nav-link" href="GoerrListPage.do" style="font-family: 'Black Han Sans', sans-serif;
-                            font-family: 'IBM Plex Sans KR', sans-serif;">심부름</a>
+                            <a class="nav-link" href="GoerrListPage.do">심부름</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Gopost.do" style="font-family: 'Black Han Sans', sans-serif;
-                            font-family: 'IBM Plex Sans KR', sans-serif;">커뮤니티</a>
+                            <a class="nav-link" href="Gopost.do">커뮤니티</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="GoNaNmanagementPost.do" style="font-family: 'Black Han Sans', sans-serif;
-                            font-family: 'IBM Plex Sans KR', sans-serif;">고객센터</a>
+                            <a class="nav-link" href="GomanagementPost.do">고객센터</a>
                         </li>
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">
                     <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
                         <div class="input-group">
-                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="심부름을 요청하고 수행해보시겠어요?">
+                            <input type="text" class="form-control" id="inputMobileSearch"
+                                placeholder="심부름을 요청하고 수행해보시겠어요?">
                             <div class="input-group-text">
                                 <i class="fa fa-fw fa-search"></i>
                             </div>
                         </div>
                     </div>
-                    <!-- 검색 아이콘 ------------------>
-                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
+                    <!-- 검색창 팝업 아이콘 -->
+                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
+                        data-bs-target="#templatemo_search">
                         <i class="fa fa-fw fa-search text-dark mr-2"></i>
                     </a>
-                     <!--마이페이지 아이콘-->
-                <a class="nav-icon position-relative text-decoration-none" href="Gomypage1.do">
-                    <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                </a>
-                <!--로그인 버튼 !!!!!! --------------------------->
-                <a href="#"><button class="btn-open-modal nav-item loginbtn">로그인</button></a>
-                <!-- 회원가입 버튼!!!! ------------------------- -->
-                <!-- <a href="join.html"><button id="joinBtn" class="btn-open-modal nav-item loginbtn">회원가입</button></a> -->
+                    <!--  마이페이지 아이콘 -->
+                    <a class="nav-icon position-relative text-decoration-none" href="Gomypage1.do">
+                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                    </a>
+                    <!--로그인 버튼 !!!!!! --------------------------->
+                    <a href="#"><button class="btn-open-modal nav-item loginbtn">로그인</button></a>
+                    <!-- 회원가입 버튼!!!! --------------------------->
+                    <a href="#"><button id="joinBtn" class="btn-open-modal nav-item loginbtn">회원가입</button></a>
                 </div>
             </div>
-
         </div>
     </nav>
-    <!-- Close Header -->
         <!-- 로그인 모달창 !!!!! ------------------------------------------>
         <div class="modal">
             <div class="modal_body">
@@ -148,15 +161,21 @@
         </div>
         </form>
         </div>
+    
+
+    <!-- Close Header -->
+
     <!-- Modal -->
-    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="w-100 pt-1 mb-5 text-right">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="" method="get" class="modal-content modal-body border-0 p-0">
                 <div class="input-group mb-2">
-                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="심부름을 요청하고 수행해보시겠어요?">
+                    <input type="text" class="form-control" id="inputModalSearch" name="q"
+                        placeholder="심부름을 요청하고 수행해보시겠어요?">
                     <button type="submit" class="input-group-text bg-success text-light">
                         <i class="fa fa-fw fa-search text-white"></i>
                     </button>
@@ -166,26 +185,45 @@
     </div>
 
 
-    <!-- Start Content Page -->
-    <div class="container-fluid bg-light py-5">
-        <div class="col-md-6">
-            <h1 class="h2">HEF에 오신 것을 환영합니다 :)</h1>
+<!-- 배너 시작 -->
+    <section class="bg-success py-5">
+        <div class="container">
+            <div class="row align-items-center py-5">
+                <div class="col-md-8 text-white">
+                    <h1>지금 HEF와 함께 시작해보세요 ! </h1>
+                    <p class="bannerContent">
+                        조건에 딱! 맞는 수행인을 찾으시나요?
+                        <br> 
+                        딱! 맞는 의뢰인을 찾으시나요?
+                        <br>
+                        HEF가 도와드리겠습니다.
+                        <br>
+                        <br>
+                        "필요한 사람을 찾는 일에 시간과 에너지를 낭비하지 마세요"
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <img src="assets/img/about-hero.svg" alt="About Hero">
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+    <!-- 배너 끝 -->
 
-
-
-    <!-- Start Contact -->
-    <div class="container py-5" id="postWriteBoard">
-        <div id="postReadLayout">
+    <!-- 수정할 부분 -->
+    
+    <section class="container py-5">
+     <div id="postReadLayout">
+            <br>
+            <br>
             <div id="postReadHead">
                 <h1>${Manage.management_post_title}</h1>
             </div>
             <div id="postReadNav">
-                <span>${Manage.management_post_id}</span>
-                <span>${Manage.posted_at }</span>
+                <span>작성자 ${Manage.management_post_id}</span>
+                <span>등록 일자 ${Manage.posted_at}</span>
                 
-                <button>목록</button>
+                <a href="GomanagementPost.do">목록</a>
             </div>
             <hr>
             <div id="postReadSect1">
@@ -193,23 +231,20 @@
             </div>
             <hr>
           	 <div id="postReadSect2">
-                <table align="center">
-                    <tr>
-                        
-                    </tr>
-                </table>
-            </div>
-    <!-- End Contact -->
+           <table align="center">
+            <div id="userRole" style="display: none;">author</div>
 
-
-    <!-- Start Footer -->
-    <footer class="bg-dark" id="tempaltemo_footer">
-        <div class="container">
-            <div class="row">
-            </div>
-
+        <tr>
+            <td><button id="modify" class="hidden">수정</button></td>
+            <td><button id="delete" class="hidden">삭제</button></td>
+        </tr>
+    </table>
+           
+          
+          
         </div>
-
+	</section>
+    <!-- End Section -->
         <div class="w-100 bg-black py-3">
             <div class="container">
                 <div class="row pt-2">
@@ -223,10 +258,6 @@
                 </div>
             </div>
         </div>
-
-    </footer>
-    <!-- End Footer -->
-
     <!-- Start Script -->
     <script src="assets/js/jquery-1.11.0.min.js"></script>
     <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
@@ -234,22 +265,8 @@
     <script src="assets/js/templatemo.js"></script>
     <script src="assets/js/custom.js"></script>
     <!-- End Script -->
-
-
+     <!-- 로그인 모달창 Script------------------>
      <script>
-    // 이것도 안돼
-        // link = 'main.html';
-
-        // let btn1 = document.getElementById("btn1");
-        // btn1.onclick = hrefLink;
-        // function hrefLink() {
-        //     window.location.href = link;
-        // }
-    </script>
-        <!-- 가입하기 버튼 클릭시 main.html로 이동하는 script 추가 .. 해야하는데 작동 X.. ;;   ------------->
-
-    <!-- 로그인 모달창 Script------------------>
-    <script>
         const modal = document.querySelector('.modal');
         const btnOpenModal = document.querySelector('.btn-open-modal');
 
@@ -272,7 +289,89 @@
         function hrefLink(){
             location.href = joinLink;
         }
-    
+        // 회원가입 버튼 이벤트
+        var joinBtn = document.getElementById("joinBtn");
+        joinBtn.onclick = hrefLink
+        function hrefLink(){
+            location.href = joinLink;
+        }
+    </script>
+	    <script>
+	    $(document).ready(function() {
+	        var post_num = ${Manage.management_post_num};
+	        console.log(post_num);
+
+	        $("#modify").on("click", function(e) {
+	            var outputContainer = $("#postReadLayout");
+	            outputContainer.empty();
+	            console.log("성공");
+
+	            var a = "";
+	            a += "<br><br>";
+	            a += "<label for='management_post_title'>제목:</label><br>";
+	            a += "<input type='text' id='management_post_title' placeholder='수정할 제목을 입력해주세요'>";
+	            a += "<br><br>";
+	            a += "<div id='postReadSect1'>";
+	            a += "<label for='management_post_content'>내용:</label> <br>";
+	            a += "<textarea id='management_post_content' name='management_post_content' rows='3' cols='130' placeholder='수정할 내용을 입력해주세요'></textarea><br>";
+	            a += "<button id='update'>수정하기</button>";
+	            a += "</div>";
+
+	            $("#postReadLayout").append(a);
+
+	            // 수정된 부분: 클릭 이벤트 핸들러 내부에서 변수를 정의하도록 변경
+	            $("#update").on("click", function(e) {
+	                console.log(post_num);
+
+	                // 수정된 부분: 사용자가 입력한 값을 가져와 변수에 할당
+	                var management_post_title = $("#management_post_title").val();
+	                var management_post_content = $("#management_post_content").val();
+	                $.ajax({
+	                    type: 'POST',
+	                    url: 'Manage_modify.do',
+	                    data: {
+	                        management_post_title: management_post_title,
+	                        management_post_content: management_post_content,
+	                        post_num: post_num
+	                    },
+	                    success: function(response) {
+	                        // 성공적으로 서버에서 응답을 받았을 때의 동작
+	                        console.log(response);
+	                        
+	                        alert("수정이 완료되었습니다.");
+	                        window.location.reload(); 
+	                        window.location.href = 'GomanagementPost.do';
+	                        
+	                    },
+	                    error: function(error) {
+	                        // 에러 발생 시의 동작
+	                        console.error(error);
+	                    }
+	                });
+	            });
+	        });
+	    });
+
+    </script>
+    <script>
+    	  document.addEventListener("DOMContentLoaded", function() {
+    		  $.get('/getUserId', function(userId) {
+              // 예시로 세션에 저장된 사용자 아이디를 가져옴 (실제로는 서버에서 가져와야 함)
+				console.log('서버에서 가져온 사용자 아이디:', userId);
+              // 수정 버튼과 삭제 버튼 엘리먼트 가져오기
+              var modifyButton = document.getElementById("modify");
+              var deleteButton = document.getElementById("delete");
+
+              // 현재 사용자 아이디를 가져와 세션에 저장된 아이디와 비교하여 버튼을 보이거나 숨김
+              if (userId === "${Manage.management_post_id}" || userId==="admin") {
+                  modifyButton.classList.remove("hidden");
+                  deleteButton.classList.remove("hidden");
+              } else {
+                  modifyButton.classList.add("hidden");
+                  deleteButton.classList.add("hidden");
+              }
+          });
+    });
     </script>
 </body>
 

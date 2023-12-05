@@ -2,62 +2,87 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
- 
+
 <mapper namespace="com.smhrd.model.ErrandDAO">
 	<!-- 심부름 글 등록 -->
 	<insert id="errupdate" parameterType="com.smhrd.model.ErrandVO">
-    INSERT INTO TB_ERRAND (
-        ERR_NAME, ERR_CATEGORY_NUM, ERR_CONTENT, ERR_PRICE, USER_ID
-    )
-    VALUES (
-       #{err_name} , #{err_category_num}, #{err_content}, #{err_price}, #{user_id}
-    )
-</insert>
-<!-- 심부름 글 수정 -->
-	<update id = "errmodify" parameterType="com.smhrd.model.ErrandVO">
+		INSERT INTO TB_ERRAND (
+		ERR_NAME, ERR_CATEGORY_NUM, ERR_CONTENT, ERR_PRICE, USER_ID
+		)
+		VALUES (
+		#{err_name} , #{err_category_num}, #{err_content}, #{err_price}, #{user_id}
+		)
+	</insert>
+	<!-- 심부름 글 수정 -->
+	<update id="errmodify" parameterType="com.smhrd.model.ErrandVO">
 		UPDATE TB_ERRAND
-		SET ERR_NAME = #{err_name} , ERR_CONTENT = #{err_content}, ERR_PRICE = #{err_price}, UPDATED_AT = SYSDATE
-		WHERE ERR_NAME = #{err_name} AND USER_ID=${user_id}
+		SET
+		ERR_NAME = #{err_name} , ERR_CONTENT = #{err_content}, ERR_PRICE =
+		#{err_price}, UPDATED_AT = SYSDATE
+		WHERE ERR_NAME = #{err_name} AND
+		USER_ID=${user_id}
 	</update>
-	
+
 	<delete id="errdelete" parameterType="com.smhrd.model.ErrandVO">
-		DELETE FROM TB_ERRAND WHERE ERR_NUM = #{err_num}
+		DELETE FROM TB_ERRAND WHERE
+		ERR_NUM = #{err_num}
 	</delete>
-	
-	<select id="selecterr" resultMap="er_rank">
-	SELECT ERR_NUM, ERR_CATEGORY_NUM, ERR_NAME, ERR_CONTENT, CREATED_AT, UPDATED_AT, ERR_STATUS, USER_ID
-	FROM TB_ERRAND ORDER BY CREATED_AT DESC
+	<!-- 심부름 글 불러오기 -->
+	<select id="errLoad" resultMap="er_rank">
+		SELECT ERR_NUM, ERR_CATEGORY_NUM, ERR_NAME, ERR_CONTENT, CREATED_AT,UPDATED_AT, ERR_STATUS, USER_ID
+		FROM (SELECT ERR_NUM, ERR_CATEGORY_NUM, ERR_NAME, ERR_CONTENT,CREATED_AT, UPDATED_AT, ERR_STATUS, USER_ID, ROWNUM AS RN
+			  FROM(SELECT ERR_NUM, ERR_CATEGORY_NUM, ERR_NAME, ERR_CONTENT, CREATED_AT, UPDATED_AT, ERR_STATUS, USER_ID
+				   FROM TB_ERRAND
+				   ORDER BY ERR_NUM DESC))
+		WHERE RN BETWEEN (#{selectedNum} * 10) - 9 AND #{selectedNum} * 10
 	</select>
-	
-	<select id="readerr" resultMap="er_rank">
-	SELECT ERR_NUM, ERR_CATEGORY_NUM,ERR_NAME, CREATED_AT, UPDATED_AT, ERR_STATUS, USER_ID
-	FROM TB_ERRAND WHERE ERR_CATEGORY_NUM = #{err_category_num} ORDER BY CREATED_AT DESC
+
+	<!-- 심부름 전체 갯수 세기 -->
+	<select id="getErrNum" resultMap="errNum">
+		SELECT COUNT(*)
+		FROM TB_ERRAND
 	</select>
-	
-	<select id="searcherr1" resultMap="er_rank">
-	SELECT ERR_NUM, ERR_CATEGORY_NUM,ERR_NAME, CREATED_AT, UPDATED_AT, ERR_STATUS, USER_ID
-	FROM TB_ERRAND WHERE ERR_NAME=#{err_name} 
-	</select>
-	
-	<select id="searcherr2" resultMap="er_rank">
-	SELECT ERR_NUM, ERR_CATEGORY_NUM,ERR_NAME, CREATED_AT, UPDATED_AT, ERR_STATUS, USER_ID
-	FROM TB_ERRAND WHERE USER_ID = #{user_id}
-	</select>
-	
-	<resultMap type="com.smhrd.model.ErrandVO" id="er_rank">
-		<result property="err_num" column="ERR_NUM"/>
-		<result property="err_category_num" column="ERR_CATEGORY_NUM"/>
-		<result property="err_name" column="ERR_NAME"/>
-		<result property="err_content" column="ERR_CONTENT"/>
-		<result property="created_at" column="CREATED_AT"/>
-		<result property="err_status" column="ERR_STATUS"/>
-		<result property="user_id" column="USER_ID"/>
-		
+
+	<resultMap type="int" id="errNum">
+		<result property="count(*)" column="COUNT(*)" />
 	</resultMap>
-	
-	<select id="err_detail" parameterType="com.smhrd.model.ErrandVO" resultType="com.smhrd.model.ErrandVO">
-	SELECT ERR_NUM, ERR_CATEGORY_NUM, ERR_NAME, CREATED_AT, ERR_CONTENT , UPDATED_AT, ERR_STATUS, USER_ID
-	FROM TB_ERRAND WHERE ERR_NUM = #{err_num} 
+
+	<!-- 심부름 카테고리 별 목록 불러오기 -->
+	<select id="readerr" resultMap="er_rank">
+		SELECT ERR_NUM, ERR_CATEGORY_NUM,ERR_NAME, CREATED_AT, UPDATED_AT,
+		ERR_STATUS, USER_ID
+		FROM TB_ERRAND WHERE ERR_CATEGORY_NUM = #{err_category_num} ORDER BY
+		CREATED_AT DESC
 	</select>
-	
-	</mapper>
+	<!-- 심부름 제목을 토대로 검색 -->
+	<select id="searcherr1" resultMap="er_rank">
+		SELECT ERR_NUM, ERR_CATEGORY_NUM,ERR_NAME, CREATED_AT, UPDATED_AT,
+		ERR_STATUS, USER_ID
+		FROM TB_ERRAND WHERE ERR_NAME=#{err_name}
+	</select>
+	<!-- 사용자 id를 토대로 검색 -->
+	<select id="searcherr2" resultMap="er_rank">
+		SELECT ERR_NUM, ERR_CATEGORY_NUM,ERR_NAME, CREATED_AT, UPDATED_AT,
+		ERR_STATUS, USER_ID
+		FROM TB_ERRAND WHERE USER_ID = #{user_id}
+	</select>
+
+	<resultMap type="com.smhrd.model.ErrandVO" id="er_rank">
+		<result property="err_num" column="ERR_NUM" />
+		<result property="err_category_num" column="ERR_CATEGORY_NUM" />
+		<result property="err_name" column="ERR_NAME" />
+		<result property="err_content" column="ERR_CONTENT" />
+		<result property="created_at" column="CREATED_AT" />
+		<result property="err_status" column="ERR_STATUS" />
+		<result property="user_id" column="USER_ID" />
+
+	</resultMap>
+	<!-- 심부름 글 상세 보기 -->
+	<select id="err_detail" parameterType="com.smhrd.model.ErrandVO"
+		resultType="com.smhrd.model.ErrandVO">
+		SELECT ERR_NUM, ERR_CATEGORY_NUM, ERR_NAME, CREATED_AT, ERR_CONTENT ,
+		UPDATED_AT, ERR_STATUS, USER_ID
+		FROM TB_ERRAND WHERE ERR_NUM = #{err_num}
+	</select>
+
+</mapper>

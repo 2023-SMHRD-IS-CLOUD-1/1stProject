@@ -17,10 +17,10 @@ public class ManageDAO {
 		sqlSession.close();
 		return row;
 	}
-	public List<ManageVO> manage_sel() {
+	public List<ManageVO> manage_sel(int selectedNum) {
 		System.out.println("성공");
 		SqlSession sqlSession = factory.openSession();
-		List<ManageVO> result = sqlSession.selectList("manage_sel");
+		List<ManageVO> result = sqlSession.selectList("manage_sel",selectedNum);
 		sqlSession.close();
 		return result;
 	}
@@ -30,5 +30,16 @@ public class ManageDAO {
 		sqlSession.close();
 		return result;
 	}
+	public int manage_modify(ManageVO vo) {
+		SqlSession sqlSession = factory.openSession(true);
+		int row = sqlSession.update("manage_modify",vo);
+		sqlSession.close();
+		return row;
+	}
 	
+	public int getManNum() {
+		SqlSession sqlSession = factory.openSession();
+		int result = sqlSession.selectOne("getManNum");
+		return result;
+	}
 }

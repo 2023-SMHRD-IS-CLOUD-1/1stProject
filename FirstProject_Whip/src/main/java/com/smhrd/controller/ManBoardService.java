@@ -9,29 +9,36 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
+import com.smhrd.model.ErrandDAO;
+import com.smhrd.model.ErrandVO;
+import com.smhrd.model.ManageDAO;
+import com.smhrd.model.ManageVO;
 import com.smhrd.model.PostDAO;
 import com.smhrd.model.PostVO;
 
-// 게시글 전채 갯수 가져오기
-public class PostNumService implements Command {
+// 로그아웃 서비스
+public class ManBoardService implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		System.out.println(" 성공" + "22222222222222222222");
 		response.setContentType("text/html;charset=utf-8");
 		request.setCharacterEncoding("utf-8");
-		PostDAO dao = new PostDAO();
-		int result = dao.getPostNum();
 		
-		
+		String selectedNum1 = request.getParameter("selectedNum");
+		int selectedNum = Integer.parseInt(selectedNum1);
+		System.out.println(selectedNum + "22222222222222222222");
+		ManageDAO dao = new ManageDAO();
+		List<ManageVO> resultList = dao.manage_sel(selectedNum);
 		PrintWriter out = response.getWriter();
 		
-		   if(result == 0) {
+		   if(resultList.isEmpty()) {
 		         out.print("false");
 		      }else {
 		         Gson gson = new Gson();
-		         String result1 = gson.toJson(result);
-		         out.print(result1);
+		         String result = gson.toJson(resultList);
+		         System.out.println(result);
+		         out.print(result);
 		      }
 		      return null;
 	}
