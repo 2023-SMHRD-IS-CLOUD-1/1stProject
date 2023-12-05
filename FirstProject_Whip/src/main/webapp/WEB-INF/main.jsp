@@ -119,10 +119,10 @@ https://templatemo.com/tm-559-zay-shop
                     <i class="fa fa-fw fa-user text-dark mr-3"></i>
                 </a>
                 <!--로그인 버튼 !!!!!! --------------------------->
-                <a href="#"><button class="btn-open-modal nav-item loginbtn">로그인</button></a>
+                <a href="#"><button class="btn-open-modal nav-item loginbtn" id ="loginBtn">로그인</button></a>
                 <!-- 회원가입 버튼!!!! --------------------------->
+                <a href="Logout.do"><button id="logoutBtn" class="btn-open-modal nav-item loginbtn">로그아웃</button></a>
                 <a href="#"><button id="joinBtn" class="btn-open-modal nav-item loginbtn">회원가입</button></a>
-                <a href="Logout.do"><button id="LogoutBtn" class="btn-open-modal nav-item loginbtn">로그아웃</button></a>
                 </div>
             </div>
 
@@ -377,11 +377,16 @@ https://templatemo.com/tm-559-zay-shop
    	<script>
 	    //HttpSession session = request.getSession();
 		//let user = (UserVO)session.getAttribute("user");
+		let loginBtn = document.querySelector('#loginBtn');
+		let logoutBtn = document.querySelector('#logoutBtn');
 		
-		console.log(${user.user_id})
-		console.log('${user}' == 'null')
+		console.log(11111111111111111);
+		console.log('${user.user_id}');
+		console.log('${user}' == 'null');
 		if('${user}' == ''){
 			console.log("asdfasdfasdf")
+			//loginBtn.style.display ='';
+			//logoutBtn.style.display ='none';
 			$('#loginBtn').attr('style', "display: ''")
 			$('#logoutBtn').attr('style', "display: none")
 		}else{
