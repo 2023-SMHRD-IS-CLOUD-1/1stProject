@@ -161,7 +161,7 @@ https://templatemo.com/tm-559-zay-shop
         <div class="">
             <div>
                 <!-- onsubmit : submit타입 input을 누를때 적어놓은 메소드를 먼저 실행시키고 form태그 값 전송이 시작됨, return이 추가되면 메소드의 리턴 값이 true일 때만 form태그 값을 전송함-->
-                <form action="Update.do" method="get" onsubmit="return test()">
+                <form action="Errupdate.do" method="get" onsubmit="return test()">
                     <div id="div3">
                         <table id="table1" class="col-md-9 m-auto">
                             <tr class="h120 pd100">

@@ -29,12 +29,12 @@ public class DeleteService implements Command {
 		
 		int result = dao.delete(vo);
 		// 회원탈퇴 성공시 세션에 저장되어있는 모든데이터 삭제
-		if(result>1) {
+		if(result==1) {
 			session.invalidate();
 			// return  main.jsp
 		}
 		
-		return null;
+		return "redirect:/Gomain.do";
 
 	}
 

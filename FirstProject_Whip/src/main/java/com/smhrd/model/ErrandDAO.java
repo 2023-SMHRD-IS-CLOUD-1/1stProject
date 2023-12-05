@@ -16,12 +16,6 @@ public class ErrandDAO {
 		SqlSession sqlSession = factory.openSession(true);
 		int row = sqlSession.insert("errupdate",vo);
 		sqlSession.close();
-		if(row>0) {
-			sqlSession.commit();
-			sqlSession.close();
-		}else {
-			sqlSession.rollback();
-		}
 		return row;
 	}
 

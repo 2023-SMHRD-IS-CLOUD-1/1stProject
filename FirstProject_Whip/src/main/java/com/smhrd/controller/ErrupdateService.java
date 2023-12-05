@@ -62,7 +62,7 @@ public class ErrupdateService implements Command {
 			System.out.println("실패");
 			// return 다시시도해주세요 페이지 -> 메인페이지로 이동할 수 있게
 		}
-		return null;
+		return "redirect:/GoerrListPage.do";
 
 	}
 

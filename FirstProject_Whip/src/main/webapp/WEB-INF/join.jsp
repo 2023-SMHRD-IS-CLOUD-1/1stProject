@@ -457,7 +457,7 @@
             }
         	}
         function genderTest() {
-            if ($('#select001 :selected').val() == "") {
+            if ($("#select001 :selected").val() == 'none') {
                 alert('성별을 선택해주세요');
                 return 0;
             } else {
