@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/templatemo.css">
     <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="./assets/css/css1.css">
+    <link rel="stylesheet" href="assets/css/main.css">
 
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
@@ -43,9 +45,6 @@ https://templatemo.com/tm-559-zay-shop
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@500&display=swap');
   </style>
-    <!-- 수정1 시작-->
-    <link rel="stylesheet" href="./assets/css/css1.css">
-    <!-- 수정1 끝-->
 </head>
 
 <body>
@@ -110,15 +109,24 @@ https://templatemo.com/tm-559-zay-shop
                             </div>
                         </div>
                     </div>
-                    <!-- 검색 아이콘 ------------------>
-                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
-                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
-                    </a>
-                    <!-- 마이페이지 아이콘 ----------------------->
-                    <a class="nav-icon position-relative text-decoration-none" href="Gomypage1.do">
-                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                    </a>
-                </div>
+                    <div class="headDiv">
+						<!-- 검색창 팝업 아이콘  -------------------->
+						<a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
+						data-bs-target="#templatemo_search">
+							<i class="fa fa-fw fa-search text-dark mr-2"></i>
+						</a>
+						<!-- 장바구니 지움  -->
+						
+						<!--마이페이지 아이콘-->
+						<a id="mypageAtage" class="nav-icon position-relative text-decoration-none" href="Gomypage1.do">
+							<i id="mypageIcon" class="fa fa-fw fa-user text-dark mr-3"></i>
+						</a>
+                    </div>
+	                <div class="headDiv">
+		                <a href="Logout.do"><button id="logoutBtn" class="btn-open-modal nav-item loginbtn">로그아웃</button></a>
+	                </div>
+	                <div class="headDiv">
+	                </div>
             </div>
 
         </div>
@@ -169,7 +177,7 @@ https://templatemo.com/tm-559-zay-shop
                         <tr class="h80">
                             <td class="w300 ">비밀번호</td>
                             <td class="w240 ">
-                                <input id="input001" type="password" name="user_pw" value="1223"></input>
+                                <input id="input001" type="password" name="user_pw" value=""></input>
                             </td>
                             <td class="w300"></td>
                             <td></td>
@@ -185,28 +193,28 @@ https://templatemo.com/tm-559-zay-shop
                         <tr class="h80">
                             <td class="">이름</td>
                             <td class="">
-                                <input id="input003" type="text" name="user_name" value="가나다"></input>
+                                <input id="input003" type="text" name="user_name" value=""></input>
                             </td>
                             <td></td>
                         </tr>
                         <tr class="h80">
                             <td class="">닉네임</td>
                             <td class="">
-                                <input id="input004" type="text" name="user_nick" value="가나다"></input>
+                                <input id="input004" type="text" name="user_nick" value=""></input>
                             </td>
                             <td></td>
                         </tr>
                         <tr class="h80">
                             <td class="">전화번호</td>
                             <td class="">
-                                <input id="input005" type="text" name="user_phone" value="010-4646-4646"></input>
+                                <input id="input005" type="text" name="user_phone" value=""></input>
                             </td>
                             <td></td>
                         </tr>
                         <tr class="h80">
                             <td class="">주소</td>
                             <td class="">
-                                <input id="input006" type="text" name="user_addr1" value="광주 송암로 77번길 77"></input>
+                                <input id="input006" type="text" name="user_addr1" value=""></input>
                             </td>
                             <td></td>
                         </tr>
@@ -247,41 +255,24 @@ https://templatemo.com/tm-559-zay-shop
 </footer>
 <!-- End Footer -->
 
+    <!-- Start Script -->
+    <script src="assets/js/jquery-1.11.0.min.js"></script>
+    <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/templatemo.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <!-- End Script -->
+
     <!-- 수정3 시작 -->
     <script>
         // 회원정보를 불러와서 input태그에 입력 시작
-        let user_pw = "12345";
-        let user_name = "테스트김김";
-        let user_nick = "테스트바람";
-        let user_phone = "테스트010-2323-2323";
-        let user_addr1 = "테스트광주 송암로 77번길 77";
-        
-        let ajax = function(){
-            $.ajax({
-                // 변경필요2 url 변경 필요
-                url : "updatecheck.do",
-                dataType : JSON,
-                success : function(res){
-                    user_pw = res.user_pw;
-                    user_name = res.user_name;
-                    user_nick = res.user_nick;
-                    user_phone = res.user_phone;
-                    user_addr1 = res.user_addr1;
-                }
-            })
-        }
+        // 사용자의 회원정보를 불러와서 태그의 value값을 변경 start
+        $('#input003').val('${user.user_name}');
+        $('#input004').val('${user.user_nick}');
+        $('#input005').val('${user.user_phone}');
+        $('#input006').val('${user.user_addr1}');
+        // 사용자의 회원정보를 불러와서 태그의 value값을 변경 end
 
-        // 브라우저 생성과 동시에 시작할 함수
-        window.onload = function(){
-            ajax;
-            pw_check;
-        }
-
-        $("#input001").val(user_pw);
-        $("#input003").val(user_name);
-        $("#input004").val(user_nick);
-        $("#input005").val(user_phone);
-        $("#input006").val(user_addr1);
         // 회원정보를 불러와서 input태그에 입력 끝
         
         // 비밀번호와 비밀번호 확인이 같은지 확인 시작
@@ -292,12 +283,10 @@ https://templatemo.com/tm-559-zay-shop
                 $('#pw002').html('비밀번호 일치하지 않음');
             }
         }
-        // 비밀번호와 비밀번호 확인이 같은지 확인 끝
-
-        // 주민번호 확인 버튼을 누르면 주민번호가 보이고 커서가 영역에서 벗어나면 다시 *표시 시작
         $('#input001').on("keyup", pw_check)
         $('#input002').on("keyup", pw_check)
-        // 주민번호 확인 버튼을 누르면 주민번호가 보이고 커서가 영역에서 벗어나면 다시 *표시 끝
+        // 비밀번호와 비밀번호 확인이 같은지 확인 끝
+
         
     </script>
     <!-- 수정3 끝 --> 

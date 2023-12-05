@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="assets/css/templatemo.css">
     <link rel="stylesheet" href="assets/css/custom.css">
     <link rel="stylesheet" href="assets/css/read.css">
+    <link rel="stylesheet" href="assets/css/main.css">
 
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet"
@@ -109,19 +110,29 @@ https://templatemo.com/tm-559-zay-shop
                             </div>
                         </div>
                     </div>
-                    <!-- 검색창 팝업 아이콘 -->
-                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
-                        data-bs-target="#templatemo_search">
-                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
-                    </a>
-                    <!--  마이페이지 아이콘 -->
-                    <a class="nav-icon position-relative text-decoration-none" href="Gomypage1.do">
-                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                    </a>
-                    <!--로그인 버튼 !!!!!! --------------------------->
-                    <a href="#"><button class="btn-open-modal nav-item loginbtn">로그인</button></a>
-                    <!-- 회원가입 버튼!!!! --------------------------->
-                    <a href="#"><button id="joinBtn" class="btn-open-modal nav-item loginbtn">회원가입</button></a>
+                    <div class="headDiv">
+						<!-- 검색창 팝업 아이콘  -------------------->
+						<a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
+						data-bs-target="#templatemo_search">
+							<i class="fa fa-fw fa-search text-dark mr-2"></i>
+						</a>
+						<!-- 장바구니 지움  -->
+						
+						<!--마이페이지 아이콘-->
+						<a id="mypageAtage" class="nav-icon position-relative text-decoration-none" href="Gomypage1.do">
+							<i id="mypageIcon" class="fa fa-fw fa-user text-dark mr-3"></i>
+						</a>
+                    </div>
+	                <div class="headDiv">
+		                <!--로그인 버튼 !!!!!! --------------------------->
+		                <a href="#"><button class="btn-open-modal nav-item loginbtn" id ="loginBtn">로그인</button></a>
+		                <!-- 회원가입 버튼!!!! --------------------------->
+		                <a href="Logout.do"><button id="logoutBtn" class="btn-open-modal nav-item loginbtn">로그아웃</button></a>
+	                </div>
+	                <div class="headDiv">
+		                <a href="#"><button id="joinBtn" class="btn-open-modal nav-item loginbtn">회원가입</button></a>
+	                </div>
+                </div>
                 </div>
             </div>
         </div>

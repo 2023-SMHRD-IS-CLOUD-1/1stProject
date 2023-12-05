@@ -348,7 +348,7 @@
                 // Add a click event listener to the close-icon button
                 closeIcon.addEventListener("click", function () {
                     // Redirect to main.html
-                    window.location.href = "Gomain.do";
+                    window.location.href = "Gojoin.do";
                 });
             });
         </script>

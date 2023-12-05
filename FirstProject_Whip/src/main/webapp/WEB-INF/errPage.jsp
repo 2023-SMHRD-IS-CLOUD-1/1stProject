@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/templatemo.css">
     <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/css1.css">
 
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet"
@@ -35,9 +37,6 @@ TemplateMo 559 Zay Shop
 https://templatemo.com/tm-559-zay-shop
 
 -->
-    <!-- 수정1 시작-->
-    <link rel="stylesheet" href="./assets/css/css1.css">
-    <!-- 수정1 끝-->
     <style>
 
     </style>
@@ -110,15 +109,24 @@ https://templatemo.com/tm-559-zay-shop
                             </div>
                         </div>
                     </div>
-                    <!-- 검색 아이콘 ------------------>
-                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
-                        data-bs-target="#templatemo_search">
-                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
-                    </a>
-                    <!-- 마이페이지 아이콘 ----------------------->
-                    <a class="nav-icon position-relative text-decoration-none" href="Gomypage1.do">
-                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                    </a>
+                    <div class="headDiv">
+						<!-- 검색창 팝업 아이콘  -------------------->
+						<a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
+						data-bs-target="#templatemo_search">
+							<i class="fa fa-fw fa-search text-dark mr-2"></i>
+						</a>
+						<!-- 장바구니 지움  -->
+						
+						<!--마이페이지 아이콘-->
+						<a id="mypageAtage" class="nav-icon position-relative text-decoration-none" href="Gomypage1.do">
+							<i id="mypageIcon" class="fa fa-fw fa-user text-dark mr-3"></i>
+						</a>
+                    </div>
+	                <div class="headDiv">
+		                <a href="Logout.do"><button id="logoutBtn" class="btn-open-modal nav-item loginbtn">로그아웃</button></a>
+	                </div>
+	                <div class="headDiv">
+	                </div>
                 </div>
             </div>
 

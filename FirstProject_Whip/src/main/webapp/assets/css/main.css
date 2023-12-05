@@ -99,3 +99,10 @@
     position: relative;
     bottom: 30px;
 }
+/*로그인 로그아웃 영역 고정을 위해 div에 너비 부여*/
+.headDiv{
+	width: 105px;
+}
+
+
+

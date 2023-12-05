@@ -6,7 +6,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>당근과채찍_핵심_MainPage</title>
     <meta charset="utf-8">
@@ -35,7 +34,6 @@ https://templatemo.com/tm-559-zay-shop
 -->
 
 </head>
-
 <body>
     <!-- Start Top Nav -->
     <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
@@ -107,22 +105,27 @@ https://templatemo.com/tm-559-zay-shop
                             </div>
                         </div>
                     </div>
-                    <!-- 검색창 팝업 아이콘  -------------------->
-                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
-                    data-bs-target="#templatemo_search">
-                    <i class="fa fa-fw fa-search text-dark mr-2"></i>
-                </a>
-                <!-- 장바구니 지움  -->
-                
-                <!--마이페이지 아이콘-->
-                <a class="nav-icon position-relative text-decoration-none" href="Gomypage1.do">
-                    <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                </a>
-                <!--로그인 버튼 !!!!!! --------------------------->
-                <a href="#"><button class="btn-open-modal nav-item loginbtn" id ="loginBtn">로그인</button></a>
-                <!-- 회원가입 버튼!!!! --------------------------->
-                <a href="Logout.do"><button id="logoutBtn" class="btn-open-modal nav-item loginbtn">로그아웃</button></a>
-                <a href="#"><button id="joinBtn" class="btn-open-modal nav-item loginbtn">회원가입</button></a>
+                    <div class="headDiv">
+						<!-- 검색창 팝업 아이콘  -------------------->
+						<a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
+						data-bs-target="#templatemo_search">
+							<i class="fa fa-fw fa-search text-dark mr-2"></i>
+						</a>
+						<!-- 장바구니 지움  -->
+						
+						<!--마이페이지 아이콘-->
+						<a id="mypageAtage" class="nav-icon position-relative text-decoration-none" href="Gomypage1.do">
+							<i id="mypageIcon" class="fa fa-fw fa-user text-dark mr-3"></i>
+						</a>
+                    </div>
+	                <!-- 로그인, 로그아웃, 회원가입 버튼 !!!!!! --------------------------->
+	                <div class="headDiv">
+		                <a href="#"><button class="btn-open-modal nav-item loginbtn" id ="loginBtn">로그인</button></a>
+		                <a href="Logout.do"><button id="logoutBtn" class="btn-open-modal nav-item loginbtn">로그아웃</button></a>
+	                </div>
+	                <div class="headDiv">
+		                <a href="#"><button id="joinBtn" class="btn-open-modal nav-item loginbtn">회원가입</button></a>
+	                </div>
                 </div>
             </div>
 
@@ -357,12 +360,17 @@ https://templatemo.com/tm-559-zay-shop
         function hrefLink(){
             location.href = joinLink;
         }
+     	// 회원가입 버튼 이벤트
+        var joinBtn = document.getElementById("joinBtn");
+        joinBtn.onclick = hrefLink
+        function hrefLink(){
+            location.href = joinLink;
+        }
   
     </script>
-<script>
+	<script>
     // 모달 창 닫기 함수
-    // 닫히긴 하지만 연달아 실행시 modal만 켜지는 현상이 발생 ... modal body는 뜨지 않음
-      <script>
+    // 닫히긴 하지만 연달아 실행시 modal만 켜지는 현상이 발생 ... modal body는 뜨지 않음 >> 해결
         // Wait for the DOM to be ready
         document.addEventListener("DOMContentLoaded", function () {
             // Find the close-icon button
@@ -375,74 +383,32 @@ https://templatemo.com/tm-559-zay-shop
             });
         });
     </script>
-    
-   	<script>
-	    //HttpSession session = request.getSession();
-		//let user = (UserVO)session.getAttribute("user");
-		let loginBtn = document.querySelector('#loginBtn');
-		let logoutBtn = document.querySelector('#logoutBtn');
-		
-		console.log(11111111111111111);
-		console.log('${user.user_id}');
-		console.log('${user}' == 'null');
-		if('${user}' == ''){
-			console.log("asdfasdfasdf")
-			//loginBtn.style.display ='';
-			//logoutBtn.style.display ='none';
-			$('#loginBtn').attr('style', "display: ''")
-			$('#logoutBtn').attr('style', "display: none")
-		}else{
-			$('#loginBtn').attr('style', "display: none")
-			$('#logoutBtn').attr('style', "display: ''")
-		}
-
-    </script>
-    
+	<!-- 로그인 여부에 따라 버튼 기능 변경 -->    
     <script>
-    $('#btn-login').on('click', function(){
-        $.ajax({
-            url : "Login.do",
-            dataType : "JSON",
-            data : {
-                user_id : $('#inputId').val(),
-                user_pw : $('#inputPw').val()
-            },
-            success : function(res){
-                if(res.k == "false"){
-                   console.log("실패 확인")
-                    $('#idPwSameCheck').html('아이디와 비밀번호가 일치하지 않습니다');
-                }else if(res.k == "true"){
-                   window.location.href = "Gomain.do"
-                }
-            },
-         error : function(result) {
-         }
-        })
-    })
-    
-    </script>
-    
-      <script>
-       //HttpSession session = request.getSession();
-      //let user = (UserVO)session.getAttribute("user");
-      let loginBtn = document.querySelector('#loginBtn');
-      let logoutBtn = document.querySelector('#logoutBtn');
+     //HttpSession session = request.getSession();
+    //let user = (UserVO)session.getAttribute("user");
+    let loginBtn = document.querySelector('#loginBtn');
+    let logoutBtn = document.querySelector('#logoutBtn');
+	$('#mypageAtage').on('click',function(){
+		if('${user}' == ''){alert('로그인해 주세요')}
+	})
       
-      console.log(11111111111111111);
-      console.log('${user.user_id}');
-      console.log('${user}' == 'null');
-      if('${user}' == ''){
-         console.log("asdfasdfasdf")
-         //loginBtn.style.display ='';
-         //logoutBtn.style.display ='none';
-         $('#loginBtn').attr('style', "display: ''")
-         $('#logoutBtn').attr('style', "display: none")
-      }else{
-         $('#loginBtn').attr('style', "display: none")
-         $('#logoutBtn').attr('style', "display: ''")
-      }
+    if('${user}' == ''){
+       console.log("asdfasdfasdf")
+       //loginBtn.style.display ='';
+       //logoutBtn.style.display ='none';
+       $('#loginBtn').attr('style', "display: ''")
+       $('#logoutBtn').attr('style', "display: none")
+       $('#mypageAtage').attr("href","Gomain.do");
+       $('#joinBtn').attr('style', "display: ''");
+    }else{
+       $('#loginBtn').attr('style', "display: none")
+       $('#logoutBtn').attr('style', "display: ''")
+       $('#mypageAtage').attr("href","Gomypage1.do");
+       $('#joinBtn').attr('style', "display: none");
+    }
     </script>
-    
+    <!-- 로그인 모달창에서 일치하지 않는 id, pw를 입력할 경우 오류 문구 띄워줌 -->
     <script>
     $('#btn-login').on('click', function(){
         $.ajax({
@@ -464,8 +430,6 @@ https://templatemo.com/tm-559-zay-shop
          }
         })
     })
-    
-    
     </script>
 </body>
 
