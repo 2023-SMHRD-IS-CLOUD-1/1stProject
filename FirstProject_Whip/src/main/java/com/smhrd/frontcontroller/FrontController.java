@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.w3c.dom.DOMStringList;
 
 import com.smhrd.controller.CertificationService;
+import com.smhrd.controller.ComListService;
 import com.smhrd.controller.Command;
 import com.smhrd.controller.DeleteService;
 import com.smhrd.controller.ErrBoardService;
@@ -84,7 +85,8 @@ public class FrontController extends HttpServlet {
 		map.put("FvErr.do", new FvErrService());
 		map.put("ErrNum.do", new ErrNumService());
 		map.put("ErrBoard.do", new ErrBoardService());
-		
+		// 댓글
+		map.put("ComList.do", new ComListService());
 		// 게시판
 		map.put("Postupdate.do", new PostupdateService());
 		map.put("Postmodify.do", new PostmodifyService());

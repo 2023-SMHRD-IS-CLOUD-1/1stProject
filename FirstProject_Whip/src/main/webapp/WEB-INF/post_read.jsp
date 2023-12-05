@@ -178,11 +178,12 @@ https://templatemo.com/tm-559-zay-shop
     <div class="container py-5" id="postWriteBoard">
         <div id="postReadLayout">
             <div id="postReadHead">
+        	    <span id="postReadingNum">${postContent.post_num}</span>
                 <h1>${postContent.post_title}</h1>
             </div>
             <div id="postReadNav">
                 <span>${postContent.user_id}</span>
-                <span>${postContent.posted_at }</span>
+                <span id = "postPostedAt">${postContent.posted_at}</span>
                 <span>조회 ${postContent.post_views }</span>
                 <span>추천 ${postContent.post_likes }</span>
                 <button onclick="postList()">목록</button>
@@ -214,51 +215,11 @@ https://templatemo.com/tm-559-zay-shop
             </div>
             <div id="postReadSect4">
                 <table>
-                    <tr>
-                        <thead>
-                            <th class="sect4TableWriter">작성자</th>
-                            <th class="sect4TableContent">내용</th>
-                            <th class="sect4Tablefavor">작성일자</th>
-                            <th class="sect4Tablefavor">추천수</th>
-                        </thead>
-                    </tr>
-                    <tr>
-                        <td class="sect4TableWriter">행인</td>
-                        <td class="sect4TableContent">
-                            으아아아
-                            <div>1</div>
-                            <div>1</div>
-                            <div>1</div>
-                            <div>1</div>
-                            <div>1</div>
-                            <div>1</div>
-                        </td>
-                        <td class="sect4TableDate">21.11.27</td>
-                        <td class="sect4Tablefavor">
-                            <span>1</span>
-                            <br>
-                            <button class="ddabong">추천</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="sect4TableWriter">나그네</td>
-                        <td class="sect4TableContent">내용</td>
-                        <td class="sect4TableDate">일자</td>
-                        <td class="sect4Tablefavor">
-                            <span>13</span>
-                            <br>
-                            <button class="ddabong">추천</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="sect4TableWriter">관리자</td>
-                        <td class="sect4TableContent">내용</td>
-                        <td class="sect4TableDate">일자</td>
-                        <td class="sect4Tablefavor">
-                            <span>2</span>
-                            <br>
-                            <button class="ddabong">추천</button>
-                        </td>
+                   <tr>
+                           <th id="sect4TableWriter">작성자</th>
+                           <th id="sect4TableContent">내용</th>
+                           <th id="sect4TablefavorDate">작성일자</th>
+                           <th id="sect4TablefavorNum">추천수</th>
                     </tr>
                 </table>
             </div>
@@ -336,6 +297,43 @@ https://templatemo.com/tm-559-zay-shop
                 window.location.href = "Gopost_read.do";
             });
         });
+    </script>
+    <script>
+	    let likeBtn = document.querySelector('#likeBtn');
+		let thisPostNum = document.querySelector('#postReadingNum').innerHTML;
+		let postPostedAt = document.querySelector('#postPostedAt');
+		postPostedAt.innerHTML = postPostedAt.innerHTML.slice(0,16);
+		//likeBtn.addEventListener('click', function() {
+			//$.ajax({
+				
+			//})
+		//});
+		function loadCmt() {
+			console.log(thisPostNum);
+	    	$.ajax({
+	    		url : "ComList.do",
+	    		data : {thisPostNum : thisPostNum},
+	    		dataType : "json",
+	    		success : function(res) {
+	    			for(let i = 0; i < res.length; i++) {
+	    				var a = "";
+	    				a += "<tr>";
+	    				a += "<td class = \"cSect4TableWriter\">" + res[i].user_id + "</td>";
+	    				a += "<td class = \"cSect4TableContent\">" + res[i].cmt_content + "</td>";
+	    				a += "<td class = \"cSect4TableDate\">" + res[i].created_at.slice(0,16) + "</td>";
+	    				a += "<td class = \"cSect4Tablefavor\">" + res[i].cmt_likes + "<br>";
+	    				a += "<button class= \"ddabong\"> 추천 </button></td>"; 
+	    				a += "</tr>";
+	    				$("#postReadSect4 table").append(a);
+	    			}
+	    			console.log(res[1]);
+	    		},
+	    		error : function(res) {
+	    			console.log('ajax 실패222222222222222');
+	    		}
+	    	});
+		}
+		loadCmt();
     </script>
 </body>
 

@@ -106,7 +106,9 @@
   font-family: 'IBM Plex Sans KR', sans-serif;
 
 }
-
+#postReadingNum {
+	font-size: 11px;
+}
 #postReadLayout #postReadNav {
   width: 100%;
   height: 3%;
@@ -148,7 +150,9 @@
    
 }
 
-
+.cSect4TableContent {
+	text-align: left !important;
+}
 
 
 
@@ -199,19 +203,21 @@
   text-align: center;
 }
 
-#postReadSect4 table .sect4TableWriter {
+#postReadSect4 table #sect4TableWriter {
   width: 200px;
 }
 
-#postReadSect4 table .sect4TableContent {
+#postReadSect4 table #sect4TableContent {
   max-width: 895px;
 }
-#postReadSect4 table td
 
-#postReadSect4 table .sect4TableDate {
+#postReadSect4 table #sect4TableDate {
   width: 120px;
 }
 
-#postReadSect4 table .sect4Tablefavor {
+#postReadSect4 table #sect4TablefavorDate {
+  width: 143px;
+}
+#postReadSect4 table #sect4TablefavorNum {
   width: 70px;
 }

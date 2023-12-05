@@ -10,4 +10,16 @@ import com.smhrd.database.SqlSessionManager;
 
 public class ComDAO {
 
+	private SqlSessionFactory factory = SqlSessionManager.getFactory();
+
+	public List<ComVO> comLoad(int thisPostNum) {
+		
+		SqlSession sqlSession = factory.openSession(true);
+		List<ComVO> result = sqlSession.selectList("comLoad", thisPostNum);
+		sqlSession.close();
+		
+		return result;
+	}
+		
+
 }

@@ -45,7 +45,7 @@
 		<result property="user_id" column="USER_ID" />
 	</resultMap>
 	<select id="postContentLoad" parameterType="com.smhrd.model.PostVO" resultType="com.smhrd.model.PostVO">
-	SELECT POST_TITLE, POST_CONTENT, POSTED_AT, POST_LIKES, POST_VIEWS, USER_ID
+	SELECT POST_NUM ,POST_TITLE, POST_CONTENT, POSTED_AT, POST_LIKES, POST_VIEWS, USER_ID
 	FROM TB_POST
 	WHERE POST_NUM = #{post_num} 
 	</select>
