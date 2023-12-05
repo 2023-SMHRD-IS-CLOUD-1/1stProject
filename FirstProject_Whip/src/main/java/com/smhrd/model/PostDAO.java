@@ -73,4 +73,17 @@ public class PostDAO {
 		int result = sqlSession.selectOne("getPostNum");
 		return result;
 	}
+	
+	// 게시글 제목검색 기능
+	public List<PostVO> postSearch1(String searchWord) {
+		SqlSession sqlSession = factory.openSession(true);
+		List<PostVO> result = sqlSession.selectList("postSearch1", searchWord);
+		return result;
+	}
+	// 게시글 작성자검색 기능
+	public List<PostVO> postSearch2(String searchWord) {
+		SqlSession sqlSession = factory.openSession(true);
+		List<PostVO> result = sqlSession.selectList("postSearch2", searchWord);
+		return result;
+	}
 }

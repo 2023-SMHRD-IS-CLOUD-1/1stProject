@@ -176,14 +176,12 @@ https://templatemo.com/tm-559-zay-shop
     <div class="container py-5" id="postContent">
 		<div id="postBodyArea">
 			<span href="#" id="postTitle">우리동네 소식</span>
-			<form action="#" id="PostSearchForm">
-				<input type="text" id="postSearch"> <select
-					name="postSearchFilter" id="postSearchFilter">
-					<option value="제목">제목</option>
-					<option value="작성자">작성자</option>
-				</select> <input type="submit" id="postSearchSub" value="검색"><i
-					class="ic-plus"></i>
-			</form>
+			<select	name="postSearchFilter" id="postSearchFilter">
+				<option value="post_title">제목</option>
+				<option value="user_id">작성자</option>
+			</select>
+			<input type="text" id="postSearch"> 
+			<button id="searchButton">검색</button>	
 			<div>
 				<a href="Gopost_write.do" id="postUpdateA">글작성</a>
 			</div>
@@ -287,8 +285,56 @@ https://templatemo.com/tm-559-zay-shop
 		let pageNumber = document.querySelector('#pageNumber');
 		let prevBtn = document.querySelector('#pageNumber>.pageNumberAMove:first-child');
 		let nextBtn = document.querySelector('#pageNumber>.pageNumberAMove:last-child');
+		let searchBtn = document.querySelector('#searchButton');
+		let postSearchFilter = document.querySelector('#postSearchFilter');
+		let searchWord = document.querySelector('#postSearch');
 		let selectedNum = 1;
 		let lastPageNum = 1;
+		
+		
+		
+		searchBtn.addEventListener('click', function() {
+			if (firstBtn) {
+				firstBtn.click();
+				}
+			$.ajax({
+				url : "PostSearch.do",
+				data : {
+					postSearchFilter : postSearchFilter.value,
+					searchWord : searchWord.value
+				},
+				dataType : "json",
+				success : function(res){
+					$(".postListCL").remove();
+					for (let i = 0; i < 10; i++) {
+						var a = "";
+						a += "<tr class = \"postListCL\">";
+						a += "<td class = \"postListNum\">"+ res[i].post_num + "</td>";
+						a += "<td class = \"postListId\">"+ res[i].user_id + "</td>";
+						a += "<td class = \"postListTitle\"><a href = \"#\">"+ res[i].post_title + "</a></td>";
+						a += "<td class = \"postListViews\">"+ res[i].post_views + "</td>";
+						a += "<td class = \"postListLikes\">"+ res[i].post_likes + "</td>";
+						a += "<td class = \"postListDate\">"+ res[i].posted_at + "</td>";
+						a += "</tr>"
+						$("#postTable").append(a);
+					}
+					
+				},
+				error : function(result) {
+					console.log('검색 ajax 실패');
+				}
+				
+			});
+		});
+		
+		
+		
+		//<select	name="postSearchFilter" id="postSearchFilter">
+			//<option value="post_title">제목</option>
+			//<option value="user_id">작성자</option>
+		//</select>
+		//<input type="text" id="postSearch"> 
+		//<button id="searchButton">검색</button>	
 		// 페이지 시작시 1번 페이지 선택
 		document.addEventListener("DOMContentLoaded", function() {
 			// 1번 페이지 버튼 클릭
@@ -379,7 +425,6 @@ https://templatemo.com/tm-559-zay-shop
 						a += "</tr>"
 						$("#postTable").append(a);
 					}
-					console.log(res.length);
 				},
 				error : function(result) {
 					console.log('안됨');
