@@ -3,5 +3,7 @@
 }
 button{
     background: none;
-    border: none;
+    border: none;}
+#postReadSect2{
+	text-align: center;
 }
