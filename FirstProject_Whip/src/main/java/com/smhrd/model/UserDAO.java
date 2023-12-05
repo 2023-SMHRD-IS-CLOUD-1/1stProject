@@ -83,6 +83,18 @@ public class UserDAO {
 		sqlSession.close();
 		return result;
 	}
+
+	// 신원 인증 후 업데이트 
+	public int certification(UserVO vo) {
+		SqlSession sqlSession = factory.openSession();
+		int result = sqlSession.update("certification", vo);
+		sqlSession.close();
+		
+		return result;
+	}
+
+
+
 }
 	
 	
