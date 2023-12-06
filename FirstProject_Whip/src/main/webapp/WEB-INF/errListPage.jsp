@@ -452,7 +452,7 @@ https://templatemo.com/tm-559-zay-shop
                     a += "<td class=\"postListTitle\"><a href=\"#\">" + res[i].err_name + "</a></td>";
                     a += "<td class=\"postListDate\">" + res[i].created_at + "</td>";
                     a += "<td class=\"postListMoney\">" + res[i].err_price + "</td>";
-                    if (${user.user_id != null && res[i].user_id != '${user.user_id}'}) {
+                    if ('${user.user_id}' != null && res[i].user_id != '${user.user_id}') {
                         a += "<td><button class='match'>신청</button></td>"
                     }
                     a += "</tr>"
@@ -541,7 +541,7 @@ https://templatemo.com/tm-559-zay-shop
                             			a += "<td class = \"postListTitle\"><a href = \"#\" >"+ result[i].err_name + "</a></td>";
                             			a += "<td class = \"postListDate\">"+ result[i].created_at + "</td>";
                             			a += "<td class = \"postListMoney\">"+ result[i].err_price + "</td>";
-                            			if (${user.user_id != null && res[i].user_id != '${user.user_id}'}) {
+                            			if if ('${user.user_id}' != null && res[i].user_id != '${user.user_id}') {
                                  			a += "<td><button id='match'>신청</button></td>"
                                  			}
                             			a += "</tr>"
@@ -582,7 +582,7 @@ https://templatemo.com/tm-559-zay-shop
                                  			a += "<td class=\"postListTitle\"><a href=\"#\" >" + result[i].err_name + "</a></td>";
                                  			a += "<td class = \"postListDate\">"+ result[i].created_at + "</td>";
                                  			a += "<td class = \"postListMoney\">"+ result[i].err_price + "</td>";
-                                 			if (${user.user_id != null && res[i].user_id != '${user.user_id}'}) {
+                                 			if if ('${user.user_id}' != null && res[i].user_id != '${user.user_id}') {
                                      			a += "<td><button id='match'>신청</button></td>"
                                      			}
                                  			a += "</tr>"
