@@ -328,7 +328,7 @@ https://templatemo.com/tm-559-zay-shop
         }
         function idTest() {
             if ($('#input007').val() == "") {
-                alert('아이디를 입력해주세요');
+                alert('제목를 입력해주세요');
                 return 0;
             } else {
                 return 1;

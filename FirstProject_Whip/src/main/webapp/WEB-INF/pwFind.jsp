@@ -173,7 +173,7 @@ https://templatemo.com/tm-559-zay-shop
                 <input type="text" id="user_name" placeholder="가입한 이름을 입력해주세요">
             </div>
             <div class="find-id">
-                <label>아아디</label>
+                <label>아이디</label>
                 <input type="text" id="user_id" placeholder="가입한 아이디를 입력해주세요">
                 <br>
             </div>

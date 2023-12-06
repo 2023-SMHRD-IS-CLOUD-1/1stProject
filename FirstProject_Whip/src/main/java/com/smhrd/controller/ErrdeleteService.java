@@ -17,20 +17,21 @@ public class ErrdeleteService implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// 세션에 저장되어 있는 아이디 꺼내오기
-		HttpSession session = request.getSession();
-		UserVO loginVo = (UserVO)session.getAttribute("user");	
-		String user_id = loginVo.getUser_id();
+		System.out.println("성공");
+		String temp = request.getParameter("clickedErrNum");
+		int err_num = Integer.parseInt(temp);
+		System.out.println("심부름 번호"+err_num);
 		
 
 		ErrandVO vo = new ErrandVO();
-		vo.setUser_id(user_id);
+		vo.setErr_num(err_num);
 
 		ErrandDAO dao = new ErrandDAO();
 		
 		int result = dao.errdelete(vo);
 		// 성공시 세션에 저장되어있는 모든 정보 지우기
 		if(result>1) {
+			HttpSession session = request.getSession();
 			session.invalidate();
 			// return main.jsp
 		}

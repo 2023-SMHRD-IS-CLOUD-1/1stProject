@@ -20,37 +20,34 @@ public class ErrmodifyService implements Command {
 		System.out.println("test");
 		// 심부름 제목 수정
 		String err_name = request.getParameter("err_name");
-		System.out.println(err_name);
 		// 심부름 카테고리 넘버 수정 -> 숫자로 변환 
 		String temp = request.getParameter("err_category_num");
 		int err_category_num = Integer.parseInt(temp);
-//		System.out.println(err_category_num);
 		// 심부름 내용 수정
 		String err_content = request.getParameter("err_content");
-		System.out.println(err_content);
 		// 심부름 단가 수정 -> int 로 변경
 		String temp1 = request.getParameter("err_price");
 		int err_price = Integer.parseInt(temp1);
 		System.out.println(err_price);
-
+		
+		String temp2 = request.getParameter("err_num");
+		int err_num = Integer.parseInt(temp2);
 		// session에 저장된 id 정보 가져오기
-		HttpSession session = request.getSession();
-		UserVO loginVo = (UserVO) session.getAttribute("user");
-		String user_id = loginVo.getUser_id();
-
-		// errandvo로 받아온 정보저장하기 id, 제목, 카테고리 넘버, 내용, 단가
+		
+	
 		ErrandVO vo = new ErrandVO();
-		vo.setUser_id(user_id);
 		vo.setErr_name(err_name);
 		vo.setErr_content(err_content);
 		vo.setErr_category_num(err_category_num);
 		vo.setErr_price(err_price);
+		vo.setErr_num(err_num);
 //		
 		ErrandDAO dao = new ErrandDAO();
 //		// errupdate 기능 실행
 		int row = dao.errmodify(vo);
 //		
 		if(row>0) {
+			HttpSession session = request.getSession();
 //			// errand 라는 이름으로 저장
 			session.setAttribute("errand", vo);
 			// return 심부름 수정된 글 페이지

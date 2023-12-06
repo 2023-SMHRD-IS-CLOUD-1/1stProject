@@ -19,8 +19,7 @@
 		SET
 		ERR_NAME = #{err_name} , ERR_CONTENT = #{err_content}, ERR_PRICE =
 		#{err_price}, UPDATED_AT = SYSDATE
-		WHERE ERR_NAME = #{err_name} AND
-		USER_ID=${user_id}
+		WHERE ERR_NUM = #{err_num}
 	</update>
 
 	<delete id="errdelete" parameterType="com.smhrd.model.ErrandVO">
