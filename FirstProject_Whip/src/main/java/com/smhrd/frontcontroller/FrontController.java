@@ -21,6 +21,7 @@ import com.smhrd.controller.DeleteService;
 import com.smhrd.controller.ErrBoardService;
 import com.smhrd.controller.ErrNumService;
 import com.smhrd.controller.Err_detailService;
+import com.smhrd.controller.Err_matchService;
 import com.smhrd.controller.Err_readService;
 import com.smhrd.controller.Err_searchService;
 import com.smhrd.controller.ErrdeleteService;
@@ -116,6 +117,8 @@ public class FrontController extends HttpServlet {
 		map.put("ManBoard.do", new ManBoardService());
 		map.put("ManNum.do", new ManNumService());
 		map.put("Manage_answer.do", new Manage_answerService());
+		
+		map.put("Err_match.do", new Err_matchService());
 	}
 		
 		
