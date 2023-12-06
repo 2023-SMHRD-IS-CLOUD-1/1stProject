@@ -1,3 +1,6 @@
+<%@page import="com.smhrd.model.ErrandVO"%>
+<%@page import="com.smhrd.model.ErrandDAO"%>
+<%@page import="com.smhrd.model.UserVO"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -233,9 +236,7 @@ https://templatemo.com/tm-559-zay-shop
         <div id="postReadNav">
             <span>작성자 ${errand.user_id }</span>
             <span>등록 일자 ${errand.created_at }</span>
-            <button id="likeBtn">★</button>
-            <button>목록</button>
-            <button>신청</button>
+            <a href="GoerrListPage.do">목록</a>
         </div>
         </div>
         <hr>
@@ -246,8 +247,7 @@ https://templatemo.com/tm-559-zay-shop
         <hr>
            <div id="postReadSect2">
            
-          <button id="modify">수정</button>
-          <button id="delete">삭제</button>
+ 
         </div>
 	</section>
     <!-- End Section -->
@@ -265,6 +265,16 @@ https://templatemo.com/tm-559-zay-shop
             </div>
         </div>
     <!-- Start Script -->
+    <% HttpSession Session = request.getSession();
+   		UserVO user = (UserVO)session.getAttribute("user");
+    	ErrandVO errand = (ErrandVO)session.getAttribute("errand");
+    	String sessionUserId = user.getUser_id();
+		String errandUserId = errand.getUser_id();
+		int err_num = errand.getErr_num();
+		String name = errand.getErr_name();
+		int price = errand.getErr_price();
+		String content = errand.getErr_content();
+    %>
     <script src="assets/js/jquery-1.11.0.min.js"></script>
     <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
@@ -359,6 +369,131 @@ https://templatemo.com/tm-559-zay-shop
         })
     })
     </script>
+    
+<script>
+    var sessionUserId = '<%= sessionUserId %>';
+    var errandUserId = '<%= errandUserId %>';
+    var err_num = '<%= err_num %>';
+    var name = '<%= name%>';
+    var price = '<%= price%>';
+    var content = '<%= content%>';
+    console.log('sessionUserId=', sessionUserId, 'errandUserId=', errandUserId, 'err_num=', err_num);
+
+    if (sessionUserId === errandUserId) {
+
+        var a = "";
+        a += "<button id='modify'>수정</button>";
+        a += "<button id='delete'>삭제</button>";
+        $('#postReadSect2').append(a);
+
+        $('#modify').on('click', function () {
+            console.log('성공');
+
+            var outputContainer = $("#postReadLayout");
+            outputContainer.empty();
+            var a = "";
+            a += "<br><br>";
+            a += "<label for='err_name'>제목:</label><br>";
+            a += "<input type='text' id='err_name' placeholder='" + name + "'>";
+            a += "<br><br>";
+            a += "<div id='postReadSect1'>";
+            a += "<label for='err_price'>단가:</label> <br>";
+            a += "<input type='text' id='err_price' placeholder='" + price + "'>";
+            a += "<br><label for='err_category_num'>카테고리:</label> <br>";
+            a += "<select id='category' name ='category'>";
+            a += "<option value='1'>청소/정리</option>";
+            a += "<option value='2'>과외</option>";
+            a += "<option value='3'>수리/설치</option>";
+            a += "<option value='4'>인테리어</option>";
+            a += "<option value='5'>기타집안일</option>";
+            a += "<option value='6'>이사</option>";
+            a += "</select>";
+            a += "<br><label for='err_content'>내용:</label> <br>";
+            a += "<textarea id='err_content' name='err_content' rows='3' cols='130' placeholder='" + content + "'></textarea><br>";
+            a += "<button id='update'>수정하기</button>";
+            a += "</div>";
+            $("#postReadLayout").append(a);
+
+            $("#update").on('click', function () {
+                var err_name = $("#err_name").val();
+                var err_content = $("#err_content").val();
+                var err_category_num = $("#category").val();
+                console.log(err_category_num);
+                var err_price = $("#err_price").val();
+                $.ajax({
+                    type: 'POST',
+                    url: 'Errmodify.do',
+                    data: {
+                        err_num: err_num,
+                        err_name: err_name,
+                        err_price: err_price,
+                        err_category_num: err_category_num,
+                        err_content: err_content
+                    },
+                    success: function (response) {
+                        console.log(response);
+                        alert('수정에 성공했습니다');
+                        window.location.href = 'GoerrListPage.do';
+                    },
+                    error: function (error) {
+                        console.error(error);
+                    }
+                });
+            });
+
+        });
+
+        $('#delete').on('click', function () {
+            console.log("성공");
+            var clickedErrNum = '<%= err_num %>';
+            console.log(clickedErrNum);
+            $.ajax({
+                type: 'POST',
+                url: 'Errdelete.do',
+                data: {
+                    clickedErrNum: clickedErrNum
+                },
+                success: function (response) {
+                    console.log(response);
+                    alert('삭제에 성공했습니다');
+                    window.location.href = 'GoerrListPage.do';
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            });
+        });
+    }
+
+    if (sessionUserId !== errandUserId) {
+        $('#postReadNav').append("<button id='update'>신청</button>");
+
+        $('#update').on('click', function() {
+            console.log("성공");
+            var clickedErrNum = '<%= err_num %>';
+            var user_id = '<%= sessionUserId %>';
+            console.log(clickedErrNum);
+            console.log(user_id);
+            $.ajax({
+                type: 'POST',
+                url: 'Err_match.do',
+                data: {
+                    clickedErrNum: clickedErrNum,
+                    user_id: user_id
+                },
+                success: function(response) {
+                    console.log(response);
+                    alert('성공적으로 신청되었습니다.');
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+        });
+    }
+</script>
+
+
 </body>
 
 </html>

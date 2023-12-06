@@ -1,3 +1,6 @@
+<%@page import="com.smhrd.model.ManageVO"%>
+<%@page import="com.smhrd.model.ErrandVO"%>
+<%@page import="com.smhrd.model.UserVO"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -242,14 +245,9 @@ https://templatemo.com/tm-559-zay-shop
             </div>
             <hr>
           	 <div id="postReadSect2">
-           <table align="center">
-            <div id="userRole" style="display: none;">author</div>
-
-        <tr>
-            <td><button id="modify" class="hidden">수정</button></td>
-            <td><button id="delete" class="hidden">삭제</button></td>
-        </tr>
-    </table>
+           <table  id ="tablebtn">
+           
+           </table>
            
           
           
@@ -269,6 +267,7 @@ https://templatemo.com/tm-559-zay-shop
                 </div>
             </div>
         </div>
+        
     <!-- Start Script -->
     <script src="assets/js/jquery-1.11.0.min.js"></script>
     <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
@@ -307,6 +306,7 @@ https://templatemo.com/tm-559-zay-shop
             location.href = joinLink;
         }
     </script>
+    
 	    <script>
 	    $(document).ready(function() {
 	        var post_num = ${Manage.management_post_num};
@@ -364,26 +364,134 @@ https://templatemo.com/tm-559-zay-shop
 	    });
 
     </script>
-    <script>
-    	  document.addEventListener("DOMContentLoaded", function() {
-    		  $.get('/getUserId', function(userId) {
-              // 예시로 세션에 저장된 사용자 아이디를 가져옴 (실제로는 서버에서 가져와야 함)
-				console.log('서버에서 가져온 사용자 아이디:', userId);
-              // 수정 버튼과 삭제 버튼 엘리먼트 가져오기
-              var modifyButton = document.getElementById("modify");
-              var deleteButton = document.getElementById("delete");
+    <%  HttpSession Session = request.getSession();
+    UserVO user = (UserVO)Session.getAttribute("user");
+    ManageVO Manage = (ManageVO)Session.getAttribute("Manage");
+    String user_id = user.getUser_id();
+    String manage_id = Manage.getManagement_post_id();
+    int manage_num = Manage.getManagement_post_num();
+    String manage_reply = Manage.getManagement_post_relpy();
+    %>
+    
+   <script>
+   var user_id = '<%= user_id%>';
+   var manage_id = '<%= manage_id%>';
+   var manage_num = '<%= manage_num%>';
+   var manage_reply = '<%= manage_reply %>';
+	
+   console.log('userid', user_id);
+   console.log('manageid', manage_id);
+   console.log('manage_reply:', manage_reply);
+   console.log('Condition:', manage_reply === 'n');
+   if(manage_reply === 'y'){
+	   var manage_answer = '${Manage.management_answer}';
+       console.log(manage_answer)
+       var b = "";
+       b += "==================================================================================================================================";
+       b += "<label for='answer_content'>답변 내용:</label> <br>";
+       b += "<p>" + manage_answer + "</p>";
+       $("#postReadLayout").append(b);
+   }
+   if (user_id === manage_id) {
+	   if(manage_reply === 'n'){
+       var a = "";
+       a += "<tr>";
+       a += "<td>";
+       a += "<button id='modify'>수정</button>";
+       a += "<button id='delete'>삭제</button>";
+       a += "</td>";
+       a += "</tr>";
+       $('#tablebtn').append(a);
+       
+       $('#delete').on('click', function () {
+           console.log("성공");
+           $.ajax({
+               type: 'POST',
+               url: 'Mandelete.do',
+               data: {
+            	   manage_num: manage_num
+               },
+               success: function (response) {
+                   console.log(response);
+                   alert('삭제에 성공했습니다');
+                   window.location.href = 'GomanagementPost.do';
+               },
+               error: function (error) {
+                   console.error(error);
+               }
+           });
+       });
+	   }
+	   
+   }
+   
+	
+   if (user_id === 'admin') {
+       if (manage_reply === 'n') {
+           console.log("답변 없음");
+           var a = "";
+           a += "<tr>";
+           a += "<td>";
+           a += "<button id='answer'>답변하기</button>";
+           a += "</td>";
+           a += "</tr>";
+           $('#tablebtn').append(a);
 
-              // 현재 사용자 아이디를 가져와 세션에 저장된 아이디와 비교하여 버튼을 보이거나 숨김
-              if (userId === "${Manage.management_post_id}" || userId==="admin") {
-                  modifyButton.classList.remove("hidden");
-                  deleteButton.classList.remove("hidden");
-              } else {
-                  modifyButton.classList.add("hidden");
-                  deleteButton.classList.add("hidden");
-              }
-          });
-    });
-    </script>
+           $('#answer').on('click', function () {
+               console.log("성공이다옹");
+               $(this).hide();
+
+               var b = "";
+               b += "==================================================================================================================================";
+               b += "<label for='answer_content'>답변 내용:</label> <br>";
+               b += "<input type='text' id='answer_content' placeholder='답변의 내용을 입력해주세요'>";
+               b += "<button id='update'>답변등록</button>";
+               $("#postReadLayout").append(b);
+
+               // 답변 등록 버튼 클릭 시
+               $('#postReadLayout').on('click', '#update', function () {
+                   var answerContent = $("#answer_content").val();
+
+                   // 사용자가 입력한 값을 변수에 저장
+                   $.ajax({
+                       type: 'POST',
+                       url: 'Manage_answer.do',
+                       data: {
+                           answerContent: answerContent,
+                           manage_num: manage_num
+                       },
+                       success: function (response) {
+                           // 서버로부터의 응답에 따른 처리
+                           alert('답변이 성공적으로 등록되었습니다.');
+                           // 추가로 필요한 로직 작성
+                           $("label[for='answer_title'], label[for='answer_content'], #update").hide();
+                           $("#answer_title, #answer_content").hide();
+                           window.location.href = 'GomanagementPost.do';
+                       },
+                       error: function (error) {
+                           // 서버 통신 오류에 따른 처리
+                           console.error('답변 등록 중 오류 발생:', error);
+                           // 추가로 필요한 로직 작성
+                       }
+                   });
+               });
+           });
+       } 
+       
+   }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+  
 </body>
 
 </html>
