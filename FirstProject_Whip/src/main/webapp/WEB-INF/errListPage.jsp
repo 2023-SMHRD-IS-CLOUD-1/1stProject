@@ -57,7 +57,7 @@ https://templatemo.com/tm-559-zay-shop
 					<i class="fa fa-envelope mx-2"></i> <a
 						class="navbar-sm-brand text-light text-decoration-none"
 						href="https://smhrd.or.kr/course/aicamp/">
-						caroot&whip@smhrd.com</a>
+						carrot&whip@smhrd.com</a>
 				</div>
 				<div>
 					<a class="text-light" href="https://fb.com/templatemo"
@@ -212,7 +212,7 @@ https://templatemo.com/tm-559-zay-shop
 					</p>
 				</div>
 				<div class="col-md-4">
-					<img src="assets/img/about-hero.svg" alt="About Hero">
+					<img src="assets/img/help_icon.png" alt="About Hero">
 				</div>
 			</div>
 		</div>
