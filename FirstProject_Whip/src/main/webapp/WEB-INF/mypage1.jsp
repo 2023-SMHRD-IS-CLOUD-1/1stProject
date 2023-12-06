@@ -418,7 +418,9 @@ https://templatemo.com/tm-559-zay-shop
 		            type: 'POST',
 		            data: {id:data.id, name:data.name},
 		            success: function(res){
+
 		            	console.log('싸비스 통신완료')
+		            	
 		            }
 		            })
 		            

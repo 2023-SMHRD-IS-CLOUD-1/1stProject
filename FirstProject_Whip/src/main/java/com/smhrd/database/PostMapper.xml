@@ -36,6 +36,24 @@
 					ORDER BY POST_NUM DESC))
 		WHERE RN BETWEEN (#{selectedNum} * 10) - 9 AND #{selectedNum} * 10
 	</select>
+	<!-- 게시판 제목검색 -->
+	<select id = "postSearch1" resultMap="postInfo">
+		SELECT POST_NUM, POST_TITLE, POSTED_AT, POST_VIEWS, POST_LIKES, USER_ID
+		FROM (SELECT ROWNUM RN, POST_NUM, POST_TITLE, POSTED_AT, POST_VIEWS,POST_LIKES, USER_ID
+			  FROM (SELECT POST_NUM, POST_TITLE, POSTED_AT, POST_VIEWS, POST_LIKES,USER_ID
+					FROM TB_POST
+					ORDER BY POST_NUM DESC))
+		WHERE POST_TITLE LIKE '%' || #{post_title} || '%'
+	</select>
+	<!-- 게시판 작성자검색 -->
+	<select id = "postSearch2" resultMap="postInfo">
+		SELECT POST_NUM, POST_TITLE, POSTED_AT, POST_VIEWS, POST_LIKES, USER_ID
+		FROM (SELECT ROWNUM RN, POST_NUM, POST_TITLE, POSTED_AT, POST_VIEWS,POST_LIKES, USER_ID
+			  FROM (SELECT POST_NUM, POST_TITLE, POSTED_AT, POST_VIEWS, POST_LIKES,USER_ID
+					FROM TB_POST
+					ORDER BY POST_NUM DESC))
+		WHERE USER_ID LIKE '%' || #{user_id} || '%'
+	</select>
 	<resultMap type="com.smhrd.model.PostVO" id="postInfo">
 		<result property="post_num" column="POST_NUM" />
 		<result property="post_title" column="POST_TITLE" />

@@ -190,7 +190,7 @@ https://templatemo.com/tm-559-zay-shop
             </div>
             <hr>
             <div id="postReadSect1">
-                <span>${postContent.post_content }</span>
+                <pre>${postContent.post_content }</pre>
             </div>
             <hr>
             <div id="postReadSect2">
@@ -210,7 +210,7 @@ https://templatemo.com/tm-559-zay-shop
                 <textarea name="" id="" cols="125" rows="5"></textarea>
                 <button>등록</button>
                 <div>
-                    <span>n개의 댓글이 달려 있습니다.</span>
+                    <span id ="showCmtNum">0개의 댓글이 달려 있습니다.</span>
                 </div>
             </div>
             <div id="postReadSect4">
@@ -303,6 +303,7 @@ https://templatemo.com/tm-559-zay-shop
 		let thisPostNum = document.querySelector('#postReadingNum').innerHTML;
 		let postPostedAt = document.querySelector('#postPostedAt');
 		postPostedAt.innerHTML = postPostedAt.innerHTML.slice(0,16);
+		let showCmtNum = document.querySelector('#showCmtNum');
 		//likeBtn.addEventListener('click', function() {
 			//$.ajax({
 				
@@ -315,6 +316,9 @@ https://templatemo.com/tm-559-zay-shop
 	    		data : {thisPostNum : thisPostNum},
 	    		dataType : "json",
 	    		success : function(res) {
+	    			if(res.length > 0){
+	    				showCmtNum.innerHTML = res.length + "개의 댓글이 달려있습니다.";
+	    			}
 	    			for(let i = 0; i < res.length; i++) {
 	    				var a = "";
 	    				a += "<tr>";

@@ -73,7 +73,7 @@
 #postSearch {
   /* background-color: violet; */
   position: relative;
-  left: 767px;
+  left: 708px;
   width: 220px;
 }
 
@@ -86,13 +86,13 @@
 
 #postSearchFilter {
   position: relative;
-  left: 458px;
-  height: 30px;
+  left: 710px;
+  height: 33px;
 }
 
-#postSearchSub {
+#searchButton {
   position: relative;
-  left: 677px;
+  left: 704px;
 }
 
 #postContent .borderLine {

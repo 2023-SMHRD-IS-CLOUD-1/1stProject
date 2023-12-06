@@ -42,6 +42,7 @@ import com.smhrd.controller.Manage_modifyService;
 import com.smhrd.controller.PostBoardService;
 import com.smhrd.controller.PostNumService;
 import com.smhrd.controller.PostReadService;
+import com.smhrd.controller.PostSearchService;
 import com.smhrd.controller.PostdeleteService;
 import com.smhrd.controller.PostmodifyService;
 import com.smhrd.controller.PostupdateService;
@@ -98,6 +99,7 @@ public class FrontController extends HttpServlet {
 		map.put("PostRead.do", new PostReadService());
 		map.put("PostNum.do", new PostNumService());
 		map.put("FvPost.do", new FvPostService());
+		map.put("PostSearch.do", new PostSearchService());
 		
 		// 평점
 		map.put("Rating.do", new RatingService());
