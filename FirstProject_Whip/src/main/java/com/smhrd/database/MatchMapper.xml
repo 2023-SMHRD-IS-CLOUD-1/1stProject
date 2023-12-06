@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.smhrd.model.MatchDAO">
+	<!-- 수행 신청 -->
+	<insert id="matupdate" parameterType="com.smhrd.model.MatchVO">
+    INSERT INTO TB_MATCHING (
+        USER_ID, ERR_NUM
+    )
+    VALUES (
+        #{user_id}, #{err_num}
+    )
+</insert>
+
+</mapper>

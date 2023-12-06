@@ -49,6 +49,7 @@
    		<mapper resource="com/smhrd/database/ManageMapper.xml" />
    		<mapper resource="com/smhrd/database/ComMapper.xml"/>
    		<mapper resource="com/smhrd/database/CertificationMapper.xml"/>
+   		<mapper resource="com/smhrd/database/MatchMapper.xml" />
 	</mappers>
 </configuration>
 

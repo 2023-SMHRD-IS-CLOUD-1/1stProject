@@ -10,6 +10,13 @@ public class ManageVO {
 	private String posted_at;
 	private String management_post_id;
 	private String management_post_relpy;
+	private String management_answer;
+	public String getManagement_answer() {
+		return management_answer;
+	}
+	public void setManagement_answer(String management_answer) {
+		this.management_answer = management_answer;
+	}
 	public int getManagement_post_num() {
 		return management_post_num;
 	}

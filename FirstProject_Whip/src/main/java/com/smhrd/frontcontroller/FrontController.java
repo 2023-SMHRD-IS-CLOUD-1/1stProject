@@ -36,6 +36,7 @@ import com.smhrd.controller.LogoutService;
 import com.smhrd.controller.ManBoardService;
 import com.smhrd.controller.ManNumService;
 import com.smhrd.controller.ManagePostService;
+import com.smhrd.controller.Manage_answerService;
 import com.smhrd.controller.Manage_detailService;
 import com.smhrd.controller.Manage_modifyService;
 import com.smhrd.controller.PostBoardService;
@@ -44,6 +45,7 @@ import com.smhrd.controller.PostReadService;
 import com.smhrd.controller.PostdeleteService;
 import com.smhrd.controller.PostmodifyService;
 import com.smhrd.controller.PostupdateService;
+import com.smhrd.controller.PwFindService;
 import com.smhrd.controller.RatingService;
 import com.smhrd.controller.SelectOneService;
 import com.smhrd.controller.UpdateService;
@@ -75,6 +77,7 @@ public class FrontController extends HttpServlet {
 		
 		// id pw 찾기
 		map.put("Find.do", new FindService());
+		map.put("PwFind.do", new PwFindService());
 		// 심부름
 		map.put("Errupdate.do", new ErrupdateService());
 		map.put("Errmodify.do", new ErrmodifyService());
@@ -110,6 +113,7 @@ public class FrontController extends HttpServlet {
 		map.put("Manage_modify.do", new Manage_modifyService());
 		map.put("ManBoard.do", new ManBoardService());
 		map.put("ManNum.do", new ManNumService());
+		map.put("Manage_answer.do", new Manage_answerService());
 	}
 		
 		

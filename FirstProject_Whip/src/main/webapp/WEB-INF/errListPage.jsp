@@ -1,4 +1,6 @@
+<%@page import="com.smhrd.model.UserVO"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -277,7 +279,10 @@ https://templatemo.com/tm-559-zay-shop
 				</div>
 				<!-- 로그인 안되어 있으면 버튼 비활성화 하기 -->
 				<div id="PostUpdate1">
-					<a href="GoerrPage.do" id="postUpdate">심부름 등록</a>
+				<c:if test="${user.user_id != null}">
+				<a href="GoerrPage.do" id="postUpdate">심부름 등록</a>
+				</c:if>
+					
 				</div>
 				<hr class="borderLine">
 				<table id="postTable" align="center">
@@ -326,7 +331,6 @@ https://templatemo.com/tm-559-zay-shop
 	<script src="assets/js/custom.js"></script>
 	<!-- End Script -->
 	<!-- 로그인 모달창 Script------------------>
-
 
 	<script>
         const modal = document.querySelector('.modal');
@@ -434,30 +438,60 @@ https://templatemo.com/tm-559-zay-shop
         loadPostTen();
     });	
     function loadPostTen() {
-	    $.ajax({
-			url : "ErrBoard.do",
-			data : {selectedNum : selectedNum},
-			dataType : "json",
-			success : function(res) {
-				$(".postListCL").remove();
-				 for (let i = 0; i < 10; i++) {
-                 	var a = "";
-         			a += "<tr class = \"postListCL\">";
-         			a += "<td class = \"postListNum\">"+ res[i].err_num + "</td>";
-         			a += "<td class = \"postListid\">"+ res[i].user_id + "</td>";
-         			a += "<td class = \"postListTitle\"><a href = \"#\" >"+ res[i].err_name + "</a></td>";
-         			a += "<td class = \"postListDate\">"+ res[i].created_at + "</td>";
-         			a += "<td class = \"postListMoney\">"+ res[i].err_price + "</td>";
-             		a += "<td><button class='match'>신청</button></td>"
-         			a += "</tr>"
-           			$("#postTable").append(a);
-                 }
-			},
-			error : function(result) {
-				console.log('안됨');
-			}
-		});
+        $.ajax({
+            url: "ErrBoard.do",
+            data: { selectedNum: selectedNum },
+            dataType: "json",
+            success: function (res) {
+                $(".postListCL").remove();
+                for (let i = 0; i < 10; i++) {
+                    var a = "";
+                    a += "<tr class=\"postListCL\">";
+                    a += "<td class=\"postListNum\">" + res[i].err_num + "</td>";
+                    a += "<td class=\"postListid\">" + res[i].user_id + "</td>";
+                    a += "<td class=\"postListTitle\"><a href=\"#\">" + res[i].err_name + "</a></td>";
+                    a += "<td class=\"postListDate\">" + res[i].created_at + "</td>";
+                    a += "<td class=\"postListMoney\">" + res[i].err_price + "</td>";
+                    if (res[i].user_id != '${user.user_id}') {
+                        a += "<td><button class='match'>신청</button></td>"
+                    }
+                    a += "</tr>"
+                    $("#postTable").append(a);
+                    
+                }
+
+                // 심부름 신청
+                $(".match").on('click', function (e) {
+                    e.preventDefault();
+                    var clickedErrNum = $(this).closest("tr").find(".postListNum").text();
+                    var user_id = '${user.user_id}';
+                    console.log(clickedErrNum);
+                    localStorage.setItem("clickedErrNum", clickedErrNum);
+
+                    $.ajax({
+                        type: 'POST',
+                        url: 'Err_match.do',
+                        data: {
+                            clickedErrNum: clickedErrNum,
+                            user_id: user_id
+                        },
+                        success: function (response) {
+                            console.log(response);
+                            alert('성공적으로 신청되었습니다.');
+                        },
+                        error: function (error) {
+                            console.error('Error:', error);
+                        }
+                    });
+
+                });
+            },
+            error: function (result) {
+                console.log('안됨');
+            }
+        });
     }
+
     function loadPostNum() {
     	$.ajax({
     		url : "ErrNum.do",
@@ -480,6 +514,8 @@ https://templatemo.com/tm-559-zay-shop
     }
 </script>
 	<script>
+	
+	
                         // 심부름 카테고리 별로 불러오기
                         function sendData(categoryNumber) {
                             window.selectedCategoryNumber = categoryNumber;
@@ -505,7 +541,9 @@ https://templatemo.com/tm-559-zay-shop
                             			a += "<td class = \"postListTitle\"><a href = \"#\" >"+ result[i].err_name + "</a></td>";
                             			a += "<td class = \"postListDate\">"+ result[i].created_at + "</td>";
                             			a += "<td class = \"postListMoney\">"+ result[i].err_price + "</td>";
-                                		a += "<td><button class='match'>신청</button></td>"
+                            			if(result[i].user_id != '${user.user_id}'){
+                                 			a += "<td><button id='match'>신청</button></td>"
+                                 			}
                             			a += "</tr>"
                               			$("#postTable").append(a);
                                     }
@@ -544,7 +582,9 @@ https://templatemo.com/tm-559-zay-shop
                                  			a += "<td class=\"postListTitle\"><a href=\"#\" >" + result[i].err_name + "</a></td>";
                                  			a += "<td class = \"postListDate\">"+ result[i].created_at + "</td>";
                                  			a += "<td class = \"postListMoney\">"+ result[i].err_price + "</td>";
-                                    		a += "<td><button class='match'>신청</button></td>"
+                                 			if(result[i].user_id != '${user.user_id}'){
+                                     			a += "<td><button id='match'>신청</button></td>"
+                                     			}
                                  			a += "</tr>"
                                    			$("#postTable").append(a);
                                          }
@@ -582,29 +622,8 @@ https://templatemo.com/tm-559-zay-shop
 						      });
 						    });
 						  });
-                      	// 심부름 즐겨찾기 
-						  $(document).ready(function() {
-						  $('#postTable').on('click', '.fverr', function(e) {
-							  e.preventDefault();
-							  var clickedErrNum = $(this).closest("tr").find(".postListNum").text();
-						      console.log(clickedErrNum);
-						      // 데이터 저장
-						      localStorage.setItem("clickedErrNum", clickedErrNum); 
-						      $.ajax({
-                                  type: 'POST',
-                                  url: 'FvErr.do',
-                                  data: {
-                                  	clickedErrNum : clickedErrNum
-                                  },
-                                  success: function(response) {
-                                      console.log(response);
-                                  },
-                                  error: function(error) {
-                                      console.error('Error:', error);
-                                  }
-						      });
-						    });
-						  });
+                      
+						
 						  
 						 
 						</script>
