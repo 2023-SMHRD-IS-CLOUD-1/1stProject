@@ -266,9 +266,7 @@ https://templatemo.com/tm-559-zay-shop
         </div>
     <!-- Start Script -->
     <% HttpSession Session = request.getSession();
-   		UserVO user = (UserVO)session.getAttribute("user");
     	ErrandVO errand = (ErrandVO)session.getAttribute("errand");
-    	String sessionUserId = user.getUser_id();
 		String errandUserId = errand.getUser_id();
 		int err_num = errand.getErr_num();
 		String name = errand.getErr_name();
@@ -371,12 +369,12 @@ https://templatemo.com/tm-559-zay-shop
     </script>
     
 <script>
-    var sessionUserId = '<%= sessionUserId %>';
     var errandUserId = '<%= errandUserId %>';
     var err_num = '<%= err_num %>';
     var name = '<%= name%>';
     var price = '<%= price%>';
     var content = '<%= content%>';
+    var sessionUserId = '${user.user_id}';
     console.log('sessionUserId=', sessionUserId, 'errandUserId=', errandUserId, 'err_num=', err_num);
 
     if (sessionUserId === errandUserId) {
@@ -471,7 +469,7 @@ https://templatemo.com/tm-559-zay-shop
         $('#update').on('click', function() {
             console.log("성공");
             var clickedErrNum = '<%= err_num %>';
-            var user_id = '<%= sessionUserId %>';
+            var user_id = sessionUserId;
             console.log(clickedErrNum);
             console.log(user_id);
             $.ajax({

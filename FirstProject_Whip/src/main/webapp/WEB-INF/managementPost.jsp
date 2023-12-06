@@ -1,4 +1,5 @@
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -245,7 +246,9 @@ https://templatemo.com/tm-559-zay-shop
                 </form>
             </div>
             <br>
-            <div id="post_a"> <a href="Gomanage.do" >문의글 등록</a> </div>
+             <c:if test="${user.user_id != null}">
+            <a href="Gomanage.do" >문의글 등록</a> 
+            </c:if>
 
            
                 <hr class="borderLine">

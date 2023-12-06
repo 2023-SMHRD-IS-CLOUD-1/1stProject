@@ -365,16 +365,14 @@ https://templatemo.com/tm-559-zay-shop
 
     </script>
     <%  HttpSession Session = request.getSession();
-    UserVO user = (UserVO)Session.getAttribute("user");
     ManageVO Manage = (ManageVO)Session.getAttribute("Manage");
-    String user_id = user.getUser_id();
     String manage_id = Manage.getManagement_post_id();
     int manage_num = Manage.getManagement_post_num();
     String manage_reply = Manage.getManagement_post_relpy();
     %>
     
    <script>
-   var user_id = '<%= user_id%>';
+   var user_id = '${user.user_id}';
    var manage_id = '<%= manage_id%>';
    var manage_num = '<%= manage_num%>';
    var manage_reply = '<%= manage_reply %>';
