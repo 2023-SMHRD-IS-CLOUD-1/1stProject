@@ -22,7 +22,16 @@
 	ORDER BY MANAGEMENT_POST_NUM DESC))
 	WHERE RN BETWEEN (#{selectedNum} * 10) - 9 AND #{selectedNum} * 10
 	</select>
-	
+	<!-- 문의글 제목을 토대로 검색 -->
+	<select id="searchman1" resultMap="manage">
+	SELECT MANAGEMENT_POST_NUM, MANAGEMENT_POST_TITLE, MANAGEMENT_POST_CONTENT, MANAGEMENT_POST_ID, POSTED_AT,MANAGEMENT_POST_RELPY, MANAGEMENT_ANSWER
+    FROM TB_MANAGEMENT_POST
+    WHERE MANAGEMENT_POST_TITLE LIKE '%' || #{management_post_title} || '%'
+	</select>
+	<select id="searchman2" resultMap="manage">
+		SELECT MANAGEMENT_POST_NUM, MANAGEMENT_POST_TITLE, MANAGEMENT_POST_CONTENT, MANAGEMENT_POST_ID, POSTED_AT,MANAGEMENT_POST_RELPY, MANAGEMENT_ANSWER
+		FROM TB_MANAGEMENT_POST WHERE MANAGEMENT_POST_ID = #{management_post_id}
+	</select>
 	
 	<resultMap type="com.smhrd.model.ManageVO" id="manage">
 		<result property="management_post_num" column="MANAGEMENT_POST_NUM"/>

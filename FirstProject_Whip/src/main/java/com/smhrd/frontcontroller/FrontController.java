@@ -36,6 +36,7 @@ import com.smhrd.controller.LoginService;
 import com.smhrd.controller.LogoutService;
 import com.smhrd.controller.ManBoardService;
 import com.smhrd.controller.ManNumService;
+import com.smhrd.controller.Man_searchService;
 import com.smhrd.controller.ManagePostService;
 import com.smhrd.controller.Manage_answerService;
 import com.smhrd.controller.Manage_detailService;
@@ -117,6 +118,7 @@ public class FrontController extends HttpServlet {
 		map.put("ManBoard.do", new ManBoardService());
 		map.put("ManNum.do", new ManNumService());
 		map.put("Manage_answer.do", new Manage_answerService());
+		map.put("Man_search.do", new Man_searchService());
 		
 		map.put("Err_match.do", new Err_matchService());
 	}

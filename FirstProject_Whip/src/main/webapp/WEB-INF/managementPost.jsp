@@ -235,16 +235,13 @@ https://templatemo.com/tm-559-zay-shop
         
         <div id="postContent">
             <div id = "PostBodyarea">
-                <div id="PostSearch1">
-                <form action="#" id="PostSearchForm">
-                    <select name="postSearchFilter" id="postSearchFilter">
-                        <option value="제목">제목</option>
-                        <option value="작성자">작성자</option>
-                    </select>
-                    <input type="text" id="postSearch">
-                    <input type="submit" id="postSearchSub" value="검색"><i class="ic-plus"></i>
-                </form>
-            </div>
+                <div id="PostSearch">
+					<select name="SearchCategory" id="SearchCategory">
+						<option value="man_name">제목</option>
+						<option value="user_id">작성자</option>
+					</select> <input type="text" id="searchInput">
+					<button id="searchButton">검색</button>
+				</div>
             <br>
              <c:if test="${user.user_id != null}">
             <a href="Gomanage.do" >문의글 등록</a> 
@@ -470,10 +467,57 @@ https://templatemo.com/tm-559-zay-shop
     }
 </script>
 	<script>
+	// 검색 기능
+	 $(document).ready(function () {
+         $("#searchButton").on("click", function () {
+             var selectedCategory = $("#SearchCategory").val();
+             var searchTerm = $("#searchInput").val();
+             console.log(selectedCategory);
+             console.log(searchTerm);
+             var outputContainer = $(".postListCL");
+             outputContainer.empty();
+             // AJAX 요청 보내기
+             $.ajax({
+                 type: 'POST',
+                 url: 'Man_search.do',
+                 data: {
+                     SearchCategory: selectedCategory, 
+                     searchTerm: searchTerm
+                 },
+                 success: function (response) {
+                 	 console.log(response);
+						
+                      var res = JSON.parse(response);
+                      for (var i = 0; i < res.length; i++) {
+                      	var a = "";
+             			a += "<tr class = \"postListCL\">";
+             			a += "<td class = \"postListNum\">"+ res[i].management_post_num + "</td>";
+             			a += "<td class = \"postListid\">"+ res[i].management_post_id + "</td>";
+             			a += "<td class = \"postListTitle\"><a href = \"#\" >"+ res[i].management_post_title + "</a></td>";
+             			a += "<td class = \"postListDate\">"+ res[i].posted_at + "</td>";
+             			if(res[i].management_post_relpy == "n"){
+             				a += "<td class = \"post_relpy\">답변예정</td>";
+             			} else{
+             				a += "<td class = \"post_relpy\">답변완료</td>";
+             			}
+             			a += "</tr>"
+               			$("#postTable").append(a);
+                      }
+                 },
+                 error: function (error) {
+                     console.error('Error:', error);
+                 }
+             });
+         });
+     });
 		// 글 상세보기 기능
 		$(document).ready(function() {
 		  // 클릭 이벤트 핸들러
 		   $('#postTable').on('click', '.postListTitle a', function(e) {
+			   if('${user.user_id}'== ''){
+				   alert('로그인 후 시도해주세요');
+				   window.location.href ="Gomain.do"
+			   }
 		  	 e.preventDefault();
 		    // 클릭한 행의 err_num 값을 가져오기
 		    var clickedErrNum = $(this).closest("tr").find(".postListNum").text();

@@ -53,4 +53,18 @@ public class ManageDAO {
 			sqlSession.close();
 			return row;
 		}
+		// 검색 기능 제목
+		public List<ManageVO> SearchMan1(ManageVO vo) {
+			SqlSession sqlSession = factory.openSession();
+			List<ManageVO> result = sqlSession.selectList("searchman1",vo);
+			sqlSession.close();
+			return result;
+		}
+		// 검색 기능 사용자
+		public List<ManageVO> SearchMan2(ManageVO vo) {
+			SqlSession sqlSession = factory.openSession();
+			List<ManageVO> result = sqlSession.selectList("searchman2",vo);
+			sqlSession.close();
+			return result;
+		}
 }

@@ -182,3 +182,8 @@ input:focus {
 .nav-link {
     font-family: 'IBM Plex Sans KR', sans-serif;
 }
+#certification {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-weight: 400;
+    text-align: center;
+}
