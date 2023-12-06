@@ -36,6 +36,7 @@ public class ManagePostService implements Command {
 		int row = dao.manageupdate(vo);
 		if(row>0) {
 			request.setAttribute("management", vo);
+			return "managementPost";
 		}else {
 			
 		}

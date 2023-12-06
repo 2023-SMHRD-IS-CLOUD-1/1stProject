@@ -181,16 +181,16 @@
     <div class="container py-5" id="postWriteBoard">
         <h2>문의글 작성</h2>
         <hr>
-        <form action="ManagePost.do" >
+        <form action="ManagePost.do" method = "post" onsubmit="return validateForm()">
             <table id="postWriteTable">
                 <tr>
                     <td class="tableCol"><strong>제목</strong></td>
-                    <td class="tableContent"><input type="text" id=management_post_title></td>
+                    <td class="tableContent"><input type="text" id=management_post_title name="management_post_title"></td>
                 </tr>
                 <tr>
                     <td class="tableCol"><strong>내용</strong></td>
-                    <td class="tableContent"><textarea  cols="114" rows="20"
-                            id="management_post_content"></textarea></td>
+                    <td class="tableContent" name ="management_post_content"><textarea  cols="114" rows="20"
+                            id="management_post_content" name = "management_post_content"></textarea></td>
                 </tr>
             </table>
             <input type="submit" value="등록" id="PWTableSubmit">
@@ -276,6 +276,20 @@
             location.href = joinLink;
         }
     </script>
+    
+    <script>
+    function validateForm() {
+        var titleValue = document.getElementById("management_post_title").value;
+        var contentValue = document.getElementById("management_post_content").value;
+
+        if (titleValue.trim() === "" || contentValue.trim() === "") {
+            alert("제목과 내용을 입력하세요.");
+            return false; // 폼 제출을 막음
+        }
+
+        return true; // 폼이 정상적으로 제출되도록 허용
+    }
+</script>
 </body>
 
 </html>
