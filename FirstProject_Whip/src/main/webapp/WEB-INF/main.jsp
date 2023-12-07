@@ -207,9 +207,11 @@ https://templatemo.com/tm-559-zay-shop
                             <div class="text-align-left align-self-center">
                                 <h1 class="h1 text-success">
                                     <b>HEF</b> 심부름 플랫폼</h1>
-                                <h3 class="h2" >플랫폼 관련 말</h3>
+                                <h3 class="h2" > 물건을 사거나 일상적인 업무를 처리하기에 시간이 <br> 부족하신가요?</h3>
                                 <p>
-                                    넣으면 될 듯
+                                    HEF는 여러분에게 도움이 될 것입니다! 우리 HEF는 믿을 수 있는 지역 심부름꾼들과 연결하여, 편리하고 안전하게 다양한 심부름을 처리해드립니다. 
+                                    <br>여러분은 할 일에 집중하고, 필요한 것들은 HEF에서 신속하게 해결하세요.
+                                    <br> HEF와 함께라면, 바쁜 일상에서도 불편함 없이 생활할 수 있습니다.
                                 </p>
                             </div>
                         </div>
@@ -227,9 +229,12 @@ https://templatemo.com/tm-559-zay-shop
                             <div class="text-align-left">
                                 <h1 class="scrollSub">내가 하기 귀찮은 일!<br>심부름 대신
                                     해드려요</h1>
-                                <h3 class="h2" >심부름 플랫폼 HEF와 함께 .. ~~ ~~ .... </h3>
+                                <h3 class="h2" >일상의 부담에서 해방되세요!. </h3>
                                 <p>
-                                    핵심  <strong>파이팅</strong> 입니다..
+                                   귀찮은 일들은 더 이상 걱정하지 마시고, HEF에게 맡겨주세요. 
+                                   <br> 신속하고 효율적인 서비스를 제공해드리는 HEF로 여러분의 불편을 최소화하고, 여러분이 편안하게 쉴 수 있도록 최선을 다하겠습니다. 
+                                   <br>하고 싶지 않은 일들은 제게 맡기고, 여유로운 시간을 즐기세요!
+                                   <br> 당신의 편안한 삶을 위해 언제든지 HEF로 오세요!
                                 </p>
                             </div>
                         </div>
@@ -247,11 +252,13 @@ https://templatemo.com/tm-559-zay-shop
                             <div class="text-align-left">
                                 <h1 class="scrollSub" >동네 이웃끼리
                                     서로<br>도와주고<br>수익도 창출해보세요</h1>
-                                <h3 class="h2" > 임시. </h3>
+                                <h3 class="h2" > 우리 동네에서 서로 도우며 함께 성장하세요! </h3>
                                 <p>
-                                    We bring you 100% free CSS templates for your websites.
-                                    If you wish to support TemplateMo, please make a small contribution via PayPal or
-                                    tell your friends about our website. Thank you.
+                                    심부름은 이웃 간 소통의 시작입니다. 
+                                    <br>저희 플랫폼을 통해 신뢰성 있는 이웃들끼리 심부름을 요청 수행하고, 
+                                    <br>동시에 수익도 창출해보세요. 
+                                    <br>HEF에서 심부름을 요청하고 수행하면서, 
+                                    동네 커뮤니티를 더욱 활기차게 !
                                 </p>
                             </div>
                         </div>
@@ -276,40 +283,40 @@ https://templatemo.com/tm-559-zay-shop
                 <h1 class="h1"  >HEF 인기 서비스 </h1>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 col-md-4 p-5 mt-3">
+        <div class="wrapper">
+        <div id="table">
+            <div class="r1">
                 <a href="#"><img src="./assets/img/1.png" class="rounded-circle img-fluid border"></a>
                 <h5 class="text-center mt-3 mb-3">ex) 정리수납, 폐기물처리</h5>
-                <p class="text-center"><button class="categoryBtn" onclick="sendData('1')">청소/정리</button></p>
+                <p class="text-center"><button class="categoryBtn" data-index="1">청소/정리</button></p>
             </div>
-            <div class="col-12 col-md-4 p-5 mt-3">
+            <div class="r2">
                 <a href="#"><img src="./assets/img/2.png" class="rounded-circle img-fluid border"></a>
                 <h2 class="h5 text-center mt-3 mb-3">ex) 비지니스 영어 과외</h2>
-                <p class="text-center"><button class="categoryBtn" onclick="sendData('2')">과외</button></p>
+                <p class="text-center"><button class="categoryBtn" data-index="2">과외</button></p>
             </div>
-            <div class="col-12 col-md-4 p-5 mt-3">
+            <div class="r3">
                 <a href="#"><img src="./assets/img/3.png" class="rounded-circle img-fluid border"></a>
                 <h2 class="h5 text-center mt-3 mb-3">ex) 에어컨 설치 및 수리</h2>
-                <p class="text-center"><button class="categoryBtn" onclick="sendData('3')">수리/설치</button></p>
+                <p class="text-center"><button class="categoryBtn" data-index="3">수리/설치</button></p>
             </div>
-            <div class="col-12 col-md-4 p-5 mt-3">
+            <div class="r4">
                 <a href="#"><img src="./assets/img/4.png" class="rounded-circle img-fluid border"></a>
                 <h5 class="text-center mt-3 mb-3">ex) 싱크대 교체</h5>
-                <p class="text-center"><button class="categoryBtn" onclick="sendData('4')">인테리어/시공</button></p>
+                <p class="text-center"><button class="categoryBtn" data-index="4">인테리어/시공</button></p>
             </div>
-            <div class="col-12 col-md-4 p-5 mt-3">
+            <div class="r5">
                 <a href="#"><img src="./assets/img/5(1).png" class="rounded-circle img-fluid border"></a>
                 <h5 class="text-center mt-3 mb-3">ex) 벌레 퇴치</h5>
-                <p class="text-center"><button class="categoryBtn" onclick="sendData('5')">기타 집안일</button></p>
+                <p class="text-center"><button class="categoryBtn" data-index="5">기타 집안일</button></p>
             </div>
-            <div class="col-12 col-md-4 p-5 mt-3">
+            <div class="r6">
                 <a href="#"><img src="./assets/img/6.png" class="rounded-circle img-fluid border"></a>
                 <h5 class="text-center mt-3 mb-3">ex) 용달/화물 운송</h5>
-                <p class="text-center"><button class="categoryBtn" onclick="sendData('6')">이사</button></p>
+                <p class="text-center"><button class="categoryBtn" data-index="6">이사</button></p>
             </div>
-            <table id="#readTable">
-            
-            </table>
+            </div>
+           
         </div>
     </section>
     <!-- End Categories of The Month -->
@@ -430,6 +437,101 @@ https://templatemo.com/tm-559-zay-shop
          }
         })
     })
+    </script>
+    <script>
+    $(document).ready(function() {
+    	  $('.categoryBtn').on('click', function() {
+    	    var index = $(this).data('index');
+    	    $('#table').empty();
+
+    	    if (index == 1) {
+    	      $('#table').append(`
+    	        <div class="r7">
+    	          <a href="#"><img src="./assets/img/clean1.jpg" class="newimg"></a>
+    	          <h5 class="text-center mt-3 mb-3">정리 수납</h5>
+    	        </div>
+    	        <div class="r8">
+    	          <a href="#"><img src="./assets/img/clean4.jpg" class="newimg"></a>
+    	          <h5 class="text-center mt-3 mb-3">입주 청소</h5>
+    	        </div>
+    	        <div class="r9">
+    	          <a href="#"><img src="./assets/img/clean5.jpg" class="newimg"></a>
+    	          <h5 class="text-center mt-3 mb-3">주거 청소</h5>
+    	        </div>
+    	        <div>
+  	          <h4>지금 한번 요청해보세요!</h4>
+  	          <h5>click <a href="GoerrPage.do" id="gogo"> here  </a>=3</h5>
+  	        </div>
+    	      `);
+    	    } else if (index == 2) {
+    	      $('#table').append(`
+    	        <div class="r7">
+    	          <a href="#"><img src="./assets/img/study1.jpg" class="newimg"></a>
+    	          <h5 class="text-center mt-3 mb-3">수학 과외</h5>
+    	        </div>
+    	        <div class="r8">
+    	          <a href="#"><img src="./assets/img/study2.jpeg" class="newimg"></a>
+    	          <h5 class="text-center mt-3 mb-3">영어 과외</h5>
+    	        </div>
+    	        <div class="r9">
+    	          <a href="#"><img src="./assets/img/study3.png" class="newimg"></a>
+    	          <h5 class="text-center mt-3 mb-3">국어 과외</h5>
+    	        </div>
+    	        <div>
+  	          <h4>지금 한번 요청해보세요!</h4>
+  	          <h5>click <a href="GoerrPage.do" id="gogo"> here  </a>=3</h5>
+  	        </div>
+    	      `);
+    	    } else if (index == 3) {
+    	      $('#table').append(`
+    	        <div class="r7">
+    	          <a href="#"><img src="./assets/img/clean2.png" class="newimg"></a>
+    	          <h5 class="text-center mt-3 mb-3">에어컨 수리</h5>
+    	        </div>
+    	        <div class="r8">
+    	          <a href="#"><img src="./assets/img/clean3.jpg" class="newimg"></a>
+    	          <h5 class="text-center mt-3 mb-3">세탁기 수리</h5>
+    	        </div>
+    	        <div class="r9">
+    	          <a href="#"><img src="./assets/img/tv.jpg" class="newimg"></a>
+    	          <h5 class="text-center mt-3 mb-3">TV 수리</h5>
+    	        </div>
+    	        <div>
+  	          <h4>지금 한번 요청해보세요!</h4>
+  	          <h5>click <a href="GoerrPage.do" id="gogo"> here  </a>=3</h5>
+  	        </div>
+    	      `);
+    	    } else if (index == 4) {
+    	      $('#table').append(`
+    	        <div class="r7">
+    	          <a href="#"><img src="./assets/img/interior1.png" class="newimg"></a>
+    	          <h5 class="text-center mt-3 mb-3">도배</h5>
+    	        </div>
+    	        <div class="r8">
+    	          <a href="#"><img src="./assets/img/interior2.jpg" class="newimg"></a>
+    	          <h5 class="text-center mt-3 mb-3">거실 인테리어</h5>
+    	        </div>
+    	        <div class="r9">
+    	          <a href="#"><img src="./assets/img/interior4.jpg" class="newimg"></a>
+    	          <h5 class="text-center mt-3 mb-3">주방 인테리어</h5>
+    	        </div>
+    	        <div>
+  	          <h4>지금 한번 요청해보세요!</h4>
+  	          <h5>click <a href="GoerrPage.do" id="gogo"> here  </a>=3</h5>
+  	        </div>
+    	      `);
+    	    } else {
+    	      $('#table').append(`
+    	        <div>
+    	          <h4>지금 한번 요청해보세요!</h4>
+    	          <h5>click <a href="GoerrPage.do" id="gogo"> here  </a>=3</h5>
+    	        </div>
+    	      `);
+    	    }
+    	  });
+    	});
+
+
     </script>
 </body>
 
