@@ -65,6 +65,12 @@
 		ERR_STATUS, USER_ID, ERR_PRICE
 		FROM TB_ERRAND WHERE USER_ID = #{user_id}
 	</select>
+		<!-- 사용자 id와 일치하는 글 검색 -->
+	<select id="searcherr3" resultMap="er_rank">
+		SELECT ERR_NUM, ERR_CATEGORY_NUM,ERR_NAME, CREATED_AT, UPDATED_AT,
+		ERR_STATUS, USER_ID
+		FROM TB_ERRAND WHERE USER_ID = #{user_id}
+	</select>
 	<!-- 신청인 목록을 찾아라 여기에요!! -->
 	<select id="matchfind" resultMap="er_rank">
 	SELECT ERR_NUM, ERR_NAME, CREATED_AT, USER_ID, ERR_STATUS, ERR_PRICE

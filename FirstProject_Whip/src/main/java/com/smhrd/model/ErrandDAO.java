@@ -87,5 +87,11 @@ public class ErrandDAO {
 		sqlSession.close();
 		return result;
 	}
-	
+	// 사용자 아이디와 일치하는 것만 검색
+	public List<ErrandVO> SearchErr3(ErrandVO vo) {
+		SqlSession sqlSession = factory.openSession();
+		List<ErrandVO> result = sqlSession.selectList("searcherr3",vo);
+		sqlSession.close();
+		return result;
+	}
 }

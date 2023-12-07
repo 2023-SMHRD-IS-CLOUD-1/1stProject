@@ -92,7 +92,13 @@ public class UserDAO {
 		
 		return result;
 	}
-
+	// 심부름 요청글에 신청자를 가져오는 메소드
+	public List<UserVO> MatchLoad(String user_id) {
+		SqlSession sqlSession = factory.openSession(true);
+		List<UserVO> result = sqlSession.selectList("MatchLoad", user_id);
+		sqlSession.close();
+		return result;
+	}
 
 
 }

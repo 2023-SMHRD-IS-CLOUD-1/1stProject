@@ -19,4 +19,24 @@ SELECT  ERR_NUM
 FROM TB_MATCHING
 WHERE USER_ID = #{user_id}
 </select>
+	<select id="matchIdload" resultType="String">
+		SELECT USER_ID
+		FROM TB_MATCHING
+		WHERE ERR_NUM = #{selectedNum}
+	</select>
+	<update id="matchUnAccept" parameterType="com.smhrd.model.MatchVO">
+		UPDATE TB_Matching
+		SET MATCH_YN = 'N'
+		WHERE USER_ID = #{user_id} AND ERR_NUM = #{err_num} 
+	</update>
+	<update id="MatchAccept" parameterType="com.smhrd.model.MatchVO">
+		UPDATE TB_Matching
+		SET MATCH_YN = 'Y'
+		WHERE USER_ID = #{user_id} AND ERR_NUM = #{err_num} 
+	</update>
+	<update id="errMatchUpdate" parameterType="com.smhrd.model.MatchVO">
+		UPDATE TB_ERRAND
+		SET ERR_STATUS = 'y'
+		WHERE ERR_NUM = #{err_num} 
+	</update>
 </mapper>
