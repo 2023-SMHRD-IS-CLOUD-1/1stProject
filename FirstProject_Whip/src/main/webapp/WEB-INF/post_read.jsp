@@ -42,7 +42,7 @@ https://templatemo.com/tm-559-zay-shop
                 <div>
                     <i class="fa fa-envelope mx-2"></i>
                     <a class="navbar-sm-brand text-light text-decoration-none"
-                        href="mailto:info@company.com">caroot&whip@smhrd.com</a>
+                        href="mailto:info@company.com">carrot&whip@smhrd.com</a>
                 </div>
                 <div>
                     <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i
@@ -85,7 +85,7 @@ https://templatemo.com/tm-559-zay-shop
                             <a class="nav-link" href="Gopost.do">커뮤니티</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="GoNaNmanagementPost.do">고객센터</a>
+                            <a class="nav-link" href="GomanagementPost.do">고객센터</a>
                         </li>
                     </ul>
                 </div>
@@ -211,9 +211,13 @@ https://templatemo.com/tm-559-zay-shop
                     </tr>
                 </table>
             </div>
+            <br>
+            <br>
             <div id="postReadSect3">
-                <textarea name="cmtContent" id="cmtContent" cols="125" rows="5"></textarea>
+                <textarea name="cmtContent" id="cmtContent" cols="135" rows="5"></textarea>
                 <button id = "cmtUploadBtn">등록</button>
+                <br>
+                <br>
                 <div>
                     <span id ="showCmtNum">0개의 댓글이 달려 있습니다.</span>
                 </div>
@@ -240,7 +244,7 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="row pt-2">
                     <div class="col-12">
                         <p class="text-left text-light">
-                            CAROOT&WHIP &copy; 2023 project
+                            CARROT&WHIP &copy; 2023 project
                             | <a rel="sponsored" href="https://smhrd.or.kr/course/aicamp/"
                                 target="_blank">당근과 채찍팀</a>| 최성욱, 유수연, 박 준, 송희주, 양재원
                         </p>
