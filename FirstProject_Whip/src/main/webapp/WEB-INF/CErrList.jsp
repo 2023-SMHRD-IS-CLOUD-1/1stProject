@@ -409,7 +409,33 @@ https://templatemo.com/tm-559-zay-shop
 		  });
 
 	</script>
-
+	<!-- 신청한 심부름을 찾아라!!!!!!! -->
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: "Matchfind.do",
+        dataType : 'json',
+        success: function(res) {
+            console.log("성공");
+            console.log(res);
+            for(var i = 0; i<res.length; i++){
+            	var a = "";
+    			a += "<tr class = \"postListCL\">";
+    			a += "<td class = \"postListTitle\"><a href = \"#\" >"+ res[i].err_name + "</a></td>";
+    			a += "<td class = \"postListid\">"+ res[i].user_id + "</td>";
+    			a += "<td class = \"postListDate\">"+ res[i].created_at + "</td>";
+    			a += "<td class = \"postListMoney\">"+ res[i].err_price + "</td>";
+    			a += "<td class = \"postListMatch\">"+ res[i].err_status + "</td>";
+    			a += "</tr>"
+      			$("#postTable").append(a);
+            }
+        },
+        error: function(err) {
+            console.error("에러", err);
+        }
+    });
+});
+</script>
 	<!-- End Script -->
 </body>
 

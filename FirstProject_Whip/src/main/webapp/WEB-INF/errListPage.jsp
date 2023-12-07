@@ -347,7 +347,7 @@ https://templatemo.com/tm-559-zay-shop
         let loginBtn = document.getElementById("btn-login");
         loginBtn.onclick = hrefLink
         function hrefLink(){
-            location.herf = mainLink;
+            location.href = mainLink;
         }
         // 로그인 모달창 내부에 있는 회원가입 버튼 이벤트 
         var joinBtn = document.getElementById("btn-join");
@@ -382,6 +382,7 @@ https://templatemo.com/tm-559-zay-shop
 	// 1~5페이지면 << 삭제
 	if (firstBtn.innerHTML == '1') {
 		prevBtn.style.display = 'none';
+			console.log("들어오니?5");
 	}
 	// << 버튼 눌렀을 때
 	prevBtn.addEventListener('click', function() {
@@ -443,6 +444,7 @@ https://templatemo.com/tm-559-zay-shop
             data: { selectedNum: selectedNum },
             dataType: "json",
             success: function (res) {
+            	console.log("test>>",res);
                 $(".postListCL").remove();
                 for (let i = 0; i < 10; i++) {
                     var a = "";
@@ -541,7 +543,7 @@ https://templatemo.com/tm-559-zay-shop
                             			a += "<td class = \"postListTitle\"><a href = \"#\" >"+ result[i].err_name + "</a></td>";
                             			a += "<td class = \"postListDate\">"+ result[i].created_at + "</td>";
                             			a += "<td class = \"postListMoney\">"+ result[i].err_price + "</td>";
-                            			if if ('${user.user_id}' != '' && res[i].user_id != '${user.user_id}') {
+                            			if ('${user.user_id}' != '' && res[i].user_id != '${user.user_id}') {
                                  			a += "<td><button id='match'>신청</button></td>"
                                  			}
                             			a += "</tr>"
@@ -582,7 +584,7 @@ https://templatemo.com/tm-559-zay-shop
                                  			a += "<td class=\"postListTitle\"><a href=\"#\" >" + result[i].err_name + "</a></td>";
                                  			a += "<td class = \"postListDate\">"+ result[i].created_at + "</td>";
                                  			a += "<td class = \"postListMoney\">"+ result[i].err_price + "</td>";
-                                 			if if ('${user.user_id}' != '' && res[i].user_id != '${user.user_id}') {
+                                 			if ('${user.user_id}' != '' && res[i].user_id != '${user.user_id}') {
                                      			a += "<td><button id='match'>신청</button></td>"
                                      			}
                                  			a += "</tr>"

@@ -131,13 +131,12 @@
 
     .categoryBtn {
       padding: 5px;
-      color: white;
-	  
+ 	color: white;
     }
-   .newimg{
-      width: 340px;
-      height: 300px;
-   }
+	.newimg{
+		width: 340px;
+		height: 300px;
+	}
 .r7,
 .r8,
 .r9 {
@@ -149,8 +148,8 @@
 }
 
 #gogo{
-   color: darkred;
-   font-size: 30px;
+	color: darkred;
+	font-size: 30px;
 }
 
 .mainText {
