@@ -13,5 +13,10 @@
         #{user_id}, #{err_num}
     )
 </insert>
-
+<!-- 심부름 신청한 사람을 찾아라 여기에요!!! -->
+<select id="hopefind" resultType="com.smhrd.model.MatchVO"> 
+SELECT  ERR_NUM
+FROM TB_MATCHING
+WHERE USER_ID = #{user_id}
+</select>
 </mapper>

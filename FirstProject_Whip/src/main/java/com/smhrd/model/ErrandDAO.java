@@ -80,5 +80,12 @@ public class ErrandDAO {
 		int result = sqlSession.selectOne("getErrNum");
 		return result;
 	}
+	// 심부름 찾기
+	public List<ErrandVO> matchfind(int err_num) {
+		SqlSession sqlSession = factory.openSession();
+		List<ErrandVO> result = sqlSession.selectList("matchfind",err_num);
+		sqlSession.close();
+		return result;
+	}
 	
 }

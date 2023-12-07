@@ -17,5 +17,11 @@ public class MatchDAO {
 		sqlSession.close();
 		return row;
 	}
-
+//  신청인을 찾아라 !!!!!!!!!!!
+	public List<MatchVO> hopefind(MatchVO vo) {
+		SqlSession sqlSession = factory.openSession();
+		List<MatchVO> result = sqlSession.selectList("hopefind", vo);
+		sqlSession.close();
+		return result;
+	}
 }

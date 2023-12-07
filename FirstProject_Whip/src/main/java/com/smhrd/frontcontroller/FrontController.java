@@ -41,6 +41,7 @@ import com.smhrd.controller.ManagePostService;
 import com.smhrd.controller.Manage_answerService;
 import com.smhrd.controller.Manage_detailService;
 import com.smhrd.controller.Manage_modifyService;
+import com.smhrd.controller.MatchfindService;
 import com.smhrd.controller.PostBoardService;
 import com.smhrd.controller.PostNumService;
 import com.smhrd.controller.PostReadService;
@@ -121,6 +122,7 @@ public class FrontController extends HttpServlet {
 		map.put("Man_search.do", new Man_searchService());
 		
 		map.put("Err_match.do", new Err_matchService());
+		map.put("Matchfind.do", new MatchfindService());
 	}
 		
 		
