@@ -262,19 +262,13 @@ https://templatemo.com/tm-559-zay-shop
 						<td class="w150">
 							<table>
 								<tr class="h100">
-									<td><button id="btn001" type="submit"
-											class="btn btn-success btn-lg px-3 w300">
-											<h3 class="noMargin">작성 글 목록</h3>
-										</button></td>
+									<td></td>
 								</tr>
 								<tr class="h100">
-									<td><button id="btn002" type="submit"
-											class="btn btn-success btn-lg px-3 w300">
-											<h3 class="noMargin">작성 댓글 목록</h3>
-										</button></td>
+									<td></td>
 								</tr>
 								<tr class="h100">
-									<td><button id="btn003" type="submit"
+									<td><button id="btn003" 
 											class="btn btn-success btn-lg px-3 w300">
 											<h3 class="noMargin">심부름 목록</h3>
 										</button></td>
@@ -346,14 +340,11 @@ https://templatemo.com/tm-559-zay-shop
 
         // 버튼이 클릭되면 다른 페이지로 이동 start
         // 변경필요2 링크 주소 변경 필요
-        let link1 = 'GoNaNmypage1userPost.do';
-        let link2 = 'GoNaNmypage1userComment.do';
-        let link3 = 'GoNaNmypage1userErr.do';
+
+        let link3 = 'GoCErrList.do';
         let link4 = 'Gomypage2.do';
         let link5 = 'GoNaNmypage1userIdCheck.do';
         
-        $('#btn001').on("click", function(){location.href = link1;})
-        $('#btn002').on("click", function(){location.href = link2;})
         $('#btn003').on("click", function(){location.href = link3;})
         $('#btn004').on("click", function(){location.href = link4;})
         $('#btn005').on("click", function(){location.href = link5;})

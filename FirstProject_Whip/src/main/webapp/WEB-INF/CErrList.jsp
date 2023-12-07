@@ -14,8 +14,9 @@
 
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/templatemo.css">
-    <link rel="stylesheet" href="assets/css/custom.css">
-    <link rel="stylesheet" href="assets/css/CErrList.css">
+    <link rel="stylesheet" href="./assets/css/custom.css">
+    <link rel="stylesheet" href="./assets/css/CErrList.css">
+    <link rel="stylesheet" href="./assets/css/postcss.css">
 
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet"
@@ -189,29 +190,15 @@ https://templatemo.com/tm-559-zay-shop
                 <br>
 			</div>
 			<hr class="borderLine">
-			<table id="postTable" class="errResList">
-                <tr>
-                    <th style="width: 110px;">심부름 번호</th>
-                    <th style="width: 800px;">제목</th>
-                    <th style="width: 10%;">작성일자</th>
-                    <th style="width: 10%;">단가</th>
-                    <th style="width: 10%;"></th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td><a href="GoerrResPage.do">대신 등원해줄 사람 구합니다.</a></td>
-                    <td>23.12.04</td>
-                    <td>100,000</td>
-                    <td><button id="postUpdate">대기</button></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td><a href="">바퀴벌레 멸종시켜줄 사람 구합니다.</a></td>
-                    <td>23.12.05</td>
-                    <td>200,000</td>
-                    <td><button id="postUpdate">완료</button></td>
-                </tr>
-            </table>
+				<table id="postTable" align="center">
+					<tr>
+						<th style="width: 25%;">제목</th>
+						<th style="width: 19%;">작성일자</th>
+						<th style="width: 19%;">단가</th>
+						<th style="width: 19%;">신청하기</th>
+						<th style="width: 19%;">신청자수</th>
+					</tr>
+				</table>
 			<hr class="borderLine">
 			<div id="pageNumber">
 				<a href="#" class="pageNumberAMove">&lt;&lt;</a>
@@ -246,6 +233,7 @@ https://templatemo.com/tm-559-zay-shop
                         <th style="width: 800px;">제목</th>
                         <th style="width: 10%;">작성일자</th>
                         <th style="width: 10%;">단가</th>
+                        <th style="width: 10%;"></th>
                         <th style="width: 10%;"></th>
                     </tr>
                     <tr>
@@ -349,109 +337,79 @@ https://templatemo.com/tm-559-zay-shop
         });
     });
 </script>
-
-	<!-- 11.28 수정 -->
 	<script>
-		let firstBtn = document.querySelector('#pageNumber>.pageNumberA:nth-child(2)');
-		let lastBtn = document.querySelector('#pageNumber>.pageNumberA:nth-child(6)')
-	    let pageButtons = document.querySelectorAll('.pageNumberA');
-		let pageNumber = document.querySelector('#pageNumber');
-		let prevBtn = document.querySelector('#pageNumber>.pageNumberAMove:first-child');
-		let nextBtn = document.querySelector('#pageNumber>.pageNumberAMove:last-child');
-		let selectedNum = 1;
-		
-		// 페이지 시작시 1번 페이지 선택
-		document.addEventListener("DOMContentLoaded", function() {
-			// 1번 페이지 버튼 클릭
-			if (firstBtn) {
-			firstBtn.click();
-			loadPostTen();
-			}
-		});
-		
-		
-		// 1~5페이지면 << 삭제
-		if (firstBtn.innerHTML == '1') {
-			prevBtn.style.display = 'none';
-		}
-		// << 버튼 눌렀을 때
-		prevBtn.addEventListener('click', function() {
-			selectedNum = (parseInt((selectedNum - 1)/ 5)) * 5;
-			for(let i = 0; i < 5; i++) {
-				pageButtons[i].innerHTML = parseInt(pageButtons[i].innerHTML) -5;
-			} if (firstBtn.innerHTML == '1') {
-				prevBtn.style.display = 'none';
-			}
-			pageButtons.forEach(function (button) {
-                button.style.textDecoration = 'none';
-                button.style.color = 'initial';
+	// 심부름 검색 기능
+
+
+
+            var searchTerm = '${user.user_id}';
+            var outputContainer = $(".postListCL");
+            outputContainer.empty();
+            // AJAX 요청 보내기
+            console.log("유저 아이디 출력유저 아이디 출력유저 아이디 출력유저 아이디 출력유저 아이디 출력유저 아이디 출력")
+            console.log('${user.user_id}')
+            $.ajax({
+                type: 'POST',
+                url: 'Err_search2.do',
+                data: {
+                    searchTerm: "jjj"
+                },
+                success: function (response) {
+                     var result = JSON.parse(response);
+                     for (var i = 0; i < result.length; i++) {
+                     	var a = "";
+             			a += "<tr class = \"postListCL\">";
+             			//a += "<td class = \"postListNum\">"+ result[i].err_num + "</td>";
+             			//a += "<td class = \"postListid\">"+ result[i].user_id + "</td>";
+             			a += "<td class=\"postListTitle\"><a href=\"#\" >" + result[i].err_name + "</a></td>";
+             			a += "<td class = \"postListDate\">"+ result[i].created_at + "</td>";
+             			a += "<td class = \"postListMoney\">"+ result[i].err_price + "</td>";
+                		a += "<td><button class='match'>신청자 목록 보기</button></td>"
+                		a += "<td>1</td>"
+             			a += "</tr>"
+               			$("#postTable").append(a);
+                     }
+                },
+                error: function (error) {
+					console.log("에러")
+                }
             });
-			lastBtn.style.color = 'red';
-			lastBtn.style.textDecoration = 'underline';
-			loadPostTen();
-		});
-		// >> 버튼 눌렀을 때
-		nextBtn.addEventListener('click', function() {
-			selectedNum = parseInt(((parseInt((selectedNum - 1) / 5)) * 5) + 6);
-			for(let i = 0; i < 5; i++) {
-				pageButtons[i].innerHTML = parseInt(pageButtons[i].innerHTML) + 5;
-			}
-			if (firstBtn.innerHTML != '1') {
-				prevBtn.style.display = '';
-			}
-			pageButtons.forEach(function (button) {
-                button.style.textDecoration = 'none';
-                button.style.color = 'initial';
-            });
-			firstBtn.style.color = 'red';
-			firstBtn.style.textDecoration = 'underline';
-			loadPostTen();
-		});
-		
-	    // 부모 요소에 이벤트 리스너 추가
-	    pageNumber.addEventListener('click', function (event) {
-	        // 클릭된 요소가 페이지 버튼인지 확인
-	        if (event.target.classList.contains('pageNumberA')) {
-	            // 모든 페이지 버튼의 스타일 초기화
-	            pageButtons.forEach(function (button) {
-	                button.style.textDecoration = 'none';
-	                button.style.color = 'initial';
-	            });
-                selectedNum = parseInt(event.target.innerHTML);
-	
-	            // 클릭된 페이지 버튼의 스타일 변경
-	            event.target.style.textDecoration = 'underline';
-	            event.target.style.color = 'red';
-	        }
-	        loadPostTen();
-	    });	
-	    function loadPostTen() {
-		    $.ajax({
-				url : "http://localhost:8081/FirstProject_Whip4/PostBoard.do",
-				data : {selectedNum : selectedNum},
-				dataType : "json",
-				success : function(res) {
-					$(".postListCL").remove();
-					for (let i = 0; i < 10; i++) {
-						var a = "";
-						a += "<tr class = \"postListCL\">";
-						a += "<td class = \"postListNume\">"+ res[i].post_num + "</td>";
-						a += "<td class = \"postListId\">"+ res[i].user_id + "</td>";
-						a += "<td class = \"postListTitle\"><a href = \"#\">"+ res[i].post_title + "</a></td>";
-						a += "<td class = \"postListViews\">"+ res[i].post_views + "</td>";
-						a += "<td class = \"postListLikes\">"+ res[i].post_likes + "</td>";
-						a += "<td class = \"postListDate\">"+ res[i].posted_at + "</td>";
-						a += "</tr>"
-						$("#postTable").append(a);
-					}
-					
-				},
-				error : function(result) {
-					console.log('안됨');
-				}
-			});
-	    }
+
 	</script>
+	<script>
+		//loadPostTen();
+
+
+      	// 심부름 글 상세보기 기능
+		  $(document).ready(function() {
+		    // 클릭 이벤트 핸들러
+		     $('#postTable').on('click', '.postListTitle a', function(e) {
+		    	 e.preventDefault();
+		      // 클릭한 행의 err_num 값을 가져오기
+		      var clickedErrNum = $(this).closest("tr").find(".postListNum").text();
+		      console.log(clickedErrNum);
+		      // 데이터 저장
+		      localStorage.setItem("clickedErrNum", clickedErrNum);
+		      $.ajax({
+                  type: 'POST',
+                  url: 'Err_detail.do',
+                  data: {
+                  	clickedErrNum : clickedErrNum
+                  },
+                  success: function(response) {
+                      console.log(response);
+                      window.location.href = 'GoErrandRead.do';
+                      // 성공적으로 응답을 받았을 때 수행할 작업
+                  },
+                  error: function(error) {
+                      console.error('Error:', error);
+                  }
+		      });
+		    });
+		  });
+
+	</script>
+
 	<!-- End Script -->
 </body>
 
