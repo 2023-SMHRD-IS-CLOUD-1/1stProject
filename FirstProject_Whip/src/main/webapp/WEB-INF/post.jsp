@@ -288,6 +288,7 @@ https://templatemo.com/tm-559-zay-shop
 		let searchBtn = document.querySelector('#searchButton');
 		let postSearchFilter = document.querySelector('#postSearchFilter');
 		let searchWord = document.querySelector('#postSearch');
+		let postUpdateA = document.querySelector('#postUpdateA');
 		let selectedNum = 1;
 		let lastPageNum = 1;
 		
@@ -452,6 +453,14 @@ https://templatemo.com/tm-559-zay-shop
 	    		}
 	    	});
 	    }
+	    // 로그인 안돼있으면 글작성 기능 막기
+	    postUpdateA.addEventListener('click', function (){
+	    	if('${user.user_id}' == "") {
+	    		postUpdateA.href = "#";
+	    		alert('로그인 후 이용 가능 합니다.');
+	    	}
+	    })
+	    
 	</script>
 	<script>
 	$(document).ready(function() {

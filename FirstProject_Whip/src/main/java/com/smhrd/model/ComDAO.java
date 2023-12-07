@@ -20,6 +20,14 @@ public class ComDAO {
 		
 		return result;
 	}
+
+	public int comUpload(ComVO vo) {
+		SqlSession sqlSession = factory.openSession(true);
+		int result = sqlSession.insert("comUPload", vo);
+		sqlSession.close();
+		
+		return result;
+	}
 		
 
 }

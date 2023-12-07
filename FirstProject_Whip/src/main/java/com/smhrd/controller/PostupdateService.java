@@ -20,10 +20,8 @@ public class PostupdateService implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("test");
 		// 글 제목
 		String post_title = request.getParameter("post_title");
-		System.out.println(post_title);
 		// 글 내용
 		String post_content = request.getParameter("post_content");
 		
@@ -32,7 +30,6 @@ public class PostupdateService implements Command {
 		HttpSession session = request.getSession();
 		UserVO loginVo = (UserVO) session.getAttribute("user");
 		String user_id = loginVo.getUser_id();
-		System.out.println(user_id);
 
 		// errandvo로 받아온 정보저장하기 id, 제목, 카테고리 넘버, 내용, 단가
 		PostVO vo = new PostVO();
@@ -40,13 +37,11 @@ public class PostupdateService implements Command {
 		vo.setPost_title(post_title);
 		vo.setPost_content(post_content);
 		
-//		
 		PostDAO dao = new PostDAO();
-//		// errupdate 기능 실행
+		// errupdate 기능 실행
 		int row = dao.postupdate(vo);
-//		
 		if(row>0) {
-//			// post 라는 이름으로 저장
+			// post 라는 이름으로 저장
 			session.setAttribute("post", vo);
 			// 성공시 return 게시글 페이지
 		} else {
