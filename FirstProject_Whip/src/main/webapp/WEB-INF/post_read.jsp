@@ -179,20 +179,25 @@ https://templatemo.com/tm-559-zay-shop
         <div id="postReadLayout">
             <div id="postReadHead">
         	    <span id="postReadingNum">${postContent.post_num}</span>
-                <h1>${postContent.post_title}</h1>
+                <h1 id = "postWritedTitle">${postContent.post_title}</h1>
+               
             </div>
             <div id="postReadNav">
-                <span>${postContent.user_id}</span>
+                <span id = "postUserId">${postContent.user_id}</span>
                 <span id = "postPostedAt">${postContent.posted_at}</span>
                 <span>조회 ${postContent.post_views }</span>
-                <span>추천 ${postContent.post_likes }</span>
+                <span>추천 <span id = "showLikesCnt">${postContent.post_likes }</span></span>
                 <button onclick="postList()">목록</button>
             </div>
             <hr>
             <div id="postReadSect1">
-                <pre>${postContent.post_content }</pre>
+                <pre id = "postWritedContent">${postContent.post_content }</pre>
             </div>
             <hr>
+            <div id = "tempBtns">
+	            <button id = "updateBtn">수정</button>
+	            <button id = "deleteBtn">삭제</button>
+            </div>
             <div id="postReadSect2">
                 <table align="center">
                     <tr>
@@ -207,8 +212,8 @@ https://templatemo.com/tm-559-zay-shop
                 </table>
             </div>
             <div id="postReadSect3">
-                <textarea name="" id="" cols="125" rows="5"></textarea>
-                <button>등록</button>
+                <textarea name="cmtContent" id="cmtContent" cols="125" rows="5"></textarea>
+                <button id = "cmtUploadBtn">등록</button>
                 <div>
                     <span id ="showCmtNum">0개의 댓글이 달려 있습니다.</span>
                 </div>
@@ -304,11 +309,103 @@ https://templatemo.com/tm-559-zay-shop
 		let postPostedAt = document.querySelector('#postPostedAt');
 		postPostedAt.innerHTML = postPostedAt.innerHTML.slice(0,16);
 		let showCmtNum = document.querySelector('#showCmtNum');
-		//likeBtn.addEventListener('click', function() {
-			//$.ajax({
-				
-			//})
-		//});
+		let showLikesCnt = document.querySelector('#showLikesCnt');
+		let cmtContent =  document.querySelector('#cmtContent');
+		let cmtUploadBtn = document.querySelector('#cmtUploadBtn');
+		let tempBtns = document.querySelector('#tempBtns');
+		let postUserId = document.querySelector('#postUserId');
+		let updateBtn = document.querySelector('#updateBtn');
+		let deleteBtn = document.querySelector('#deleteBtn');
+		let postWritedTitle = document.querySelector('#postWritedTitle')
+		let postWritedContent = document.querySelector('#postWritedContent')
+		// 게시글 수정/삭제 버튼 로그인 시 보이게
+		 if('${user.user_id}' == postUserId.innerHTML || '${user.user_id}' == 'admin'){
+			 tempBtns.style.display = 'block';
+		 }
+		// 수정버튼 눌렀을 때
+		updateBtn.addEventListener('click', function() {
+			
+			window.location.href = "PostSendNum.do?post_num=" + thisPostNum;
+			
+		})
+		// 삭제버튼 눌렀을 때
+		deleteBtn.addEventListener('click', function(){
+			let decesion = confirm('삭제 하겠습니까?');
+			if (decesion == true) {
+				$.ajax({
+					url : "Postdelete.do",
+					data : {thisPostNum : thisPostNum},
+					success : function(res) {
+						alert('삭제가 완료되었습니다.');
+						window.location.href = "Gopost.do";
+					},
+					error : function(res) {
+						console.log('삭제버튼 실패');
+					}
+				})
+			} else {
+				event.preventDefault();
+			}
+		})
+		
+		// 댓글 등록
+		cmtUploadBtn.addEventListener('click', function() {
+			if('${user.user_id}'==''){
+				event.preventDefault();
+				alert('로그인 후 이용가능합니다.');
+			} else {
+				if (cmtContent.value == ''){
+					event.preventDefault();
+					alert('내용을 입력하세요.');
+				} else {
+					$.ajax({
+						url : "ComUpload.do",
+						data : {
+							user_id : '${user.user_id}',
+							thisPostNum : thisPostNum,
+							cmtContent : cmtContent.value
+						},
+						dataType : 'json',
+						success : function(res) {
+							location.reload();
+						},
+						error : function(res) {
+							console.log('댓글 등록 실패');
+						}
+					})
+				}
+			}
+		});
+		
+		// 게시글 추천
+		likeBtn.addEventListener('click', function() {
+			if('${user.user_id}'==''){
+				event.preventDefault();
+				alert('로그인 후 이용가능합니다.');
+			} else {
+				$.ajax({
+					url : "PostLike.do",
+					data : {
+						thisPostNum : thisPostNum,
+						user_id : '${user.user_id}'
+						},
+					dataType : 'json',
+					success : function(res) {
+						if (res == 1) {
+							alert('추천이 취소 되었습니다.');
+							showLikesCnt.innerHTML = parseInt(showLikesCnt.innerHTML) - 1;
+						} else {
+							alert('추천 완료');
+							showLikesCnt.innerHTML = parseInt(showLikesCnt.innerHTML) + 1;
+						}
+					}, 
+					error : function(res){
+						console.log('게시글 좋아요 테이블 조회 실패');
+						console.log(res);
+					}
+				})
+			}
+		});
 		function loadCmt() {
 			console.log(thisPostNum);
 	    	$.ajax({
@@ -323,14 +420,13 @@ https://templatemo.com/tm-559-zay-shop
 	    				var a = "";
 	    				a += "<tr>";
 	    				a += "<td class = \"cSect4TableWriter\">" + res[i].user_id + "</td>";
-	    				a += "<td class = \"cSect4TableContent\">" + res[i].cmt_content + "</td>";
+	    				a += "<td class = \"cSect4TableContent\"><pre>" + res[i].cmt_content + "</pre></td>";
 	    				a += "<td class = \"cSect4TableDate\">" + res[i].created_at.slice(0,16) + "</td>";
 	    				a += "<td class = \"cSect4Tablefavor\">" + res[i].cmt_likes + "<br>";
 	    				a += "<button class= \"ddabong\"> 추천 </button></td>"; 
 	    				a += "</tr>";
 	    				$("#postReadSect4 table").append(a);
 	    			}
-	    			console.log(res[1]);
 	    		},
 	    		error : function(res) {
 	    			console.log('ajax 실패222222222222222');

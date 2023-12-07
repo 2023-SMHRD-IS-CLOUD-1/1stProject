@@ -43,7 +43,7 @@ https://templatemo.com/tm-559-zay-shop
                     <i class="fa fa-envelope mx-2"></i>
                     <a class="navbar-sm-brand text-light text-decoration-none"
                         href="https://smhrd.or.kr/course/aicamp/">
-                        caroot&whip@smhrd.com</a>
+                        carrot&whip@smhrd.com</a>
                     <!-- <i class="fa fa-phone mx-2"></i>
                     <a class="navbar-sm-brand text-light text-decoration-none" href="#">010-020-0340</a> -->
                 </div>
@@ -96,7 +96,7 @@ https://templatemo.com/tm-559-zay-shop
                         </li>
                     </ul>
                 </div>
-                <div class="navbar align-self-center d-flex">
+                <div class="navbar align-self-center d-flex mainheader">
                     <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
                         <div class="input-group">
                             <input type="text" class="form-control" id="inputMobileSearch" placeholder="심부름을 요청하고 수행해보시겠어요?">
@@ -206,11 +206,15 @@ https://templatemo.com/tm-559-zay-shop
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left align-self-center">
                                 <h1 class="h1 text-success">
-                                    <b>HEF</b> 심부름 플랫폼</h1>
+                                    심부름 플랫폼 <b>"HEF"</b> </h1>
                                 <h3 class="h2" > 물건을 사거나 일상적인 업무를 처리하기에 시간이 <br> 부족하신가요?</h3>
-                                <p>
-                                    HEF는 여러분에게 도움이 될 것입니다! 우리 HEF는 믿을 수 있는 지역 심부름꾼들과 연결하여, 편리하고 안전하게 다양한 심부름을 처리해드립니다. 
+                                <br>
+                                <p class="mainText">
+                                    HEF는 여러분에게 도움이 될 것입니다! 
+                                    <br>우리 HEF는 믿을 수 있는 지역 심부름꾼들과 연결하여, 
+                                    <br>편리하고 안전하게 다양한 심부름을 처리해드립니다. 
                                     <br>여러분은 할 일에 집중하고, 필요한 것들은 HEF에서 신속하게 해결하세요.
+                                    <br>
                                     <br> HEF와 함께라면, 바쁜 일상에서도 불편함 없이 생활할 수 있습니다.
                                 </p>
                             </div>
@@ -229,10 +233,13 @@ https://templatemo.com/tm-559-zay-shop
                             <div class="text-align-left">
                                 <h1 class="scrollSub">내가 하기 귀찮은 일!<br>심부름 대신
                                     해드려요</h1>
-                                <h3 class="h2" >일상의 부담에서 해방되세요!. </h3>
-                                <p>
+                                <h3 class="h2" >일상의 부담에서 해방되세요 !! </h3>
+                                <br>
+                                <p class="mainText">
                                    귀찮은 일들은 더 이상 걱정하지 마시고, HEF에게 맡겨주세요. 
-                                   <br> 신속하고 효율적인 서비스를 제공해드리는 HEF로 여러분의 불편을 최소화하고, 여러분이 편안하게 쉴 수 있도록 최선을 다하겠습니다. 
+                                   <br> 신속하고 효율적인 서비스를 제공해드리는 HEF로 여러분의 불편을 최소화하고, 
+                                   <br> 여러분이 편안하게 쉴 수 있도록 최선을 다하겠습니다. 
+                                   <br>
                                    <br>하고 싶지 않은 일들은 제게 맡기고, 여유로운 시간을 즐기세요!
                                    <br> 당신의 편안한 삶을 위해 언제든지 HEF로 오세요!
                                 </p>
@@ -251,9 +258,10 @@ https://templatemo.com/tm-559-zay-shop
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left">
                                 <h1 class="scrollSub" >동네 이웃끼리
-                                    서로<br>도와주고<br>수익도 창출해보세요</h1>
+                                    서로 도와주고<br>수익도 창출해보세요</h1>
                                 <h3 class="h2" > 우리 동네에서 서로 도우며 함께 성장하세요! </h3>
-                                <p>
+                                <br>
+                                <p class="mainText">
                                     심부름은 이웃 간 소통의 시작입니다. 
                                     <br>저희 플랫폼을 통해 신뢰성 있는 이웃들끼리 심부름을 요청 수행하고, 
                                     <br>동시에 수익도 창출해보세요. 
@@ -331,7 +339,7 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="row pt-2">
                     <div class="col-12">
                         <p class="text-left text-light">
-                            CAROOT&WHIP &copy; 2023 project
+                            CARROT&WHIP &copy; 2023 project
                             | <a rel="sponsored" href="https://smhrd.or.kr/course/aicamp/"
                                 target="_blank">당근과 채찍팀</a>| 최성욱, 유수연, 박 준, 송희주, 양재원
                         </p>

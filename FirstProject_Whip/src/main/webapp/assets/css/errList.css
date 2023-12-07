@@ -128,7 +128,7 @@ a{
 /* 폰트 추가 */
 #PostTitle{
     font-size: 30px;
-    font-weight: 300;
+    font-weight: 500;
     font-family: 'IBM Plex Sans KR', sans-serif;
     /* font-family: 'Black Han Sans', sans-serif; */
 }
@@ -204,3 +204,28 @@ a{
     cursor: pointer;
 }
   
+/*--------------------------------------------*/  
+/* 1207 로그인 버튼 위치 조정*/
+#loginBtn {
+	position: relative;
+    left: 6px;
+}
+#PostSearch {
+	font-family: 'IBM Plex Sans KR', sans-serif;
+}
+#searchButton {
+	border-radius: 8px;
+}
+.errlist {
+	position: relative;
+	top: 20px;
+}
+.errPostList {
+	position: relative;
+	top: 46px;
+}
+
+.img {
+	position: relative;
+	top: 30px;
+}

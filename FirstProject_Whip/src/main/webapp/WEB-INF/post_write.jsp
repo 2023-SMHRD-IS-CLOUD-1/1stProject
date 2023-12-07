@@ -1,6 +1,7 @@
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="com.smhrd.model.PostVO" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +35,7 @@ https://templatemo.com/tm-559-zay-shop
 </head>
 
 <body>
-
+	<%PostVO result = (PostVO)request.getAttribute("result"); %>
     <!-- Start Top Nav -->
     <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
         <div class="container text-light">
@@ -144,22 +145,43 @@ https://templatemo.com/tm-559-zay-shop
     </div>
     <!-- Start Content -->
     <div class="container py-5" id="postWriteBoard">
+        <% if(result == null){ %>
         <h2>게시글 작성</h2>
         <hr>
-        <form action="Postupdate.do" >
+        <form action= "Postupdate.do" >
             <table id="postWriteTable">
                 <tr>
                     <td class="tableCol"><strong>제목</strong></td>
-                    <td class="tableContent"><input name ="post_title" type="text" id="tableContentTitle"></td>
+                    <td class="tableContent"><input name ="post_title" type="text" id="tableContentTitle" placeholder="제목을 입력하세요."></td>
+                    
                 </tr>
                 <tr>
                     <td class="tableCol"><strong>내용</strong></td>
-                    <td class="tableContent"><textarea name="post_content" id="" cols="114" rows="20"
-                            id="tableContentText"></textarea></td>
+                    <td class="tableContent"><textarea placeholder = "내용을 입력하세요." name="post_content" id="tableContentText" cols="114" rows="20"
+                            ></textarea></td>
                 </tr>
             </table>
             <input type="submit" value="등록" id="PWTableSubmit">
         </form>
+            <% }else{ %>
+            <h2>게시글 수정</h2>
+      		<hr>
+        	<form action= "PostReWrite.do" >
+	            <table id="postWriteTable">
+	                <tr>
+	                	<input type = "text" value="${result.post_num }" name = "result_post_num" style="display: none;">
+	                    <td class="tableCol"><strong>제목</strong></td>
+	                    <td class="tableContent"><input name ="post_title" type="text" id="tableContentTitle" value="${result.post_title}"></td>
+	                </tr>
+	                <tr>
+	                    <td class="tableCol"><strong>내용</strong></td>
+	                    <td class="tableContent"><textarea placeholder = "내용을 입력하세요." name="post_content" id="tableContentText" cols="114" rows="20"
+	                           value="${result.post_content}" >${result.post_content}</textarea></td>
+	                </tr>
+	            </table>
+	            <input type="submit" value="수정" id="PWTableSubmit">
+	        </form>
+        <%} %>
     </div>
     <!-- End Content -->
 
@@ -388,17 +410,27 @@ https://templatemo.com/tm-559-zay-shop
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/templatemo.js"></script>
     <script src="assets/js/custom.js"></script>
-    <!-- End Script -->
     <script src="assets/js/postjs.js"></script>
-
-
-    <!-- 오ㅐ 안 넘어가지 !! 폼태그 안 action 값을 집어넣어서 
-        변경하긴 했는데 추후에 다시 수정해야할 듯 
     <script>
-        function postList(){
-            window.location.href = 'Gopost.do'
-        }
-    </script> -->
+    let tableContentTitle = document.querySelector('#tableContentTitle');
+    let tableContentText = document.querySelector('#tableContentText');
+    let PWTableSubmit = document.querySelector('#PWTableSubmit');
+    
+    PWTableSubmit.addEventListener('click', function() {
+    	
+    	if (tableContentTitle.value == '') {
+    		alert('제목을 입력하세요');
+    		event.preventDefault();
+  		} else if (tableContentText.value == '') {
+  			alert('내용을 입력하세요');
+  			event.preventDefault();
+  		}
+    });
+    </script>
+    <!-- End Script -->
+
+
+   
 
 </body>
 

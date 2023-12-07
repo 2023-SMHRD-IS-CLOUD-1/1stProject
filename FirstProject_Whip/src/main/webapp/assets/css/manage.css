@@ -1,4 +1,7 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@500&display=swap');
+  
 
 .item {
     width: 100%;
@@ -71,11 +74,14 @@ a{
 }
 
 .categoryBtn{
-    background-color: darkseagreen;
+    background-color: rgb(153, 203, 129);
     border: none;
-    border-radius: 10px;
+    border-radius: 30px;
     height: 30px;
-    width: 95%;
+    width: 40%;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+  	position: relative;
+  	bottom: 15px;
   }
  
   .pageNumberA{
@@ -86,7 +92,7 @@ a{
     text-align: right;
 }
 .categoryBtn{
-	background-color: #198754;
+	background-color: rgb(142, 200, 132);
 	border-color:  #198754;
 	border-radius: 10px;
 }

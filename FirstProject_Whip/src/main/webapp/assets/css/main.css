@@ -76,7 +76,9 @@
 /* 로그인,회원가입 버튼 마진 값 부여 */
 .loginbtn {
     margin: 5px;
-    /* padding-right: 20px; */
+    /* padding-right: 20px; 
+    background-color: #198754;
+    color: whitesmoke; */
 }
 .carousel-item {
     height: 560px;
@@ -129,6 +131,7 @@
 
     .categoryBtn {
       padding: 5px;
+ 	color: white;
     }
 	.newimg{
 		width: 340px;
@@ -148,3 +151,14 @@
 	color: darkred;
 	font-size: 30px;
 }
+
+.mainText {
+	    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+/* 1207 로그인 버튼 위치 조정*/
+#loginBtn {
+	position: relative;
+    left: 40px;
+}
+/* mainheader 마이페이지,검색창, 로그인, 회원가입*/

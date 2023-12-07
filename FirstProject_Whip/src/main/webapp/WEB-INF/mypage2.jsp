@@ -10,7 +10,7 @@
 <html lang="en">
 
 <head>
-    <title>당근과채찍_핵심_myPage1</title>
+    <title>당근과채찍_핵심_myPage2</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -54,9 +54,7 @@ https://templatemo.com/tm-559-zay-shop
             <div class="w-100 d-flex justify-content-between">
                 <div>
                     <i class="fa fa-envelope mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
-                    <i class="fa fa-phone mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">carrot&whip@company.com</a>
                 </div>
                 <div>
                     <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
@@ -153,15 +151,15 @@ https://templatemo.com/tm-559-zay-shop
 
 
     <!-- Start Content Page -->
-    <div class="container-fluid bg-light py-5">
+    <div class="container-fluid bg-light py-5 ">
         <div class="col-md-6">
-            <h1 class="h1">마이페이지</h1>
+            <h1 class="h1 mypageBanner">마이페이지</h1>
         </div>
     </div>
 
 
 
-    <!-- Start Contact -->
+    <!-- Start Contact --> 
     <!-- 수정2 시작 -->
     <div class="container py-5">
         <div class="row py-5">
@@ -243,7 +241,7 @@ https://templatemo.com/tm-559-zay-shop
             <div class="row pt-2">
                 <div class="col-12">
                     <p class="text-left text-light">
-                        CAROOT&WHIP &copy; 2023 project
+                        CARROT&WHIP &copy; 2023 project
                         | <a rel="sponsored" href="https://smhrd.or.kr/course/aicamp/"
                             target="_blank">당근과 채찍팀</a>| 최성욱, 유수연, 박 준, 송희주, 양재원
                     </p>

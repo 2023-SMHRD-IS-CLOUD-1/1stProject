@@ -133,7 +133,7 @@ https://templatemo.com/tm-559-zay-shop
 						class="fa fa-fw fa-user text-dark mr-3"></i>
 					</a>
 					<!--로그인 버튼 !!!!!! --------------------------->
-					<a href="#"><button class="btn-open-modal nav-item loginbtn">로그인</button></a>
+					<a href="#"><button id="loginBtn"  class="btn-open-modal nav-item loginbtn">로그인</button></a>
 					<!-- 회원가입 버튼!!!! --------------------------->
 					<a href="#"><button id="joinBtn"
 							class="btn-open-modal nav-item loginbtn">회원가입</button></a>
@@ -224,44 +224,44 @@ https://templatemo.com/tm-559-zay-shop
 	<!-- 수정할 부분 -->
 
 	<section class="container py-5">
-		<span id="PostTitle">카테고리 목록</span>
+		<span id="PostTitle" class="errlist">카테고리 목록</span>
 		<div class="container1">
 			<div class="menu">
 				<button class="categoryBtn" onclick="sendData('1')">청소/정리</button>
-				<p>
+				<p class="img">
 					<img src="./assets/img/cleaning.png" width="35px" height="30px">&ensp;
 				</p>
 			</div>
 			<div class="menu">
 				<button class="categoryBtn" onclick="sendData('2')">과외</button>
-				<p>
+				<p class="img">
 					<img src="./assets/img/book.png" width="35px" height="30px">
 					&ensp;
 				</p>
 			</div>
 			<div class="menu">
 				<button class="categoryBtn" onclick="sendData('3')">수리/설치</button>
-				<p>
+				<p class="img">
 					<img src="./assets/img/tools.png" width="35px" height="30px">&ensp;
 				</p>
 
 			</div>
 			<div class="menu">
 				<button class="categoryBtn" onclick="sendData('4')">인테리어</button>
-				<p>
+				<p class="img">
 					<img src="./assets/img/interior.png" width="35px" height="30px">
 				</p>
 			</div>
 			<div class="menu">
 				<button class="categoryBtn" onclick="sendData('5')">기타집안일</button>
-				<p>
+				<p class="img">
 					<img src="./assets/img/house.png" width="35px" height="30px">
 					&ensp;
 				</p>
 			</div>
 			<div class="menu">
 				<button class="categoryBtn" onclick="sendData('6')">이사</button>
-				<p>
+				<p class="img">
 					<img src="./assets/img/moving-home.png" width="35px" height="30px">&ensp;
 				</p>
 
@@ -269,7 +269,7 @@ https://templatemo.com/tm-559-zay-shop
 		</div>
 		<div id="postContent">
 			<div id="PostBodyarea">
-				<span id="PostTitle">심부름 글 목록</span>
+				<span id="PostTitle" class="errlist errPostList">심부름 글 목록</span>
 				<div id="PostSearch">
 					<select name="SearchCategory" id="SearchCategory">
 						<option value="err_name">제목</option>
