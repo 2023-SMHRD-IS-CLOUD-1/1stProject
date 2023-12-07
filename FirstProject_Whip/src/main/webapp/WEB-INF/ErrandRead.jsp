@@ -463,7 +463,7 @@ https://templatemo.com/tm-559-zay-shop
         });
     }
 
-    if (sessionUserId !== errandUserId) {
+    if (sessionUserId !== errandUserId && sessionUserId != '' ) {
         $('#postReadNav').append("<button id='update'>신청</button>");
 
         $('#update').on('click', function() {

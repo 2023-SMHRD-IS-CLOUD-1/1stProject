@@ -24,4 +24,29 @@ public class MatchDAO {
 		sqlSession.close();
 		return result;
 	}
+	public int matchAccept1(MatchVO vo) {
+		SqlSession sqlSession = factory.openSession(true);
+		int row = sqlSession.update("MatchAccept",vo);
+		sqlSession.close();
+		return row;
+	}
+	public int errMatchUpdate(MatchVO vo) {
+		SqlSession sqlSession = factory.openSession(true);
+		int row = sqlSession.update("errMatchUpdate",vo);
+		sqlSession.close();
+		return row;
+	}
+	public int matchUnAccept1(MatchVO vo) {
+		SqlSession sqlSession = factory.openSession(true);
+		int row = sqlSession.update("matchUnAccept",vo);
+		sqlSession.close();
+		return row;
+	}
+	public List<String> MatchIdload(int selectedNum) {
+		SqlSession sqlSession = factory.openSession(true);
+		List<String> result = sqlSession.selectList("matchIdload", selectedNum);
+		sqlSession.close();
+		return result;
+	}
+	
 }

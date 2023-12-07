@@ -1,11 +1,12 @@
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>당근과채찍_핵심_CErrList</title>
+    <title>당근과채찍_핵심_PostPage</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,9 +15,8 @@
 
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/templatemo.css">
-    <link rel="stylesheet" href="./assets/css/custom.css">
-    <link rel="stylesheet" href="./assets/css/CErrList.css">
-    <link rel="stylesheet" href="./assets/css/postcss.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/postcss.css">
 
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet"
@@ -41,7 +41,7 @@ https://templatemo.com/tm-559-zay-shop
                 <div>
                     <i class="fa fa-envelope mx-2"></i>
                     <a class="navbar-sm-brand text-light text-decoration-none"
-                        href="https://smhrd.or.kr/course/aicamp/">carrot&whip@smhrd.com</a>
+                        href="https://smhrd.or.kr/course/aicamp/">caroot&whip@smhrd.com</a>
                 </div>
                 <div>
                     <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i
@@ -173,32 +173,30 @@ https://templatemo.com/tm-559-zay-shop
         </div>
     </div>
     <!-- Start Content -->
-    <!-- 요청한 심부름 목록 -->
     <div class="container py-5" id="postContent">
 		<div id="postBodyArea">
-			<span href="#" id="postTitle">◾ 요청한 심부름 목록</span>
-            <div id="PostSearch" >
-                <select name="SearchCategory" id="SearchCategory">
-                    <option value="err_name">제목</option>
-                    <option value="user_id">작성자</option>
-                </select> 
-                <input type="text" id="searchInput" > 
-                <button id = "searchButton">검색</button>
-        </div>
+			<span href="#" id="postTitle">우리동네 소식</span>
+			<select	name="postSearchFilter" id="postSearchFilter">
+				<option value="post_title">제목</option>
+				<option value="user_id">작성자</option>
+			</select>
+			<input type="text" id="postSearch"> 
+			<button id="searchButton">검색</button>	
 			<div>
-				<!-- <a href="Gopost_write.do" id="postUpdateA">글작성</a> -->
-                <br>
+				<a href="Gopost_write.do" id="postUpdateA">글작성</a>
 			</div>
 			<hr class="borderLine">
-				<table id="postTable" align="center">
-					<tr>
-						<th style="width: 25%;">제목</th>
-						<th style="width: 19%;">작성일자</th>
-						<th style="width: 19%;">단가</th>
-						<th style="width: 19%;">신청하기</th>
-						<th style="width: 19%;">신청자수</th>
-					</tr>
-				</table>
+			<table id="postTable">
+				<tr class = "test1">
+					<th class="postTableHead" style="width: 80px;">이름</th>
+					<th class="postTableHead" style="width: 100px;">나이</th>
+					<th class="postTableHead" style="width: 600px;">성별</th>
+					<th class="postTableHead" style="width: 140px;">평점</th>
+					<th class="postTableHead" style="width: 140px;">인증여부</th>
+					<th class="postTableHead" style="width: 50px;">수락</th>
+					<th class="postTableHead" style="width: 50px;">거절</th>
+				</tr>
+			</table>
 			<hr class="borderLine">
 			<div id="pageNumber">
 				<a href="#" class="pageNumberAMove">&lt;&lt;</a>
@@ -210,65 +208,8 @@ https://templatemo.com/tm-559-zay-shop
 				<a href="#" class="pageNumberAMove">&gt;&gt;</a>
 			</div>
 		</div>
+
 	</div>
-        <!-- 신청한 심부름 목록 ----------------------------------------->
-        <div class="container py-5" id="postContent">
-            <div id="postBodyArea">
-                <span href="#" id="postTitle">◾ 신청한 심부름 목록</span>
-                <div id="PostSearch" >
-                    <select name="SearchCategory" id="SearchCategory">
-                        <option value="err_name">제목</option>
-                        <option value="user_id">작성자</option>
-                    </select> 
-                    <input type="text" id="searchInput" > 
-                    <button id = "searchButton">검색</button>
-            </div>
-                <div>
-                    <br>
-                </div>
-                <hr class="borderLine">
-                <table id="postTable" class="errResList">
-                    <tr>
-                        <th style="width: 110px;">심부름 번호</th>
-                        <th style="width: 800px;">제목</th>
-                        <th style="width: 10%;">작성일자</th>
-                        <th style="width: 10%;">단가</th>
-                        <th style="width: 10%;"></th>
-                        <th style="width: 10%;"></th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <!-- 제목 클릭시 해당 심부름 게시물로 이동 -->
-                        <td><a href="">바퀴벌레약 사와줄 사람 구합니다.</a></td>
-                        <td>23.12.04</td>
-                        <td>100,000</td>
-                        <td><button id="postUpdate">대기</button></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <!-- 제목 클릭시 해당 심부름 게시물로 이동 -->
-                        <td><a href="">아침에 깨워줄 분 구합니다.</a></td>
-                        <td>23.12.05</td>
-                        <td>200,000</td>
-                        <td><button id="postUpdate">거절</button></td>
-                    </tr>
-                    
-                    
-                    
-                </table>
-                <hr class="borderLine">
-                <div id="pageNumber">
-                    <a href="#" class="pageNumberAMove">&lt;&lt;</a>
-                    <a href="#" class="pageNumberA">1</a>
-                    <a href="#" class="pageNumberA">2</a>
-                    <a href="#" class="pageNumberA">3</a>
-                    <a href="#" class="pageNumberA">4</a>
-                    <a href="#" class="pageNumberA">5</a>
-                    <a href="#" class="pageNumberAMove">&gt;&gt;</a>
-                </div>
-            </div>
-    
-        </div>
 	<!-- End Content -->
 	
     <!-- Start Featured Product -->
@@ -278,7 +219,7 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="row pt-2">
                     <div class="col-12">
                         <p class="text-left text-light">
-                            CARROT&WHIP &copy; 2023 project
+                            CAROOT&WHIP &copy; 2023 project
                             | <a rel="sponsored" href="https://smhrd.or.kr/course/aicamp/"
                                 target="_blank">당근과 채찍팀</a>| 최성욱, 유수연, 박 준, 송희주, 양재원
                         </p>
@@ -336,110 +277,41 @@ https://templatemo.com/tm-559-zay-shop
             window.location.href = "Gopost.do";
         });
     });
-</script>
+    </script>
 	<script>
-	// 심부름 검색 기능
-
-
-
-            var searchTerm = '${user.user_id}';
-            var outputContainer = $(".postListCL");
-            outputContainer.empty();
-            // AJAX 요청 보내기
-            console.log("유저 아이디 출력유저 아이디 출력유저 아이디 출력유저 아이디 출력유저 아이디 출력유저 아이디 출력")
-            console.log('${user.user_id}')
-            $.ajax({
-                type: 'POST',
-                url: 'Err_search2.do',
-                data: {
-                    searchTerm: '${user.user_id}'
-                },
-                success: function (response) {
-                     var result = JSON.parse(response);
-                     for (var i = 0; i < 10; i++) {
-                     	var a = "";
-             			a += "<tr class = \"postListCL\">";
-             			//a += "<td class = \"postListNum\">"+ result[i].err_num + "</td>";
-             			//a += "<td class = \"postListid\">"+ result[i].user_id + "</td>";
-             			a += "<td class=\"postListTitle\"><a href=\"#\" >" + result[i].err_name + "</a></td>";
-             			a += "<td class = \"postListDate\">"+ result[i].created_at + "</td>";
-             			a += "<td class = \"postListMoney\">"+ result[i].err_price + "</td>";
-                		a += "<td><form method=\"get\" action=\"GoerrMatchingPage.do\"><input name = \"postNum\" type=\"hidden\" value=\""+result[i].err_num+"\"></input><input type=\"submit\" value=\"신청자 목록 보기\"></input></form></td>"
-                		//<button class='match'>신청자 목록 보기</button>
-                		a += "<td>1</td>"
-             			a += "</tr>"
-               			$("#postTable").append(a);
-                     }
-                },
-                error: function (error) {
-					console.log("에러")
-                }
-            });
-
+		let selectedNum = 1;
+		var urlQuery = window.location.search.substring(9);
+		loadPostTen()
+	    function loadPostTen() {
+		    $.ajax({
+				url : "ErrMatchingView.do",
+				data : {selectedNum : urlQuery},
+				dataType : "json",
+				success : function(res) {
+					$(".postListCL").remove();
+					for (let i = 0; i < 10; i++) {
+						let today = new Date();
+						let year = today.getFullYear();
+						let age = year - parseInt(res[i].user_birthdate.substring(0,4))
+						var a = "";
+						a += "<tr class = \"postListCL\">";
+						a += "<td class = \"postListNum\">"+ res[i].user_name + "</td>";
+						a += "<td class = \"postListId\">"+ age + "</td>";
+						a += "<td class = \"postListTitle\"><a href = \"#\">"+ res[i].user_gender + "</a></td>";
+						a += "<td class = \"postListViews\">"+ res[i].user_level + "</td>";
+						a += "<td class = \"postListLikes\">"+ res[i].user_id_check + "</td>";
+                		a += "<td><form method=\"post\" action=\"MatchAccept.do\"><input name = \"errNum\" type=\"hidden\" value=\""+urlQuery+"\"></input><input name = \"userId\" type=\"hidden\" value=\""+res[i].user_id+"\"></input><input type=\"submit\" value=\"수락\"></input></form></td>"
+                		a += "<td><form method=\"post\" action=\"MatchUnAccept.do\"><input name = \"errNum\" type=\"hidden\" value=\""+urlQuery+"\"></input><input name = \"userId\" type=\"hidden\" value=\""+res[i].user_id+"\"></input><input type=\"submit\" value=\"거절\"></input></form></td>"
+						a += "</tr>"
+						$("#postTable").append(a);
+					}
+				},
+				error : function(result) {
+					console.log('안됨');
+				}
+			});
+	    }
 	</script>
-	<script>
-		//loadPostTen();
-
-
-      	// 심부름 글 상세보기 기능
-		  $(document).ready(function() {
-		    // 클릭 이벤트 핸들러
-		     $('#postTable').on('click', '.postListTitle a', function(e) {
-		    	 e.preventDefault();
-		      // 클릭한 행의 err_num 값을 가져오기
-		      var clickedErrNum = $(this).closest("tr").find(".postListNum").text();
-		      console.log(clickedErrNum);
-		      // 데이터 저장
-		      localStorage.setItem("clickedErrNum", clickedErrNum);
-		      $.ajax({
-                  type: 'POST',
-                  url: 'Err_detail.do',
-                  data: {
-                  	clickedErrNum : clickedErrNum
-                  },
-                  success: function(response) {
-                      console.log(response);
-                      window.location.href = 'GoErrandRead.do';
-                      // 성공적으로 응답을 받았을 때 수행할 작업
-                  },
-                  error: function(error) {
-                      console.error('Error:', error);
-                  }
-		      });
-		    });
-		  });
-
-	</script>
-	<!-- 신청한 심부름을 찾아라!!!!!!! -->
-<script>
-$(document).ready(function() {
-    $.ajax({
-        url: "Matchfind.do",
-        dataType : 'json',
-        success: function(res) {
-            
-        error: function(err) {
-        	console.log("성공");
-            console.log(res);
-            for(var i = 0; i<res.length; i++){
-            	var a = "";
-    			a += "<tr class = \"postListCL\">";
-    			a += "<td class = \"postListTitle\"><a href = \"#\" >"+ res[i].err_name + "</a></td>";
-    			a += "<td class = \"postListid\">"+ res[i].user_id + "</td>";
-    			a += "<td class = \"postListDate\">"+ res[i].created_at + "</td>";
-    			a += "<td class = \"postListMoney\">"+ res[i].err_price + "</td>";
-    			a += "<td class = \"postListMatch\">"+ res[i].err_status + "</td>";
-    			a += "</tr>"
-      			$("#postTable").append(a);
-            }
-        },
-        }
-            console.error("에러", err);
-        }
-    });
-});
-</script>
 	<!-- End Script -->
 </body>
-
 </html>

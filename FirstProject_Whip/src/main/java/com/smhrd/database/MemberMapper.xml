@@ -55,4 +55,19 @@
 		FROM TB_USER
 		WHERE USER_ID = #{userId}
 	</select>
+		<!-- 심부름 요청글 번호로 신청자 목록 조회 -->
+	<select id="MatchLoad" resultMap="UserInfo">
+		SELECT JOINED_AT, USER_ID, USER_NAME, USER_BIRTHDATE, USER_GENDER, USER_LEVEL, USER_ID_CHECK
+		FROM TB_USER
+		WHERE USER_ID = #{user_id}
+	</select>
+		<resultMap type="com.smhrd.model.UserVO" id="UserInfo">
+		<result property="joined_at" column="JOINED_AT" />
+		<result property="user_id" column="USER_ID" />
+		<result property="user_name" column="USER_NAME" />
+		<result property="user_birthdate" column="USER_BIRTHDATE" />
+		<result property="user_gender" column="USER_GENDER" />
+		<result property="user_level" column="USER_LEVEL" />
+		<result property="user_id_check" column="USER_ID_CHECK" />
+	</resultMap>
 </mapper>

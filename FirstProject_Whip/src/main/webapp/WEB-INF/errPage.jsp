@@ -95,7 +95,7 @@ https://templatemo.com/tm-559-zay-shop
                             <a class="nav-link" href="Gopost.do">커뮤니티</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="GoNaNmanagementPost.do">고객센터</a>
+                            <a class="nav-link" href="GomanagementPost.do">고객센터</a>
                         </li>
                     </ul>
                 </div>

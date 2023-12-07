@@ -17,10 +17,12 @@ import com.smhrd.controller.ComUploadService;
 import com.smhrd.controller.Command;
 import com.smhrd.controller.DeleteService;
 import com.smhrd.controller.ErrBoardService;
+import com.smhrd.controller.ErrMatchingViewService;
 import com.smhrd.controller.ErrNumService;
 import com.smhrd.controller.Err_detailService;
 import com.smhrd.controller.Err_matchService;
 import com.smhrd.controller.Err_readService;
+import com.smhrd.controller.Err_search2Service;
 import com.smhrd.controller.Err_searchService;
 import com.smhrd.controller.ErrdeleteService;
 import com.smhrd.controller.ErrmodifyService;
@@ -39,6 +41,8 @@ import com.smhrd.controller.ManagePostService;
 import com.smhrd.controller.Manage_answerService;
 import com.smhrd.controller.Manage_detailService;
 import com.smhrd.controller.Manage_modifyService;
+import com.smhrd.controller.MatchAcceptService;
+import com.smhrd.controller.MatchUnAcceptService;
 import com.smhrd.controller.MatchfindService;
 import com.smhrd.controller.PostBoardService;
 import com.smhrd.controller.PostLikeService;
@@ -89,6 +93,7 @@ public class FrontController extends HttpServlet {
 		map.put("Errdelete.do", new ErrdeleteService());
 		map.put("Err_read.do", new Err_readService());
 		map.put("Err_search.do", new Err_searchService());
+		map.put("Err_search2.do", new Err_search2Service());
 		map.put("Err_detail.do", new Err_detailService());
 		map.put("FvErr.do", new FvErrService());
 		map.put("ErrNum.do", new ErrNumService());
@@ -129,6 +134,11 @@ public class FrontController extends HttpServlet {
 		
 		map.put("Err_match.do", new Err_matchService());
 		map.put("Matchfind.do", new MatchfindService());
+		// 매칭
+		map.put("ErrMatchingView.do", new ErrMatchingViewService());
+		// 심부름 신청 수락/거절
+		map.put("MatchAccept.do", new MatchAcceptService());
+		map.put("MatchUnAccept.do", new MatchUnAcceptService());
 	}
 		
 		

@@ -85,7 +85,7 @@ https://templatemo.com/tm-559-zay-shop
                             <a class="nav-link" href="Gopost.do">커뮤니티</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="GoNaNmanagementPost.do">고객센터</a>
+                            <a class="nav-link" href="GomanagementPost.do">고객센터</a>
                         </li>
                     </ul>
                 </div>
@@ -98,60 +98,66 @@ https://templatemo.com/tm-559-zay-shop
                             </div>
                         </div>
                     </div>
-                    <!-- 검색 모달 아이콘 -->
-                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
-                        data-bs-target="#templatemo_search">
-                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
-                    </a>
-                    <!-- <a class="nav-icon position-relative text-decoration-none" href="#">
-                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                        <span
-                            class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
-                    </a> -->
-                    <!-- 마이페이지 아이콘  -->
-                    <a class="nav-icon position-relative text-decoration-none" href="Gomypage1.do">
-                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                        <span
-                            class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
-                    </a>
-                     <!-- 1201 로그인, 회원가입 버튼 추가 -->
-                    <!--로그인 버튼  --------------------------->
-                    <a href="#"><button class="btn-open-modal nav-item loginbtn">로그인</button></a>
-                    <!-- 회원가입 버튼 --------------------------->
-                    <a href="#"><button id="joinBtn" class="btn-open-modal nav-item loginbtn">회원가입</button></a>
+                    <div class="headDiv">
+						<!-- 검색창 팝업 아이콘  -------------------->
+						<a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
+						data-bs-target="#templatemo_search">
+							<i class="fa fa-fw fa-search text-dark mr-2"></i>
+						</a>
+						<!-- 장바구니 지움  -->
+						
+						<!--마이페이지 아이콘-->
+						<a id="mypageAtage" class="nav-icon position-relative text-decoration-none" href="Gomypage1.do">
+							<i id="mypageIcon" class="fa fa-fw fa-user text-dark mr-3"></i>
+						</a>
+                    </div>
+	                <!-- 로그인, 로그아웃, 회원가입 버튼 !!!!!! --------------------------->
+	                <div class="headDiv">
+		                <a href="#"><button class="btn-open-modal nav-item loginbtn" id ="loginBtn">로그인</button></a>
+		                <a href="Logout.do"><button id="logoutBtn" class="btn-open-modal nav-item loginbtn">로그아웃</button></a>
+	                </div>
+	                <div class="headDiv">
+		                <a href="#"><button id="joinBtn" class="btn-open-modal nav-item loginbtn">회원가입</button></a>
+	                </div>
                 </div>
             </div>
 
         </div>
     </nav>
     <!-- Close Header -->
-    <!-- 1201 로그인 모달창 추가 ------------------------------------------>
+    <!-- 로그인 모달창 !!!!! ------------------------------------------>
     <div class="modal">
         <div class="modal_body">
             <h2>LOGIN </h2> <span id="icon-close" class="close-icon">&#10006;</span>
             <div class="member_login">
-                <form th:action="#" th:method="POST">
-                    <div class="member_login_input">
-                        <input type="text" name="username" placeholder="아이디">
-                    </div>
+                <div class="member_login_input">
+                    <input id="inputId" type="text" name="username" placeholder="아이디">
+                </div>
             </div>
             <div class="member_login_input">
-                <input type="password" name="password" placeholder="비밀번호">
+                <input id="inputPw" type="password" name="password" placeholder="비밀번호">
             </div>
             <br>
-            <a href="" class="loginSearch"> 아이디 찾기</a>
-            <a href="" class="loginSearch"> 비밀번호 찾기</a>
+            <span id="idPwSameCheck"></span>
+            <br>
+            <a href="GoIdFind.do" class="loginSearch"> 아이디 찾기</a>
+            <a href="GopwFind.do" class="loginSearch"> 비밀번호 찾기</a>
             <div class="member_login_btn">
                 <br>
-                <input type="submit" class="btn btn-secondary" id="btn-login" value="로그인">
-                <input type="button" class="btn btn-secondary" id="btn-join" value="회원가입">
-                <br>
-                <br>
-
+                <input type="submit" class="btn btn-secondary" id="btn-login" value="로그인"  >
+             <input type="button" class="btn btn-secondary" id="btn-join"     value="회원가입" > 
+             <br>
+             <br>
+             
+             <!-- <input type="button" class="btn btn-secondary" id="btn-close" value="메인으로 이동"> -->
             </div>
         </div>
-    </div>
-    </form>
+        <!--  로그인 api임  일단 보류       <div class="login_api">
+            <a href="https://kauth.kakao.com/oauth/authorize?client_id=d860d38c992ca8bf5f07dcc3fd5122b9&redirect_uri=http://localhost:9090/member/auth/kakao/callback&response_type=code"><img src="/image/kakao_login_button.png"></a>
+        </div>
+        <div class="login_api">
+            <a href="/oauth2/authorization/google"><img src="/image/google_login_button.png"></a>
+        </div> -->
     </div>
 
     <!-- Modal -->
@@ -274,21 +280,21 @@ https://templatemo.com/tm-559-zay-shop
             modal.style.display = "flex";
         });
 
-        joinLink = 'join.html';
-        mainLink = 'main.html';
+        joinLink = 'Gojoin.do';
 
-        // 로그인 모달창 내부에 있는 로그인 버튼 이벤트 
-        let loginBtn = document.getElementById("btn-login");
-        loginBtn.onclick = hrefLink
-        function hrefLink() {
-            location.herf = mainLink;
-        }
         // 로그인 모달창 내부에 있는 회원가입 버튼 이벤트 
         var joinBtn = document.getElementById("btn-join");
         joinBtn.onclick = hrefLink
         function hrefLink() {
             location.href = joinLink;
         }
+     	// 회원가입 버튼 이벤트
+        var joinBtn = document.getElementById("joinBtn");
+        joinBtn.onclick = hrefLink
+        function hrefLink(){
+            location.href = joinLink;
+        }
+  
     </script>
     <script>
         // Wait for the DOM to be ready
@@ -302,6 +308,55 @@ https://templatemo.com/tm-559-zay-shop
                 window.location.href = "Gopost_read.do";
             });
         });
+    </script>
+        </script>
+	<!-- 로그인 여부에 따라 버튼 기능 변경 -->    
+    <script>
+     //HttpSession session = request.getSession();
+    //let user = (UserVO)session.getAttribute("user");
+    let loginBtn = document.querySelector('#loginBtn');
+    let logoutBtn = document.querySelector('#logoutBtn');
+	$('#mypageAtage').on('click',function(){
+		if('${user}' == ''){alert('로그인해 주세요')}
+	})
+      
+    if('${user}' == ''){
+       console.log("asdfasdfasdf")
+       //loginBtn.style.display ='';
+       //logoutBtn.style.display ='none';
+       $('#loginBtn').attr('style', "display: ''")
+       $('#logoutBtn').attr('style', "display: none")
+       $('#mypageAtage').attr("href","Gomain.do");
+       $('#joinBtn').attr('style', "display: ''");
+    }else{
+       $('#loginBtn').attr('style', "display: none")
+       $('#logoutBtn').attr('style', "display: ''")
+       $('#mypageAtage').attr("href","Gomypage1.do");
+       $('#joinBtn').attr('style', "display: none");
+    }
+    </script>
+    <!-- 로그인 모달창에서 일치하지 않는 id, pw를 입력할 경우 오류 문구 띄워줌 -->
+    <script>
+    $('#btn-login').on('click', function(){
+        $.ajax({
+            url : "Login.do",
+            dataType : "JSON",
+            data : {
+                user_id : $('#inputId').val(),
+                user_pw : $('#inputPw').val()
+            },
+            success : function(res){
+                if(res.k == "false"){
+                   console.log("실패 확인")
+                    $('#idPwSameCheck').html('아이디와 비밀번호가 일치하지 않습니다');
+                }else if(res.k == "true"){
+                   window.location.href = "Gomain.do"
+                }
+            },
+         error : function(result) {
+         }
+        })
+    })
     </script>
     <script>
 	    let likeBtn = document.querySelector('#likeBtn');
