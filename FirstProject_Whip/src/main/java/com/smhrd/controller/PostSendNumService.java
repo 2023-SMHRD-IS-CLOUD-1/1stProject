@@ -1,29 +1,32 @@
 package com.smhrd.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.jsp.PageContext;
 
 import com.smhrd.model.PostDAO;
+import com.smhrd.model.PostVO;
 
-// 글 삭제 기능
-public class PostdeleteService implements Command {
+// 로그인 서비스
+public class PostSendNumService implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		String post_num1 = request.getParameter("thisPostNum");
-		int post_num = Integer.parseInt(post_num1);
 		
+		String temp = request.getParameter("post_num");
+		int post_num = Integer.parseInt(temp);
 		PostDAO dao = new PostDAO();
-		int row = dao.postdelete(post_num);
-
-
-		return null;
 		
-				
+		PostVO result = dao.getPostInfo(post_num);
+		request.setAttribute("result", result);
+		
+		
+		
+		return "post_write";
 	}
 
 }

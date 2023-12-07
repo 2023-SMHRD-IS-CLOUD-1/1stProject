@@ -4,12 +4,22 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.smhrd.model.ComDAO">
+	<!-- 댓글 불러오기 -->
 	<select id = "comLoad" resultMap = "postInfo">
 	SELECT CMT_NUM, USER_ID, CMT_CONTENT, CREATED_AT, CMT_LIKES
 	FROM TB_COMMENT
 	WHERE POST_NUM = #{post_num}
 	ORDER BY CREATED_AT
 	</select>
+	<!-- 댓글 등록하기 -->
+	<insert id = "comUPload" parameterType="com.smhrd.model.ComVO">
+		INSERT INTO TB_COMMENT(
+		USER_ID, POST_NUM, CMT_CONTENT
+		)
+		VALUES(
+		#{user_id}, #{post_num}, #{cmt_content}
+		)
+	</insert>
 	<resultMap type="com.smhrd.model.ComVO" id="postInfo">
 		<result property="user_id" column="USER_ID" />
 		<result property="cmt_content" column="CMT_CONTENT" />

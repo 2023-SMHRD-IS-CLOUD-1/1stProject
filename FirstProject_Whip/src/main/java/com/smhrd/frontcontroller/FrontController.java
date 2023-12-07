@@ -3,7 +3,6 @@ package com.smhrd.frontcontroller;
 import java.io.IOException;
 import java.util.HashMap;
 
-import javax.print.attribute.HashAttributeSet;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -12,10 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.w3c.dom.DOMStringList;
-
 import com.smhrd.controller.CertificationService;
 import com.smhrd.controller.ComListService;
+import com.smhrd.controller.ComUploadService;
 import com.smhrd.controller.Command;
 import com.smhrd.controller.DeleteService;
 import com.smhrd.controller.ErrBoardService;
@@ -42,9 +40,12 @@ import com.smhrd.controller.Manage_answerService;
 import com.smhrd.controller.Manage_detailService;
 import com.smhrd.controller.Manage_modifyService;
 import com.smhrd.controller.PostBoardService;
+import com.smhrd.controller.PostLikeService;
 import com.smhrd.controller.PostNumService;
+import com.smhrd.controller.PostReWriteService;
 import com.smhrd.controller.PostReadService;
 import com.smhrd.controller.PostSearchService;
+import com.smhrd.controller.PostSendNumService;
 import com.smhrd.controller.PostdeleteService;
 import com.smhrd.controller.PostmodifyService;
 import com.smhrd.controller.PostupdateService;
@@ -93,6 +94,8 @@ public class FrontController extends HttpServlet {
 		map.put("ErrBoard.do", new ErrBoardService());
 		// 댓글
 		map.put("ComList.do", new ComListService());
+		map.put("ComUpload.do", new ComUploadService());
+
 		// 게시판
 		map.put("Postupdate.do", new PostupdateService());
 		map.put("Postmodify.do", new PostmodifyService());
@@ -102,6 +105,9 @@ public class FrontController extends HttpServlet {
 		map.put("PostNum.do", new PostNumService());
 		map.put("FvPost.do", new FvPostService());
 		map.put("PostSearch.do", new PostSearchService());
+		map.put("PostLike.do", new PostLikeService());
+		map.put("PostSendNum.do", new PostSendNumService());
+		map.put("PostReWrite.do", new PostReWriteService());
 		
 		// 평점
 		map.put("Rating.do", new RatingService());

@@ -13,18 +13,41 @@
 		#{post_title} , #{post_content}, #{user_id}
 		)
 	</insert>
+	
+	<!-- 수정을 위해 게시글 번호토대로 정보 가져오기 -->
+	<select id="getPostInfo" resultMap="postInfo">
+		SELECT POST_NUM, POST_TITLE, POST_CONTENT
+		FROM TB_POST
+	 	WHERE POST_NUM = #{post_num}
+	</select>
+	
+	<!-- 게시글 추천인 삭제 -->
+	<delete id="deleteLike" parameterType="java.util.Map">
+		DELETE FROM TB_POST_LIKE_LIST 
+		WHERE LIKES_USER_ID = #{user_id} AND POST_NUM = #{post_num}
+	</delete>
+	<!-- 게시글 추천인 추가 -->
+	<insert id="updateLike" parameterType="java.util.Map">
+		INSERT INTO TB_POST_LIKE_LIST (
+		POST_NUM, LIKES_USER_ID
+		)
+		VALUES (
+		#{post_num} , #{user_id}
+		)
+	</insert>
 	<!-- 게시판 글 수정 -->
 	<update id="postmodify" parameterType="com.smhrd.model.PostVO">
 		UPDATE TB_POST
 		SET
 		POST_TITLE = #{post_title}, POST_CONTENT = #{post_content} ,
 		UPDATED_AT = SYSDATE
-		WHERE USER_ID = #{user_id}
+		WHERE POST_NUM = #{post_num}
 	</update>
 
 	<!-- 게시판 글 삭제 -->
-	<delete id="postdelete" parameterType="com.smhrd.model.PostVO">
-		DELETE FROM TB_POST WHERE USER_ID = #{user_id}
+	<delete id="postdelete">
+		DELETE FROM TB_POST 
+		WHERE POST_NUM = #{post_num}
 	</delete>
 
 	<!-- 게시판 글 불러오기 -->
@@ -68,9 +91,24 @@
 	WHERE POST_NUM = #{post_num} 
 	</select>
 	
+	<!-- 게시글 조회수 증가 -->
 	<update id="increasePostViews" parameterType="com.smhrd.model.PostVO">
 	UPDATE TB_POST
 	SET POST_VIEWS = POST_VIEWS + 1
+	WHERE POST_NUM = #{post_num}
+	</update>
+	
+	<!-- 게시글 추천수 감소 -->
+	<update id="decreaseLikes">
+	UPDATE TB_POST
+	SET POST_LIKES = POST_LIKES - 1
+	WHERE POST_NUM = #{post_num}
+	</update>
+	
+	<!-- 게시글 추천수 증가 -->
+	<update id="increaseLikes">
+	UPDATE TB_POST
+	SET POST_LIKES = POST_LIKES + 1
 	WHERE POST_NUM = #{post_num}
 	</update>
 	
@@ -81,6 +119,16 @@
 	<resultMap type = "int" id="postNum">
 		<result property="count(*)" column="COUNT(*)" />
 	</resultMap>
+	
+	<!-- 게시글 추천인 확인 -->
+	<select id="checkPostLike" resultType="int" parameterType="java.util.Map">
+	SELECT COUNT(*) 
+	FROM TB_POST_LIKE_LIST
+    WHERE POST_NUM = #{post_num}
+    AND LIKES_USER_ID = #{user_id}
+	</select>
+
+	
 </mapper>
 
 
