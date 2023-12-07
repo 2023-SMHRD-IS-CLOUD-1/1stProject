@@ -30,13 +30,6 @@
 	href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
 	integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
 	crossorigin="" />
-<!--
-    
-TemplateMo 559 Zay Shop
-
-https://templatemo.com/tm-559-zay-shop
-
--->
 <!-- 수정1 시작-->
 <link rel="stylesheet" href="./assets/css/css1.css">
 <!-- 수정1 끝-->
@@ -55,7 +48,7 @@ https://templatemo.com/tm-559-zay-shop
 					<i class="fa fa-envelope mx-2"></i> <a
 						class="navbar-sm-brand text-light text-decoration-none"
 						href="https://smhrd.or.kr/course/aicamp/">
-						caroot&whip@smhrd.com</a>
+						carrot&whip@smhrd.com</a>
 				</div>
 				<div>
 					<a class="text-light" href="https://fb.com/templatemo"
@@ -270,7 +263,7 @@ https://templatemo.com/tm-559-zay-shop
 								<tr class="h100">
 									<td><button id="btn003" 
 											class="btn btn-success btn-lg px-3 w300">
-											<h3 class="noMargin">심부름 목록</h3>
+											<h3 class="noMargin CerrList">심부름 목록</h3>
 										</button></td>
 								</tr>
 								<tr class="h500">
@@ -297,7 +290,7 @@ https://templatemo.com/tm-559-zay-shop
 				<div class="row pt-2">
 					<div class="col-12">
 						<p class="text-left text-light">
-							CAROOT&WHIP &copy; 2023 project | <a rel="sponsored"
+							CARROT&WHIP &copy; 2023 project | <a rel="sponsored"
 								href="https://smhrd.or.kr/course/aicamp/" target="_blank">당근과
 								채찍팀</a>| 최성욱, 유수연, 박 준, 송희주, 양재원
 						</p>
