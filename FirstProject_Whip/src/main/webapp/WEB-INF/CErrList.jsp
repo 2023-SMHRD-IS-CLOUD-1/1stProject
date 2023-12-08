@@ -177,7 +177,7 @@ https://templatemo.com/tm-559-zay-shop
     </div>
     <!-- Start Content -->
     <!-- 요청한 심부름 목록 -->
-    <div class="container py-5" id="postContent">
+    <div class="container py-5" id="postContent" style="height: 800px !important;">
 		<div id="postBodyArea">
 			<span href="#" id="postTitle">◾ 요청한 심부름 목록</span>
             <div id="PostSearch" >
@@ -191,9 +191,9 @@ https://templatemo.com/tm-559-zay-shop
 					<tr>
 						<th style="width: 10%;">글 번호</th>
 						<th style="width: 20%;">제목</th>
-						<th style="width: 18%;">작성일자</th>
+						<th style="width: 20%;">작성일자</th>
 						<th style="width: 10%;">단가</th>
-						<th style="width: 10%;">신청자 목록 보기</th>
+						<th style="width: 10%;">신청자 목록</th>
 						<th style="width: 10%;">상태</th>
 					</tr>
 				</table>
@@ -201,7 +201,7 @@ https://templatemo.com/tm-559-zay-shop
 		</div>
 	</div>
         <!-- 신청한 심부름 목록 ----------------------------------------->
-        <div class="container py-5" id="postContent" style="height: 500px !important;">
+        <div class="container py-5" id="postContent" >
             <div id="postBodyArea">
                 <span href="#" id="postTitle">◾ 신청한 심부름 목록</span>
                 <div id="PostSearch" >
@@ -210,13 +210,14 @@ https://templatemo.com/tm-559-zay-shop
                     <br>
                 </div>
                 <hr class="borderLine">
-                <table id="doErrTable" class="errResList">
+                <table id="doErrTable" align="center" class="errResList">
                     <tr>
-                    	<th style="width: 200px;">글 번호</th>
-                        <th style="width: 1000px;">제목</th>
-                        <th style="width: 300px;">작성일자</th>
-                        <th style="width: 300px;">단가</th>
-                        <th style="width: 300px;">상태</th>
+                    	<th style="width: 10%;">글 번호</th>
+                        <th style="width: 20%;">제목</th>
+                        <th style="width: 20%;">작성일자</th>
+                        <th style="width: 10%;">단가</th>
+                        <th style="width: 10%;"></th>
+                        <th style="width: 10%;">상태</th>
                     </tr>
                 </table>
                 <hr class="borderLine">
@@ -313,7 +314,7 @@ https://templatemo.com/tm-559-zay-shop
                     		MatchingViewBtn = "<td></td>"
                     	}else{
                     		outcome = "진행 중";
-                    		MatchingViewBtn = "<td><form method=\"get\" action=\"GoerrMatchingPage.do\"><input name = \"postNum\" type=\"hidden\" value=\""+result[i].err_num+"\"></input><input type=\"submit\" value=\"보기\"></input></form></td>"
+                    		MatchingViewBtn = "<td><form method=\"get\" action=\"GoerrMatchingPage.do\"><input name = \"postNum\" type=\"hidden\" value=\""+result[i].err_num+"\"></input><input style=\"height: 36px\"class=\"btn btn-success\" type=\"submit\" value=\"보기\"></input></form></td>"
                     	}
                      	var a = "";
              			a += "<tr class = \"postListCL\">";
@@ -419,7 +420,8 @@ https://templatemo.com/tm-559-zay-shop
     			a += "<td class = \"postListTitle\"><a href = \"#\" >"+ res[i].err_name + "</a></td>";
     			a += "<td class = \"postListDate\">"+ res[i].created_at + "</td>";
     			a += "<td class = \"postListMoney\">"+ res[i].err_price + "</td>";
-    			a += "<td class = \"postListMatch\">"+ outcome + "</td>";
+    			a += "<td></td>";
+    			a += "<td class = \"postListMoney\">"+ outcome + "</td>";
     			a += "</tr>"
       			$("#doErrTable").append(a);
             }

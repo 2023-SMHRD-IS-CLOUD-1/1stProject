@@ -178,31 +178,25 @@ https://templatemo.com/tm-559-zay-shop
     <!-- Start Content -->
     <div class="container py-5" id="postContent">
 		<div id="postBodyArea">
-			<span href="#" id="postTitle">신청자 목록</span>
+			<span href="#" id="postTitle">◾ 신청자 목록</span>
+			<div>
+				<br>
+			</div>
 			<div>
 			</div>
 			<hr class="borderLine">
 			<table id="postTable">
 				<tr class = "test1">
-					<th class="postTableHead" style="width: 220px;">이름</th>
-					<th class="postTableHead" style="width: 220px;">나이</th>
-					<th class="postTableHead" style="width: 220px;">성별</th>
-					<th class="postTableHead" style="width: 220px;">평점</th>
-					<th class="postTableHead" style="width: 220px;">인증여부</th>
-					<th class="postTableHead" style="width: 50px;">수락</th>
-					<th class="postTableHead" style="width: 50px;">거절</th>
+					<th class="postTableHead" style="width: 200px;">이름</th>
+					<th class="postTableHead" style="width: 200px;">나이</th>
+					<th class="postTableHead" style="width: 200px;">성별</th>
+					<th class="postTableHead" style="width: 200px;">평점</th>
+					<th class="postTableHead" style="width: 200px;">인증여부</th>
+					<th class="postTableHead" style="width: 50px;"></th>
+					<th class="postTableHead" style="width: 100px;"></th>
 				</tr>
 			</table>
 			<hr class="borderLine">
-			<div id="pageNumber">
-				<a href="#" class="pageNumberAMove">&lt;&lt;</a>
-				<a href="#" class="pageNumberA">1</a>
-				<a href="#" class="pageNumberA">2</a>
-				<a href="#" class="pageNumberA">3</a>
-				<a href="#" class="pageNumberA">4</a>
-				<a href="#" class="pageNumberA">5</a>
-				<a href="#" class="pageNumberAMove">&gt;&gt;</a>
-			</div>
 		</div>
 
 	</div>
@@ -289,15 +283,24 @@ https://templatemo.com/tm-559-zay-shop
 						let today = new Date();
 						let year = today.getFullYear();
 						let age = year - parseInt(res[i].user_birthdate.substring(0,4))
+						let gender = "여자";
+						if(res[i].user_gender == 'man'){
+							gender = "남자";
+						}
+						let idCheck = "인증 완료";
+						if(res[i].user_id_check == 'n'){
+							idCheck = "인증 안 됨";
+						}
+						
 						var a = "";
 						a += "<tr class = \"postListCL\">";
 						a += "<td class = \"postListNum\">"+ res[i].user_name + "</td>";
 						a += "<td class = \"postListId\">"+ age + "</td>";
-						a += "<td class = \"postListTitle\"><a href = \"#\">"+ res[i].user_gender + "</a></td>";
+						a += "<td class = \"postListTitle\">"+ gender + "</td>";
 						a += "<td class = \"postListViews\">"+ res[i].user_level + "</td>";
-						a += "<td class = \"postListLikes\">"+ res[i].user_id_check + "</td>";
-                		a += "<td><form method=\"post\" action=\"MatchAccept.do\"><input name = \"errNum\" type=\"hidden\" value=\""+urlQuery+"\"></input><input name = \"userId\" type=\"hidden\" value=\""+res[i].user_id+"\"></input><input type=\"submit\" value=\"수락\"></input></form></td>"
-                		a += "<td><form method=\"post\" action=\"MatchUnAccept.do\"><input name = \"errNum\" type=\"hidden\" value=\""+urlQuery+"\"></input><input name = \"userId\" type=\"hidden\" value=\""+res[i].user_id+"\"></input><input type=\"submit\" value=\"거절\"></input></form></td>"
+						a += "<td class = \"postListLikes\">"+ idCheck + "</td>";
+                		a += "<td><form method=\"post\" action=\"MatchAccept.do\"><input name = \"errNum\" type=\"hidden\" value=\""+urlQuery+"\"></input><input name = \"userId\" type=\"hidden\" value=\""+res[i].user_id+"\"></input><input style=\"height: 36px\"class=\"btn btn-success\" type=\"submit\" value=\"수락\"></input></form></td>"
+                		a += "<td><form method=\"post\" action=\"MatchUnAccept.do\"><input name = \"errNum\" type=\"hidden\" value=\""+urlQuery+"\"></input><input name = \"userId\" type=\"hidden\" value=\""+res[i].user_id+"\"></input><input style=\"height: 36px\"class=\"btn btn-success\" type=\"submit\" value=\"거절\"></input></form></td>"
 						a += "</tr>"
 						$("#postTable").append(a);
 					}
