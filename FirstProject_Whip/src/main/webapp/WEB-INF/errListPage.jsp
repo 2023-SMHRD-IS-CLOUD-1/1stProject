@@ -122,59 +122,50 @@ https://templatemo.com/tm-559-zay-shop
 							</div>
 						</div>
 					</div>
-                    <div class="headDiv">
-						<!-- 검색창 팝업 아이콘  -------------------->
-						<a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
-						data-bs-target="#templatemo_search">
-							<i class="fa fa-fw fa-search text-dark mr-2"></i>
-						</a>
-						<!-- 장바구니 지움  -->
-						
-						<!--마이페이지 아이콘-->
-						<a id="mypageAtage" class="nav-icon position-relative text-decoration-none" href="Gomypage1.do">
-							<i id="mypageIcon" class="fa fa-fw fa-user text-dark mr-3"></i>
-						</a>
-                    </div>
-	                <!-- 로그인, 로그아웃, 회원가입 버튼 !!!!!! --------------------------->
-	                <div class="headDiv">
-		                <a href="#"><button class="btn-open-modal nav-item loginbtn" id ="loginBtn">로그인</button></a>
-		                <a href="Logout.do"><button id="logoutBtn" class="btn-open-modal nav-item loginbtn">로그아웃</button></a>
-	                </div>
-	                <div class="headDiv">
-		                <a href="#"><button id="joinBtn" class="btn-open-modal nav-item loginbtn">회원가입</button></a>
-	                </div>
-                </div>
-            </div>
-
-        </div>
+					<!-- 검색창 팝업 아이콘 -->
+					<a class="nav-icon d-none d-lg-inline" href="#"
+						data-bs-toggle="modal" data-bs-target="#templatemo_search"> <i
+						class="fa fa-fw fa-search text-dark mr-2"></i>
+					</a>
+					<!--  마이페이지 아이콘 -->
+					<a class="nav-icon position-relative text-decoration-none"
+						href="Gomypage1.do"> <i
+						class="fa fa-fw fa-user text-dark mr-3"></i>
+					</a>
+					<!--로그인 버튼 !!!!!! --------------------------->
+					<a href="#"><button id="loginBtn"  class="btn-open-modal nav-item loginbtn">로그인</button></a>
+					<!-- 회원가입 버튼!!!! --------------------------->
+					<a href="#"><button id="joinBtn"
+							class="btn-open-modal nav-item loginbtn">회원가입</button></a>
+				</div>
+			</div>
+		</div>
 	</nav>
-    <!-- 로그인 모달창 !!!!! ------------------------------------------>
-    <div class="modal">
-        <div class="modal_body">
-            <h2>LOGIN </h2> <span id="icon-close" class="close-icon">&#10006;</span>
-            <div class="member_login">
-                <div class="member_login_input">
-                    <input id="inputId" type="text" name="username" placeholder="아이디">
-                </div>
-            </div>
-            <div class="member_login_input">
-                <input id="inputPw" type="password" name="password" placeholder="비밀번호">
-            </div>
-            <br>
-            <span id="idPwSameCheck"></span>
-            <br>
-            <a href="GoIdFind.do" class="loginSearch"> 아이디 찾기</a>
-            <a href="GopwFind.do" class="loginSearch"> 비밀번호 찾기</a>
-            <div class="member_login_btn">
-                <br>
-                <input type="submit" class="btn btn-secondary" id="btn-login" value="로그인"  >
-             <input type="button" class="btn btn-secondary" id="btn-join"     value="회원가입" > 
-             <br>
-             <br>
-             
-             <!-- <input type="button" class="btn btn-secondary" id="btn-close" value="메인으로 이동"> -->
-            </div>
-        </div>
+	<!-- 로그인 모달창 !!!!! ------------------------------------------>
+	<div class="modal">
+		<div class="modal_body">
+			<h2>LOGIN</h2>
+			<span id="icon-close" class="close-icon">&#10006;</span>
+			<div class="member_login">
+				<form th:action="#" th:method="POST">
+					<div class="member_login_input">
+						<input type="text" name="username" placeholder="아이디">
+					</div>
+			</div>
+			<div class="member_login_input">
+				<input type="password" name="password" placeholder="비밀번호">
+			</div>
+			<br> <a href="" class="loginSearch"> 아이디 찾기</a> <a href=""
+				class="loginSearch"> 비밀번호 찾기</a>
+			<div class="member_login_btn">
+				<br> <input type="submit" class="btn btn-secondary"
+					id="btn-login" value="로그인"> <input type="button"
+					class="btn btn-secondary" id="btn-join" value="회원가입"> <br>
+				<br>
+
+				<!-- <input type="button" class="btn btn-secondary" id="btn-close" value="메인으로 이동"> -->
+			</div>
+		</div>
 		<!--  로그인 api임  일단 보류       <div class="login_api">
                 <a href="https://kauth.kakao.com/oauth/authorize?client_id=d860d38c992ca8bf5f07dcc3fd5122b9&redirect_uri=http://localhost:9090/member/auth/kakao/callback&response_type=code"><img src="/image/kakao_login_button.png"></a>
             </div>
@@ -324,7 +315,7 @@ https://templatemo.com/tm-559-zay-shop
 			<div class="row pt-2">
 				<div class="col-12">
 					<p class="text-left text-light">
-						CAROOT&WHIP &copy; 2023 project | <a rel="sponsored"
+						CARROT&WHIP &copy; 2023 project | <a rel="sponsored"
 							href="https://smhrd.or.kr/course/aicamp/" target="_blank">당근과
 							채찍팀</a>| 최성욱, 유수연, 박 준, 송희주, 양재원
 					</p>
@@ -340,7 +331,7 @@ https://templatemo.com/tm-559-zay-shop
 	<script src="assets/js/custom.js"></script>
 	<!-- End Script -->
 	<!-- 로그인 모달창 Script------------------>
-	
+
 	<script>
         const modal = document.querySelector('.modal');
         const btnOpenModal = document.querySelector('.btn-open-modal');
@@ -350,8 +341,14 @@ https://templatemo.com/tm-559-zay-shop
         });
 
         joinLink = 'Gojoin.do';
+        mainLink = 'Gomain.do';
         
-
+        // 로그인 모달창 내부에 있는 로그인 버튼 이벤트 
+        let loginBtn = document.getElementById("btn-login");
+        loginBtn.onclick = hrefLink
+        function hrefLink(){
+            location.href = mainLink;
+        }
         // 로그인 모달창 내부에 있는 회원가입 버튼 이벤트 
         var joinBtn = document.getElementById("btn-join");
         joinBtn.onclick = hrefLink
@@ -364,70 +361,6 @@ https://templatemo.com/tm-559-zay-shop
         function hrefLink(){
             location.href = joinLink;
         }
-    </script>
-    	<script>
-    // 모달 창 닫기 함수
-    // 닫히긴 하지만 연달아 실행시 modal만 켜지는 현상이 발생 ... modal body는 뜨지 않음 >> 해결
-        // Wait for the DOM to be ready
-        document.addEventListener("DOMContentLoaded", function () {
-            // Find the close-icon button
-            var closeIcon = document.getElementById("icon-close");
-    
-            // Add a click event listener to the close-icon button
-            closeIcon.addEventListener("click", function () {
-                // Redirect to main.html
-                window.location.href = "GoerrListPage";
-            });
-        });
-    </script>
-        </script>
-	<!-- 로그인 여부에 따라 버튼 기능 변경 -->    
-    <script>
-     //HttpSession session = request.getSession();
-    //let user = (UserVO)session.getAttribute("user");
-    let loginBtn = document.querySelector('#loginBtn');
-    let logoutBtn = document.querySelector('#logoutBtn');
-	$('#mypageAtage').on('click',function(){
-		if('${user}' == ''){alert('로그인해 주세요')}
-	})
-      
-    if('${user}' == ''){
-       console.log("asdfasdfasdf")
-       //loginBtn.style.display ='';
-       //logoutBtn.style.display ='none';
-       $('#loginBtn').attr('style', "display: ''")
-       $('#logoutBtn').attr('style', "display: none")
-       $('#mypageAtage').attr("href","Gomain.do");
-       $('#joinBtn').attr('style', "display: ''");
-    }else{
-       $('#loginBtn').attr('style', "display: none")
-       $('#logoutBtn').attr('style', "display: ''")
-       $('#mypageAtage').attr("href","Gomypage1.do");
-       $('#joinBtn').attr('style', "display: none");
-    }
-    </script>
-    <!-- 로그인 모달창에서 일치하지 않는 id, pw를 입력할 경우 오류 문구 띄워줌 -->
-    <script>
-    $('#btn-login').on('click', function(){
-        $.ajax({
-            url : "Login.do",
-            dataType : "JSON",
-            data : {
-                user_id : $('#inputId').val(),
-                user_pw : $('#inputPw').val()
-            },
-            success : function(res){
-                if(res.k == "false"){
-                   console.log("실패 확인")
-                    $('#idPwSameCheck').html('아이디와 비밀번호가 일치하지 않습니다');
-                }else if(res.k == "true"){
-                   window.location.href = "Gomain.do"
-                }
-            },
-         error : function(result) {
-         }
-        })
-    })
     </script>
 	<script>
     let firstBtn = document.querySelector('#pageNumber>.pageNumberA:nth-child(2)');
@@ -610,7 +543,7 @@ https://templatemo.com/tm-559-zay-shop
                             			a += "<td class = \"postListTitle\"><a href = \"#\" >"+ result[i].err_name + "</a></td>";
                             			a += "<td class = \"postListDate\">"+ result[i].created_at + "</td>";
                             			a += "<td class = \"postListMoney\">"+ result[i].err_price + "</td>";
-                            			if ('${user.user_id}' != '' && res[i].user_id != '${user.user_id}') {
+                            			if ('${user.user_id}' != '' && result[i].user_id != '${user.user_id}') {
                                  			a += "<td><button id='match'>신청</button></td>"
                                  			}
                             			a += "</tr>"
@@ -651,7 +584,7 @@ https://templatemo.com/tm-559-zay-shop
                                  			a += "<td class=\"postListTitle\"><a href=\"#\" >" + result[i].err_name + "</a></td>";
                                  			a += "<td class = \"postListDate\">"+ result[i].created_at + "</td>";
                                  			a += "<td class = \"postListMoney\">"+ result[i].err_price + "</td>";
-                                 			if ('${user.user_id}' != '' && res[i].user_id != '${user.user_id}') {
+                                 			if ('${user.user_id}' != '' && result[i].user_id != '${user.user_id}') {
                                      			a += "<td><button id='match'>신청</button></td>"
                                      			}
                                  			a += "</tr>"
