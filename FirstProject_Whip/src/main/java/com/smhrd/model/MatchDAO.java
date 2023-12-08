@@ -18,6 +18,12 @@ public class MatchDAO {
 		return row;
 	}
 //  신청인을 찾아라 !!!!!!!!!!!
+	public List<MatchVO> ynfind(MatchVO vo) {
+		SqlSession sqlSession = factory.openSession();
+		List<MatchVO> result = sqlSession.selectList("ynfind", vo);
+		sqlSession.close();
+		return result;
+	}
 	public List<MatchVO> hopefind(MatchVO vo) {
 		SqlSession sqlSession = factory.openSession();
 		List<MatchVO> result = sqlSession.selectList("hopefind", vo);
@@ -48,5 +54,10 @@ public class MatchDAO {
 		sqlSession.close();
 		return result;
 	}
-	
+	public MatchVO matchStatusCheck(MatchVO vo) {
+		SqlSession sqlSession = factory.openSession();
+		MatchVO result = sqlSession.selectOne("matchStatusCheck", vo);
+		sqlSession.close();
+		return result;
+	}
 }

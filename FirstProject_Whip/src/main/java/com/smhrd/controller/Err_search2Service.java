@@ -43,11 +43,6 @@ public class Err_search2Service implements Command {
 				System.out.println("user_id"+result2);
 				out.print(result2);
 			}
-	    
-	    
-	    
-	    
 	    return null;
-	
 	}
 }

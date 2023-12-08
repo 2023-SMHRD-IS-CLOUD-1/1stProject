@@ -34,18 +34,21 @@ public class MatchfindService implements Command {
 		HttpSession session = request.getSession();
 		UserVO loginvo = (UserVO) session.getAttribute("user");
 		String user_id = loginvo.getUser_id();
+		MatchVO vo4 = new MatchVO();
+		
 		
 		MatchVO vo = new MatchVO();
 		vo.setUser_id(user_id);
-
+		System.out.println("유저아이디 출력33333333333333333333333333333"+vo.getUser_id());
 		MatchDAO dao = new MatchDAO();
 		List<MatchVO> result = dao.hopefind(vo);
-		System.out.println("result"+result);
+		System.out.println("resulttt"+result);
 		List<ErrandVO> errandList = new ArrayList<>();
 		for (int i = 0; i < result.size(); i++) {
 			int match = result.get(i).getErr_num();
 			System.out.println("num" + match);
 
+			
 			ErrandVO vo2 = new ErrandVO();
 			vo2.setErr_num(match);
 			
@@ -54,8 +57,19 @@ public class MatchfindService implements Command {
 			List<ErrandVO> result2 = dao2.matchfind(result.get(i).getErr_num());
 			System.out.println("result2"+result2);
 			errandList.add(result2.get(0));
-			
-		}if (result.isEmpty()) {
+		}
+		
+		
+		vo4.setUser_id(user_id);
+		for (int i = 0; i < result.size(); i++) {
+			vo4.setErr_num(errandList.get(i).getErr_num());
+			MatchVO MatchYn = dao.matchStatusCheck(vo4);
+			String Matchyn = MatchYn.getMatch_yn();
+			ErrandVO vo3 = new ErrandVO();
+			vo3.setErr_status(Matchyn);
+			errandList.add(vo3);
+		}
+		if (errandList.isEmpty()) {
 				out.print("false");
 			} else {
 				Gson gson = new Gson();

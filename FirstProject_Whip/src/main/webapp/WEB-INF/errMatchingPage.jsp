@@ -98,21 +98,24 @@ https://templatemo.com/tm-559-zay-shop
                             </div>
                         </div>
                     </div>
-                    <!-- 검색창 모달 아이콘 -->
-                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
-                        data-bs-target="#templatemo_search">
-                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
-                    </a>
-                    <!-- 마이페이지 아이콘 -->
-                    <a class="nav-icon position-relative text-decoration-none" href="Gomypage1.do">
-                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                        <span
-                            class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
-                    </a>
-                    <!--로그인 버튼 !!!!!! --------------------------->
-                    <a href="#"><button class="btn-open-modal nav-item loginbtn">로그인</button></a>
-                    <!-- 회원가입 버튼!!!! --------------------------->
-                    <a href="#"><button id="joinBtn" class="btn-open-modal nav-item loginbtn">회원가입</button></a>
+                    <div class="headDiv">
+						<!-- 검색창 팝업 아이콘  -------------------->
+						<a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
+						data-bs-target="#templatemo_search">
+							<i class="fa fa-fw fa-search text-dark mr-2"></i>
+						</a>
+						<!-- 장바구니 지움  -->
+						
+						<!--마이페이지 아이콘-->
+						<a id="mypageAtage" class="nav-icon position-relative text-decoration-none" href="Gomypage1.do">
+							<i id="mypageIcon" class="fa fa-fw fa-user text-dark mr-3"></i>
+						</a>
+                    </div>
+	                <div class="headDiv">
+		                <a href="Logout.do"><button id="logoutBtn" class="btn-open-modal nav-item loginbtn">로그아웃</button></a>
+	                </div>
+	                <div class="headDiv">
+	                </div>
                 </div>
             </div>
 
@@ -175,24 +178,17 @@ https://templatemo.com/tm-559-zay-shop
     <!-- Start Content -->
     <div class="container py-5" id="postContent">
 		<div id="postBodyArea">
-			<span href="#" id="postTitle">우리동네 소식</span>
-			<select	name="postSearchFilter" id="postSearchFilter">
-				<option value="post_title">제목</option>
-				<option value="user_id">작성자</option>
-			</select>
-			<input type="text" id="postSearch"> 
-			<button id="searchButton">검색</button>	
+			<span href="#" id="postTitle">신청자 목록</span>
 			<div>
-				<a href="Gopost_write.do" id="postUpdateA">글작성</a>
 			</div>
 			<hr class="borderLine">
 			<table id="postTable">
 				<tr class = "test1">
-					<th class="postTableHead" style="width: 80px;">이름</th>
-					<th class="postTableHead" style="width: 100px;">나이</th>
-					<th class="postTableHead" style="width: 600px;">성별</th>
-					<th class="postTableHead" style="width: 140px;">평점</th>
-					<th class="postTableHead" style="width: 140px;">인증여부</th>
+					<th class="postTableHead" style="width: 220px;">이름</th>
+					<th class="postTableHead" style="width: 220px;">나이</th>
+					<th class="postTableHead" style="width: 220px;">성별</th>
+					<th class="postTableHead" style="width: 220px;">평점</th>
+					<th class="postTableHead" style="width: 220px;">인증여부</th>
 					<th class="postTableHead" style="width: 50px;">수락</th>
 					<th class="postTableHead" style="width: 50px;">거절</th>
 				</tr>

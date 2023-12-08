@@ -1,6 +1,8 @@
 package com.smhrd.controller;
 
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -20,13 +22,19 @@ public class MatchAcceptService implements Command {
       int errNum = Integer.parseInt(request.getParameter("errNum"));
 
       MatchVO vo = new MatchVO();
-      vo.setUser_id(userId);
-      vo.setErr_num(errNum);
       System.out.println("새 유저 아이디"+userId);
       System.out.println("대 유저 아이디"+errNum);
       
+      vo.setErr_num(errNum);
       MatchDAO dao = new MatchDAO();
-      int row = dao.matchAccept1(vo);
+		MatchDAO mdao = new MatchDAO();
+		List<String> userList = mdao.MatchIdload(errNum);
+		for (int i = 0; i < userList.size(); i++) {
+			vo.setUser_id(userList.get(i));
+			dao.matchUnAccept1(vo);
+		}
+		vo.setUser_id(userId);
+      dao.matchAccept1(vo);
       // 심부름 테이블 매칭 여부 수정
       dao.errMatchUpdate(vo);
 //      dao.matchAccept2(vo2);
