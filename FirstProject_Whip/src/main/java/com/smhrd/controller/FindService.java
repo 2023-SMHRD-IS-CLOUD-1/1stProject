@@ -31,7 +31,6 @@ public class FindService implements Command {
 		UserVO result = dao.find(vo);
 		if(result!=null) {
 			HttpSession session = request.getSession();
-			session.setAttribute("user", result);
 			UserVO user = (UserVO)session.getAttribute("user");
 			String user_id = result.getUser_id();
 			System.out.println(user_id);

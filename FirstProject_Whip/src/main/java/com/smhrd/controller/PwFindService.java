@@ -34,17 +34,11 @@ public class PwFindService implements Command {
 		UserVO result = dao.pwfind(vo);
 		if(result!=null) {
 			HttpSession session = request.getSession();
-			session.setAttribute("user", result);
-			UserVO user = (UserVO)session.getAttribute("user");
-			String user_pw = result.getUser_pw();
-			String user_id1 = result.getUser_id();
-			String user_name1 = result.getUser_name();
-			System.out.println(user_pw);
 			  response.setContentType("application/json");
 			    response.setCharacterEncoding("UTF-8");
 
 			    PrintWriter out = response.getWriter();
-			    out.print("{\"user_pw\": \"" + user_pw + "\"}");
+			    out.print("{\"user_pw\": \"" + result.getUser_pw() + "\"}");
 			    out.flush();
 		}
 		
