@@ -52,7 +52,7 @@ https://templatemo.com/tm-559-zay-shop
                     <i class="fa fa-envelope mx-2"></i>
                     <a class="navbar-sm-brand text-light text-decoration-none"
                         href="https://smhrd.or.kr/course/aicamp/">
-                        caroot&whip@smhrd.com</a>
+                        carrot&whip@smhrd.com</a>
                 </div>
                 <div>
                     <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i
@@ -259,7 +259,7 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="row pt-2">
                     <div class="col-12">
                         <p class="text-left text-light">
-                            CAROOT&WHIP &copy; 2023 project
+                            CARROT&WHIP &copy; 2023 project
                             | <a rel="sponsored" href="https://smhrd.or.kr/course/aicamp/"
                                 target="_blank">당근과 채찍팀</a>| 최성욱, 유수연, 박 준, 송희주, 양재원
                         </p>

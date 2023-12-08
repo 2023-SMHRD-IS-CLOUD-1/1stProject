@@ -44,7 +44,7 @@ https://templatemo.com/tm-559-zay-shop
                     <i class="fa fa-envelope mx-2"></i>
                     <a class="navbar-sm-brand text-light text-decoration-none"
                         href="https://smhrd.or.kr/course/aicamp/">
-                        caroot&whip@smhrd.com</a>
+                        carrot&whip@smhrd.com</a>
                     <!-- <i class="fa fa-phone mx-2"></i>
                     <a class="navbar-sm-brand text-light text-decoration-none" href="#">010-020-0340</a> -->
                 </div>
