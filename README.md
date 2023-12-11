@@ -157,6 +157,6 @@
 	<br>
 	- 해결 : 정규표현식을 사용하여 이름만 추출 가능하게 변경
 <br><br>
-	![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/75c18878-2e32-480c-908c-acff8bb3c9c2)
+![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/75c18878-2e32-480c-908c-acff8bb3c9c2)
 
 </details>
