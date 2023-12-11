@@ -83,7 +83,28 @@
 # 🧨8. 트러블 슈팅
 <details>
 <summary>
-  토글 제목
+  1. 캐시 문제
+</summary>
+   토글 안 내용
+</details>
+
+<details>
+<summary>
+  2. 게시판 페이지
+</summary>
+   검색 기능
+</details>
+
+<details>
+<summary>
+ 3. ajax내 html
+</summary>
+   토글 안 내용
+</details>
+
+<details>
+<summary>
+  4. OCR 인식 문제
 </summary>
    토글 안 내용
 </details>
