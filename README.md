@@ -22,8 +22,15 @@
 	<img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white"/>
 	<img src="https://img.shields.io/badge/python-776AB?style=flat&logo=python&logoColor=white"/>
 </div>
+
 # ⚙4. 시스템 아키텍처
 # 📜5. E-R다이어 그램
 # ⌨6. 서비스 흐름도
 # 👩‍💻👨‍💻7. 팀원 소개
 # 🧨8. 트러블 슈팅
+<details>
+<summary>
+  토글 제목
+</summary>
+   토글 안 내용
+</details>
