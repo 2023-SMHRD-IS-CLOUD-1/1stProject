@@ -1,15 +1,6 @@
-* 아침 출석 or 회의 끝나고 pull 하고 시작
-* 아침 회의에서 무슨 파일(기능) 할지 정하고 시작
-* 아침에 정한 파일외 다른 파일 수정할 시 팀원들에게 이야기 하기
-* 같은파일 수정중일 시 pull, push, commit '무조건' 말하고 하기
-* push 퇴실전 1번
-* push 할 때 본인이름, 수정내용, 기능 말하기
-* 주석 많이 달기
-* 유스퀘이스 하지말기
-* 개발 내용, 주요 기능 -> 설명과 코드 기반으로 작성하기
-* 참고문헌 -> 텍스트로 가기
-* 개발환경 정리하기
-
+<div>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=당근과 채찍&fontSize=90" />	
+</div>
 # 👀1. 서비스 소개
 
 
