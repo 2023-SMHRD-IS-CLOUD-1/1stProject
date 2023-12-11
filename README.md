@@ -145,7 +145,9 @@
 <br>
 	- 해결법 : 변수 a를 생성하고 그 a에 html구문을 넣어줘 완성된 html을 문자열 형식으로 만들어 html을 추가함
  <br>
- ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/884026e3-a653-4658-8a31-8ac50012f117)
+
+ ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/88000ef7-2283-4717-9e1e-67d968f3dfc9)
+
 
 </details>
 
