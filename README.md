@@ -78,13 +78,20 @@
 #### 일정관리
 ### 팀원 박 준
 ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/dd9d1c03-cc00-46f7-a3a0-4752aa645211)
-* 블라블라
+#### (OCR MODEL 총괄)
+* 신분증 인증 및 업데이트 기능 구현
+* flask 웹페이지 연동
+
 ### 팀원 송희주
 ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/3feb55a5-0f81-4a38-a583-fe714f1f10dc)
-* 블라블라
+#### (디자인 총괄)
+* 페이지 제작(요청/심부름 목록, 메인, 로그인 모달창)
 ### 팀원 양재원
 ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/a6192689-3b08-4cc9-aab0-de8dd94f12bc)
-* 블라블라
+#### (프론트 & 백엔드)
+* 마이페이지 기능 구현
+* 아이디 중복 체크 기능
+* 심부름 요청/목록 페이지 구현( 심부름 요청/목록 구현, 심부름 수행/신청자 목록, 심부름 요청/신청/수락 불러오기)
 
 # 🧨8. 트러블 슈팅
 <details>
