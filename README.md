@@ -40,7 +40,7 @@
   <tbody>
     <tr>
       <td align="center"><a href=""><img src="width="100px;" alt=""/><br /><sub><b>FE 팀장 : 최성욱 </b></sub></a><br /></td>
-      <td align="center"><a href=""><img src="![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/e9f773cb-22fd-42d1-8ff6-08437f96c695)
+      <td align="center"><a href=""><img src="!https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/e9f773cb-22fd-42d1-8ff6-08437f96c695
 " width="100px;" alt=""/><br /><sub><b>FE 부팀장 : 유수연 </b></sub></a><br /></td>
       <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : 박준 </b></sub></a><br /></td>
       <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : 송희주 </b></sub></a><br /></td>
