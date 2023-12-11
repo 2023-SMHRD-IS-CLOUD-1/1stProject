@@ -39,6 +39,7 @@
 <table>
   <tbody>
     <tr>
+	    https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/issues/1#issue-2034892861
       <td align="center"><a href=""><img src="width="100px;" alt=""/><br /><sub><b>FE 팀장 : 최성욱 </b></sub></a><br /></td>
       <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 부팀장 : 유수연 </b></sub></a><br /></td>
       <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : 박준 </b></sub></a><br /></td>
