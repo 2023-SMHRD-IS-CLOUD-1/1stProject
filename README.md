@@ -13,6 +13,7 @@
 </summary>
    토글 안 내용
 </details>
+
 <details>
 <summary>
   게시판 페이지
@@ -20,6 +21,19 @@
    토글 안 내용
 </details>
 
+<details>
+<summary>
+  고객센터 페이지
+</summary>
+   토글 안 내용
+</details>
+
+<details>
+<summary>
+  마이 페이지
+</summary>
+   토글 안 내용
+</details>
 
 
 # 💻3. 사용 언어 및 도구
