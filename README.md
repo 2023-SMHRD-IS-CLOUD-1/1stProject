@@ -36,10 +36,10 @@
 ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/782209d1-23ee-4ff2-be25-ce8f2379296a)
 
 # 👩‍💻👨‍💻7. 팀원 소개
+	    ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/f6c0a989-0ec1-48e4-9917-c2363ceb36e8)
 <table>
   <tbody>
     <tr>
-	    ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/f6c0a989-0ec1-48e4-9917-c2363ceb36e8)
 
       <td align="center"><a href=""><img src="width="100px;" alt=""/><br /><sub><b>FE 팀장 : 최성욱 </b></sub></a><br /></td>
       <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 부팀장 : 유수연 </b></sub></a><br /></td>
