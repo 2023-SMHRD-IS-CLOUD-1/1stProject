@@ -2,66 +2,78 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
- 
+
 <mapper namespace="com.smhrd.model.UserDAO">
 	<!-- 회원가입 -->
 	<insert id="join" parameterType="com.smhrd.model.UserVO">
-    INSERT INTO TB_USER (
-        USER_ID, USER_PW, USER_NAME, USER_BIRTHDATE, USER_GENDER, USER_NICK, USER_JUMIN, USER_PHONE, USER_ADDR1
-    )
-    VALUES (
-        #{user_id}, #{user_pw}, #{user_name}, #{user_birthdate}, #{user_gender},
-        #{user_nick}, #{user_jumin}, #{user_phone}, #{user_addr1}
-    )
-</insert>
+		INSERT INTO TB_USER (
+		USER_ID, USER_PW, USER_NAME, USER_BIRTHDATE, USER_GENDER, USER_NICK,
+		USER_JUMIN, USER_PHONE, USER_ADDR1
+		)
+		VALUES (
+		#{user_id}, #{user_pw}, #{user_name}, #{user_birthdate}, #{user_gender},
+		#{user_nick}, #{user_jumin}, #{user_phone}, #{user_addr1}
+		)
+	</insert>
 	<!-- 로그인 -->
-	<select id = "login" parameterType="com.smhrd.model.UserVO" resultType="com.smhrd.model.UserVO">
-	SELECT USER_ID, USER_PW, USER_NAME, USER_NICK, USER_BIRTHDATE, USER_GENDER, USER_PHONE, USER_LEVEL, USER_ADDR1, USER_ID_CHECK, USER_JUMIN
-	FROM TB_USER
-	WHERE USER_ID = #{user_id} AND USER_PW = #{user_pw}
+	<select id="login" parameterType="com.smhrd.model.UserVO"
+		resultType="com.smhrd.model.UserVO">
+		SELECT USER_ID, USER_PW, USER_NAME, USER_NICK, USER_BIRTHDATE, USER_GENDER,
+		USER_PHONE, USER_LEVEL, USER_ADDR1, USER_ID_CHECK, USER_JUMIN
+		FROM TB_USER
+		WHERE USER_ID = #{user_id} AND USER_PW = #{user_pw}
 	</select>
 	<!-- 회원정보 수정 -->
 	<update id="update" parameterType="com.smhrd.model.UserVO">
 		UPDATE TB_USER
-		SET USER_PW = #{user_pw}, USER_NAME = #{user_name} , USER_NICK = #{user_nick}, USER_PHONE = #{user_phone} , USER_ADDR1 = #{user_addr1}
-		WHERE USER_ID = #{user_id}
+		SET USER_PW =
+		#{user_pw}, USER_NAME = #{user_name} , USER_NICK = #{user_nick},
+		USER_PHONE = #{user_phone} , USER_ADDR1 = #{user_addr1}
+		WHERE USER_ID =
+		#{user_id}
 	</update>
 	<!-- 회원 탈퇴 -->
-	<delete id="delete" parameterType="com.smhrd.model.UserVO" >
+	<delete id="delete" parameterType="com.smhrd.model.UserVO">
 		DELETE FROM TB_USER WHERE USER_ID = #{user_id}
 	</delete>
-	
+
 	<!-- 자신의 프로필 보기 -->
-	<select id = "selectById" parameterType = "com.smhrd.model.UserVO" resultType="com.smhrd.model.UserVO">
-	SELECT USER_NAME,USER_JUMIN ,USER_BIRTHDATE, USER_GENDER, USER_NICK, USER_PHONE, USER_ADDR1, USER_LEVEL, USER_ID_CHECK
-	FROM TB_USER WHERE USER_ID = #{user_id}
+	<select id="selectById" parameterType="com.smhrd.model.UserVO"
+		resultType="com.smhrd.model.UserVO">
+		SELECT USER_NAME,USER_JUMIN ,USER_BIRTHDATE, USER_GENDER, USER_NICK,
+		USER_PHONE, USER_ADDR1, USER_LEVEL, USER_ID_CHECK
+		FROM TB_USER WHERE USER_ID = #{user_id}
 	</select>
-	
+
 	<!-- 정보 찾기 -->
-	<select id="find" parameterType = "com.smhrd.model.UserVO" resultType="com.smhrd.model.UserVO">
-	SELECT USER_ID, USER_PW
-	FROM TB_USER 
-	WHERE USER_NAME = #{user_name} 
+	<select id="find" parameterType="com.smhrd.model.UserVO"
+		resultType="com.smhrd.model.UserVO">
+		SELECT USER_ID, USER_PW
+		FROM TB_USER
+		WHERE USER_NAME = #{user_name}
 	</select>
 	<!-- pw찾기 -->
-	<select id="pwfind" parameterType = "com.smhrd.model.UserVO" resultType="com.smhrd.model.UserVO">
-	SELECT USER_NAME, USER_PW, USER_JUMIN
-	FROM TB_USER 
-	WHERE USER_NAME = #{user_name} AND USER_JUMIN = #{user_jumin}
+	<select id="pwfind" parameterType="com.smhrd.model.UserVO"
+		resultType="com.smhrd.model.UserVO">
+		SELECT USER_NAME, USER_PW, USER_JUMIN
+		FROM TB_USER
+		WHERE USER_NAME = #{user_name} AND USER_JUMIN = #{user_jumin}
 	</select>
 	<!-- id중복 체크 -->
-	<select id = "idUniqueCheck" resultType="String">
+	<select id="idUniqueCheck" resultType="String">
 		SELECT USER_ID
 		FROM TB_USER
 		WHERE USER_ID = #{userId}
 	</select>
-		<!-- 심부름 요청글 번호로 신청자 목록 조회 -->
+	<!-- 심부름 요청글 번호로 신청자 목록 조회 -->
 	<select id="MatchLoad" resultMap="UserInfo">
-		SELECT JOINED_AT, USER_ID, USER_NAME, USER_BIRTHDATE, USER_GENDER, USER_LEVEL, USER_ID_CHECK
-		FROM TB_USER
+		SELECT JOINED_AT, USER_ID,
+		USER_NAME, USER_BIRTHDATE, USER_GENDER, USER_LEVEL, USER_ID_CHECK
+		FROM
+		TB_USER
 		WHERE USER_ID = #{user_id}
 	</select>
-		<resultMap type="com.smhrd.model.UserVO" id="UserInfo">
+	<resultMap type="com.smhrd.model.UserVO" id="UserInfo">
 		<result property="joined_at" column="JOINED_AT" />
 		<result property="user_id" column="USER_ID" />
 		<result property="user_name" column="USER_NAME" />

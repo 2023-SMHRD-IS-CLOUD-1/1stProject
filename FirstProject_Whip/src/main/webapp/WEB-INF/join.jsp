@@ -514,7 +514,6 @@
     </script>
     <script>
     $('#idCheck').on('click', function(){
-    	console.log("rkrkrk");
         $.ajax({
             url : "IdUniqueCheck.do",
             dataType : "JSON",
@@ -522,7 +521,6 @@
                 userId : $('#input021').val()
             },
             success : function(res){
-            	console.log("송공");
                 if(res.k == "true"){
                     $('#idUniqueCheck').html('중복된 아이디입니다');
                 }else{

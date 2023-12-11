@@ -303,7 +303,6 @@ https://templatemo.com/tm-559-zay-shop
         $('#btn010').on('click', function () { tagBackgroundcolorChange('#btn010') });
         $('#btn011').on('click', function () { tagBackgroundcolorChange('#btn011') });
         $('#btn012').on('click', function () { tagBackgroundcolorChange('#btn012') });
-        console.log($('#input007').val());
         // 태그를 선택하면 태그의 색이 변경되고 숨겨진 input태그('#input008')의 value값을 변경하는 코드 끝
 
         // form태그에 빈 값이 있는지 확인하는 함수 시작

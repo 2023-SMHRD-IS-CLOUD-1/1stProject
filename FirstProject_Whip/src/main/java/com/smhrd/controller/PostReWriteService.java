@@ -12,7 +12,7 @@ import com.google.gson.Gson;
 import com.smhrd.model.PostDAO;
 import com.smhrd.model.PostVO;
 
-// 로그아웃 서비스
+// 게시글 수정 기능 
 public class PostReWriteService implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response)
@@ -29,15 +29,15 @@ public class PostReWriteService implements Command {
 		vo.setPost_num(post_num);
 		vo.setPost_title(post_title);
 		vo.setPost_content(post_content);
-		
+
 		int row = dao.postmodify(vo);
-		
-		if(row>0) {
+
+		if (row > 0) {
 			return "redirect:/Gopost.do";
 		} else {
 			return "redirect:/Gopost.do";
 		}
-		
+
 	}
 
 }

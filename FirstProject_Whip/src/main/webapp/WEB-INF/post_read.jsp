@@ -325,9 +325,6 @@ https://templatemo.com/tm-559-zay-shop
 	})
       
     if('${user}' == ''){
-       console.log("asdfasdfasdf")
-       //loginBtn.style.display ='';
-       //logoutBtn.style.display ='none';
        $('#loginBtn').attr('style', "display: ''")
        $('#logoutBtn').attr('style', "display: none")
        $('#mypageAtage').attr("href","Gomain.do");
@@ -351,7 +348,6 @@ https://templatemo.com/tm-559-zay-shop
             },
             success : function(res){
                 if(res.k == "false"){
-                   console.log("실패 확인")
                     $('#idPwSameCheck').html('아이디와 비밀번호가 일치하지 않습니다');
                 }else if(res.k == "true"){
                    window.location.href = "Gomain.do"
@@ -429,7 +425,6 @@ https://templatemo.com/tm-559-zay-shop
 							location.reload();
 						},
 						error : function(res) {
-							console.log('댓글 등록 실패');
 						}
 					})
 				}
@@ -460,13 +455,11 @@ https://templatemo.com/tm-559-zay-shop
 					}, 
 					error : function(res){
 						console.log('게시글 좋아요 테이블 조회 실패');
-						console.log(res);
 					}
 				})
 			}
 		});
 		function loadCmt() {
-			console.log(thisPostNum);
 	    	$.ajax({
 	    		url : "ComList.do",
 	    		data : {thisPostNum : thisPostNum},

@@ -19,7 +19,6 @@ import com.smhrd.model.PostVO;
 import com.smhrd.model.UserDAO;
 import com.smhrd.model.UserVO;
 
-// 로그아웃 서비스
 public class ErrMatchingViewService implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response)
@@ -27,12 +26,12 @@ public class ErrMatchingViewService implements Command {
 
 		response.setContentType("text/html;charset=utf-8");
 		request.setCharacterEncoding("utf-8");
-		
+
 		String selectedNum1 = request.getParameter("selectedNum");
 		int selectedNum = Integer.parseInt(selectedNum1);
 		MatchDAO mdao = new MatchDAO();
 		List<String> userList = mdao.MatchIdload(selectedNum);
-		
+
 		UserDAO dao = new UserDAO();
 		List<UserVO> resultList = new ArrayList<UserVO>();
 		List<UserVO> userInfo = null;
@@ -40,17 +39,17 @@ public class ErrMatchingViewService implements Command {
 			userInfo = dao.MatchLoad(userList.get(i));
 			resultList.add(userInfo.get(0));
 		}
-			
+
 		PrintWriter out = response.getWriter();
-		
-		   if(resultList.isEmpty()) {
-		         out.print("false");
-		      }else {
-		         Gson gson = new Gson();
-		         String result = gson.toJson(resultList);
-		         out.print(result);
-		      }
-		      return null;
+
+		if (resultList.isEmpty()) {
+			out.print("false");
+		} else {
+			Gson gson = new Gson();
+			String result = gson.toJson(resultList);
+			out.print(result);
+		}
+		return null;
 	}
 
 }

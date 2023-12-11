@@ -382,12 +382,10 @@ https://templatemo.com/tm-559-zay-shop
 	// 1~5페이지면 << 삭제
 	if (firstBtn.innerHTML == '1') {
 		prevBtn.style.display = 'none';
-			console.log("들어오니?5");
 	}
 	// << 버튼 눌렀을 때
 	prevBtn.addEventListener('click', function() {
 		selectedNum = (parseInt((selectedNum - 1)/ 5)) * 5;
-		console.log(selectedNum);
 		for(let i = 0; i < 5; i++) {
 			pageButtons[i].style.display = '';
 			pageButtons[i].innerHTML = parseInt(pageButtons[i].innerHTML) -5;
@@ -431,7 +429,6 @@ https://templatemo.com/tm-559-zay-shop
                 button.style.color = 'initial';
             });
             selectedNum = parseInt(event.target.innerHTML);
-			console.log(selectedNum);
             // 클릭된 페이지 버튼의 스타일 변경
             event.target.style.textDecoration = 'underline';
             event.target.style.color = 'red';
@@ -444,7 +441,6 @@ https://templatemo.com/tm-559-zay-shop
             data: { selectedNum: selectedNum },
             dataType: "json",
             success: function (res) {
-            	console.log("test>>",res);
                 $(".postListCL").remove();
                 for (let i = 0; i < 10; i++) {
                     var a = "";
@@ -467,7 +463,6 @@ https://templatemo.com/tm-559-zay-shop
                     e.preventDefault();
                     var clickedErrNum = $(this).closest("tr").find(".postListNum").text();
                     var user_id = '${user.user_id}';
-                    console.log(clickedErrNum);
                     localStorage.setItem("clickedErrNum", clickedErrNum);
 
                     $.ajax({
@@ -478,7 +473,6 @@ https://templatemo.com/tm-559-zay-shop
                             user_id: user_id
                         },
                         success: function (response) {
-                            console.log(response);
                             alert('성공적으로 신청되었습니다.');
                         },
                         error: function (error) {
@@ -529,11 +523,8 @@ https://templatemo.com/tm-559-zay-shop
                                 url: "Err_read.do",
                                 data: { categoryNumber: categoryNumber },
                                 success: function (response) {
-                                    console.log(response);
 
                                     var result = JSON.parse(response);
-                                    console.log("선택된 카테고리 번호:", window.selectedCategoryNumber);
-                                    console.log("서버 응답:", result);
 
                                     for (var i = 0; i < 10; i++) {
                                     	var a = "";
@@ -560,8 +551,6 @@ https://templatemo.com/tm-559-zay-shop
                             $("#searchButton").on("click", function () {
                                 var selectedCategory = $("#SearchCategory").val();
                                 var searchTerm = $("#searchInput").val();
-                                console.log(selectedCategory);
-                                console.log(searchTerm);
                                 var outputContainer = $(".postListCL");
                                 outputContainer.empty();
                                 // AJAX 요청 보내기
@@ -573,7 +562,6 @@ https://templatemo.com/tm-559-zay-shop
                                         searchTerm: searchTerm
                                     },
                                     success: function (response) {
-                                    	 console.log(response);
 										
                                          var result = JSON.parse(response);
                                          for (var i = 0; i < result.length; i++) {
@@ -604,7 +592,6 @@ https://templatemo.com/tm-559-zay-shop
 						    	 e.preventDefault();
 						      // 클릭한 행의 err_num 값을 가져오기
 						      var clickedErrNum = $(this).closest("tr").find(".postListNum").text();
-						      console.log(clickedErrNum);
 						      // 데이터 저장
 						      localStorage.setItem("clickedErrNum", clickedErrNum);
 						      $.ajax({
@@ -614,7 +601,6 @@ https://templatemo.com/tm-559-zay-shop
                                     	clickedErrNum : clickedErrNum
                                     },
                                     success: function(response) {
-                                        console.log(response);
                                         window.location.href = 'GoErrandRead.do';
                                         // 성공적으로 응답을 받았을 때 수행할 작업
                                     },

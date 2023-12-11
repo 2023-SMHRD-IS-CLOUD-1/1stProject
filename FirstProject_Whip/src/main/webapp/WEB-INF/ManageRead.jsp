@@ -310,12 +310,10 @@ https://templatemo.com/tm-559-zay-shop
 	    <script>
 	    $(document).ready(function() {
 	        var post_num = ${Manage.management_post_num};
-	        console.log(post_num);
 
 	        $("#modify").on("click", function(e) {
 	            var outputContainer = $("#postReadLayout");
 	            outputContainer.empty();
-	            console.log("성공");
 
 	            var a = "";
 	            a += "<br><br>";
@@ -332,7 +330,6 @@ https://templatemo.com/tm-559-zay-shop
 
 	            // 수정된 부분: 클릭 이벤트 핸들러 내부에서 변수를 정의하도록 변경
 	            $("#update").on("click", function(e) {
-	                console.log(post_num);
 
 	                // 수정된 부분: 사용자가 입력한 값을 가져와 변수에 할당
 	                var management_post_title = $("#management_post_title").val();
@@ -346,8 +343,6 @@ https://templatemo.com/tm-559-zay-shop
 	                        post_num: post_num
 	                    },
 	                    success: function(response) {
-	                        // 성공적으로 서버에서 응답을 받았을 때의 동작
-	                        console.log(response);
 	                        
 	                        alert("수정이 완료되었습니다.");
 	                        window.location.reload(); 
@@ -355,7 +350,6 @@ https://templatemo.com/tm-559-zay-shop
 	                        
 	                    },
 	                    error: function(error) {
-	                        // 에러 발생 시의 동작
 	                        console.error(error);
 	                    }
 	                });
@@ -377,13 +371,8 @@ https://templatemo.com/tm-559-zay-shop
    var manage_num = '<%= manage_num%>';
    var manage_reply = '<%= manage_reply %>';
 	
-   console.log('userid', user_id);
-   console.log('manageid', manage_id);
-   console.log('manage_reply:', manage_reply);
-   console.log('Condition:', manage_reply === 'n');
    if(manage_reply === 'y'){
 	   var manage_answer = '${Manage.management_answer}';
-       console.log(manage_answer)
        var b = "";
        b += "==================================================================================================================================";
        b += "<label for='answer_content'>답변 내용:</label> <br>";
@@ -402,7 +391,6 @@ https://templatemo.com/tm-559-zay-shop
        $('#tablebtn').append(a);
        
        $('#delete').on('click', function () {
-           console.log("성공");
            $.ajax({
                type: 'POST',
                url: 'Mandelete.do',
@@ -410,7 +398,6 @@ https://templatemo.com/tm-559-zay-shop
             	   manage_num: manage_num
                },
                success: function (response) {
-                   console.log(response);
                    alert('삭제에 성공했습니다');
                    window.location.href = 'GomanagementPost.do';
                },
@@ -426,7 +413,6 @@ https://templatemo.com/tm-559-zay-shop
 	
    if (user_id === 'admin') {
        if (manage_reply === 'n') {
-           console.log("답변 없음");
            var a = "";
            a += "<tr>";
            a += "<td>";
@@ -436,7 +422,6 @@ https://templatemo.com/tm-559-zay-shop
            $('#tablebtn').append(a);
 
            $('#answer').on('click', function () {
-               console.log("성공이다옹");
                $(this).hide();
 
                var b = "";

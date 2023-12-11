@@ -13,11 +13,11 @@ public class ComDAO {
 	private SqlSessionFactory factory = SqlSessionManager.getFactory();
 
 	public List<ComVO> comLoad(int thisPostNum) {
-		
+
 		SqlSession sqlSession = factory.openSession(true);
 		List<ComVO> result = sqlSession.selectList("comLoad", thisPostNum);
 		sqlSession.close();
-		
+
 		return result;
 	}
 
@@ -25,9 +25,8 @@ public class ComDAO {
 		SqlSession sqlSession = factory.openSession(true);
 		int result = sqlSession.insert("comUPload", vo);
 		sqlSession.close();
-		
+
 		return result;
 	}
-		
 
 }

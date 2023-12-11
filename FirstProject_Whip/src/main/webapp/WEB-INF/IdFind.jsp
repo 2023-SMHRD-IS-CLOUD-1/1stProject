@@ -210,7 +210,6 @@ https://templatemo.com/tm-559-zay-shop
      <script>
      $(document).ready(function () {
     	    $("#enter").on("click", function () {
-    	        console.log("성공");
 
     	        var user_name = $("#user_name").val();
     	        var user_jumin = $("#user_jumin").val();
@@ -221,7 +220,6 @@ https://templatemo.com/tm-559-zay-shop
     	        }
 
     	        var juminWithoutHyphen = user_jumin.replace(/-/g, '');
-    	        console.log(juminWithoutHyphen);
 
     	        if (juminWithoutHyphen.length != 13) {
     	            alert("주민번호를 정확하게 입력해주세요");
@@ -240,9 +238,7 @@ https://templatemo.com/tm-559-zay-shop
     	                user_jumin: user_jumin
     	            },
     	            success: function (response) {
-    	            	console.log("성공2")
     	            	var user_id = response.user_id;
-    	            	console.log("user_id", user_id);
     	            	$(".searchform").empty();
     	            	var a = '';
     	            	if(response.user_id !== undefined){

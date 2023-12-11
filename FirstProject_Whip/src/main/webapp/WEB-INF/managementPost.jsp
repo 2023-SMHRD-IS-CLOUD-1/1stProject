@@ -366,7 +366,6 @@ https://templatemo.com/tm-559-zay-shop
 	// << 버튼 눌렀을 때
 	prevBtn.addEventListener('click', function() {
 		selectedNum = (parseInt((selectedNum - 1)/ 5)) * 5;
-		console.log(selectedNum);
 		for(let i = 0; i < 5; i++) {
 			pageButtons[i].style.display = '';
 			pageButtons[i].innerHTML = parseInt(pageButtons[i].innerHTML) -5;
@@ -410,7 +409,6 @@ https://templatemo.com/tm-559-zay-shop
                 button.style.color = 'initial';
             });
             selectedNum = parseInt(event.target.innerHTML);
-			console.log(selectedNum);
             // 클릭된 페이지 버튼의 스타일 변경
             event.target.style.textDecoration = 'underline';
             event.target.style.color = 'red';
@@ -460,7 +458,6 @@ https://templatemo.com/tm-559-zay-shop
     			
     		},
     		error : function(res){
-    			console.log('실패999999999999999');
     			lastPageNum = res;
     		}
     	});
@@ -472,8 +469,6 @@ https://templatemo.com/tm-559-zay-shop
          $("#searchButton").on("click", function () {
              var selectedCategory = $("#SearchCategory").val();
              var searchTerm = $("#searchInput").val();
-             console.log(selectedCategory);
-             console.log(searchTerm);
              var outputContainer = $(".postListCL");
              outputContainer.empty();
              // AJAX 요청 보내기
@@ -485,7 +480,6 @@ https://templatemo.com/tm-559-zay-shop
                      searchTerm: searchTerm
                  },
                  success: function (response) {
-                 	 console.log(response);
 						
                       var res = JSON.parse(response);
                       for (var i = 0; i < res.length; i++) {
@@ -521,7 +515,6 @@ https://templatemo.com/tm-559-zay-shop
 		  	 e.preventDefault();
 		    // 클릭한 행의 err_num 값을 가져오기
 		    var clickedErrNum = $(this).closest("tr").find(".postListNum").text();
-		    console.log(clickedErrNum);
 		    // 데이터 저장
 		    localStorage.setItem("clickedErrNum", clickedErrNum);
 		    
@@ -533,7 +526,6 @@ https://templatemo.com/tm-559-zay-shop
 	            	clickedErrNum : clickedErrNum
 	            },
 	            success: function(response) {
-	                console.log(response);
 	                window.location.href = 'GoManageRead.do';
 	                // 성공적으로 응답을 받았을 때 수행할 작업
 	            },
@@ -556,7 +548,6 @@ https://templatemo.com/tm-559-zay-shop
 	})
       
     if('${user}' == ''){
-       console.log("asdfasdfasdf")
        //loginBtn.style.display ='';
        //logoutBtn.style.display ='none';
        $('#loginBtn').attr('style', "display: ''")
@@ -583,7 +574,6 @@ https://templatemo.com/tm-559-zay-shop
             },
             success : function(res){
                 if(res.k == "false"){
-                   console.log("실패 확인")
                     $('#idPwSameCheck').html('아이디와 비밀번호가 일치하지 않습니다');
                 }else if(res.k == "true"){
                    window.location.href = "Gomain.do"

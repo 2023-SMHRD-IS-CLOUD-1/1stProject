@@ -20,50 +20,41 @@ public class Err_searchService implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// 한글 인코딩 잡아주기
-	    response.setContentType("text/html;charset=utf-8");
-	    request.setCharacterEncoding("utf-8");
-	    
-	    
-	    String term = request.getParameter("searchTerm");
-	    System.out.println(term);
-	    String temp = request.getParameter("SearchCategory"); 
-	    System.out.println(temp);
-	    
-	    ErrandVO vo = new ErrandVO();
-	    PrintWriter out = response.getWriter();
-	    if(temp.equals("err_name")) {
-	    	System.out.println("제목");
-	    	vo.setErr_name(term);
-	    	
-	    	 ErrandDAO dao = new ErrandDAO();
-	 	    List<ErrandVO> result = dao.SearchErr1(vo);
-	 	   if(result.isEmpty()) {
+
+		response.setContentType("text/html;charset=utf-8");
+		request.setCharacterEncoding("utf-8");
+
+		String term = request.getParameter("searchTerm");
+		String temp = request.getParameter("SearchCategory");
+
+		ErrandVO vo = new ErrandVO();
+		PrintWriter out = response.getWriter();
+		if (temp.equals("err_name")) {
+			vo.setErr_name(term);
+
+			ErrandDAO dao = new ErrandDAO();
+			List<ErrandVO> result = dao.SearchErr1(vo);
+			if (result.isEmpty()) {
 				out.print("false");
-			}else {
+			} else {
 				Gson gson = new Gson();
 				String result1 = gson.toJson(result);
-				System.out.println("err_name"+result1);
 				out.print(result1);
 			}
-	    }else if (temp.equals("user_id")) {
-	    	System.out.println("아이디");
-	    	vo.setUser_id(term);
-	    	 ErrandDAO dao = new ErrandDAO();
-	 	    List<ErrandVO> result = dao.SearchErr2(vo);
-	 	   if(result.isEmpty()) {
+		} else if (temp.equals("user_id")) {
+			vo.setUser_id(term);
+			ErrandDAO dao = new ErrandDAO();
+			List<ErrandVO> result = dao.SearchErr2(vo);
+			if (result.isEmpty()) {
 				out.print("false");
-			}else {
+			} else {
 				Gson gson = new Gson();
 				String result2 = gson.toJson(result);
-				System.out.println("user_id"+result2);
 				out.print(result2);
 			}
-	    }
-	    
-	    
-	    
-	    return null;
-	
+		}
+
+		return null;
+
 	}
 }

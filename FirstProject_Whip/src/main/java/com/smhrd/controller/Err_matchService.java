@@ -22,23 +22,21 @@ public class Err_matchService implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("성공");
+
 		String temp = request.getParameter("clickedErrNum");
 		int err_num = Integer.parseInt(temp);
-		System.out.println(err_num);
 		String user_id = request.getParameter("user_id");
-		System.out.println(user_id);
 		MatchVO vo = new MatchVO();
 		vo.setErr_num(err_num);
 		vo.setUser_id(user_id);
 
 		MatchDAO dao = new MatchDAO();
 		int row = dao.matchUpdate(vo);
-		
-		if(row>0) {
+
+		if (row > 0) {
 			request.setAttribute("match", vo);
-		}else{
-			
+		} else {
+
 		}
 		return null;
 

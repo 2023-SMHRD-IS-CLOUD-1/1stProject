@@ -15,26 +15,24 @@ import com.smhrd.model.ErrandVO;
 import com.smhrd.model.UserDAO;
 import com.smhrd.model.UserVO;
 
-// 심부름 글 상세보기 기능
 public class Err_detailService implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-			String temp = request.getParameter("clickedErrNum");
-			int err_num = Integer.parseInt(temp);
-			System.out.println(err_num);
-			ErrandVO vo = new ErrandVO();
-			vo.setErr_num(err_num);
-			
-			ErrandDAO dao = new ErrandDAO();
-			ErrandVO result = dao.DetailErr(vo);
-			if(result != null ) {
-				System.out.println("성공");
-				HttpSession session = request.getSession();
-				session.setAttribute("errand", result);
-				ErrandVO errand = (ErrandVO)session.getAttribute("errand");
-			}
-	    return null;
-	
+
+		String temp = request.getParameter("clickedErrNum");
+		int err_num = Integer.parseInt(temp);
+		ErrandVO vo = new ErrandVO();
+		vo.setErr_num(err_num);
+
+		ErrandDAO dao = new ErrandDAO();
+		ErrandVO result = dao.DetailErr(vo);
+		if (result != null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("errand", result);
+			ErrandVO errand = (ErrandVO) session.getAttribute("errand");
+		}
+		return null;
+
 	}
 }

@@ -409,7 +409,6 @@ https://templatemo.com/tm-559-zay-shop
 	})
       
     if('${user}' == ''){
-       console.log("asdfasdfasdf")
        //loginBtn.style.display ='';
        //logoutBtn.style.display ='none';
        $('#loginBtn').attr('style', "display: ''")
@@ -435,7 +434,6 @@ https://templatemo.com/tm-559-zay-shop
             },
             success : function(res){
                 if(res.k == "false"){
-                   console.log("실패 확인")
                     $('#idPwSameCheck').html('아이디와 비밀번호가 일치하지 않습니다');
                 }else if(res.k == "true"){
                    window.location.href = "Gomain.do"

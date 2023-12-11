@@ -11,21 +11,19 @@ import javax.servlet.jsp.PageContext;
 import com.smhrd.model.PostDAO;
 import com.smhrd.model.PostVO;
 
-// 로그인 서비스
+// 게시글 번호 보내기
 public class PostSendNumService implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		String temp = request.getParameter("post_num");
 		int post_num = Integer.parseInt(temp);
 		PostDAO dao = new PostDAO();
-		
+
 		PostVO result = dao.getPostInfo(post_num);
 		request.setAttribute("result", result);
-		
-		
-		
+
 		return "post_write";
 	}
 

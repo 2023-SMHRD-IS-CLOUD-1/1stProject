@@ -22,22 +22,20 @@ public class Manage_detailService implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-			String temp = request.getParameter("clickedErrNum");
-			int management_post_num = Integer.parseInt(temp);
-			System.out.println(management_post_num);
-			ManageVO vo = new ManageVO();
-			vo.setManagement_post_num(management_post_num);
-			
-			ManageDAO dao = new ManageDAO();
-			ManageVO result = dao.manage_detail(vo);
-			if(result != null ) {
-				System.out.println("성공");
-				HttpSession session = request.getSession();
-				session.setAttribute("Manage", result);
-				ManageVO Manage = (ManageVO)session.getAttribute("Manage");
-				String title = Manage.getManagement_post_title();
-			}
-	    return null;
-	
+		String temp = request.getParameter("clickedErrNum");
+		int management_post_num = Integer.parseInt(temp);
+		ManageVO vo = new ManageVO();
+		vo.setManagement_post_num(management_post_num);
+
+		ManageDAO dao = new ManageDAO();
+		ManageVO result = dao.manage_detail(vo);
+		if (result != null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("Manage", result);
+			ManageVO Manage = (ManageVO) session.getAttribute("Manage");
+			String title = Manage.getManagement_post_title();
+		}
+		return null;
+
 	}
 }

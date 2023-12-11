@@ -16,14 +16,12 @@ public class PostdeleteService implements Command {
 
 		String post_num1 = request.getParameter("thisPostNum");
 		int post_num = Integer.parseInt(post_num1);
-		
+
 		PostDAO dao = new PostDAO();
 		int row = dao.postdelete(post_num);
 
-
 		return null;
-		
-				
+
 	}
 
 }

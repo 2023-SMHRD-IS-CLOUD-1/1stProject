@@ -1,28 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 1) xml안에서 어떤 태그를 사용할 것인지 schema 기술해줘야함. -->
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
-<!-- mybatis 설정파일이다를 알려주는 태그 -->
-<!-- dtd : document type definition -->
 
-<!-- 해당하는 프로젝트에서 사용하는 DB연결과 설정파일을 전부 지정하는 공간 -->
 <configuration>
-	<!-- 1) environments : database가 여러개 사용될 수 있다. db에 대한 정보들을 기술할 수 있는 공간 -->
 	<environments default="development">
-		<!-- 2) environment : database 한 개에 대한 정보를 기술하는 공간 -->
 		<environment id="development">
-			<!-- 3) transaction<anager : 트랜잭션 관리, Connection pool 관리 -->
-			<!-- connection pool이란? : connection이라는 객체를 생성하는 데는 굉장히 많은 자원을 소모함. : 
-				connection이라는 객체를 미리 3~5개 정도 생성하고 pool 공간안에서 관리해주는 역할 -->
-			<!-- type : JDBC(commit, rollback 기능을 mybatis 자체에서 관리) MANAGED(트랜잭션을 전체적으로 
-				server측에서 관리) -->
 			<transactionManager type="JDBC" />
-			<!-- 4) dataSource : DB 연결(Connection 객체) 설정 -->
-			<!-- type : POOLED(미리 connection 객체를 생성하고 요청시 빌려줌) UNPOOLED(요청이 들어올 때마다 
-				connection 객체를 생성) -->
 			<dataSource type="POOLED">
-				<!-- ★★새로운 프로젝트 시작 시 property 영역 프로젝트 계정에 맞게 변경해야함★★ -->
 				<property name="driver"
 					value="oracle.jdbc.driver.OracleDriver" />
 				<property name="url"
@@ -35,8 +20,6 @@
 
 
 
-	<!-- mapper : SQL 구문을 관리하는 파일이 있었을 때 해당하는 파일의 위치가 어디 있는지 기술해줘야 mybatis framework가 
-		자동 mapping을 해줄 수 있다. -->
 
 	<mappers>
 		<!-- ★★mapper파일 만들고 수정해야함★★ -->
@@ -44,12 +27,12 @@
 		<mapper resource="com/smhrd/database/ErrandMapper.xml" />
 		<mapper resource="com/smhrd/database/PostMapper.xml" />
 		<mapper resource="com/smhrd/database/RatingMapper.xml" />
-      	<mapper resource="com/smhrd/database/FvErrMapper.xml" />
-      	<mapper resource="com/smhrd/database/FvPostMapper.xml" />
-   		<mapper resource="com/smhrd/database/ManageMapper.xml" />
-   		<mapper resource="com/smhrd/database/ComMapper.xml"/>
-   		<mapper resource="com/smhrd/database/CertificationMapper.xml"/>
-   		<mapper resource="com/smhrd/database/MatchMapper.xml" />
+		<mapper resource="com/smhrd/database/FvErrMapper.xml" />
+		<mapper resource="com/smhrd/database/FvPostMapper.xml" />
+		<mapper resource="com/smhrd/database/ManageMapper.xml" />
+		<mapper resource="com/smhrd/database/ComMapper.xml" />
+		<mapper resource="com/smhrd/database/CertificationMapper.xml" />
+		<mapper resource="com/smhrd/database/MatchMapper.xml" />
 	</mappers>
 </configuration>
 

@@ -9,7 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import com.smhrd.database.SqlSessionManager;
 
 public class FvPostDAO {
-	// 1) SqlSession을 가져올 수 있는 SqlSessionFactory 생성
+
 	private SqlSessionFactory factory = SqlSessionManager.getFactory();
 
 	// 게시글 즐겨찾기 추가하는 세션
@@ -17,10 +17,9 @@ public class FvPostDAO {
 		SqlSession sqlSession = factory.openSession(true);
 		int row = sqlSession.insert("insertFvPost", vo);
 		sqlSession.close();
-
 		return row;
 	}
-	
+
 	// 게시글 즐겨찾기 목록 불러오는 세션
 	public List<FvPostVO> selectFvPostList(FvPostVO vo) {
 		try (SqlSession sqlSession = factory.openSession()) {

@@ -22,7 +22,7 @@ import com.smhrd.model.MatchVO;
 import com.smhrd.model.UserDAO;
 import com.smhrd.model.UserVO;
 
-//심부름 신청 목록 불러오기
+// 심부름 신청 목록 불러오기
 public class MatchfindService implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response)
@@ -30,36 +30,27 @@ public class MatchfindService implements Command {
 		response.setContentType("text/html;charset=utf-8");
 		request.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
-		// 세션에 저장되어 있는 id 꺼내오기
 		HttpSession session = request.getSession();
 		UserVO loginvo = (UserVO) session.getAttribute("user");
 		String user_id = loginvo.getUser_id();
 		MatchVO vo4 = new MatchVO();
-		
-		
+
 		MatchVO vo = new MatchVO();
 		vo.setUser_id(user_id);
-		System.out.println("유저아이디 출력33333333333333333333333333333"+vo.getUser_id());
 		MatchDAO dao = new MatchDAO();
 		List<MatchVO> result = dao.hopefind(vo);
-		System.out.println("resulttt"+result);
 		List<ErrandVO> errandList = new ArrayList<>();
 		for (int i = 0; i < result.size(); i++) {
 			int match = result.get(i).getErr_num();
-			System.out.println("num" + match);
 
-			
 			ErrandVO vo2 = new ErrandVO();
 			vo2.setErr_num(match);
-			
+
 			ErrandDAO dao2 = new ErrandDAO();
-			System.out.println("result2222");
 			List<ErrandVO> result2 = dao2.matchfind(result.get(i).getErr_num());
-			System.out.println("result2"+result2);
 			errandList.add(result2.get(0));
 		}
-		
-		
+
 		vo4.setUser_id(user_id);
 		for (int i = 0; i < result.size(); i++) {
 			vo4.setErr_num(errandList.get(i).getErr_num());
@@ -70,16 +61,13 @@ public class MatchfindService implements Command {
 			errandList.add(vo3);
 		}
 		if (errandList.isEmpty()) {
-				out.print("false");
-			} else {
-				Gson gson = new Gson();
-				String jsonResult = gson.toJson(errandList);
-				System.out.println("출력" + jsonResult);
-				out.print(jsonResult);
-			}
-		
+			out.print("false");
+		} else {
+			Gson gson = new Gson();
+			String jsonResult = gson.toJson(errandList);
+			out.print(jsonResult);
+		}
 
-		// Gson을 사용하여 JSON으로 변환
 		return null;
 
 	}

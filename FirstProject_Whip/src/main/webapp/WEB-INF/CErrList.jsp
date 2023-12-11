@@ -344,7 +344,6 @@ https://templatemo.com/tm-559-zay-shop
 		    	 e.preventDefault();
 		      // 클릭한 행의 err_num 값을 가져오기
 		      var clickedErrNum = $(this).closest("tr").find(".postListNum").text();
-		      console.log(clickedErrNum);
 		      // 데이터 저장
 		      localStorage.setItem("clickedErrNum", clickedErrNum);
 		      $.ajax({
@@ -354,7 +353,6 @@ https://templatemo.com/tm-559-zay-shop
                   	clickedErrNum : clickedErrNum
                   },
                   success: function(response) {
-                      console.log(response);
                       window.location.href = 'GoErrandRead.do';
                       // 성공적으로 응답을 받았을 때 수행할 작업
                   },
@@ -371,7 +369,6 @@ https://templatemo.com/tm-559-zay-shop
 		    	 e.preventDefault();
 		      // 클릭한 행의 err_num 값을 가져오기
 		      var clickedErrNum = $(this).closest("tr").find(".postListNum").text();
-		      console.log(clickedErrNum);
 		      // 데이터 저장
 		      localStorage.setItem("clickedErrNum", clickedErrNum);
 		      $.ajax({
@@ -381,7 +378,6 @@ https://templatemo.com/tm-559-zay-shop
                   	clickedErrNum : clickedErrNum
                   },
                   success: function(response) {
-                      console.log(response);
                       window.location.href = 'GoErrandRead.do';
                       // 성공적으로 응답을 받았을 때 수행할 작업
                   },
@@ -395,13 +391,10 @@ https://templatemo.com/tm-559-zay-shop
 	</script>
 	<!-- 신청한 심부름을 찾아라!!!!!!! -->
 <script>
-	console.log("하단 출력")
     $.ajax({
         url: "Matchfind.do",
         dataType : 'json',
         success: function(res) {
-        	console.log("성공");
-            console.log(res);
             for(var i = 0; i<res.length/2; i++){
             	 let outcome;
             	 let MatchingViewBtn;

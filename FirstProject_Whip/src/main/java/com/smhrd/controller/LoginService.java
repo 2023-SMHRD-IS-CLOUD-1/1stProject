@@ -16,29 +16,25 @@ public class LoginService implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("test");
-// id , pw 받아오기
+
 		String user_id = request.getParameter("user_id");
 		String user_pw = request.getParameter("user_pw");
-		// uservo 로 받아온 정보 묶기 
+
 		UserVO vo = new UserVO();
 		vo.setUser_id(user_id);
 		vo.setUser_pw(user_pw);
 
 		UserDAO dao = new UserDAO();
-
 		UserVO result = dao.login(vo);
-		// 로그인 성공
+
 		PrintWriter out = response.getWriter();
+
 		if (result != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("user", result);
-			UserVO re = (UserVO)session.getAttribute("user");
-			System.out.println(re.getUser_id());
+			UserVO re = (UserVO) session.getAttribute("user");
 			out.print("{\"k\":\"true\"}");
-		}
-		else {
-			System.out.println("로그인 실패");
+		} else {
 			out.print("{\"k\":\"false\"}");
 		}
 		return null;

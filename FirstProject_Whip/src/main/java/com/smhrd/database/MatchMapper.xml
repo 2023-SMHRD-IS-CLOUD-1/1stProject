@@ -2,51 +2,59 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
- 
+
 <mapper namespace="com.smhrd.model.MatchDAO">
 	<!-- 수행 신청 -->
 	<insert id="matupdate" parameterType="com.smhrd.model.MatchVO">
-    INSERT INTO TB_MATCHING (
-        USER_ID, ERR_NUM
-    )
-    VALUES (
-        #{user_id}, #{err_num}
-    )
-</insert>
-<!-- 심부름 신청한 사람을 찾아라 여기에요!!! -->
-<select id="hopefind" resultType="com.smhrd.model.MatchVO"> 
-SELECT  ERR_NUM
-FROM TB_MATCHING
-WHERE USER_ID = #{user_id}
-</select>
-<select id="ynfind" resultType="com.smhrd.model.MatchVO"> 
-SELECT  ERR_NUM
-FROM TB_MATCHING
-WHERE USER_ID = #{user_id} AND ERR_NUM = #{err_num}
-</select>
-	<select id="matchIdload" resultType="String">
-		SELECT USER_ID
+		INSERT INTO TB_MATCHING (
+		USER_ID, ERR_NUM
+		)
+		VALUES (
+		#{user_id}, #{err_num}
+		)
+	</insert>
+	<!-- 심부름 신청한 사람을 찾아라 여기에요!!! -->
+	<select id="hopefind" resultType="com.smhrd.model.MatchVO">
+		SELECT ERR_NUM
 		FROM TB_MATCHING
-		WHERE ERR_NUM = #{selectedNum}
+		WHERE USER_ID = #{user_id}
 	</select>
-	<select id="matchStatusCheck" resultType="com.smhrd.model.MatchVO">
-		SELECT MATCH_YN
+	<select id="ynfind" resultType="com.smhrd.model.MatchVO">
+		SELECT ERR_NUM
 		FROM TB_MATCHING
 		WHERE USER_ID = #{user_id} AND ERR_NUM = #{err_num}
 	</select>
-	<update id="matchUnAccept" parameterType="com.smhrd.model.MatchVO">
+	<select id="matchIdload" resultType="String">
+		SELECT USER_ID
+		FROM
+		TB_MATCHING
+		WHERE ERR_NUM = #{selectedNum}
+	</select>
+	<select id="matchStatusCheck"
+		resultType="com.smhrd.model.MatchVO">
+		SELECT MATCH_YN
+		FROM TB_MATCHING
+		WHERE USER_ID = #{user_id}
+		AND ERR_NUM = #{err_num}
+	</select>
+	<update id="matchUnAccept"
+		parameterType="com.smhrd.model.MatchVO">
 		UPDATE TB_Matching
 		SET MATCH_YN = 'R'
-		WHERE USER_ID = #{user_id} AND ERR_NUM = #{err_num} 
+		WHERE USER_ID =
+		#{user_id} AND ERR_NUM = #{err_num}
 	</update>
 	<update id="MatchAccept" parameterType="com.smhrd.model.MatchVO">
 		UPDATE TB_Matching
-		SET MATCH_YN = 'Y'
-		WHERE USER_ID = #{user_id} AND ERR_NUM = #{err_num} 
+		SET
+		MATCH_YN = 'Y'
+		WHERE USER_ID = #{user_id} AND ERR_NUM = #{err_num}
 	</update>
-	<update id="errMatchUpdate" parameterType="com.smhrd.model.MatchVO">
+	<update id="errMatchUpdate"
+		parameterType="com.smhrd.model.MatchVO">
 		UPDATE TB_ERRAND
 		SET ERR_STATUS = 'y'
-		WHERE ERR_NUM = #{err_num} 
+		WHERE ERR_NUM =
+		#{err_num}
 	</update>
 </mapper>

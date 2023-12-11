@@ -22,18 +22,17 @@ public class PostNumService implements Command {
 		request.setCharacterEncoding("utf-8");
 		PostDAO dao = new PostDAO();
 		int result = dao.getPostNum();
-		
-		
+
 		PrintWriter out = response.getWriter();
-		
-		   if(result == 0) {
-		         out.print("false");
-		      }else {
-		         Gson gson = new Gson();
-		         String result1 = gson.toJson(result);
-		         out.print(result1);
-		      }
-		      return null;
+
+		if (result == 0) {
+			out.print("false");
+		} else {
+			Gson gson = new Gson();
+			String result1 = gson.toJson(result);
+			out.print(result1);
+		}
+		return null;
 	}
 
 }

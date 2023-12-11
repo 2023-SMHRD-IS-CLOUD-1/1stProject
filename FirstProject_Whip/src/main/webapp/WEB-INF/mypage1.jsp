@@ -261,7 +261,7 @@
 									<td></td>
 								</tr>
 								<tr class="h100">
-									<td><button id="btn003" 
+									<td><button id="btn003"
 											class="btn btn-success btn-lg px-3 w300">
 											<h3 class="noMargin CerrList">심부름 목록</h3>
 										</button></td>
@@ -312,114 +312,89 @@
 
 
 		<script>
-        
-        // 사용자의 회원정보를 불러와서 태그의 html값을 변경 start
-        $('#user_name').html('${user.user_name}');
-        $('#user_birthdate').html('${user.user_birthdate}');
-        $('#user_gender').html('${user.user_gender}');
-        $('#user_nick').html('${user.user_nick}');
-        $('#user_phone').html('${user.user_phone}');
-        $('#user_addr1').html('${user.user_addr1}');
-        $('#user_level').html('${user.user_level}');
-        $('#user_id_check').html('${user.user_id_check}');
-        // 사용자의 회원정보를 불러와서 태그의 html값을 변경 end
+			// 사용자의 회원정보를 불러와서 태그의 html값을 변경 start
+			$('#user_name').html('${user.user_name}');
+			$('#user_birthdate').html('${user.user_birthdate}');
+			$('#user_gender').html('${user.user_gender}');
+			$('#user_nick').html('${user.user_nick}');
+			$('#user_phone').html('${user.user_phone}');
+			$('#user_addr1').html('${user.user_addr1}');
+			$('#user_level').html('${user.user_level}');
+			$('#user_id_check').html('${user.user_id_check}');
+			// 사용자의 회원정보를 불러와서 태그의 html값을 변경 end
 
-        // 주민번호의 경우 버튼을 클릭해야 보이고 버튼태그 영역에서 벗어나면 가려지게 설정 start
-        $('#btn006').on("click", function(){$('#rrn001').html('${user.user_jumin}')})
-        $('#btn006').on("mouseout", function(){$('#rrn001').html("******-*******")})
-        // 주민번호의 경우 버튼을 클릭해야 보이고 버튼태그 영역에서 벗어나면 가려지게 설정 end
-        
+			// 주민번호의 경우 버튼을 클릭해야 보이고 버튼태그 영역에서 벗어나면 가려지게 설정 start
+			$('#btn006').on("click", function() {
+				$('#rrn001').html('${user.user_jumin}')
+			})
+			$('#btn006').on("mouseout", function() {
+				$('#rrn001').html("******-*******")
+			})
+			// 주민번호의 경우 버튼을 클릭해야 보이고 버튼태그 영역에서 벗어나면 가려지게 설정 end
 
+			// 버튼이 클릭되면 다른 페이지로 이동 start
+			// 변경필요2 링크 주소 변경 필요
 
-        // 버튼이 클릭되면 다른 페이지로 이동 start
-        // 변경필요2 링크 주소 변경 필요
+			let link3 = 'GoCErrList.do';
+			let link4 = 'Gomypage2.do';
+			let link5 = 'GoNaNmypage1userIdCheck.do';
 
-        let link3 = 'GoCErrList.do';
-        let link4 = 'Gomypage2.do';
-        let link5 = 'GoNaNmypage1userIdCheck.do';
-        
-        $('#btn003').on("click", function(){location.href = link3;})
-        $('#btn004').on("click", function(){location.href = link4;})
-        $('#btn005').on("click", function(){location.href = link5;})
-        // 버튼이 클릭되면 다른 페이지로 이동 end
-        
-        // 회원탈퇴버튼을 누르면 비밀번호를 확인한 후 회원탈퇴 start
-      $('#leaveBtn').on('click',function(){
-         let inputPw = prompt('비밀번호를 입력하세요', '');
-         if(inputPw == '${user.user_pw}'){window.location.href = "Delete.do"}
-         else{alert('비밀번호가 일치하지 않습니다');}
-      })
-        // 회원탈퇴버튼을 누르면 비밀번호를 확인한 후 회원탈퇴 end
+			$('#btn003').on("click", function() {
+				location.href = link3;
+			})
+			$('#btn004').on("click", function() {
+				location.href = link4;
+			})
+			$('#btn005').on("click", function() {
+				location.href = link5;
+			})
+			// 버튼이 클릭되면 다른 페이지로 이동 end
 
-    </script>
+			// 회원탈퇴버튼을 누르면 비밀번호를 확인한 후 회원탈퇴 start
+			$('#leaveBtn').on('click', function() {
+				let inputPw = prompt('비밀번호를 입력하세요', '');
+				if (inputPw == '${user.user_pw}') {
+					window.location.href = "Delete.do"
+				} else {
+					alert('비밀번호가 일치하지 않습니다');
+				}
+			})
+			// 회원탈퇴버튼을 누르면 비밀번호를 확인한 후 회원탈퇴 end
+		</script>
 		<!-- 수정3 끝 -->
 		<!-- Flask 통신 구문 코드  -->
 		<script>
-		/*function certification(info) {
-		    // FormData 객체 생성
-		    const formData = new FormData();
-		    // 이름과 값을 설정
-		    formData.set("name", info.name);
-		    formData.set("id", info.id);
+			function uploadFile() {
+				var formData = new FormData(document.getElementById('myForm'));
 
-		    // $.ajax 함수 호출
-		    $.ajax({
-		        url: 'Certification.do',
-		        type: 'POST',
-		        data: formData,
-		        processData: false,
-		        contentType: false,
-		        success: function (data) {
-		            console.log('통신 성공!!');
-		            console.log('결과값 >>', data);
-		        },
-		        error: function (error) {
-		            console.error('에러 발생 >>', error);
-		        }
-		    });
-		}*/
+				$.ajax({
+					url : 'http://127.0.0.1:9000/upload',
+					type : 'POST',
+					data : formData,
+					processData : false,
+					contentType : false,
+					success : function(data) {
+						id = data['id'];
+						name = data['name'];
+						$.ajax({
+							url : 'Certification.do',
+							type : 'POST',
+							data : {
+								id : data.id,
+								name : data.name
+							},
+							success : function(res) {
 
-		function uploadFile() {
-		    var formData = new FormData(document.getElementById('myForm'));
-		    
+							}
+						})
 
-		    // $.ajax 함수 호출
-		    $.ajax({
-		        url: 'http://127.0.0.1:9000/upload',
-		        type: 'POST',
-		        data: formData,
-		        processData: false,
-		        contentType: false,
-		        success: function (data) {
-		            console.log('Flask 통신 성공!!');
-		            console.log('결과값 >>', data);
-		            console.log(data['id']);
-		            console.log(data['name']);
-		            id = data['id'];
-		            name = data['name'];
-		            $.ajax({
-		            url:'Certification.do',
-		            type: 'POST',
-		            data: {id:data.id, name:data.name},
-		            success: function(res){
-
-		            	console.log('싸비스 통신완료')
-		            	
-		            }
-		            })
-		            
-		            
-		           
-		        },
-		        error: function (error) {
-		            console.error('에러 발생 >>', error);
-		        }
-		    });
-		}
-		
-
-   
-   </script>
+					},
+					error : function(error) {
+						console.error('에러 발생 >>', error);
+					}
+				});
+			}
+		</script>
 </body>
 
 </html>

@@ -294,9 +294,6 @@ https://templatemo.com/tm-559-zay-shop
 	})
       
     if('${user}' == ''){
-       console.log("asdfasdfasdf")
-       //loginBtn.style.display ='';
-       //logoutBtn.style.display ='none';
        $('#loginBtn').attr('style', "display: ''")
        $('#logoutBtn').attr('style', "display: none")
        $('#mypageAtage').attr("href","Gomain.do");
@@ -320,7 +317,6 @@ https://templatemo.com/tm-559-zay-shop
             },
             success : function(res){
                 if(res.k == "false"){
-                   console.log("실패 확인")
                     $('#idPwSameCheck').html('아이디와 비밀번호가 일치하지 않습니다');
                 }else if(res.k == "true"){
                    window.location.href = "Gomain.do"
@@ -399,7 +395,6 @@ https://templatemo.com/tm-559-zay-shop
 			loadPostNum();
 			}
 		});
-		console.log(selectedNum);
 		
 		// 1~5페이지면 << 삭제
 		if (firstBtn.innerHTML == '1') {
@@ -502,7 +497,6 @@ https://templatemo.com/tm-559-zay-shop
 	    			
 	    		},
 	    		error : function(res){
-	    			console.log('실패999999999999999');
 	    			lastPageNum = res;
 	    		}
 	    	});
@@ -534,12 +528,10 @@ https://templatemo.com/tm-559-zay-shop
                 	clickedPostNum : clickedPostNum
                 },
                 success: function(response) {
-                    console.log("성공");
                     window.location.href = 'Gopost_read.do';
                     // 성공적으로 응답을 받았을 때 수행할 작업
                 },
                 error: function(error) {
-                	consol.log('실패');
                     console.error('Error:', error);
                     
                 }

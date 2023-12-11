@@ -330,9 +330,6 @@ https://templatemo.com/tm-559-zay-shop
 	})
       
     if('${user}' == ''){
-       console.log("asdfasdfasdf")
-       //loginBtn.style.display ='';
-       //logoutBtn.style.display ='none';
        $('#loginBtn').attr('style', "display: ''")
        $('#logoutBtn').attr('style', "display: none")
        $('#mypageAtage').attr("href","GoErrandRead.do");
@@ -356,7 +353,6 @@ https://templatemo.com/tm-559-zay-shop
             },
             success : function(res){
                 if(res.k == "false"){
-                   console.log("실패 확인")
                     $('#idPwSameCheck').html('아이디와 비밀번호가 일치하지 않습니다');
                 }else if(res.k == "true"){
                    window.location.href = "Gomain.do"
@@ -375,7 +371,6 @@ https://templatemo.com/tm-559-zay-shop
     var price = '<%= price%>';
     var content = '<%= content%>';
     var sessionUserId = '${user.user_id}';
-    console.log('sessionUserId=', sessionUserId, 'errandUserId=', errandUserId, 'err_num=', err_num);
 
     if (sessionUserId === errandUserId) {
 
@@ -385,7 +380,6 @@ https://templatemo.com/tm-559-zay-shop
         $('#postReadSect2').append(a);
 
         $('#modify').on('click', function () {
-            console.log('성공');
 
             var outputContainer = $("#postReadLayout");
             outputContainer.empty();
@@ -416,7 +410,6 @@ https://templatemo.com/tm-559-zay-shop
                 var err_name = $("#err_name").val();
                 var err_content = $("#err_content").val();
                 var err_category_num = $("#category").val();
-                console.log(err_category_num);
                 var err_price = $("#err_price").val();
                 $.ajax({
                     type: 'POST',
@@ -429,7 +422,6 @@ https://templatemo.com/tm-559-zay-shop
                         err_content: err_content
                     },
                     success: function (response) {
-                        console.log(response);
                         alert('수정에 성공했습니다');
                         window.location.href = 'GoerrListPage.do';
                     },
@@ -442,9 +434,7 @@ https://templatemo.com/tm-559-zay-shop
         });
 
         $('#delete').on('click', function () {
-            console.log("성공");
             var clickedErrNum = '<%= err_num %>';
-            console.log(clickedErrNum);
             $.ajax({
                 type: 'POST',
                 url: 'Errdelete.do',
@@ -452,7 +442,6 @@ https://templatemo.com/tm-559-zay-shop
                     clickedErrNum: clickedErrNum
                 },
                 success: function (response) {
-                    console.log(response);
                     alert('삭제에 성공했습니다');
                     window.location.href = 'GoerrListPage.do';
                 },
@@ -467,11 +456,8 @@ https://templatemo.com/tm-559-zay-shop
         $('#postReadNav').append("<button id='update'>신청</button>");
 
         $('#update').on('click', function() {
-            console.log("성공");
             var clickedErrNum = '<%= err_num %>';
             var user_id = sessionUserId;
-            console.log(clickedErrNum);
-            console.log(user_id);
             $.ajax({
                 type: 'POST',
                 url: 'Err_match.do',
@@ -480,7 +466,6 @@ https://templatemo.com/tm-559-zay-shop
                     user_id: user_id
                 },
                 success: function(response) {
-                    console.log(response);
                     alert('성공적으로 신청되었습니다.');
                 },
                 error: function(error) {

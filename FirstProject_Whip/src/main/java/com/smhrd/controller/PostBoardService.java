@@ -12,7 +12,7 @@ import com.google.gson.Gson;
 import com.smhrd.model.PostDAO;
 import com.smhrd.model.PostVO;
 
-// 로그아웃 서비스
+// 게시글 불러오기
 public class PostBoardService implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response)
@@ -20,22 +20,22 @@ public class PostBoardService implements Command {
 
 		response.setContentType("text/html;charset=utf-8");
 		request.setCharacterEncoding("utf-8");
-		
+
 		String selectedNum1 = request.getParameter("selectedNum");
 		int selectedNum = Integer.parseInt(selectedNum1);
 		PostDAO dao = new PostDAO();
 		List<PostVO> resultList = dao.postLoad(selectedNum);
-		
+
 		PrintWriter out = response.getWriter();
-		
-		   if(resultList.isEmpty()) {
-		         out.print("false");
-		      }else {
-		         Gson gson = new Gson();
-		         String result = gson.toJson(resultList);
-		         out.print(result);
-		      }
-		      return null;
+
+		if (resultList.isEmpty()) {
+			out.print("false");
+		} else {
+			Gson gson = new Gson();
+			String result = gson.toJson(resultList);
+			out.print(result);
+		}
+		return null;
 	}
 
 }

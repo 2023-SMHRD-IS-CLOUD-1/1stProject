@@ -12,7 +12,7 @@ import com.google.gson.Gson;
 import com.smhrd.model.PostDAO;
 import com.smhrd.model.PostVO;
 
-// 로그아웃 서비스
+// 게시글 검색
 public class PostSearchService implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response)
@@ -20,29 +20,28 @@ public class PostSearchService implements Command {
 
 		response.setContentType("text/html;charset=utf-8");
 		request.setCharacterEncoding("utf-8");
-		
+
 		String postSearchFilter = request.getParameter("postSearchFilter");
 		String searchWord = request.getParameter("searchWord");
 		List<PostVO> resultList;
 		PostDAO dao = new PostDAO();
-		System.out.println(postSearchFilter);
-		
+
 		if (postSearchFilter.equals("post_title")) {
 			resultList = dao.postSearch1(searchWord);
 		} else {
 			resultList = dao.postSearch2(searchWord);
 		}
-		
+
 		PrintWriter out = response.getWriter();
-		
-		   if(resultList.isEmpty()) {
-		         out.print("false");
-		      }else {
-		         Gson gson = new Gson();
-		         String result = gson.toJson(resultList);
-		         out.print(result);
-		      }
-		      return null;
+
+		if (resultList.isEmpty()) {
+			out.print("false");
+		} else {
+			Gson gson = new Gson();
+			String result = gson.toJson(resultList);
+			out.print(result);
+		}
+		return null;
 	}
 
 }

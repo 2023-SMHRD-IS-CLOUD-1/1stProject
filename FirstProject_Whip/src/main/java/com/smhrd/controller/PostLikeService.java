@@ -11,21 +11,20 @@ import javax.servlet.http.HttpSession;
 import com.smhrd.model.PostDAO;
 import com.smhrd.model.PostVO;
 
-// 심부름 글 상세보기 기능
+// 심부름 글 추천 기능
 public class PostLikeService implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-			
+
 		PrintWriter out = response.getWriter();
 		String temp = request.getParameter("thisPostNum");
 		String user_id = request.getParameter("user_id");
 		int post_num = Integer.parseInt(temp);
 		PostDAO dao = new PostDAO();
-		
-		
+
 		int result = dao.checkPostLike(post_num, user_id);
-		
+
 		if (result == 1) {
 			out.print(result);
 			dao.deleteLike(post_num, user_id);
@@ -35,8 +34,8 @@ public class PostLikeService implements Command {
 			dao.updateLike(post_num, user_id);
 			dao.increaseLikes(post_num);
 		}
-		
-	    return null;
-	
+
+		return null;
+
 	}
 }
