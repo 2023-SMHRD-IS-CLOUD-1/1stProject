@@ -27,12 +27,14 @@
 </div>
 
 # ⚙4. 시스템 아키텍처
-
+![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/9572f985-d463-40de-8b96-3f39dd6ba167)
 
 # 📜5. E-R다이어 그램
 ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/9c42973f-e121-4e04-9131-96e4bac41623)
 
 # ⌨6. 서비스 흐름도
+![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/782209d1-23ee-4ff2-be25-ce8f2379296a)
+
 # 👩‍💻👨‍💻7. 팀원 소개
 # 🧨8. 트러블 슈팅
 <details>
