@@ -7,7 +7,24 @@
 * 커뮤니티로 소통할 수 있습니다!
 
 # ✨2. 주요 기능
-
+<details>
+<summary>
+  심부름 페이지
+</summary>
+   토글 안 내용
+</details>
+<details>
+<summary>
+  게시판 페이지
+</summary>
+   토글 안 내용
+</details>
+<details>
+<summary>
+  
+</summary>
+   토글 안 내용
+</details>
 # 💻3. 사용 언어 및 도구
 <div align="center">
 	<P>🎇platforms & languages </P>
