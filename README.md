@@ -9,28 +9,28 @@
 # ✨2. 주요 기능
 <details>
 <summary>
-  심부름 페이지
+1. 심부름 페이지
+</summary>
+2. 토글 안 내용
+</details>
+
+<details>
+<summary>
+3. 게시판 페이지
 </summary>
    토글 안 내용
 </details>
 
 <details>
 <summary>
-  게시판 페이지
+4. 고객센터 페이지
 </summary>
    토글 안 내용
 </details>
 
 <details>
 <summary>
-  고객센터 페이지
-</summary>
-   토글 안 내용
-</details>
-
-<details>
-<summary>
-  마이 페이지
+5.  마이 페이지
 </summary>
    토글 안 내용
 </details>
