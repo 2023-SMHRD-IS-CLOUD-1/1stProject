@@ -38,8 +38,18 @@
 # 👩‍💻👨‍💻7. 팀원 소개
 ### 팀장 최성욱
 ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/df125952-8c3e-4480-afc4-7e377c95d282)
-
-
+* 블라블라
+### 부팀장 유수연
+![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/e34b8c8c-c265-4020-916e-9bfc07aa7c8e)
+* 블라블라
+### 팀원 박 준
+![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/dd9d1c03-cc00-46f7-a3a0-4752aa645211)
+* 블라블라
+### 팀원 송희주
+![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/3feb55a5-0f81-4a38-a583-fe714f1f10dc)
+* 블라블라
+### 팀원 양재원
+![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/a6192689-3b08-4cc9-aab0-de8dd94f12bc)
 
 # 🧨8. 트러블 슈팅
 <details>
