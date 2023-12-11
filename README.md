@@ -50,6 +50,7 @@
 * 블라블라
 ### 팀원 양재원
 ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/a6192689-3b08-4cc9-aab0-de8dd94f12bc)
+* 블라블라
 
 # 🧨8. 트러블 슈팅
 <details>
