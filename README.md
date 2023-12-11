@@ -11,6 +11,7 @@
 * 개발환경 정리하기
 
 # 👀1. 서비스 소개
+<img src="https://img.shields.io/badge/아이콘내용-바탕색?style=flat&logo=로고이름&logoColor=white"/>
 # ✨2. 주요 기능
 # 💻3. 사용 언어 및 도구
 # ⛏4. 시스템 아키텍처
