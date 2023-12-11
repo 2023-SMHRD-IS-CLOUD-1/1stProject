@@ -69,7 +69,10 @@
 * 블라블라
 ### 부팀장 유수연
 ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/e34b8c8c-c265-4020-916e-9bfc07aa7c8e)
-* 블라블라
+#### (프론트 & 백엔드)
+* 심부름 페이지 - 심부름 게시판 기능 + 웹 구현
+* 고객센터 페이지 - 고객센터 게시판 기능 + 웹 구현
+#### 일정관리
 ### 팀원 박 준
 ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/dd9d1c03-cc00-46f7-a3a0-4752aa645211)
 * 블라블라
