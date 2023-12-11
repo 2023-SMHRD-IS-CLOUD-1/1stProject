@@ -1,5 +1,5 @@
 
-<img src="https://capsule-render.vercel.app/api?type=wave&color=auto&height=300&section=header&text=carrot%20whip&fontSize=90" />	
+<img src="https://capsule-render.vercel.app/api?type=wave&color=auto&height=auto&width=auto&section=header&text=carrot%20whip&fontSize=90" />	
 
 # 👀1. 서비스 소개
 * 게시판 기반 심부름 매칭 서비스 입니다!
