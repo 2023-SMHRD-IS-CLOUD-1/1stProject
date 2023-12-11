@@ -120,9 +120,9 @@
 
 <details>
 <summary>
-  2. 게시판 페이지
+  2. 검색 기능
 </summary>
-   검색 기능
+   
 </details>
 
 <details>
