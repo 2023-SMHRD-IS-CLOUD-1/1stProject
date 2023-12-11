@@ -144,7 +144,7 @@
 	최상단의 <tr> 태그 옆에 닫는 태그</tr>을 안써줘도 자동으로 생성되어 비어있는 <tr>이 생성돼 발생한 문제였음.<br> 
 <br>
 	- 해결법 : 변수 a를 생성하고 그 a에 html구문을 넣어줘 완성된 html을 문자열 형식으로 만들어 html을 추가함
- <br><br>
+ <br>
  ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/884026e3-a653-4658-8a31-8ac50012f117)
 
 </details>
@@ -156,7 +156,7 @@
    - 문제 : 주민등록증 이름 추출과정에서 다른 문자가 인식 <br> 
 	<br>
 	- 해결 : 정규표현식을 사용하여 이름만 추출 가능하게 변경
-<br><br>
+<br>
 ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/75c18878-2e32-480c-908c-acff8bb3c9c2)
 
 </details>
