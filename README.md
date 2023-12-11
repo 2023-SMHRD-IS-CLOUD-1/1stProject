@@ -36,19 +36,10 @@
 ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/782209d1-23ee-4ff2-be25-ce8f2379296a)
 
 # 👩‍💻👨‍💻7. 팀원 소개
-	    ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/f6c0a989-0ec1-48e4-9917-c2363ceb36e8)
-<table>
-  <tbody>
-    <tr>
+### 팀장 최성욱
+![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/df125952-8c3e-4480-afc4-7e377c95d282)
 
-      <td align="center"><a href=""><img src="width="100px;" alt=""/><br /><sub><b>FE 팀장 : 최성욱 </b></sub></a><br /></td>
-      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 부팀장 : 유수연 </b></sub></a><br /></td>
-      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : 박준 </b></sub></a><br /></td>
-      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : 송희주 </b></sub></a><br /></td>
-      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>BE 팀원 : 양재원 </b></sub></a><br /></td>
-    </tr>
-  </tbody>
-</table>
+
 
 # 🧨8. 트러블 슈팅
 <details>
