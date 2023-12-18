@@ -75,7 +75,7 @@
 	![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/eb65da30-d3cb-48dd-a739-1985f0004f7f)
 
 </details>
-
+<details>
 <summary>
 5.  메인페이지
 </summary>
