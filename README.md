@@ -18,9 +18,9 @@
 	* 페이지 네이션<br>
 	* 심부름 신청 기능<br>
 	* 심부름 수정·삭제 기능
-	![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/c695248e-30f5-4859-980b-2d6195f05077)
-	![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/e55e42df-4305-498f-9856-2f354dea5e92)
- 	![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/0acf030f-9977-49a4-b89c-a14ff135bbe2)
+![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/c695248e-30f5-4859-980b-2d6195f05077)
+![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/e55e42df-4305-498f-9856-2f354dea5e92)
+ ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/0acf030f-9977-49a4-b89c-a14ff135bbe2)
 
 
 </details>
@@ -37,7 +37,7 @@
  	* 게시글 삭제<br>
  	* 게시글 추천 <br>
  	* 댓글 등록
-	![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/ed09e0ae-b76a-4532-8846-f39462911be7)
+![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/ed09e0ae-b76a-4532-8846-f39462911be7)
  ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/eab3f756-20cb-443a-b9f2-90aca4bc2a9a)
 ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/eccda26e-c43e-4f02-ac00-fa2a7d7290e2)
 
@@ -54,7 +54,7 @@
 	* 문의글 관리자 답변 기능<br>
    	* 페이지 네이션<br>
    	* 문의글 수정·삭제 기능
-	![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/5ade5d16-e02d-47ea-8af3-7a58633ce1f1)
+![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/5ade5d16-e02d-47ea-8af3-7a58633ce1f1)
 ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/6f21698e-0d31-4ec3-9de7-a93cfff1ef08)
 ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/4ad83400-3d1b-4365-b8ea-5b43c65a41a2)
 
@@ -70,9 +70,9 @@
 	* 문의글 관리자 답변 기능<br>
    	* 페이지 네이션<br>
    	* 문의글 수정·삭제 기능
-	![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/d6ec1f34-c2f0-4288-86a2-e5be3b4834ea)
-	![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/6c975c75-b3e8-4f37-b5da-01ebec71b5a1)
-	![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/eb65da30-d3cb-48dd-a739-1985f0004f7f)
+![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/d6ec1f34-c2f0-4288-86a2-e5be3b4834ea)
+![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/6c975c75-b3e8-4f37-b5da-01ebec71b5a1)
+![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/eb65da30-d3cb-48dd-a739-1985f0004f7f)
 
 </details>
 <details>
