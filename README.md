@@ -19,8 +19,7 @@
 	* 심부름 신청 기능<br>
 	* 심부름 수정·삭제 기능
 ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/c695248e-30f5-4859-980b-2d6195f05077)
-![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/e55e42df-4305-498f-9856-2f354dea5e92)
- ![image](https://github.com/2023-SMHRD-IS-CLOUD-1/1stProject/assets/142488306/0acf030f-9977-49a4-b89c-a14ff135bbe2)
+
 
 
 </details>
